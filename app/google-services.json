@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "811584114901",
+    "firebase_url": "https://cluster-571fd.firebaseio.com",
+    "project_id": "cluster-571fd",
+    "storage_bucket": "cluster-571fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811584114901:android:a4c3de490d851e2d5a525c",
+        "android_client_info": {
+          "package_name": "com.example.cluster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811584114901-klp7vqbqj4khs39if8r8usnkfac1o7cv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiL6VHBH9ch5__KoUKrZqcfBH1HUBQ9fI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811584114901-klp7vqbqj4khs39if8r8usnkfac1o7cv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
