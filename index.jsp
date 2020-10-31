@@ -184,6 +184,15 @@ try {
             sql+="`Email` VARCHAR(30),";
             sql+="`Password` VARCHAR(30),";
             sql+="PRIMARY KEY(`Email`))";
+
+            sql="CREATE TABLE IF NOT EXISTS `post`";
+            sql+="(`pno` TINYINT(4) AUTO_INCREMENT,";
+            sql+="`PostName` VARCHAR(30),";
+            sql+="`Email` VARCHAR(30),";
+            sql+="`Subject` VARCHAR(30),";
+            sql+="`Content` TEXT,";
+            sql+="`PostDate` DATE,";
+            sql+="PRIMARY KEY(pno))";
             con.createStatement().execute(sql);       
             //out.println("Member建立成功");    
             con.close();
