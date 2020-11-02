@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>紙娃娃</title>
-    <link href="css/member.css" rel=stylesheet type="text/css" >
+    <link href="header.css" rel=stylesheet type="text/css" >
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <style type="text/css">
 body {
@@ -14,249 +14,8 @@ margin-bottom: 0px;
 margin-left: 0px;
 }
 
-
-#backcolor{
-  background:#C4E1FF;
-  height: 610px;
-}
-#box{
-  background:rgba(255,255,255,0.4);
-  position: absolute;
-  top:50%;
-  height: 305px;
-  width: 1280px;
-}
-#backicon{
-  width: 50px;
-  position:absolute;
-  left: 20px;
-  top:10px;
-
-}
-#finishicon{
-  width: 50px;
-  position:absolute;
-  top:10px;
-  right: 20px;
-}
-#skin{
-  width: 300px;
-  position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 1;  
-}
-#eyes{
-  width:300px;
-  position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 2;
-
-}
-#eyebrow{
-  width:300px;
-  position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 3;
-}
-#mouth{
-  width:300px;
-  position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 4;	
-}
-#fronthair{
-  width:300px;
-  position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 5;
-}
-#backhair{
-  width:300px;
-  position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 6;	
-}
-#clothes{
-  width:300px;
-  position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 7;	
-}
-#accessories{
-  width:300px;
-  position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 8;	
-}
-.clickimg{
-  height: 45px;
-  margin-left:35px;
-  margin-right:35px;
-}
-
-.cbtn{
-  height:115px;
-  margin-right:20px;
-  margin-left:20px;
-  margin-top:10px;
-}
-.cbtn2{
-  height: 70px;
-  margin-left:10px
-  margin-right:10px;
-  margin-top:10px;
-}
-
-ul, li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-.abgne_tab {
-	clear: left;
-	width: 1280px;
-	margin: 10px 0;
-	height: 50px;
-    position:absolute;
-    top: 48.5%;
-}
-ul.tabs {
-	width: 100%;
-}
-ul.tabs li {
-	float: left;
-	height: 50px;
-	width: 160px;
-	position: relative;
-    border: none;
-	background:rgba(255,255,255,0.6);
-}
-ul.tabs li a {
-	display: block;
-	padding: 0 20px;
-	color: #000;
-	border:1.2px solid #fff;
-	text-decoration: none;
-}
-ul.tabs li a:hover {
-	background: #fff;
-}
-ul.tabs li.active  {
-	background: #fff;
-	border-bottom: 1px solid#fff;
-}
-ul.tabs li.active a:hover {
-	background: #fff;
-}
-div.tab_container {
-	clear: left;
-	width: 1280px;
-	height: 255px;
-	position:absolute;
-	bottom: 0px;
-	border: none;
-	background: #fff;
-}
-.dropbtn {
-    background-color: #ffffff;
-    color: white;
-    border: none;
-    height:115px;
-    margin-right:20px;
-    margin-left:20px;
-    margin-top:10px;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #ffffff;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display:none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width:520px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content a {
-    padding: 12px 16px;
-    display: block;
-}
-.dropdown-content2 {
-    display:none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width:370px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content2 a {
-    padding: 12px 16px;
-    display: block;
-}
-.dropdown-content3 {
-    display:none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width:295px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content3 a {
-    padding: 12px 16px;
-    display: block;
-}
-.dropdown-content4 {
-    display:none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width:220px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content5 a {
-    padding: 12px 16px;
-    display: block;
-}
-.dropdown-content5 {
-    display:none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width:440px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content4 a {
-    padding: 12px 16px;
-    display: block;
-}
-
-.dropdown a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
-
-
-
 </style>
+
 <script type="text/javascript">
 $(function(){
 	// 預設顯示第一個 Tab
@@ -329,8 +88,6 @@ $(function(){
 		$("#accessories").attr("src" , "img/header/accessories/accessories0" + num + ".png");
 	});
 });
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
 function myFunction(num) {
     document.getElementById("myDropdown"+num).classList.toggle("show");
 }
@@ -354,7 +111,7 @@ window.onclick = function(event) {
 
 <body>
 	<div id="backcolor">
-	<a href="#返回"><img src="img/back.png" id="backicon"></a>
+	<a href="member.html"><img src="img/back.png" id="backicon"></a>
 	<a href="#完成"><img src="img/finish.png" id="finishicon"></a>
 	<img src="img/header/skin/skin1.png" id="skin">
 	<img src="img/header/eyes/eyes01.png" id="eyes">
@@ -387,7 +144,7 @@ window.onclick = function(event) {
 			<div id="tab2" class="tab_content">	
 					 
 			  <div class="dropdown">
-			  <img src="img/header/eyes/eyes01.png" class="dropbtn" onclick="myFunction(1)" height="115px" id="e1"> 
+			  <img src="img/header/eyes/eyes01.png" class="dropbtn" onclick="myFunction(1)" height="115px"> 
 			  <div class="dropdown-content" id="myDropdown1">
 			  	<img src="img/header/eyes/eyes01.png" class="cbtn2" id="e1">
 			  	<img src="img/header/eyes/eyes011.png" class="cbtn2" id="e11">
@@ -399,8 +156,8 @@ window.onclick = function(event) {
 			  </div></div>
 			  <img src="img/header/eyes/eyes02.png" class="cbtn" id="e2">
 			  <div class="dropdown">
-			  <img src="img/header/eyes/eyes03.png" class="dropbtn" onclick="myFunction(2)" height="115px" id="e3">
-              <div class="dropdown-content2" id="myDropdown2">
+			  <img src="img/header/eyes/eyes03.png" class="dropbtn" onclick="myFunction(2)" height="115px">
+              <div class="dropdown-content" id="myDropdown2">
 			  	<img src="img/header/eyes/eyes03.png" class="cbtn2" id="e3">
 			  	<img src="img/header/eyes/eyes031.png" class="cbtn2" id="e31">
 			  	<img src="img/header/eyes/eyes032.png" class="cbtn2" id="e32">
@@ -408,8 +165,8 @@ window.onclick = function(event) {
 			  	<img src="img/header/eyes/eyes034.png" class="cbtn2" id="e34">
 			  </div></div>
 			  <div class="dropdown">			  
-			  <img src="img/header/eyes/eyes04.png" class="dropbtn" onclick="myFunction(3)" height="115px" id="e4">
-               <div class="dropdown-content3" id="myDropdown3">
+			  <img src="img/header/eyes/eyes04.png" class="dropbtn" onclick="myFunction(3)" height="115px">
+               <div class="dropdown-content" id="myDropdown3">
 			  	<img src="img/header/eyes/eyes04.png" class="cbtn2" id="e4">
 			  	<img src="img/header/eyes/eyes041.png" class="cbtn2" id="e41">
 			  	<img src="img/header/eyes/eyes042.png" class="cbtn2" id="e42">
@@ -437,7 +194,7 @@ window.onclick = function(event) {
 			</div>
 			<div id="tab5" class="tab_content">
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair01.png" class="dropbtn" onclick="myFunction(4)" id="f1">
+				<img src="img/header/front hair/front hair01.png" class="dropbtn" onclick="myFunction(4)">
                 <div class="dropdown-content" id="myDropdown4">
 			  	 <img src="img/header/front hair/front hair01.png" class="cbtn2" id="f1">
 			  	 <img src="img/header/front hair/front hair011.png" class="cbtn2" id="f11">
@@ -448,7 +205,7 @@ window.onclick = function(event) {
 			  	 <img src="img/header/front hair/front hair016.png" class="cbtn2" id="f16">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair02.png" class="dropbtn" onclick="myFunction(5)" id="f2">
+				<img src="img/header/front hair/front hair02.png" class="dropbtn" onclick="myFunction(5)">
                 <div class="dropdown-content" id="myDropdown5">
 			  	 <img src="img/header/front hair/front hair02.png" class="cbtn2" id="f2">
 			  	 <img src="img/header/front hair/front hair021.png" class="cbtn2" id="f21">
@@ -459,7 +216,7 @@ window.onclick = function(event) {
 			  	 <img src="img/header/front hair/front hair026.png" class="cbtn2" id="f26">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair03.png" class="dropbtn" onclick="myFunction(6)" id="f3">
+				<img src="img/header/front hair/front hair03.png" class="dropbtn" onclick="myFunction(6)">
                 <div class="dropdown-content" id="myDropdown6">
 			  	 <img src="img/header/front hair/front hair03.png" class="cbtn2" id="f3">
 			  	 <img src="img/header/front hair/front hair031.png" class="cbtn2" id="f31">
@@ -470,7 +227,7 @@ window.onclick = function(event) {
 			  	 <img src="img/header/front hair/front hair036.png" class="cbtn2" id="f36">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair04.png" class="dropbtn" onclick="myFunction(7)" id="f4">
+				<img src="img/header/front hair/front hair04.png" class="dropbtn" onclick="myFunction(7)">
                 <div class="dropdown-content" id="myDropdown7">
 			  	 <img src="img/header/front hair/front hair04.png" class="cbtn2" id="f4">
 			  	 <img src="img/header/front hair/front hair041.png" class="cbtn2" id="f41">
@@ -481,14 +238,14 @@ window.onclick = function(event) {
 			  	 <img src="img/header/front hair/front hair046.png" class="cbtn2" id="f46">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair05.png" class="dropbtn" onclick="myFunction(8)" id="f5">
-                <div class="dropdown-content4" id="myDropdown8">
+				<img src="img/header/front hair/front hair05.png" class="dropbtn" onclick="myFunction(8)">
+                <div class="dropdown-content" id="myDropdown8">
 			  	 <img src="img/header/front hair/front hair05.png" class="cbtn2" id="f5">
 			  	 <img src="img/header/front hair/front hair051.png" class="cbtn2" id="f51">
 			  	 <img src="img/header/front hair/front hair052.png" class="cbtn2" id="f52">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair06.png" class="dropbtn" onclick="myFunction(9)" id="f6">
+				<img src="img/header/front hair/front hair06.png" class="dropbtn" onclick="myFunction(9)">
                 <div class="dropdown-content" id="myDropdown9">
 			  	 <img src="img/header/front hair/front hair06.png" class="cbtn2" id="f6">
 			  	 <img src="img/header/front hair/front hair061.png" class="cbtn2" id="f61">
@@ -502,65 +259,65 @@ window.onclick = function(event) {
 			</div>
 			<div id="tab6" class="tab_content">
 				<div class="dropdown">
-				<img src="img/header/back hair/back hair01.png" class="dropbtn" onclick="myFunction(10)" id="b1">
+				<img src="img/header/back hair/back hair01.png" class="dropbtn" onclick="myFunction(10)">
                 <div class="dropdown-content" id="myDropdown10">
-			  	 <img src="img/header/front hair/back hair01.png" class="cbtn2" id="b1">
-			  	 <img src="img/header/front hair/back hair011.png" class="cbtn2" id="b11">
-			  	 <img src="img/header/front hair/back hair012.png" class="cbtn2" id="b12">
-			  	 <img src="img/header/front hair/back hair013.png" class="cbtn2" id="b13">
-			  	 <img src="img/header/front hair/back hair014.png" class="cbtn2" id="b14">
-			  	 <img src="img/header/front hair/back hair015.png" class="cbtn2" id="b15">
-			  	 <img src="img/header/front hair/back hair016.png" class="cbtn2" id="b16">
+			  	 <img src="img/header/back hair/back hair01.png" class="cbtn2" id="b1">
+			  	 <img src="img/header/back hair/back hair011.png" class="cbtn2" id="b11">
+			  	 <img src="img/header/back hair/back hair012.png" class="cbtn2" id="b12">
+			  	 <img src="img/header/back hair/back hair013.png" class="cbtn2" id="b13">
+			  	 <img src="img/header/back hair/back hair014.png" class="cbtn2" id="b14">
+			  	 <img src="img/header/back hair/back hair015.png" class="cbtn2" id="b15">
+			  	 <img src="img/header/back hair/back hair016.png" class="cbtn2" id="b16">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/back hair/back hair02.png" class="dropbtn" onclick="myFunction(11)" id="b2">
+				<img src="img/header/back hair/back hair02.png" class="dropbtn" onclick="myFunction(11)">
                 <div class="dropdown-content" id="myDropdown11">
-			  	 <img src="img/header/front hair/back hair02.png" class="cbtn2" id="b2">
-			  	 <img src="img/header/front hair/back hair021.png" class="cbtn2" id="b21">
-			  	 <img src="img/header/front hair/back hair022.png" class="cbtn2" id="b22">
-			  	 <img src="img/header/front hair/back hair023.png" class="cbtn2" id="b23">
-			  	 <img src="img/header/front hair/back hair024.png" class="cbtn2" id="b24">
-			  	 <img src="img/header/front hair/back hair025.png" class="cbtn2" id="b25">
-			  	 <img src="img/header/front hair/back hair026.png" class="cbtn2" id="b26">
+			  	 <img src="img/header/back hair/back hair02.png" class="cbtn2" id="b2">
+			  	 <img src="img/header/back hair/back hair021.png" class="cbtn2" id="b21">
+			  	 <img src="img/header/back hair/back hair022.png" class="cbtn2" id="b22">
+			  	 <img src="img/header/back hair/back hair023.png" class="cbtn2" id="b23">
+			  	 <img src="img/header/back hair/back hair024.png" class="cbtn2" id="b24">
+			  	 <img src="img/header/back hair/back hair025.png" class="cbtn2" id="b25">
+			  	 <img src="img/header/back hair/back hair026.png" class="cbtn2" id="b26">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/back hair/back hair03.png" class="dropbtn" onclick="myFunction(12)" id="b3">
+				<img src="img/header/back hair/back hair03.png" class="dropbtn" onclick="myFunction(12)">
                 <div class="dropdown-content" id="myDropdown12">
-			  	 <img src="img/header/front hair/back hair03.png" class="cbtn2" id="b3">
-			  	 <img src="img/header/front hair/back hair031.png" class="cbtn2" id="b31">
-			  	 <img src="img/header/front hair/back hair032.png" class="cbtn2" id="b32">
-			  	 <img src="img/header/front hair/back hair033.png" class="cbtn2" id="b33">
-			  	 <img src="img/header/front hair/back hair034.png" class="cbtn2" id="b34">
-			  	 <img src="img/header/front hair/back hair035.png" class="cbtn2" id="b35">
-			  	 <img src="img/header/front hair/back hair036.png" class="cbtn2" id="b36">
+			  	 <img src="img/header/back hair/back hair03.png" class="cbtn2" id="b3">
+			  	 <img src="img/header/back hair/back hair031.png" class="cbtn2" id="b31">
+			  	 <img src="img/header/back hair/back hair032.png" class="cbtn2" id="b32">
+			  	 <img src="img/header/back hair/back hair033.png" class="cbtn2" id="b33">
+			  	 <img src="img/header/back hair/back hair034.png" class="cbtn2" id="b34">
+			  	 <img src="img/header/back hair/back hair035.png" class="cbtn2" id="b35">
+			  	 <img src="img/header/back hair/back hair036.png" class="cbtn2" id="b36">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/back hair/back hair04.png" class="dropbtn" onclick="myFunction(13)" id="b4">
+				<img src="img/header/back hair/back hair04.png" class="dropbtn" onclick="myFunction(13)">
                 <div class="dropdown-content" id="myDropdown13">
-			  	 <img src="img/header/front hair/back hair04.png" class="cbtn2" id="b4">
-			  	 <img src="img/header/front hair/back hair041.png" class="cbtn2" id="b41">
-			  	 <img src="img/header/front hair/back hair042.png" class="cbtn2" id="b42">
-			  	 <img src="img/header/front hair/back hair043.png" class="cbtn2" id="b43">
-			  	 <img src="img/header/front hair/back hair044.png" class="cbtn2" id="b44">
-			  	 <img src="img/header/front hair/back hair045.png" class="cbtn2" id="b45">
-			  	 <img src="img/header/front hair/back hair046.png" class="cbtn2" id="b46">
+			  	 <img src="img/header/back hair/back hair04.png" class="cbtn2" id="b4">
+			  	 <img src="img/header/back hair/back hair041.png" class="cbtn2" id="b41">
+			  	 <img src="img/header/back hair/back hair042.png" class="cbtn2" id="b42">
+			  	 <img src="img/header/back hair/back hair043.png" class="cbtn2" id="b43">
+			  	 <img src="img/header/back hair/back hair044.png" class="cbtn2" id="b44">
+			  	 <img src="img/header/back hair/back hair045.png" class="cbtn2" id="b45">
+			  	 <img src="img/header/back hair/back hair046.png" class="cbtn2" id="b46">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/back hair/back hair05.png" class="dropbtn" onclick="myFunction(14)" id="b5">
+				<img src="img/header/back hair/back hair05.png" class="dropbtn" onclick="myFunction(14)">
                 <div class="dropdown-content" id="myDropdown14">
-			  	 <img src="img/header/front hair/back hair05.png" class="cbtn2" id="b5">
-			  	 <img src="img/header/front hair/back hair051.png" class="cbtn2" id="b51">
-			  	 <img src="img/header/front hair/back hair052.png" class="cbtn2" id="b52">
-			  	 <img src="img/header/front hair/back hair053.png" class="cbtn2" id="b53">
-			  	 <img src="img/header/front hair/back hair054.png" class="cbtn2" id="b54">
-			  	 <img src="img/header/front hair/back hair055.png" class="cbtn2" id="b55">
-			  	 <img src="img/header/front hair/back hair056.png" class="cbtn2" id="b56">
+			  	 <img src="img/header/back hair/back hair05.png" class="cbtn2" id="b5">
+			  	 <img src="img/header/back hair/back hair051.png" class="cbtn2" id="b51">
+			  	 <img src="img/header/back hair/back hair052.png" class="cbtn2" id="b52">
+			  	 <img src="img/header/back hair/back hair053.png" class="cbtn2" id="b53">
+			  	 <img src="img/header/back hair/back hair054.png" class="cbtn2" id="b54">
+			  	 <img src="img/header/back hair/back hair055.png" class="cbtn2" id="b55">
+			  	 <img src="img/header/back hair/back hair056.png" class="cbtn2" id="b56">
 			  </div></div>
 				<img src="img/cross.png" id="b6" height="72px" style="position:absolute; top:50px; margin-left:20px;">
 			</div>
 			<div id="tab7" class="tab_content">
 				<div class="dropdown">
-				<img src="img/header/clothes/clothes01.png" class="dropbtn" onclick="myFunction(15)" id="c1">
+				<img src="img/header/clothes/clothes01.png" class="dropbtn" onclick="myFunction(15)">
                 <div class="dropdown-content" id="myDropdown15">
 			  	 <img src="img/header/clothes/clothes01.png" class="cbtn2" id="c1">
 			  	 <img src="img/header/clothes/clothes011.png" class="cbtn2" id="c11">
@@ -571,8 +328,8 @@ window.onclick = function(event) {
 			  	 <img src="img/header/clothes/clothes016.png" class="cbtn2" id="c16">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/clothes/clothes02.png" class="dropbtn" onclick="myFunction(16)" id="c2">
-                <div class="dropdown-content5" id="myDropdown16">
+				<img src="img/header/clothes/clothes02.png" class="dropbtn" onclick="myFunction(16)">
+                <div class="dropdown-content" id="myDropdown16">
 			  	 <img src="img/header/clothes/clothes02.png" class="cbtn2" id="c2">
 			  	 <img src="img/header/clothes/clothes021.png" class="cbtn2" id="c21">
 			  	 <img src="img/header/clothes/clothes022.png" class="cbtn2" id="c22">
@@ -581,8 +338,8 @@ window.onclick = function(event) {
 			  	 <img src="img/header/clothes/clothes025.png" class="cbtn2" id="c25">
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/clothes/clothes03.png" class="dropbtn" onclick="myFunction(17)" id="c3">
-                <div class="dropdown-content3" id="myDropdown17">
+				<img src="img/header/clothes/clothes03.png" class="dropbtn" onclick="myFunction(17)">
+                <div class="dropdown-content" id="myDropdown17">
 			  	 <img src="img/header/clothes/clothes03.png" class="cbtn2" id="c3">
 			  	 <img src="img/header/clothes/clothes031.png" class="cbtn2" id="c31">
 			  	 <img src="img/header/clothes/clothes032.png" class="cbtn2" id="c32">
