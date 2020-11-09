@@ -2,13 +2,13 @@
 <%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 <head>
-
 <title>留言版</title>
 </head>
 <body>
 <a href="viewpost.jsp?page=1">查看留言</a><p>
 <form action="addpost.jsp" method="post" >
-姓名：<input type="text" name="postname"><br>
+<%String name =(String) session.getAttribute("name");%>
+姓名：<input value="<%=name%>" name="postname" disabled><br>
 主題：<input type="text" name="subject"><br>
 內容：<textarea rows=5 name="content"></textarea><br>
 <input type="submit" name="Submit" value="送出">

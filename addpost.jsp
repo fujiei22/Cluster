@@ -18,7 +18,7 @@ try {
            sql="use `cluster`";
            con.createStatement().execute(sql);
            String new_name=new String(request.getParameter("postname").getBytes("ISO-8859-1"),"UTF-8");
-           String new_mail=request.getParameter("email");
+           String new_mail=(String)session.getAttribute("email");
            String new_subject=new String(request.getParameter("subject").getBytes("ISO-8859-1"),"UTF-8");
            String new_content=new String(request.getParameter("content").getBytes("ISO-8859-1"),"UTF-8");
            java.sql.Date new_date=new java.sql.Date(System.currentTimeMillis());
