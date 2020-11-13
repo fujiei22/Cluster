@@ -20,8 +20,12 @@ try{
                 +"'AND `Password`='"+request.getParameter("password")+"'"; 
                 ResultSet rs =con.createStatement().executeQuery(sql);
                 if(rs.next())
-                  {            
-                    session.setAttribute("email",request.getParameter("email"));
+                  {
+                  	session.setAttribute("name",rs.getString("Name"));
+                  	session.setAttribute("gender",rs.getString("Gender"));
+                  	session.setAttribute("birthday",rs.getString("Birthday"));
+                  	session.setAttribute("email",rs.getString("Email"));
+                    session.setAttribute("password",rs.getString("Password"));
                     out.println("登入成功");
                   }
                 else
