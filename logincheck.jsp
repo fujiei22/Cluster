@@ -26,7 +26,8 @@ try{
                   	session.setAttribute("birthday",rs.getString("Birthday"));
                   	session.setAttribute("email",rs.getString("Email"));
                     session.setAttribute("password",rs.getString("Password"));
-                    out.println("登入成功");
+                    out.println("登入成功，3秒後頁面自動進行跳轉");
+                    response.setHeader("Refresh","3;customer_survey.jsp");
                   }
                 else
                   {
