@@ -4,17 +4,29 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>紙娃娃</title>
-    <link href="header.css" rel=stylesheet type="text/css" >
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <style type="text/css">
-body {
-margin-top: 0px;
-margin-right: 0px;
-margin-bottom: 0px;
-margin-left: 0px;
-}
+    <link href="../css/header.css" rel=stylesheet type="text/css" >
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <style type="text/css">
+
+		html{
+		height:100%;
+		}
+		body{
+			height: 100%;
+			overflow: hidden;
+		}
+		.leftnav{
+        background-color: rgb(141, 141, 141);
+        height: 100%;
+      } 
+      a{
+      	color:black;
+      }
 </style>
+
 
 <script type="text/javascript">
 $(function(){
@@ -110,6 +122,37 @@ window.onclick = function(event) {
 </head>
 
 <body>
+	<div class="container-fluid" style="height: 100%;">
+		<div class="row justify-content-center" style="height: 100%;">
+		<!--第一區-->
+		<div class="col leftnav">
+			<ul class="nav flex-column" style="height: 100%">
+			<li class="nav-item" style="height: 17%"></li>
+			<li class="nav-item" style="height: 15%">
+				<a class="nav-link active" href="member.html">User name</a>
+			  </li>
+			  <li class="nav-item" style="height: 10%">
+				<a class="nav-link active" href="homepage.html">話題</a>
+			  </li>
+			<li class="nav-item"style="height: 10%">
+				<a class="nav-link" href="#">通知</a>
+			</li>
+			<li class="nav-item"style="height: 10%">
+				<a class="nav-link" href="#">好友</a>
+			</li>
+			<li class="nav-item"style="height: 10%">
+				<a class="nav-link" href="#">聊天</a>
+			</li>
+			<li class="nav-item"style="height: 10%">
+				<a class="nav-link" href="#">登出</a>
+			</li>
+			<li class="nav-item" style="height: 17%"></li>
+			</ul>
+		</div>
+		
+	 <!--第二區-->
+	<div class="col-10 mainarea">
+
 	<div id="backcolor">
 	<a href="member.html"><img src="img/back.png" id="backicon"></a>
 	<a href="#完成"><img src="img/finish.png" id="finishicon"></a>
@@ -255,7 +298,7 @@ window.onclick = function(event) {
 			  	 <img src="img/header/front hair/front hair065.png" class="cbtn2" id="f65">
 			  	 <img src="img/header/front hair/front hair066.png" class="cbtn2" id="f66">
 			  </div></div>				
-			  <img src="img/cross.png" id="f7" height="72px" style="position:absolute; top:10px; margin-left:20px;">
+			  <img src="img/cross.png" id="f7" height="72px" style="position:relative; top:10px; margin-left:20px;float:left;">
 			</div>
 			<div id="tab6" class="tab_content">
 				<div class="dropdown">
@@ -313,7 +356,7 @@ window.onclick = function(event) {
 			  	 <img src="img/header/back hair/back hair055.png" class="cbtn2" id="b55">
 			  	 <img src="img/header/back hair/back hair056.png" class="cbtn2" id="b56">
 			  </div></div>
-				<img src="img/cross.png" id="b6" height="72px" style="position:absolute; top:50px; margin-left:20px;">
+				<img src="img/cross.png" id="b6" height="72px" style="position:relative; top:50px; margin-left:20px; float:left;">
 			</div>
 			<div id="tab7" class="tab_content">
 				<div class="dropdown">
@@ -349,7 +392,7 @@ window.onclick = function(event) {
 				<img src="img/header/clothes/clothes05.png" class="cbtn" id="c5">
 				<img src="img/header/clothes/clothes06.png" class="cbtn" id="c6">
 			</div>
-			<div id="tab8" class="tab_content">
+			<div id="tab8" class="tab_content">		
 				<img src="img/header/accessories/accessories01.png" class="cbtn" id="a1">
 				<img src="img/header/accessories/accessories02.png" class="cbtn" id="a2">
 				<img src="img/header/accessories/accessories03.png" class="cbtn" id="a3">
@@ -357,12 +400,14 @@ window.onclick = function(event) {
 				<img src="img/header/accessories/accessories05.png" class="cbtn" id="a5">
 				<img src="img/header/accessories/accessories06.png" class="cbtn" id="a6">
 				<img src="img/header/accessories/accessories07.png" class="cbtn" id="a7">
-				<img src="img/cross.png" id="a8" height="72px" style="position:absolute; top:30px; margin-left:20px;">
+				<img src="img/cross.png" id="a8" height="72px" style="position:relative; top:30px; margin-left:20px;float:left;">		
 			</div>
 		</div>
 
 		</div>
 	</div>
+</div>
+</div>
 
 	</body>
 </html>
