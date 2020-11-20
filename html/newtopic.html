@@ -1,5 +1,3 @@
-<%@ page import = "java.sql.*"%>
-<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,25 +22,25 @@
 
       <div class="container-fluid">
           <div class="row justify-content-center">
-            <form action="add_topic.jsp" method="post">
+            <form>
               <h2>開新話題</h2>
               <div class="form-group">
                 <label for="title">標題</label>
-                <input type="text" class="form-control" id="title"  name="subject" placeholder="請輸入標題">
+                <input type="text" class="form-control" id="title" placeholder="請輸入標題">
               </div>
               <div class="form-group">
                 <label for="textarea">內文</label>
-                <textarea class="form-control" id="textarea"  name="content" rows="4" placeholder="請輸入內文"></textarea>
+                <textarea class="form-control" id="textarea" rows="4" placeholder="請輸入內文"></textarea>
               </div>
               <div class="form-group">
                 <label for="category">分類</label>
                 <select class="form-control" id="category">
-                  <option value="music">音樂</option>
-                  <option value="movie">電影</option>
-                  <option value="exercise">運動</option>
-                  <option value="game">遊戲</option>
-                  <option value="tour">旅遊</option>
-                  <option value="food">美食</option>
+                  <option>音樂</option>
+                  <option>電影</option>
+                  <option>運動</option>
+                  <option>遊戲</option>
+                  <option>旅遊</option>
+                  <option>美食</option>
                 </select>
               </div>
               <div class="form-group">
