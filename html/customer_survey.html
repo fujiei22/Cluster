@@ -153,7 +153,7 @@ input[type=text]:focus {
   border:2px black solid;
 }
 
-#next{
+.next{
   display: none;
 }
 #final{
@@ -169,12 +169,12 @@ input[type=text]:focus {
         <div class="col-sm-8">
           <div class="row justify-content-center">
             
-            <div id="pre">
+            
             <div class="form-css">
-              <h2>興趣調查</h2>
+             <div id="pre"> <h2>興趣調查</h2>
               <hr>
               <p>為了獲得更好的使用體驗，首先我們想調查您對每個主題感興趣的程度</p>
-                <form action="">
+                <form method="POST" action="" name="interestForm">
                   <p>音樂</p>
                   <input type="range" min="1" max="100" value="50" class="slider" id="music">
                   <p>電影</p>
@@ -188,30 +188,38 @@ input[type=text]:focus {
                   <p>美食</p>
                   <input type="range" min="1" max="100" value="50" class="slider" id="food">
                   <br>
-                  <input type="submit" value="Submit" class="submit">
-                  </form>
-
-                  <p onclick="myFunction()">下一步</p>
+                 </form>
+                  <button class="click" onclick="pre()">下一步</button>
                 </div>
-            </div>
+              </div>
           
           </div>
         </div>
         <div class="col-sm-2"></div>
       </div>
-
+      <button class="click">可利可蜜</button>
+      <p class="test">Hello!! My name is Andy.</p>
+      
+     <!--<script>
+        $(document).ready(function(){
+          $(".click").click(function(){
+            $(".pre").hide();
+            $(".next").show();
+          })
+        });
+    </script>--> 
       
       <div class="row container-fluid"style="margin-top:20px;margin-bottom:20px">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
           <div class="row justify-content-center">
 
-            <div id="next">
+            <div class="next" id="next">
             <div class="form-css">
               <h2>隱藏關鍵字</h2>
               <hr>
               <p>若您有任何不想看到的內容，請勾選，我們會為您減少相關文章</p>
-              <form action="">
+              
                 <label class="container">政治
                   <input type="checkbox" name="political">
                   <span class="checkmark"></span>
@@ -226,7 +234,7 @@ input[type=text]:focus {
                   <input type="text" id="word3" name="word3" class="inputkeyword"><br>
                   <input type="submit" value="Submit" class="submit">
                 </form>
-                <p onclick="myFunction2()">下一步</p>
+               
             </div>
           </div>
 
@@ -254,6 +262,11 @@ input[type=text]:focus {
 
 <script>
   //disable 1
+  function  pre(){
+    interestsubmit();
+    myFunction();
+  }
+
   function myFunction() {
   document.getElementById("next").style.display = "inline";
   document.getElementById("pre").style.display = "none";
@@ -264,7 +277,11 @@ input[type=text]:focus {
 }
 </script>
 
-
+<script type="text/javascript">
+  function interestsubmit(){
+  document.interestForm.submit();
+  }
+  </script>
 
 </body>
 </html>
