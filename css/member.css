@@ -7,15 +7,10 @@
   background: linear-gradient(#EBD3E8,#5A5AAD);
   text-align:center;
 }
-.menu{
-width: 80px;
-height: 700px;
-background:white;
-position:fixed;
-}
+
 #box1{
   height: 600px;
-  width: 1000px;
+  width: 500px;
   border-radius:20px;
   position: absolute;
   top: 40%;

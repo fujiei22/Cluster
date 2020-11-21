@@ -1,13 +1,6 @@
 #backcolor{
   background:#C4E1FF;
-  height: 610px;
-}
-#box{
-  background:rgba(255,255,255,0.4);
-  position: absolute;
-  top:50%;
-  height: 305px;
-  width: 1280px;
+  height: 100%;
 }
 #backicon{
   width: 50px;
@@ -25,136 +18,136 @@
 #skin{
   width: 300px;
   position:absolute;
-  top:5px;
-  left: 490px;
+  left: 35.5%;
+  top:8.5px;
   z-index: 1;  
 }
 #eyes{
   width:300px;
   position:absolute;
-  top:5px;
-  left: 490px;
+  left: 35.5%;
+  top:8.5px;
   z-index: 2;
 
 }
 #eyebrow{
   width:300px;
   position:absolute;
-  top:5px;
-  left: 490px;
+  left: 35.5%;
+  top:7px;
   z-index: 3;
 }
 #mouth{
   width:300px;
   position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 4;	
+  left: 35.5%;
+  top:8.5px;
+  z-index: 4; 
 }
 #fronthair{
   width:300px;
   position:absolute;
-  top:5px;
-  left: 490px;
+  left: 35.5%;
+  top:8.5px;
   z-index: 5;
 }
 #backhair{
   width:300px;
   position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 6;	
+  left: 35.5%;
+  top:8.5px;
+  z-index: 6; 
 }
 #clothes{
   width:300px;
   position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 7;	
+  left: 35.5%;
+  top:8.5px;  
+  z-index: 7; 
 }
 #accessories{
   width:300px;
   position:absolute;
-  top:5px;
-  left: 490px;
-  z-index: 8;	
+  left: 35.5%;
+  top:8.5px;
+  z-index: 8; 
 }
 .clickimg{
   height: 45px;
-  margin-left:35px;
-  margin-right:35px;
+  margin-left:20%;
+  margin-right:20%;
 }
 
 .cbtn{
   height:115px;
-  margin-right:20px;
-  margin-left:20px;
+  margin-right:5px;
+  margin-left:5px;
   margin-top:10px;
 
 }
 .cbtn2{
   height: 70px;
-  margin-left:10px
-  margin-right:10px;
+  margin-left:5px
+  margin-right:5px;
   margin-top:10px;
 }
 
 ul, li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .abgne_tab {
-	clear: left;
-	width: 1280px;
-	margin: 10px 0;
-	height: 50px;
+  clear: left;
+  width: 1296px;
+  margin: 10px 0;
+  height: 50px;
     position:absolute;
-    top: 48.5%;
+    top: 49%;
 }
 ul.tabs {
-	width: 100%;
+  width: 100%;
 }
 ul.tabs li {
-	float: left;
-	height: 50px;
-	width: 160px;
-	position: relative;
+  float: left;
+  height: 50px;
+  width: 10%;
+  position: relative;
     border: none;
-	background:rgba(255,255,255,0.6);
+  background:rgba(255,255,255,0.6);
 }
 ul.tabs li a {
-	display: block;
-	padding: 0 20px;
-	color: #000;
-	border:1.2px solid #fff;
-	text-decoration: none;
+  display: block;
+  padding: 0 20px;
+  color: #000;
+  border:1.2px solid #fff;
+  text-decoration: none;
 }
 ul.tabs li a:hover {
-	background: #fff;
+  background: #fff;
 }
 ul.tabs li.active  {
-	background: #fff;
-	border-bottom: 1px solid#fff;
+  background: #fff;
+  border-bottom: 1px solid#fff;
 }
 ul.tabs li.active a:hover {
-	background: #fff;
+  background: #fff;
 }
 div.tab_container {
-	clear: left;
-	width: 1280px;
-	height: 255px;
-	position:absolute;
-	bottom: 0px;
-	border: none;
-	background: #fff;
+  clear: left;
+  width: 97.2%;
+  height: 254px;
+  position:absolute;
+  bottom: 0px;
+  border: none;
+  background: #fff;
 }
 .dropbtn {
     background-color: #ffffff;
     border: none;
     height:115px;
-    margin-right:20px;
-    margin-left:20px;
+    margin-right:5px;
+    margin-left:5px;
     margin-top:10px;
 }
 .dropdown {
