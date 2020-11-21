@@ -36,7 +36,7 @@
               </div>
               <div class="form-group">
                 <label for="category">分類</label>
-                <select class="form-control" id="category">
+                <select class="form-control" id="category" name="category">
                   <option value="music">音樂</option>
                   <option value="movie">電影</option>
                   <option value="sport">運動</option>
