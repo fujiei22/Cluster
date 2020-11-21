@@ -4,21 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>紙娃娃</title>
-    <link href="../css/header.css" rel=stylesheet type="text/css" >
+    <link href="css/header.css" rel=stylesheet type="text/css" >
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <style type="text/css">
-
-		body,html{
-			height:100%;
-		}
-		.leftnav{
-        background-color: rgb(141, 141, 141);
-        height: 100%;
-      } 
-</style>
 
 
 <script type="text/javascript">
@@ -115,36 +104,7 @@ window.onclick = function(event) {
 </head>
 
 <body>
-	<div class="container-fluid" style="height: 100%;">
-		<div class="row justify-content-center" style="height: 100%;">
-		<!--第一區-->
-		<div class="col leftnav">
-			<ul class="nav flex-column" style="height: 100%">
-			<li class="nav-item" style="height: 17%"></li>
-			<li class="nav-item" style="height: 15%">
-				<a class="nav-link active" href="member.html">User name</a>
-			  </li>
-			  <li class="nav-item" style="height: 10%">
-				<a class="nav-link active" href="homepage.html">話題</a>
-			  </li>
-			<li class="nav-item"style="height: 10%">
-				<a class="nav-link" href="#">通知</a>
-			</li>
-			<li class="nav-item"style="height: 10%">
-				<a class="nav-link" href="#">好友</a>
-			</li>
-			<li class="nav-item"style="height: 10%">
-				<a class="nav-link" href="#">聊天</a>
-			</li>
-			<li class="nav-item"style="height: 10%">
-				<a class="nav-link" href="#">登出</a>
-			</li>
-			<li class="nav-item" style="height: 17%"></li>
-			</ul>
-		</div>
-		
-	 <!--第二區-->
-	 <div class="col-10 mainarea">
+
 
 	<div id="backcolor">
 	<a href="member.html"><img src="img/back.png" id="backicon"></a>
@@ -398,9 +358,7 @@ window.onclick = function(event) {
 		</div>
 
 		</div>
-	</div>
-</div>
-</div>
+
 
 	</body>
 </html>
