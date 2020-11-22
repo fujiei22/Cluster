@@ -365,7 +365,15 @@ try {
            sql+="`Category` VARCHAR(30),";
            sql+="`PostDate` DATE,";
            sql+="PRIMARY KEY(pno))";
-           con.createStatement().execute(sql);       
+           con.createStatement().execute(sql);
+           //out.println("Member建立成功");
+
+           sql="CREATE TABLE IF NOT EXISTS `skin`";
+           sql+="(`imgno` INT(20) AUTO_INCREMENT,";
+           sql+="`file_path` VARCHAR(30),";
+           sql+="`img_file` VARCHAR(30),";
+           sql+="PRIMARY KEY(imgno))";
+           con.createStatement().execute(sql);
            //out.println("Member建立成功");    
            con.close();
         }

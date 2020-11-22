@@ -246,7 +246,7 @@ input[type=text]:focus {
               <h1>恭喜您！</h1>
               <hr>
               <p>現在已可以開始使用Cluster提供的服務！</p>
-              <a href="homepage.html">開始</a>
+              <a href="homepage.jsp">開始</a>
             </div>
           </div>
         </div>

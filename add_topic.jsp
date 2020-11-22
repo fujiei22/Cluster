@@ -17,11 +17,11 @@ try {
         else {
            sql="use `cluster`";
            con.createStatement().execute(sql);
-           String new_name=new String(session.getAttribute("name").getBytes("ISO-8859-1"),"UTF-8");
-           String new_mail=new String(session.getAttribute("email"));
+           String new_name=(String)(session.getAttribute("name"));
+           String new_mail=(String)(session.getAttribute("email"));
            String new_subject=new String(request.getParameter("subject").getBytes("ISO-8859-1"),"UTF-8");
            String new_content=new String(request.getParameter("content").getBytes("ISO-8859-1"),"UTF-8");
-           String new_category=new String(request.getParameter("category").getBytes("ISO-8859-1"),"UTF-8");
+           String new_category=request.getParameter("category");
            java.sql.Date new_date=new java.sql.Date(System.currentTimeMillis());
 
            sql="INSERT post (`PostName`, `Email`, `Subject`, `Content`, `Category`, `PostDate`) ";
@@ -34,7 +34,7 @@ try {
 
            con.createStatement().execute(sql);
            con.close();
-           response.sendRedirect("viewpost.jsp?page=1");
+           response.sendRedirect("homepage.jsp");
        }
     }
     catch (SQLException sExec) {
