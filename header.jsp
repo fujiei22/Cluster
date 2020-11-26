@@ -1,3 +1,5 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import = "java.sql.*, java.util.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,43 +45,43 @@ $(function(){
 	$(function(){	
 	$("#tab2 img").click(function(){		
 		var num = $(this).attr("id").substr(1);		
-		$("#eyes").attr("src" , "img/header/eyes/eyes0" + num + ".png");
+		$("#eyes").attr("src" , "img/header/eyes/eyes" + num + ".png");
 	});
 });
 	$(function(){	
 	$("#tab3 img").click(function(){		
 		var num = $(this).attr("id").substr(2);		
-		$("#eyebrow").attr("src" , "img/header/eyebrow/eyebrow0" + num + ".png");
+		$("#eyebrow").attr("src" , "img/header/eyebrow/eyebrow" + num + ".png");
 	});
 });
 	$(function(){	
 	$("#tab4 img").click(function(){		
 		var num = $(this).attr("id").substr(1);		
-		$("#mouth").attr("src" , "img/header/mouth/mouth0" + num + ".png");
+		$("#mouth").attr("src" , "img/header/mouth/mouth" + num + ".png");
 	});
 });
 	$(function(){	
 	$("#tab5 img").click(function(){		
 		var num = $(this).attr("id").substr(1);		
-		$("#fronthair").attr("src" , "img/header/front hair/front hair0" + num + ".png");
+		$("#fronthair").attr("src" , "img/header/fronthair/fronthair" + num + ".png");
 	});
 });
 	$(function(){	
 	$("#tab6 img").click(function(){		
 		var num = $(this).attr("id").substr(1);		
-		$("#backhair").attr("src" , "img/header/back hair/back hair0" + num + ".png");
+		$("#backhair").attr("src" , "img/header/backhair/backhair" + num + ".png");
 	});
 });
 	$(function(){	
 	$("#tab7 img").click(function(){		
 		var num = $(this).attr("id").substr(1);		
-		$("#clothes").attr("src" , "img/header/clothes/clothes0" + num + ".png");
+		$("#clothes").attr("src" , "img/header/clothes/clothes" + num + ".png");
 	});
 });
 	$(function(){	
 	$("#tab8 img").click(function(){		
 		var num = $(this).attr("id").substr(1);		
-		$("#accessories").attr("src" , "img/header/accessories/accessories0" + num + ".png");
+		$("#accessories").attr("src" , "img/header/accessories/accessories" + num + ".png");
 	});
 });
 function myFunction(num) {
@@ -104,261 +106,548 @@ window.onclick = function(event) {
 </head>
 
 <body>
+	<%
+try {
+    Class.forName("com.mysql.jdbc.Driver");
+    try {   
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        String sql;
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+           out.println("連線建立失敗");
+        else
+        {      
+           sql="USE `cluster`";
+           con.createStatement().execute(sql);
+           sql="SELECT * FROM `skin`";
+           ResultSet rs=con.createStatement().executeQuery(sql);
+		   int rs1_count =0;
+		   int rs2_count =0;
+		   int rs3_count =7;
+		   int rs4_count =13;
+		   int rs5_count =17;
+		   int rs6_count =0;
+		   int rs7_count =0;
+		   int rs8_count =0;
+		   int rs9_count =7;
+		   int rs10_count =14;
+		   int rs11_count =21;
+		   int rs12_count =28;
+		   int rs13_count =31;
+		   int rs14_count =0;
+		   int rs15_count =7;
+		   int rs16_count =14;
+		   int rs17_count =21;
+		   int rs18_count =28;
+		   int rs19_count =0;
+		   int rs20_count =7;
+		   int rs21_count =13;
+		   int rs22_count =17;
+		   int rs23_count =0;
+	%>
 
 
 	<div id="backcolor">
 	<a href="member.html"><img src="img/back.png" id="backicon"></a>
 	<a href="#完成"><img src="img/finish.png" id="finishicon"></a>
 	<img src="img/header/skin/skin1.png" id="skin">
-	<img src="img/header/eyes/eyes01.png" id="eyes">
-	<img src="img/header/eyebrow/eyebrow04.png" id="eyebrow">
-	<img src="img/header/mouth/mouth01.png" id="mouth">
-	<img src="img/header/front hair/front hair05.png" id="fronthair">
-	<img src="img/header/back hair/back hair02.png" id="backhair">
-	<img src="img/header/clothes/clothes04.png" id="clothes">
-	<img src="img/header/accessories/accessories07.png" id="accessories">
+	<img src="img/header/eyes/eyes1.png" id="eyes">
+	<img src="img/header/eyebrow/eyebrow4.png" id="eyebrow">
+	<img src="img/header/mouth/mouth1.png" id="mouth">
+	<img src="img/header/fronthair/fronthair5.png" id="fronthair">
+	<img src="img/header/backhair/backhair2.png" id="backhair">
+	<img src="img/header/clothes/clothes4.png" id="clothes">
+	<img src="img/header/accessories/accessories7.png" id="accessories">
 			<div class="abgne_tab">
 				<ul class="tabs">
 				<li><a href="#tab1"><img src="img/header/skin/skin2.png" class="clickimg"></a></li>
-				<li><a href="#tab2"><img src="img/header/eyes/eyes01.png" class="clickimg"></a></li>
-				<li><a href="#tab3"><img src="img/header/eyebrow/eyebrow04.png" class="clickimg"></a></li>
-				<li><a href="#tab4"><img src="img/header/mouth/mouth01.png" class="clickimg"></a></li>
-				<li><a href="#tab5"><img src="img/header/front hair/front hair02.png" class="clickimg"></a></li>
-				<li><a href="#tab6"><img src="img/header/back hair/back hair02.png" class="clickimg"></a></li>
-				<li><a href="#tab7"><img src="img/header/clothes/clothes01.png" class="clickimg"></a></li>
-                <li><a href="#tab8"><img src="img/header/accessories/accessories04.png" class="clickimg"></a></li>
+				<li><a href="#tab2"><img src="img/header/eyes/eyes1.png" class="clickimg"></a></li>
+				<li><a href="#tab3"><img src="img/header/eyebrow/eyebrow4.png" class="clickimg"></a></li>
+				<li><a href="#tab4"><img src="img/header/mouth/mouth1.png" class="clickimg"></a></li>
+				<li><a href="#tab5"><img src="img/header/fronthair/fronthair2.png" class="clickimg"></a></li>
+				<li><a href="#tab6"><img src="img/header/backhair/backhair2.png" class="clickimg"></a></li>
+				<li><a href="#tab7"><img src="img/header/clothes/clothes1.png" class="clickimg"></a></li>
+                <li><a href="#tab8"><img src="img/header/accessories/accessories4.png" class="clickimg"></a></li>
 			</ul>
 			</div>
 			<div class="tab_container">
 			<div id="tab1" class="tab_content">
-              <img src="img/header/skin/skin1.png" class="cbtn" id="s1">
-              <img src="img/header/skin/skin2.png" class="cbtn" id="s2">
-              <img src="img/header/skin/skin3.png" class="cbtn" id="s3">
-              <img src="img/header/skin/skin4.png" class="cbtn" id="s4">
-
+              <%
+              		sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 136 AND 139";
+           			ResultSet rs1 =  con.createStatement().executeQuery(sql);
+					while(rs1.next())
+					{	
+						rs1_count += 1;
+						out.println("<img src="+rs1.getString(2)+rs1.getString(3)+rs1_count+".png class='cbtn' id='s"+rs1_count+"'>");
+					}
+              
+              %>
+            <!--img src="img/header/skin/skin1.png" class="cbtn" id="s1">
+            <img src="img/header/skin/skin2.png" class="cbtn" id="s2">
+            <img src="img/header/skin/skin3.png" class="cbtn" id="s3">
+            <img src="img/header/skin/skin4.png" class="cbtn" id="s4"-->
 			</div>
 			<div id="tab2" class="tab_content">	
-					 
-			  <div class="dropdown">
-			  <img src="img/header/eyes/eyes01.png" class="dropbtn" onclick="myFunction(1)" height="115px"> 
-			  <div class="dropdown-content" id="myDropdown1">
-			  	<img src="img/header/eyes/eyes01.png" class="cbtn2" id="e1">
-			  	<img src="img/header/eyes/eyes011.png" class="cbtn2" id="e11">
-			  	<img src="img/header/eyes/eyes012.png" class="cbtn2" id="e12">
-			  	<img src="img/header/eyes/eyes013.png" class="cbtn2" id="e13">
-			  	<img src="img/header/eyes/eyes014.png" class="cbtn2" id="e14">
-			  	<img src="img/header/eyes/eyes015.png" class="cbtn2" id="e15">
-			  	<img src="img/header/eyes/eyes016.png" class="cbtn2" id="e16">
-			  </div></div>
-			  <img src="img/header/eyes/eyes02.png" class="cbtn" id="e2">
-			  <div class="dropdown">
-			  <img src="img/header/eyes/eyes03.png" class="dropbtn" onclick="myFunction(2)" height="115px">
-              <div class="dropdown-content" id="myDropdown2">
-			  	<img src="img/header/eyes/eyes03.png" class="cbtn2" id="e3">
-			  	<img src="img/header/eyes/eyes031.png" class="cbtn2" id="e31">
-			  	<img src="img/header/eyes/eyes032.png" class="cbtn2" id="e32">
-			  	<img src="img/header/eyes/eyes033.png" class="cbtn2" id="e33">
-			  	<img src="img/header/eyes/eyes034.png" class="cbtn2" id="e34">
-			  </div></div>
-			  <div class="dropdown">			  
-			  <img src="img/header/eyes/eyes04.png" class="dropbtn" onclick="myFunction(3)" height="115px">
-               <div class="dropdown-content" id="myDropdown3">
-			  	<img src="img/header/eyes/eyes04.png" class="cbtn2" id="e4">
-			  	<img src="img/header/eyes/eyes041.png" class="cbtn2" id="e41">
-			  	<img src="img/header/eyes/eyes042.png" class="cbtn2" id="e42">
-			  	<img src="img/header/eyes/eyes043.png" class="cbtn2" id="e43">
-			  </div></div>
-			  <img src="img/header/eyes/eyes05.png" class="cbtn" id="e5">
-			  <img src="img/header/eyes/eyes06.png" class="cbtn" id="e6">
-			  <img src="img/header/eyes/eyes07.png" class="cbtn" id="e7">
+				<div class="dropdown">
+			  		<img src="img/header/eyes/eyes1.png" class="dropbtn" onclick="myFunction(1)" height="115px"> 
+			  		<div class="dropdown-content" id="myDropdown1">
+			  			<%
+			  				sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 69 AND 75";
+           					ResultSet rs2 =  con.createStatement().executeQuery(sql);
+							while(rs2.next())
+							{	
+								rs2_count += 1;
+								out.println("<img src="+rs2.getString(2)+rs2.getString(3)+rs2_count+".png class='cbtn2' id='e"+rs2_count+"'>");
+							}
+						
+			  			%>
+			  			<!--
+			  			<img src="img/header/eyes/eyes1.png" class="cbtn2" id="e1">
+			  			<img src="img/header/eyes/eyes2.png" class="cbtn2" id="e2">
+			  			<img src="img/header/eyes/eyes3.png" class="cbtn2" id="e3">
+			  			<img src="img/header/eyes/eyes4.png" class="cbtn2" id="e4">
+			  			<img src="img/header/eyes/eyes5.png" class="cbtn2" id="e5">
+			  			<img src="img/header/eyes/eyes6.png" class="cbtn2" id="e6">
+			  			<img src="img/header/eyes/eyes7.png" class="cbtn2" id="e7">
+			  			-->
+
+			  		</div>
+				</div>
+			<div class="dropdown">
+				<img src="img/header/eyes/eyes8.png" class="dropbtn" onclick="myFunction(2)" height="115px">
+              	<div class="dropdown-content" id="myDropdown2">
+              		<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 76 AND 81";
+           				ResultSet rs3 =  con.createStatement().executeQuery(sql);
+						while(rs3.next())
+						{	
+							rs3_count += 1;
+							out.println("<img src="+rs3.getString(2)+rs3.getString(3)+rs3_count+".png class='cbtn2' id='e"+rs3_count+"'>");
+						}
+					
+			  		%>
+              		<!--img src="img/header/eyes/eyes8.png" class="cbtn2" id="e8">
+			  		<img src="img/header/eyes/eyes9.png" class="cbtn2" id="e9">
+			  		<img src="img/header/eyes/eyes10.png" class="cbtn2" id="e10">
+			  		<img src="img/header/eyes/eyes11.png" class="cbtn2" id="e11">
+			  		<img src="img/header/eyes/eyes12.png" class="cbtn2" id="e12">
+			  		<img src="img/header/eyes/eyes13.png" class="cbtn2" id="e13"-->
+			  		
+			  	</div>
+			</div>
+			<div class="dropdown">			  
+				<img src="img/header/eyes/eyes14.png" class="dropbtn" onclick="myFunction(3)" height="115px">
+            	<div class="dropdown-content" id="myDropdown3">
+            	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 82 AND 85";
+           				ResultSet rs4 =  con.createStatement().executeQuery(sql);
+						while(rs4.next())
+						{	
+							rs4_count += 1;
+							out.println("<img src="+rs4.getString(2)+rs4.getString(3)+rs4_count+".png class='cbtn2' id='e"+rs4_count+"'>");
+						}
+					
+			  		%>
+			  		<!--img src="img/header/eyes/eyes14.png" class="cbtn2" id="e14">
+			  		<img src="img/header/eyes/eyes15.png" class="cbtn2" id="e15">
+			  		<img src="img/header/eyes/eyes16.png" class="cbtn2" id="e16">
+			  		<img src="img/header/eyes/eyes17.png" class="cbtn2" id="e17"-->
+			  	</div>
+			</div>
+			<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 86 AND 88";
+           				ResultSet rs5 =  con.createStatement().executeQuery(sql);
+						while(rs5.next())
+						{	
+							rs5_count += 1;
+							out.println("<img src="+rs5.getString(2)+rs5.getString(3)+rs5_count+".png class='cbtn' id='e"+rs5_count+"'>");
+						}
+					
+			  		%>
+				<!--img src="img/header/eyes/eyes18.png" class="cbtn" id="e18">
+				<img src="img/header/eyes/eyes19.png" class="cbtn" id="e19">
+				<img src="img/header/eyes/eyes20.png" class="cbtn" id="e20"-->
 			</div>
 			<div id="tab3" class="tab_content">
-				<img src="img/header/eyebrow/eyebrow01.png" class="cbtn" id="eb1">
-				<img src="img/header/eyebrow/eyebrow02.png" class="cbtn" id="eb2">
-				<img src="img/header/eyebrow/eyebrow03.png" class="cbtn" id="eb3">
-				<img src="img/header/eyebrow/eyebrow04.png" class="cbtn" id="eb4">
+				<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 65 AND 68";
+           				ResultSet rs6 =  con.createStatement().executeQuery(sql);
+						while(rs6.next())
+						{	
+							rs6_count += 1;
+							out.println("<img src="+rs6.getString(2)+rs6.getString(3)+rs6_count+".png class='cbtn' id='eb"+rs6_count+"'>");
+						}
+					
+			  		%>
+				<!--img src="img/header/eyebrow/eyebrow1.png" class="cbtn" id="eb1">
+				<img src="img/header/eyebrow/eyebrow2.png" class="cbtn" id="eb2">
+				<img src="img/header/eyebrow/eyebrow3.png" class="cbtn" id="eb3">
+				<img src="img/header/eyebrow/eyebrow4.png" class="cbtn" id="eb4"-->
 			</div>
 			<div id="tab4" class="tab_content">
-				<img src="img/header/mouth/mouth01.png" class="cbtn" id="m1">
-				<img src="img/header/mouth/mouth02.png" class="cbtn" id="m2">
-				<img src="img/header/mouth/mouth03.png" class="cbtn" id="m3">
-				<img src="img/header/mouth/mouth04.png" class="cbtn" id="m4">
-				<img src="img/header/mouth/mouth05.png" class="cbtn" id="m5">
-				<img src="img/header/mouth/mouth06.png" class="cbtn" id="m6">
-				<img src="img/header/mouth/mouth07.png" class="cbtn" id="m7">
-				<img src="img/header/mouth/mouth08.png" class="cbtn" id="m8">
+				<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 128 AND 135";
+           				ResultSet rs7 =  con.createStatement().executeQuery(sql);
+						while(rs7.next())
+						{	
+							rs7_count += 1;
+							out.println("<img src="+rs7.getString(2)+rs7.getString(3)+rs7_count+".png class='cbtn' id='m"+rs7_count+"'>");
+						}
+					
+			  		%>
+				<!--img src="img/header/mouth/mouth1.png" class="cbtn" id="m1">
+				<img src="img/header/mouth/mouth2.png" class="cbtn" id="m2">
+				<img src="img/header/mouth/mouth3.png" class="cbtn" id="m3">
+				<img src="img/header/mouth/mouth4.png" class="cbtn" id="m4">
+				<img src="img/header/mouth/mouth5.png" class="cbtn" id="m5">
+				<img src="img/header/mouth/mouth6.png" class="cbtn" id="m6">
+				<img src="img/header/mouth/mouth7.png" class="cbtn" id="m7">
+				<img src="img/header/mouth/mouth8.png" class="cbtn" id="m8"-->
 			</div>
 			<div id="tab5" class="tab_content">
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair01.png" class="dropbtn" onclick="myFunction(4)">
+					<img src="img/header/fronthair/fronthair1.png" class="dropbtn" onclick="myFunction(4)">
                 <div class="dropdown-content" id="myDropdown4">
-			  	 <img src="img/header/front hair/front hair01.png" class="cbtn2" id="f1">
-			  	 <img src="img/header/front hair/front hair011.png" class="cbtn2" id="f11">
-			  	 <img src="img/header/front hair/front hair012.png" class="cbtn2" id="f12">
-			  	 <img src="img/header/front hair/front hair013.png" class="cbtn2" id="f13">
-			  	 <img src="img/header/front hair/front hair014.png" class="cbtn2" id="f14">
-			  	 <img src="img/header/front hair/front hair015.png" class="cbtn2" id="f15">
-			  	 <img src="img/header/front hair/front hair016.png" class="cbtn2" id="f16">
-			  </div></div>
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 89 AND 95";
+           				ResultSet rs8 =  con.createStatement().executeQuery(sql);
+						while(rs8.next())
+						{	
+							rs8_count += 1;
+							out.println("<img src="+rs8.getString(2)+rs8.getString(3)+rs8_count+".png class='cbtn2' id='f"+rs8_count+"'>");
+						}
+					
+			  		%>
+			  		<!--img src="img/header/fronthair/fronthair1.png" class="cbtn2" id="f1">
+			  		<img src="img/header/fronthair/fronthair2.png" class="cbtn2" id="f2">
+			  		<img src="img/header/fronthair/fronthair3.png" class="cbtn2" id="f3">
+			  		<img src="img/header/fronthair/fronthair4.png" class="cbtn2" id="f4">
+			  		<img src="img/header/fronthair/fronthair5.png" class="cbtn2" id="f5">
+			  		<img src="img/header/fronthair/fronthair6.png" class="cbtn2" id="f6">
+			  		<img src="img/header/fronthair/fronthair7.png" class="cbtn2" id="f7"-->
+				</div>
+				</div>
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair02.png" class="dropbtn" onclick="myFunction(5)">
+				<img src="img/header/fronthair/fronthair8.png" class="dropbtn" onclick="myFunction(5)">
                 <div class="dropdown-content" id="myDropdown5">
-			  	 <img src="img/header/front hair/front hair02.png" class="cbtn2" id="f2">
-			  	 <img src="img/header/front hair/front hair021.png" class="cbtn2" id="f21">
-			  	 <img src="img/header/front hair/front hair022.png" class="cbtn2" id="f22">
-			  	 <img src="img/header/front hair/front hair023.png" class="cbtn2" id="f23">
-			  	 <img src="img/header/front hair/front hair024.png" class="cbtn2" id="f24">
-			  	 <img src="img/header/front hair/front hair025.png" class="cbtn2" id="f25">
-			  	 <img src="img/header/front hair/front hair026.png" class="cbtn2" id="f26">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 96 AND 102";
+           				ResultSet rs9 =  con.createStatement().executeQuery(sql);
+						while(rs9.next())
+						{	
+							rs9_count += 1;
+							out.println("<img src="+rs9.getString(2)+rs9.getString(3)+rs9_count+".png class='cbtn2' id='f"+rs9_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/fronthair/fronthair8.png" class="cbtn2" id="f8">
+			  	 <img src="img/header/fronthair/fronthair9.png" class="cbtn2" id="f9">
+			  	 <img src="img/header/fronthair/fronthair10.png" class="cbtn2" id="f10">
+			  	 <img src="img/header/fronthair/fronthair11.png" class="cbtn2" id="f11">
+			  	 <img src="img/header/fronthair/fronthair12.png" class="cbtn2" id="f12">
+			  	 <img src="img/header/fronthair/fronthair13.png" class="cbtn2" id="f13">
+			  	 <img src="img/header/fronthair/fronthair14.png" class="cbtn2" id="f14"-->
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair03.png" class="dropbtn" onclick="myFunction(6)">
+				<img src="img/header/fronthair/fronthair15.png" class="dropbtn" onclick="myFunction(6)">
                 <div class="dropdown-content" id="myDropdown6">
-			  	 <img src="img/header/front hair/front hair03.png" class="cbtn2" id="f3">
-			  	 <img src="img/header/front hair/front hair031.png" class="cbtn2" id="f31">
-			  	 <img src="img/header/front hair/front hair032.png" class="cbtn2" id="f32">
-			  	 <img src="img/header/front hair/front hair033.png" class="cbtn2" id="f33">
-			  	 <img src="img/header/front hair/front hair034.png" class="cbtn2" id="f34">
-			  	 <img src="img/header/front hair/front hair035.png" class="cbtn2" id="f35">
-			  	 <img src="img/header/front hair/front hair036.png" class="cbtn2" id="f36">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 103 AND 109";
+           				ResultSet rs10 =  con.createStatement().executeQuery(sql);
+						while(rs10.next())
+						{	
+							rs10_count += 1;
+							out.println("<img src="+rs10.getString(2)+rs10.getString(3)+rs10_count+".png class='cbtn2' id='f"+rs10_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/fronthair/fronthair15.png" class="cbtn2" id="f15">
+			  	 <img src="img/header/fronthair/fronthair16.png" class="cbtn2" id="f16">
+			  	 <img src="img/header/fronthair/fronthair17.png" class="cbtn2" id="f17">
+			  	 <img src="img/header/fronthair/fronthair18.png" class="cbtn2" id="f18">
+			  	 <img src="img/header/fronthair/fronthair19.png" class="cbtn2" id="f19">
+			  	 <img src="img/header/fronthair/fronthair20.png" class="cbtn2" id="f20">
+			  	 <img src="img/header/fronthair/fronthair21.png" class="cbtn2" id="f21"-->
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair04.png" class="dropbtn" onclick="myFunction(7)">
+				<img src="img/header/fronthair/fronthair22.png" class="dropbtn" onclick="myFunction(7)">
                 <div class="dropdown-content" id="myDropdown7">
-			  	 <img src="img/header/front hair/front hair04.png" class="cbtn2" id="f4">
-			  	 <img src="img/header/front hair/front hair041.png" class="cbtn2" id="f41">
-			  	 <img src="img/header/front hair/front hair042.png" class="cbtn2" id="f42">
-			  	 <img src="img/header/front hair/front hair043.png" class="cbtn2" id="f43">
-			  	 <img src="img/header/front hair/front hair044.png" class="cbtn2" id="f44">
-			  	 <img src="img/header/front hair/front hair045.png" class="cbtn2" id="f45">
-			  	 <img src="img/header/front hair/front hair046.png" class="cbtn2" id="f46">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 110 AND 116";
+           				ResultSet rs11 =  con.createStatement().executeQuery(sql);
+						while(rs11.next())
+						{	
+							rs11_count += 1;
+							out.println("<img src="+rs11.getString(2)+rs11.getString(3)+rs11_count+".png class='cbtn2' id='f"+rs11_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/fronthair/fronthair22.png" class="cbtn2" id="f22">
+			  	 <img src="img/header/fronthair/fronthair23.png" class="cbtn2" id="f23">
+			  	 <img src="img/header/fronthair/fronthair24.png" class="cbtn2" id="f24">
+			  	 <img src="img/header/fronthair/fronthair25.png" class="cbtn2" id="f25">
+			  	 <img src="img/header/fronthair/fronthair26.png" class="cbtn2" id="f26">
+			  	 <img src="img/header/fronthair/fronthair27.png" class="cbtn2" id="f27">
+			  	 <img src="img/header/fronthair/fronthair28.png" class="cbtn2" id="f28"-->
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair05.png" class="dropbtn" onclick="myFunction(8)">
+				<img src="img/header/fronthair/fronthair29.png" class="dropbtn" onclick="myFunction(8)">
                 <div class="dropdown-content" id="myDropdown8">
-			  	 <img src="img/header/front hair/front hair05.png" class="cbtn2" id="f5">
-			  	 <img src="img/header/front hair/front hair051.png" class="cbtn2" id="f51">
-			  	 <img src="img/header/front hair/front hair052.png" class="cbtn2" id="f52">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 117 AND 119";
+           				ResultSet rs12 =  con.createStatement().executeQuery(sql);
+						while(rs12.next())
+						{	
+							rs12_count += 1;
+							out.println("<img src="+rs12.getString(2)+rs12.getString(3)+rs12_count+".png class='cbtn2' id='f"+rs12_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/fronthair/fronthair29.png" class="cbtn2" id="f29">
+			  	 <img src="img/header/fronthair/fronthair30.png" class="cbtn2" id="f30">
+			  	 <img src="img/header/fronthair/fronthair31.png" class="cbtn2" id="f31"-->
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/front hair/front hair06.png" class="dropbtn" onclick="myFunction(9)">
+				<img src="img/header/fronthair/fronthair32.png" class="dropbtn" onclick="myFunction(9)">
                 <div class="dropdown-content" id="myDropdown9">
-			  	 <img src="img/header/front hair/front hair06.png" class="cbtn2" id="f6">
-			  	 <img src="img/header/front hair/front hair061.png" class="cbtn2" id="f61">
-			  	 <img src="img/header/front hair/front hair062.png" class="cbtn2" id="f62">
-			  	 <img src="img/header/front hair/front hair063.png" class="cbtn2" id="f63">
-			  	 <img src="img/header/front hair/front hair064.png" class="cbtn2" id="f64">
-			  	 <img src="img/header/front hair/front hair065.png" class="cbtn2" id="f65">
-			  	 <img src="img/header/front hair/front hair066.png" class="cbtn2" id="f66">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 120 AND 126";
+           				ResultSet rs13 =  con.createStatement().executeQuery(sql);
+						while(rs13.next())
+						{	
+							rs13_count += 1;
+							out.println("<img src="+rs13.getString(2)+rs13.getString(3)+rs13_count+".png class='cbtn2' id='f"+rs13_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/fronthair/fronthair32.png" class="cbtn2" id="f32">
+			  	 <img src="img/header/fronthair/fronthair33.png" class="cbtn2" id="f33">
+			  	 <img src="img/header/fronthair/fronthair34.png" class="cbtn2" id="f34">
+			  	 <img src="img/header/fronthair/fronthair35.png" class="cbtn2" id="f35">
+			  	 <img src="img/header/fronthair/fronthair36.png" class="cbtn2" id="f36">
+			  	 <img src="img/header/fronthair/fronthair37.png" class="cbtn2" id="f37">
+			  	 <img src="img/header/fronthair/fronthair38.png" class="cbtn2" id="f38"-->
 			  </div></div>				
-			  <img src="img/cross.png" id="f7" height="72px" style="position:absolute; top:10px; margin-left:20px;">
+			  <img src="img/cross.png" id="f39" height="72px" style="position:relative; top:10px; margin-left:20px;float:left;">
 			</div>
 			<div id="tab6" class="tab_content">
 				<div class="dropdown">
-				<img src="img/header/back hair/back hair01.png" class="dropbtn" onclick="myFunction(10)">
+				<img src="img/header/backhair/backhair1.png" class="dropbtn" onclick="myFunction(10)">
                 <div class="dropdown-content" id="myDropdown10">
-			  	 <img src="img/header/back hair/back hair01.png" class="cbtn2" id="b1">
-			  	 <img src="img/header/back hair/back hair011.png" class="cbtn2" id="b11">
-			  	 <img src="img/header/back hair/back hair012.png" class="cbtn2" id="b12">
-			  	 <img src="img/header/back hair/back hair013.png" class="cbtn2" id="b13">
-			  	 <img src="img/header/back hair/back hair014.png" class="cbtn2" id="b14">
-			  	 <img src="img/header/back hair/back hair015.png" class="cbtn2" id="b15">
-			  	 <img src="img/header/back hair/back hair016.png" class="cbtn2" id="b16">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 9 AND 15";
+           				ResultSet rs14 =  con.createStatement().executeQuery(sql);
+						while(rs14.next())
+						{	
+							rs14_count += 1;
+							out.println("<img src="+rs14.getString(2)+rs14.getString(3)+rs14_count+".png class='cbtn2' id='b"+rs14_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/backhair/backhair1.png" class="cbtn2" id="b1">
+			  	 <img src="img/header/backhair/backhair2.png" class="cbtn2" id="b2">
+			  	 <img src="img/header/backhair/backhair3.png" class="cbtn2" id="b3">
+			  	 <img src="img/header/backhair/backhair4.png" class="cbtn2" id="b4">
+			  	 <img src="img/header/backhair/backhair5.png" class="cbtn2" id="b5">
+			  	 <img src="img/header/backhair/backhair6.png" class="cbtn2" id="b6">
+			  	 <img src="img/header/backhair/backhair7.png" class="cbtn2" id="b7"-->
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/back hair/back hair02.png" class="dropbtn" onclick="myFunction(11)">
+				<img src="img/header/backhair/backhair8.png" class="dropbtn" onclick="myFunction(11)">
                 <div class="dropdown-content" id="myDropdown11">
-			  	 <img src="img/header/back hair/back hair02.png" class="cbtn2" id="b2">
-			  	 <img src="img/header/back hair/back hair021.png" class="cbtn2" id="b21">
-			  	 <img src="img/header/back hair/back hair022.png" class="cbtn2" id="b22">
-			  	 <img src="img/header/back hair/back hair023.png" class="cbtn2" id="b23">
-			  	 <img src="img/header/back hair/back hair024.png" class="cbtn2" id="b24">
-			  	 <img src="img/header/back hair/back hair025.png" class="cbtn2" id="b25">
-			  	 <img src="img/header/back hair/back hair026.png" class="cbtn2" id="b26">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 16 AND 22";
+           				ResultSet rs15 =  con.createStatement().executeQuery(sql);
+						while(rs15.next())
+						{	
+							rs15_count += 1;
+							out.println("<img src="+rs15.getString(2)+rs15.getString(3)+rs15_count+".png class='cbtn2' id='b"+rs15_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/backhair/backhair8.png" class="cbtn2" id="b8">
+			  	 <img src="img/header/backhair/backhair9.png" class="cbtn2" id="b9">
+			  	 <img src="img/header/backhair/backhair10.png" class="cbtn2" id="b10">
+			  	 <img src="img/header/backhair/backhair11.png" class="cbtn2" id="b11">
+			  	 <img src="img/header/backhair/backhair12.png" class="cbtn2" id="b12">
+			  	 <img src="img/header/backhair/backhair13.png" class="cbtn2" id="b13">
+			  	 <img src="img/header/backhair/backhair14.png" class="cbtn2" id="b14"-->
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/back hair/back hair03.png" class="dropbtn" onclick="myFunction(12)">
+				<img src="img/header/backhair/backhair15.png" class="dropbtn" onclick="myFunction(12)">
                 <div class="dropdown-content" id="myDropdown12">
-			  	 <img src="img/header/back hair/back hair03.png" class="cbtn2" id="b3">
-			  	 <img src="img/header/back hair/back hair031.png" class="cbtn2" id="b31">
-			  	 <img src="img/header/back hair/back hair032.png" class="cbtn2" id="b32">
-			  	 <img src="img/header/back hair/back hair033.png" class="cbtn2" id="b33">
-			  	 <img src="img/header/back hair/back hair034.png" class="cbtn2" id="b34">
-			  	 <img src="img/header/back hair/back hair035.png" class="cbtn2" id="b35">
-			  	 <img src="img/header/back hair/back hair036.png" class="cbtn2" id="b36">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 23 AND 29";
+           				ResultSet rs16 =  con.createStatement().executeQuery(sql);
+						while(rs16.next())
+						{	
+							rs16_count += 1;
+							out.println("<img src="+rs16.getString(2)+rs16.getString(3)+rs16_count+".png class='cbtn2' id='b"+rs16_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/backhair/backhair15.png" class="cbtn2" id="b15">
+			  	 <img src="img/header/backhair/backhair16.png" class="cbtn2" id="b16">
+			  	 <img src="img/header/backhair/backhair17.png" class="cbtn2" id="b17">
+			  	 <img src="img/header/backhair/backhair18.png" class="cbtn2" id="b18">
+			  	 <img src="img/header/backhair/backhair19.png" class="cbtn2" id="b19">
+			  	 <img src="img/header/backhair/backhair20.png" class="cbtn2" id="b20">
+			  	 <img src="img/header/backhair/backhair21.png" class="cbtn2" id="b21"-->
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/back hair/back hair04.png" class="dropbtn" onclick="myFunction(13)">
+				<img src="img/header/backhair/backhair22.png" class="dropbtn" onclick="myFunction(13)">
                 <div class="dropdown-content" id="myDropdown13">
-			  	 <img src="img/header/back hair/back hair04.png" class="cbtn2" id="b4">
-			  	 <img src="img/header/back hair/back hair041.png" class="cbtn2" id="b41">
-			  	 <img src="img/header/back hair/back hair042.png" class="cbtn2" id="b42">
-			  	 <img src="img/header/back hair/back hair043.png" class="cbtn2" id="b43">
-			  	 <img src="img/header/back hair/back hair044.png" class="cbtn2" id="b44">
-			  	 <img src="img/header/back hair/back hair045.png" class="cbtn2" id="b45">
-			  	 <img src="img/header/back hair/back hair046.png" class="cbtn2" id="b46">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 30 AND 36";
+           				ResultSet rs17 =  con.createStatement().executeQuery(sql);
+						while(rs17.next())
+						{	
+							rs17_count += 1;
+							out.println("<img src="+rs17.getString(2)+rs17.getString(3)+rs17_count+".png class='cbtn2' id='b"+rs17_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/backhair/backhair22.png" class="cbtn2" id="b22">
+			  	 <img src="img/header/backhair/backhair23.png" class="cbtn2" id="b23">
+			  	 <img src="img/header/backhair/backhair24.png" class="cbtn2" id="b24">
+			  	 <img src="img/header/backhair/backhair25.png" class="cbtn2" id="b25">
+			  	 <img src="img/header/backhair/backhair26.png" class="cbtn2" id="b26">
+			  	 <img src="img/header/backhair/backhair27.png" class="cbtn2" id="b27">
+			  	 <img src="img/header/backhair/backhair28.png" class="cbtn2" id="b28"-->
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/back hair/back hair05.png" class="dropbtn" onclick="myFunction(14)">
+				<img src="img/header/backhair/backhair29.png" class="dropbtn" onclick="myFunction(14)">
                 <div class="dropdown-content" id="myDropdown14">
-			  	 <img src="img/header/back hair/back hair05.png" class="cbtn2" id="b5">
-			  	 <img src="img/header/back hair/back hair051.png" class="cbtn2" id="b51">
-			  	 <img src="img/header/back hair/back hair052.png" class="cbtn2" id="b52">
-			  	 <img src="img/header/back hair/back hair053.png" class="cbtn2" id="b53">
-			  	 <img src="img/header/back hair/back hair054.png" class="cbtn2" id="b54">
-			  	 <img src="img/header/back hair/back hair055.png" class="cbtn2" id="b55">
-			  	 <img src="img/header/back hair/back hair056.png" class="cbtn2" id="b56">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 37 AND 43";
+           				ResultSet rs18 =  con.createStatement().executeQuery(sql);
+						while(rs18.next())
+						{	
+							rs18_count += 1;
+							out.println("<img src="+rs18.getString(2)+rs18.getString(3)+rs18_count+".png class='cbtn2' id='b"+rs18_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/backhair/backhair29.png" class="cbtn2" id="b29">
+			  	 <img src="img/header/backhair/backhair30.png" class="cbtn2" id="b30">
+			  	 <img src="img/header/backhair/backhair31.png" class="cbtn2" id="b31">
+			  	 <img src="img/header/backhair/backhair32.png" class="cbtn2" id="b32">
+			  	 <img src="img/header/backhair/backhair33.png" class="cbtn2" id="b33">
+			  	 <img src="img/header/backhair/backhair34.png" class="cbtn2" id="b34">
+			  	 <img src="img/header/backhair/backhair35.png" class="cbtn2" id="b35"-->
 			  </div></div>
-				<img src="img/cross.png" id="b6" height="72px" style="position:absolute; top:50px; margin-left:20px;">
+				<img src="img/cross.png" id="b36" height="72px" style="position:relative; top:50px; margin-left:20px; float:left;">
 			</div>
 			<div id="tab7" class="tab_content">
 				<div class="dropdown">
-				<img src="img/header/clothes/clothes01.png" class="dropbtn" onclick="myFunction(15)">
+				<img src="img/header/clothes/clothes1.png" class="dropbtn" onclick="myFunction(15)">
                 <div class="dropdown-content" id="myDropdown15">
-			  	 <img src="img/header/clothes/clothes01.png" class="cbtn2" id="c1">
-			  	 <img src="img/header/clothes/clothes011.png" class="cbtn2" id="c11">
-			  	 <img src="img/header/clothes/clothes012.png" class="cbtn2" id="c12">
-			  	 <img src="img/header/clothes/clothes013.png" class="cbtn2" id="c13">
-			  	 <img src="img/header/clothes/clothes014.png" class="cbtn2" id="c14">
-			  	 <img src="img/header/clothes/clothes015.png" class="cbtn2" id="c15">
-			  	 <img src="img/header/clothes/clothes016.png" class="cbtn2" id="c16">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 45 AND 51";
+           				ResultSet rs19 =  con.createStatement().executeQuery(sql);
+						while(rs19.next())
+						{	
+							rs19_count += 1;
+							out.println("<img src="+rs19.getString(2)+rs19.getString(3)+rs19_count+".png class='cbtn2' id='c"+rs19_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/clothes/clothes1.png" class="cbtn2" id="c1">
+			  	 <img src="img/header/clothes/clothes2.png" class="cbtn2" id="c2">
+			  	 <img src="img/header/clothes/clothes3.png" class="cbtn2" id="c3">
+			  	 <img src="img/header/clothes/clothes4.png" class="cbtn2" id="c4">
+			  	 <img src="img/header/clothes/clothes5.png" class="cbtn2" id="c5">
+			  	 <img src="img/header/clothes/clothes6.png" class="cbtn2" id="c6">
+			  	 <img src="img/header/clothes/clothes7.png" class="cbtn2" id="c7"-->
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/clothes/clothes02.png" class="dropbtn" onclick="myFunction(16)">
+				<img src="img/header/clothes/clothes8.png" class="dropbtn" onclick="myFunction(16)">
                 <div class="dropdown-content" id="myDropdown16">
-			  	 <img src="img/header/clothes/clothes02.png" class="cbtn2" id="c2">
-			  	 <img src="img/header/clothes/clothes021.png" class="cbtn2" id="c21">
-			  	 <img src="img/header/clothes/clothes022.png" class="cbtn2" id="c22">
-			  	 <img src="img/header/clothes/clothes023.png" class="cbtn2" id="c23">
-			  	 <img src="img/header/clothes/clothes024.png" class="cbtn2" id="c24">
-			  	 <img src="img/header/clothes/clothes025.png" class="cbtn2" id="c25">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 52 AND 57";
+           				ResultSet rs20 =  con.createStatement().executeQuery(sql);
+						while(rs20.next())
+						{	
+							rs20_count += 1;
+							out.println("<img src="+rs20.getString(2)+rs20.getString(3)+rs20_count+".png class='cbtn2' id='c"+rs20_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/clothes/clothes8.png" class="cbtn2" id="c8">
+			  	 <img src="img/header/clothes/clothes9.png" class="cbtn2" id="c9">
+			  	 <img src="img/header/clothes/clothes10.png" class="cbtn2" id="c10">
+			  	 <img src="img/header/clothes/clothes11.png" class="cbtn2" id="c11">
+			  	 <img src="img/header/clothes/clothes12.png" class="cbtn2" id="c12">
+			  	 <img src="img/header/clothes/clothes13.png" class="cbtn2" id="c13"-->
 			  </div></div>
 				<div class="dropdown">
-				<img src="img/header/clothes/clothes03.png" class="dropbtn" onclick="myFunction(17)">
+				<img src="img/header/clothes/clothes14.png" class="dropbtn" onclick="myFunction(17)">
                 <div class="dropdown-content" id="myDropdown17">
-			  	 <img src="img/header/clothes/clothes03.png" class="cbtn2" id="c3">
-			  	 <img src="img/header/clothes/clothes031.png" class="cbtn2" id="c31">
-			  	 <img src="img/header/clothes/clothes032.png" class="cbtn2" id="c32">
-			  	 <img src="img/header/clothes/clothes033.png" class="cbtn2" id="c33">
+                	<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 58 AND 61";
+           				ResultSet rs21 =  con.createStatement().executeQuery(sql);
+						while(rs21.next())
+						{	
+							rs21_count += 1;
+							out.println("<img src="+rs21.getString(2)+rs21.getString(3)+rs21_count+".png class='cbtn2' id='c"+rs21_count+"'>");
+						}
+					
+			  		%>
+			  	 <!--img src="img/header/clothes/clothes14.png" class="cbtn2" id="c14">
+			  	 <img src="img/header/clothes/clothes15.png" class="cbtn2" id="c15">
+			  	 <img src="img/header/clothes/clothes16.png" class="cbtn2" id="c16">
+			  	 <img src="img/header/clothes/clothes17.png" class="cbtn2" id="c17"-->
 			  </div></div>
-			  	<img src="img/header/clothes/clothes04.png" class="cbtn" id="c4">
-				<img src="img/header/clothes/clothes05.png" class="cbtn" id="c5">
-				<img src="img/header/clothes/clothes06.png" class="cbtn" id="c6">
+			  <%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 62 AND 64";
+           				ResultSet rs22 =  con.createStatement().executeQuery(sql);
+						while(rs22.next())
+						{	
+							rs22_count += 1;
+							out.println("<img src="+rs22.getString(2)+rs22.getString(3)+rs22_count+".png class='cbtn2' id='c"+rs22_count+"'>");
+						}
+					
+			  		%>
+			  	<!--img src="img/header/clothes/clothes18.png" class="cbtn" id="c18">
+				<img src="img/header/clothes/clothes19.png" class="cbtn" id="c19">
+				<img src="img/header/clothes/clothes20.png" class="cbtn" id="c20"-->
 			</div>
 			<div id="tab8" class="tab_content">
-				<img src="img/header/accessories/accessories01.png" class="cbtn" id="a1">
-				<img src="img/header/accessories/accessories02.png" class="cbtn" id="a2">
-				<img src="img/header/accessories/accessories03.png" class="cbtn" id="a3">
-				<img src="img/header/accessories/accessories04.png" class="cbtn" id="a4">
-				<img src="img/header/accessories/accessories05.png" class="cbtn" id="a5">
-				<img src="img/header/accessories/accessories06.png" class="cbtn" id="a6">
-				<img src="img/header/accessories/accessories07.png" class="cbtn" id="a7">
-				<img src="img/cross.png" id="a8" height="72px" style="position:absolute; top:30px; margin-left:20px;">
+				<%
+			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 1 AND 8";
+           				ResultSet rs23 =  con.createStatement().executeQuery(sql);
+						while(rs23.next())
+						{	
+							rs23_count += 1;
+							out.println("<img src="+rs23.getString(2)+rs23.getString(3)+rs23_count+".png class='cbtn' id='a"+rs23_count+"'>");
+						}
+					}
+			  		%>
+				<!--img src="img/header/accessories/accessories1.png" class="cbtn" id="a1">
+				<img src="img/header/accessories/accessories2.png" class="cbtn" id="a2">
+				<img src="img/header/accessories/accessories3.png" class="cbtn" id="a3">
+				<img src="img/header/accessories/accessories4.png" class="cbtn" id="a4">
+				<img src="img/header/accessories/accessories5.png" class="cbtn" id="a5">
+				<img src="img/header/accessories/accessories6.png" class="cbtn" id="a6">
+				<img src="img/header/accessories/accessories7.png" class="cbtn" id="a7"-->
+				<img src="img/cross.png" id="a8" height="72px" style="position:relative; top:30px; margin-left:20px;float:left;">		
 			</div>
 		</div>
 
 		</div>
 
+		<%
+          con.close();
+      }
 
+    catch (SQLException sExec) {
+           out.println("SQL錯誤"+sExec);
+		   
+    }
+}
+catch (ClassNotFoundException err) {
+      out.println("class錯誤");
+}
+%>
 	</body>
 </html>

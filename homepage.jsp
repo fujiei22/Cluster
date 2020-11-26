@@ -189,8 +189,8 @@ try {
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
-            
-            <a class="nav-link active" href="member.jsp"><img src="img/test.jpg" style="width:30%">User name</a>
+            <%String name =(String) session.getAttribute("name");%>
+            <a class="nav-link active" href="member.jsp"><img src="img/test.jpg" style="width:30%"><%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
             <a class="nav-link active" href="homepage.jsp">話題</a>
@@ -271,13 +271,14 @@ try {
                     out.println("<div class='maindiv'>");
                     out.println("<span class=''>"+rs.getString(4)+"</span>");
                     out.println("<p class=''>"+rs.getString(5)+"</span>");
-                    out.println("<span class='badge badge-primary'>音樂</span>");
+                    out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
                     out.println("</div>");
                     out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
                   }
               %> 
             </div>
+            
             <div class="tab-pane fade" id="hot" role="tabpanel" aria-labelledby="profile-tab">
               <div class="row" >
                 <img src="img/test.jpg" style="width:10%;margin:10px;">
