@@ -22,6 +22,10 @@ try{
                 if(rs.next())
                   {
                     Cookie name = new Cookie("name",rs.getString("Name"));
+<<<<<<< Updated upstream
+=======
+                    response.addCookie(name);
+>>>>>>> Stashed changes
                   	session.setAttribute("name",rs.getString("Name"));
                   	session.setAttribute("gender",rs.getString("Gender"));
                   	session.setAttribute("birthday",rs.getString("Birthday"));
@@ -29,6 +33,17 @@ try{
                     session.setAttribute("password",rs.getString("Password"));
                     out.println(name);
                     out.println("登入成功，3秒後頁面自動進行跳轉");
+                    Cookie cookie = null;
+                    Cookie[] cookies = null;
+                    // Get an array of Cookies associated with this domain
+                    cookies = request.getCookies();
+                    if( cookies != null ){
+                        out.println("<h2> Found Cookies Name and Value</h2>");
+                        for (int i = 0; i < cookies.length; i++){
+                          cookie = cookies[i];
+                          out.print("Name : " + cookie.getName( ) + ",  ");
+                          out.print("Value: " + cookie.getValue( )+" <br/>");
+                        }
                     response.setHeader("Refresh","3;customer_survey.jsp");
                   }
                 else
@@ -43,6 +58,7 @@ try{
               }
           }
         }
+      }
     catch (SQLException sExec) {
         out.println("SQL錯誤"+sExec.toString());
     }
