@@ -391,7 +391,7 @@ $(function () {
           <img src="img/star1.png" class="star">
           <img src="img/blockade.png" class="block" onclick="myFunction()">
 
-          <li><a href="#" class="jq-clickBtn"><img src="../img/more.png" class="more"></a>
+          <li><a href="#" class="jq-clickBtn"><img src="img/more.png" class="more"></a>
           <ul class="jq-dropdown">
             <li><a href="#">檢舉</a></li>          
         </li></ul>
