@@ -361,29 +361,14 @@ $(function () {
           訊息訊息訊息
         </div>
       </a></li>
-      <li><a href="#tab2">
-        <img src="img/test.jpg" class="sq">
-        <span class="fname">Name2</span>
-        <div class="mes1">
-          訊息訊息訊息
-        </div>        
-      </a></li>
 
     </ul>
     </div>    
     <div class="tab_container">
       <div id="tab1" class="tab_content">
       <div class="mesarea">
-        <div style="width:50%;height:480px;position:absolute;right: 0px;text-align: right;">
-        <div class="mesr">你好</div><br>
-        <div class="mesr">訊息訊息訊息</div><br>
-        <div class="mesr">訊息訊息訊息訊息訊息訊息</div><br>
-      </div>
-        <div style="width:50%;height:480px;position:absolute;left: 0px;text-align: left;">
-        <div class="mesl">你好</div><br>
-        <div class="mesl">訊息訊息訊息</div><br>
-        <div class="mesl">訊息訊息訊息訊息訊息訊息</div><br>
-      </div>
+
+
       </div>        
         <div class="mestop">
           <span class="fname2">Name1</span>
@@ -407,39 +392,7 @@ $(function () {
 
         </div><!--tab1--> 
 
-      <div id="tab2" class="tab_content">
-        <div class="mesarea">
-        <div style="width:50%;height:480px;position:absolute;right: 0px;text-align: right;">
-        <div class="mesr">你好</div><br>
-        <div class="mesr">訊息訊息訊息</div><br>
-        <div class="mesr">訊息訊息訊息訊息訊息訊息</div><br>
-      </div>
-        <div style="width:50%;height:480px;position:absolute;left: 0px;text-align: left;">
-        <div class="mesl">你好</div><br>
-        <div class="mesl">訊息訊息訊息</div><br>
-        <div class="mesl">訊息訊息訊息訊息訊息訊息</div><br>
-      </div>
-      </div>        
-        <div class="mestop">
-          <span class="fname2">Name2</span>
-          <span class="online">離線</span>
-          <img src="img/star1.png" class="star">
-          <img src="img/blockade.png" class="block" onclick="myFunction()">
 
-          <li><a href="#" class="jq-clickBtn"><img src="../img/more.png" class="more"></a>
-          <ul class="jq-dropdown">
-            <li><a href="#">檢舉</a></li>          
-        </li></ul>
-      </div>
-      <div class="inputmes">
-        <input type="text" class="send">
-        <button type="submit" class="sendbtn">發送</button>
-      </div>
-      <div class="memberbox">
-        <img src="img/test.jpg" class="sq2">
-        <div class="fname3">Name2</div>
-      </div>
-      </div>
 
       </div> <!--tab_container-->     
     </div><!--box1-->      
