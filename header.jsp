@@ -148,16 +148,16 @@ try {
 
 
 	<div id="backcolor">
-	<a href="member.html"><img src="img/back.png" id="backicon"></a>
+	<a href="member.jsp"><img src="img/back.png" id="backicon"></a>
 	<a href="#完成"><img src="img/finish.png" id="finishicon"></a>
-	<img src="img/header/skin/skin1.png" id="skin">
-	<img src="img/header/eyes/eyes1.png" id="eyes">
-	<img src="img/header/eyebrow/eyebrow4.png" id="eyebrow">
-	<img src="img/header/mouth/mouth1.png" id="mouth">
-	<img src="img/header/fronthair/fronthair5.png" id="fronthair">
-	<img src="img/header/backhair/backhair2.png" id="backhair">
-	<img src="img/header/clothes/clothes4.png" id="clothes">
-	<img src="img/header/accessories/accessories7.png" id="accessories">
+	<img src="img/header/skin/skin1.png" id="skin" class="headersstyle">
+	<img src="img/header/eyes/eyes1.png" id="eyes" class="headersstyle">
+	<img src="img/header/eyebrow/eyebrow4.png" id="eyebrow" class="headersstyle">
+	<img src="img/header/mouth/mouth1.png" id="mouth" class="headersstyle">
+	<img src="img/header/fronthair/fronthair5.png" id="fronthair" class="headersstyle">
+	<img src="img/header/backhair/backhair2.png" id="backhair" class="headersstyle">
+	<img src="img/header/clothes/clothes4.png" id="clothes" class="headersstyle">
+	<img src="img/header/accessories/accessories7.png" id="accessories" class="headersstyle">
 			<div class="abgne_tab">
 				<ul class="tabs">
 				<li><a href="#tab1"><img src="img/header/skin/skin2.png" class="clickimg"></a></li>
@@ -177,8 +177,8 @@ try {
            			ResultSet rs1 =  con.createStatement().executeQuery(sql);
 					while(rs1.next())
 					{	
-						rs1_count += 1;
-						out.println("<img src="+rs1.getString(2)+rs1.getString(3)+rs1_count+".png class='cbtn' id='s"+rs1_count+"'>");
+						rs1_count+=1;
+						out.println("<img src="+rs1.getString(2)+rs1.getString(3)+".png class='cbtn' id='s"+rs1_count+"'>");
 					}
               
               %>
@@ -196,8 +196,8 @@ try {
            					ResultSet rs2 =  con.createStatement().executeQuery(sql);
 							while(rs2.next())
 							{	
-								rs2_count += 1;
-								out.println("<img src="+rs2.getString(2)+rs2.getString(3)+rs2_count+".png class='cbtn2' id='e"+rs2_count+"'>");
+								rs2_count+=1;
+								out.println("<img src="+rs2.getString(2)+rs2.getString(3)+".png class='cbtn2' id='e"+rs2_count+"'>");
 							}
 						
 			  			%>
@@ -221,8 +221,8 @@ try {
            				ResultSet rs3 =  con.createStatement().executeQuery(sql);
 						while(rs3.next())
 						{	
-							rs3_count += 1;
-							out.println("<img src="+rs3.getString(2)+rs3.getString(3)+rs3_count+".png class='cbtn2' id='e"+rs3_count+"'>");
+							rs3_count+=1;
+							out.println("<img src="+rs3.getString(2)+rs3.getString(3)+".png class='cbtn2' id='e"+rs3_count+"'>");
 						}
 					
 			  		%>
@@ -243,8 +243,8 @@ try {
            				ResultSet rs4 =  con.createStatement().executeQuery(sql);
 						while(rs4.next())
 						{	
-							rs4_count += 1;
-							out.println("<img src="+rs4.getString(2)+rs4.getString(3)+rs4_count+".png class='cbtn2' id='e"+rs4_count+"'>");
+							rs4_count+=1;
+							out.println("<img src="+rs4.getString(2)+rs4.getString(3)+".png class='cbtn2' id='e"+rs4_count+"'>");
 						}
 					
 			  		%>
@@ -259,8 +259,8 @@ try {
            				ResultSet rs5 =  con.createStatement().executeQuery(sql);
 						while(rs5.next())
 						{	
-							rs5_count += 1;
-							out.println("<img src="+rs5.getString(2)+rs5.getString(3)+rs5_count+".png class='cbtn' id='e"+rs5_count+"'>");
+							rs5_count+=1;
+							out.println("<img src="+rs5.getString(2)+rs5.getString(3)+".png class='cbtn' id='e"+rs5_count+"'>");
 						}
 					
 			  		%>
@@ -274,8 +274,8 @@ try {
            				ResultSet rs6 =  con.createStatement().executeQuery(sql);
 						while(rs6.next())
 						{	
-							rs6_count += 1;
-							out.println("<img src="+rs6.getString(2)+rs6.getString(3)+rs6_count+".png class='cbtn' id='eb"+rs6_count+"'>");
+							rs6_count+=1;
+							out.println("<img src="+rs6.getString(2)+rs6.getString(3)+".png class='cbtn' id='eb"+rs6_count+"'>");
 						}
 					
 			  		%>
@@ -290,8 +290,8 @@ try {
            				ResultSet rs7 =  con.createStatement().executeQuery(sql);
 						while(rs7.next())
 						{	
-							rs7_count += 1;
-							out.println("<img src="+rs7.getString(2)+rs7.getString(3)+rs7_count+".png class='cbtn' id='m"+rs7_count+"'>");
+							rs7_count+=1;
+							out.println("<img src="+rs7.getString(2)+rs7.getString(3)+".png class='cbtn' id='m"+rs7_count+"'>");
 						}
 					
 			  		%>
@@ -313,8 +313,8 @@ try {
            				ResultSet rs8 =  con.createStatement().executeQuery(sql);
 						while(rs8.next())
 						{	
-							rs8_count += 1;
-							out.println("<img src="+rs8.getString(2)+rs8.getString(3)+rs8_count+".png class='cbtn2' id='f"+rs8_count+"'>");
+							rs8_count+=1;
+							out.println("<img src="+rs8.getString(2)+rs8.getString(3)+".png class='cbtn2' id='f"+rs8_count+"'>");
 						}
 					
 			  		%>
@@ -335,8 +335,8 @@ try {
            				ResultSet rs9 =  con.createStatement().executeQuery(sql);
 						while(rs9.next())
 						{	
-							rs9_count += 1;
-							out.println("<img src="+rs9.getString(2)+rs9.getString(3)+rs9_count+".png class='cbtn2' id='f"+rs9_count+"'>");
+							rs9_count+=1;
+							out.println("<img src="+rs9.getString(2)+rs9.getString(3)+".png class='cbtn2' id='f"+rs9_count+"'>");
 						}
 					
 			  		%>
@@ -356,8 +356,8 @@ try {
            				ResultSet rs10 =  con.createStatement().executeQuery(sql);
 						while(rs10.next())
 						{	
-							rs10_count += 1;
-							out.println("<img src="+rs10.getString(2)+rs10.getString(3)+rs10_count+".png class='cbtn2' id='f"+rs10_count+"'>");
+							rs10_count+=1;
+							out.println("<img src="+rs10.getString(2)+rs10.getString(3)+".png class='cbtn2' id='f"+rs10_count+"'>");
 						}
 					
 			  		%>
@@ -377,8 +377,8 @@ try {
            				ResultSet rs11 =  con.createStatement().executeQuery(sql);
 						while(rs11.next())
 						{	
-							rs11_count += 1;
-							out.println("<img src="+rs11.getString(2)+rs11.getString(3)+rs11_count+".png class='cbtn2' id='f"+rs11_count+"'>");
+							rs11_count+=1;
+							out.println("<img src="+rs11.getString(2)+rs11.getString(3)+".png class='cbtn2' id='f"+rs11_count+"'>");
 						}
 					
 			  		%>
@@ -398,8 +398,8 @@ try {
            				ResultSet rs12 =  con.createStatement().executeQuery(sql);
 						while(rs12.next())
 						{	
-							rs12_count += 1;
-							out.println("<img src="+rs12.getString(2)+rs12.getString(3)+rs12_count+".png class='cbtn2' id='f"+rs12_count+"'>");
+							rs12_count+=1;
+							out.println("<img src="+rs12.getString(2)+rs12.getString(3)+".png class='cbtn2' id='f"+rs12_count+"'>");
 						}
 					
 			  		%>
@@ -414,9 +414,8 @@ try {
 			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 120 AND 126";
            				ResultSet rs13 =  con.createStatement().executeQuery(sql);
 						while(rs13.next())
-						{	
-							rs13_count += 1;
-							out.println("<img src="+rs13.getString(2)+rs13.getString(3)+rs13_count+".png class='cbtn2' id='f"+rs13_count+"'>");
+						{	rs13_count+=1;
+							out.println("<img src="+rs13.getString(2)+rs13.getString(3)+".png class='cbtn2' id='f"+rs13_count+"'>");
 						}
 					
 			  		%>
@@ -439,8 +438,8 @@ try {
            				ResultSet rs14 =  con.createStatement().executeQuery(sql);
 						while(rs14.next())
 						{	
-							rs14_count += 1;
-							out.println("<img src="+rs14.getString(2)+rs14.getString(3)+rs14_count+".png class='cbtn2' id='b"+rs14_count+"'>");
+							rs14_count+=1;
+							out.println("<img src="+rs14.getString(2)+rs14.getString(3)+".png class='cbtn2' id='b"+rs14_count+"'>");
 						}
 					
 			  		%>
@@ -460,8 +459,8 @@ try {
            				ResultSet rs15 =  con.createStatement().executeQuery(sql);
 						while(rs15.next())
 						{	
-							rs15_count += 1;
-							out.println("<img src="+rs15.getString(2)+rs15.getString(3)+rs15_count+".png class='cbtn2' id='b"+rs15_count+"'>");
+							rs15_count+=1;
+							out.println("<img src="+rs15.getString(2)+rs15.getString(3)+".png class='cbtn2' id='b"+rs15_count+"'>");
 						}
 					
 			  		%>
@@ -480,9 +479,8 @@ try {
 			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 23 AND 29";
            				ResultSet rs16 =  con.createStatement().executeQuery(sql);
 						while(rs16.next())
-						{	
-							rs16_count += 1;
-							out.println("<img src="+rs16.getString(2)+rs16.getString(3)+rs16_count+".png class='cbtn2' id='b"+rs16_count+"'>");
+						{	rs16_count+=1;
+							out.println("<img src="+rs16.getString(2)+rs16.getString(3)+".png class='cbtn2' id='b"+rs16_count+"'>");
 						}
 					
 			  		%>
@@ -502,8 +500,8 @@ try {
            				ResultSet rs17 =  con.createStatement().executeQuery(sql);
 						while(rs17.next())
 						{	
-							rs17_count += 1;
-							out.println("<img src="+rs17.getString(2)+rs17.getString(3)+rs17_count+".png class='cbtn2' id='b"+rs17_count+"'>");
+							rs17_count+=1;
+							out.println("<img src="+rs17.getString(2)+rs17.getString(3)+".png class='cbtn2' id='b"+rs17_count+"'>");
 						}
 					
 			  		%>
@@ -523,8 +521,8 @@ try {
            				ResultSet rs18 =  con.createStatement().executeQuery(sql);
 						while(rs18.next())
 						{	
-							rs18_count += 1;
-							out.println("<img src="+rs18.getString(2)+rs18.getString(3)+rs18_count+".png class='cbtn2' id='b"+rs18_count+"'>");
+							rs18_count+=1;
+							out.println("<img src="+rs18.getString(2)+rs18.getString(3)+".png class='cbtn2' id='b"+rs18_count+"'>");
 						}
 					
 			  		%>
@@ -547,8 +545,8 @@ try {
            				ResultSet rs19 =  con.createStatement().executeQuery(sql);
 						while(rs19.next())
 						{	
-							rs19_count += 1;
-							out.println("<img src="+rs19.getString(2)+rs19.getString(3)+rs19_count+".png class='cbtn2' id='c"+rs19_count+"'>");
+							rs19_count+=1;
+							out.println("<img src="+rs19.getString(2)+rs19.getString(3)+".png class='cbtn2' id='c"+rs19_count+"'>");
 						}
 					
 			  		%>
@@ -568,8 +566,8 @@ try {
            				ResultSet rs20 =  con.createStatement().executeQuery(sql);
 						while(rs20.next())
 						{	
-							rs20_count += 1;
-							out.println("<img src="+rs20.getString(2)+rs20.getString(3)+rs20_count+".png class='cbtn2' id='c"+rs20_count+"'>");
+							rs20_count+=1;
+							out.println("<img src="+rs20.getString(2)+rs20.getString(3)+".png class='cbtn2' id='c"+rs20_count+"'>");
 						}
 					
 			  		%>
@@ -588,8 +586,8 @@ try {
            				ResultSet rs21 =  con.createStatement().executeQuery(sql);
 						while(rs21.next())
 						{	
-							rs21_count += 1;
-							out.println("<img src="+rs21.getString(2)+rs21.getString(3)+rs21_count+".png class='cbtn2' id='c"+rs21_count+"'>");
+							rs21_count+=1;
+							out.println("<img src="+rs21.getString(2)+rs21.getString(3)+".png class='cbtn2' id='c"+rs21_count+"'>");
 						}
 					
 			  		%>
@@ -603,8 +601,8 @@ try {
            				ResultSet rs22 =  con.createStatement().executeQuery(sql);
 						while(rs22.next())
 						{	
-							rs22_count += 1;
-							out.println("<img src="+rs22.getString(2)+rs22.getString(3)+rs22_count+".png class='cbtn2' id='c"+rs22_count+"'>");
+							rs22_count+=1;
+							out.println("<img src="+rs22.getString(2)+rs22.getString(3)+".png class='cbtn2' id='c"+rs22_count+"'>");
 						}
 					
 			  		%>
@@ -618,8 +616,8 @@ try {
            				ResultSet rs23 =  con.createStatement().executeQuery(sql);
 						while(rs23.next())
 						{	
-							rs23_count += 1;
-							out.println("<img src="+rs23.getString(2)+rs23.getString(3)+rs23_count+".png class='cbtn' id='a"+rs23_count+"'>");
+							rs23_count+=1;
+							out.println("<img src="+rs23.getString(2)+rs23.getString(3)+".png class='cbtn' id='a"+rs23_count+"'>");
 						}
 					}
 			  		%>
@@ -649,5 +647,38 @@ catch (ClassNotFoundException err) {
       out.println("class錯誤");
 }
 %>
+<script>
+
+$("#finishicon").click(function(){
+$(".headersstyle").each(function( x,item ) {
+    console.log(item)
+	let currPath = item.getAttribute("src")
+    var text = currPath.lastIndexOf('/')
+    text = currPath.slice(text+1,-4)
+
+    thenum = text.match(/\d+/)[0] 
+    let type = text.replace(thenum,"")
+    console.log("[Type]:",type);
+    console.log("[Number]:",thenum);
+
+    $("#input"+type).attr("value",thenum)
+
+
+
+});
+$( "#hiddenform" ).submit();
+});
+</script>
+
+<form action="updateheader.jsp" id="hiddenform" method="post">
+<input type="hidden" name="skin" id="inputskin" value=""></input>
+<input type="hidden" name="eyes" id="inputeyes" value=""></input>
+<input type="hidden" name="eyebrow" id="inputeyebrow" value=""></input>
+<input type="hidden" name="mouth" id="inputmouth" value=""></input>
+<input type="hidden" name="fronthair" id="inputfronthair" value=""></input>
+<input type="hidden" name="backhair" id="inputbackhair" value=""></input>
+<input type="hidden" name="clothes" id="inputclothes" value=""></input>
+<input type="hidden" name="accessories" id="inputaccessories" value=""></input>
+</form>
 	</body>
 </html>
