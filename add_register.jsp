@@ -21,12 +21,13 @@ try {
            String new_date=request.getParameter("birthday");
            String new_mail=request.getParameter("email");
            String new_pwd=new String(request.getParameter("password").getBytes("ISO-8859-1"),"UTF-8");
+           java.sql.Date new_createtime=new java.sql.Date(System.currentTimeMillis());
 
            new_name=new_name.replace(" ","");
            new_mail=new_mail.replace(" ","");
            new_pwd=new_pwd.replace(" ","");
 
-           out.println(new_mail);
+           out.println(new_name);
 
            if(new_mail != null && new_mail != "" && new_pwd != null && new_pwd != "")
                   {
@@ -39,12 +40,24 @@ try {
                       }
                     else
                       {
-                      sql="INSERT `member` (`Name`, `Gender` , `Birthday`, `Email`, `Password`)";
+                      sql="INSERT `member` (`Name`, `Gender` , `Birthday`, `Email`, `Password`, `Createtime`)";
                       sql+="VALUE ('" +new_name+ "', ";
                       sql+="'"+new_gender+"', ";
                       sql+="'"+new_date+"', ";     
                       sql+="'"+new_mail+"', ";
-                      sql+="'"+new_pwd+"')";
+                      sql+="'"+new_pwd+"', ";
+                      sql+="'"+new_createtime+"')";
+                      con.createStatement().execute(sql);
+                      sql="INSERT `memberskin` (`Email`, `Skin`, `Eyes` , `Eyebrow`, `Mouth`, `Fronthair`, `Backhair`, `Clothes`, `Accessories`)";
+                      sql+="VALUE ('" +new_mail+ "', ";
+                      sql+="'1', ";
+                      sql+="'1', ";
+                      sql+="'4', ";     
+                      sql+="'1', ";
+                      sql+="'5', ";
+                      sql+="'2', ";
+                      sql+="'4', ";
+                      sql+="'7')";
                       con.createStatement().execute(sql);
                       out.println("註冊成功，3秒後頁面自動進行跳轉");
                       response.setHeader("Refresh","3;login.jsp");

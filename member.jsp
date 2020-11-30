@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*, java.util.*"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,6 +16,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <html xmlns="http://www.w3.org/1999/xhtml">
+    <link rel="stylesheet" href="css/header.css">
+
 
 
     <style type="text/css">
@@ -278,10 +281,11 @@ $(document).ready(function () {
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
-            <a class="nav-link active" href="member.html">User name</a>
+          	<%String name =(String) session.getAttribute("name");%>
+            <a class="nav-link active" href="member.jsp"><%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
-            <a class="nav-link active" href="homepage.html">話題</a>
+            <a class="nav-link active" href="homepage.jsp">話題</a>
           </li>
           <li class="nav-item"style="height: 10%">
             <a class="nav-link" href="#">通知</a>
@@ -302,14 +306,15 @@ $(document).ready(function () {
       <!--第二區-->
       <div class="col-8 mainarea">
         <div id="box1">
-          <p>Hi! name</p>
+          <p>Hi! <%=name%></p>
           <p>關於你</p>
         </div>
             <div id="box2">
-              <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">  
-                
+   
+              <!--img src="img/test.jpg" id="sq"style="z-index:2;position: relative;"-->  
+                <%@ include file="importheader.jsp" %>
                 <div class="member_name">
-                  <p>name&nbsp;&nbsp;♀</p>
+                  <p><%=name%>&nbsp;&nbsp;♀</p>
                 </div>
                 <div class="signature">
                   <p>個簽</p>
@@ -401,7 +406,7 @@ $(document).ready(function () {
           </div>
         </div>
         <div class="row">
-          <a href="newtopic.html"><h2>"+"</h2></a>
+          <a href="newtopic.jsp"><h2>"+"</h2></a>
         </div>
       </div>
 
