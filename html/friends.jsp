@@ -224,7 +224,7 @@ $(".flip2").hover(function(){
             <a class="nav-link" href="#">通知</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#">好友</a>
+            <a class="nav-link" href="friends.html">好友</a>
           </li>
           <li class="nav-item"style="height: 10%">
             <a class="nav-link" href="chat.html">聊天</a>
