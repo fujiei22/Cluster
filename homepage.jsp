@@ -200,7 +200,7 @@ try {
             <a class="nav-link" href="#">通知</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#">好友</a>
+            <a class="nav-link" href="friends.jsp">好友</a>
           </li>
           <li class="nav-item"style="height: 10%">
             <a class="nav-link" href="#">聊天</a>
