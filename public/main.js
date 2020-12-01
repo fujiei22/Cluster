@@ -21,6 +21,14 @@ function getCookieByName(name) {
 
   return value;
 }
+function getCookieByrooms(rooms) {
+  var value = parseCookie()[room];
+  if (value) {
+      value = decodeURIComponent(value);
+  }
+
+  return value;
+}
 
 
 $(function() {
@@ -38,7 +46,7 @@ $(function() {
   var $messages = $('.messages'); // Messages area
   var $inputMessage = $('.inputMessage'); // Input message input box
 
-  var $loginPage = $('.login.page'); // The login page
+ // var $loginPage = $('.login.page'); // The login page
   var $chatPage = $('.chat.page'); // The chatroom page
 
   // Prompt for setting a username
@@ -46,7 +54,9 @@ $(function() {
   var connected = false;
   var typing = false;
   var lastTypingTime;
-  var $currentInput = $usernameInput.focus();
+  var $currentInput = $inputMessage.focus();
+
+  
 
   var socket = io();
 
@@ -62,13 +72,13 @@ $(function() {
 
   // Sets the client's username
   const setUsername = () => {
-    username = cleanInput($usernameInput.val().trim());
+    username = getCookieByName('name');
 
     // If the username is valid
     if (username) {
-      $loginPage.fadeOut();
-      $chatPage.show();
-      $loginPage.off('click');
+    //  $loginPage.fadeOut();
+     // $chatPage.show();
+     // $loginPage.off('click');
       $currentInput = $inputMessage.focus();
 
       // Tell the server your username
@@ -81,15 +91,17 @@ $(function() {
     var message = $inputMessage.val();
     // Prevent markup from being injected into the message
     message = cleanInput(message);
+    
     // if there is a non-empty message and a socket connection
     if (message && connected) {
       $inputMessage.val('');
       addChatMessage({
         username: username,
-        message: message
+        message: message,
       });
+      var cookies = getCookieByName('name');
       // tell server to execute 'new message' and send along one parameter
-      socket.emit('new message', message);
+      socket.emit('new message', message, cookies);
     }
   }
 
@@ -103,6 +115,7 @@ $(function() {
   const addChatMessage = (data, options) => {
     // Don't fade the message in if there is an 'X was typing'
     var $typingMessages = getTypingMessages(data);
+    var cookies = getCookieByName('name');
     options = options || {};
     if ($typingMessages.length !== 0) {
       options.fade = false;
@@ -113,7 +126,7 @@ $(function() {
       .text(data.username)
       .css('color', getUsernameColor(data.username));
     var $messageBodyDiv = $('<span class="messageBody">')
-      .text(data.message);
+      .text(data.message + cookies);
 
     var typingClass = data.typing ? 'typing' : '';
     var $messageDiv = $('<li class="message"/>')
@@ -232,14 +245,38 @@ $(function() {
     }
   });
 
+  window.onload = function() {
+     console.log("window loaded")
+     username = getCookieByName('name');
+
+    // If the username is valid
+    if (username) {
+    //  $loginPage.fadeOut();
+     // $chatPage.show();
+     // $loginPage.off('click');
+      $currentInput = $inputMessage.focus();
+
+      // Tell the server your username
+      socket.emit('add user', username);
+
+
+  }};
+
   $inputMessage.on('input', () => {
     updateTyping();
   });
 
+//1130
+socket.on('connectToRoom',function(data) {
+  document.body.innerHTML = '';
+  document.write(data);
+});
+
+
   // Click events
 
   // Focus input when clicking anywhere on login page
-  $loginPage.click(() => {
+  $chatPage.click(() => {
     $currentInput.focus();
   });
 
@@ -262,8 +299,9 @@ $(function() {
   });
 
   // Whenever the server emits 'new message', update the chat body
-  socket.on('new message', (data) => {
-    addChatMessage(data);
+  socket.on('new message', (data, cookies) => {
+    var cookies= getCookieByName('name');
+    addChatMessage(data , cookies);
   });
 
   // Whenever the server emits 'user joined', log it in the chat body

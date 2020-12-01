@@ -267,6 +267,8 @@ try {
               <%
               while(rs.next())
                   {
+                    String set =rs.getString(1);
+                    out.println("<a href='#' onclick='setcookie("+set+")'>");
                     out.println("<div class='row' >");
                     out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
                     out.println("<div class='maindiv'>");
@@ -276,9 +278,18 @@ try {
                     out.println("</div>");
                     out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
+                    out.println("</a>");
                   }
               %> 
             </div>
+
+            <script>
+              function setcookie(set) { 
+                document.cookie = "room=" + set + ";" + ";path=/";
+                window.location.href="http://localhost:3000/"
+              }
+            
+            </script>
             
             <div class="tab-pane fade" id="hot" role="tabpanel" aria-labelledby="profile-tab">
               <div class="row" >

@@ -2,14 +2,14 @@
 <%@ page import = "java.sql.*, java.util.*"%>
 <%
 try{
-    Class.forName("com.mysql.jdbc.Driver");   
+    Class.forName("com.mysql.jdbc.Driver");
     try{
         String url="jdbc:mysql://localhost/?serverTimezone=UTC";
         Connection con=DriverManager.getConnection(url,"root","1234");
         if(con.isClosed())
           out.println("連線建立失敗");
         else
-          { 
+          {
             con.createStatement().execute("USE `cluster`");
             String sql = "SELECT * FROM `member`" ;
             ResultSet tmp =  con.createStatement().executeQuery(sql);
@@ -17,12 +17,14 @@ try{
             if(request.getParameter("email") !=null && request.getParameter("password") != null)
               {
                 sql = "SELECT * FROM `member` WHERE `Email`='" +request.getParameter("email")
-                +"'AND `Password`='"+request.getParameter("password")+"'"; 
+                +"'AND `Password`='"+request.getParameter("password")+"'";
                 ResultSet rs =con.createStatement().executeQuery(sql);
                 if(rs.next())
                   {
                     Cookie name = new Cookie("name",rs.getString("Name"));
-                    //response.addCookie(name);
+                    name.setDomain("localhost");
+                    name.setPath("/");
+                    response.addCookie(name);
                   	session.setAttribute("name",rs.getString("Name"));
                   	session.setAttribute("gender",rs.getString("Gender"));
                   	session.setAttribute("birthday",rs.getString("Birthday"));
@@ -44,7 +46,7 @@ try{
                         */
                     response.setHeader("Refresh","3;customer_survey.jsp");
                   }
-              
+
                 else
                   {
                       out.println("<SCRIPT LANGUAGE='JavaScript'>");

@@ -86,19 +86,38 @@ let numUsers = 0;
 io.on('connection', (socket) => {
   let addedUser = false;
 
+  //1130
+  var roomno = 1;
+  io.on('connection', function(socket) {
+     
+     //Increase roomno 2 clients are present in a room.
+     if(io.nsps['/'].adapter.rooms["room-"+roomno] && io.nsps['/'].adapter.rooms["room-"+roomno].length > 1) roomno++;
+     socket.join("room-"+roomno);
+  
+     //Send this event to everyone in the room.
+     io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
+  })
+    //1130
+
   // when the client emits 'new message', this listens and executes
-  socket.on('new message', (data) => {
+  socket.on('new message', (data , cookies) => {
+    console.log(data);
+    console.log(cookies);
     // we tell the client to execute 'new message'
+
     socket.broadcast.emit('new message', {
       username: socket.username,
-      message: data
+      message: data,
+      cookies : cookies
     });
+    
     updateData();
+
     function updateData(){
-      conn.query('INSERT INTO chat (userid, chatcontent) VALUES (?, ?);', [socket.username , data],
+      conn.query('INSERT INTO chat (Name, chatcontent, room) VALUES (?, ?, ?);', [socket.username , data,cookies],
             function (err, results, fields) {
               if (err) throw err;
-          else console.log('Inserted ' + results.affectedRows + ' row(s).');
+          else console.log('In' + results.affectedRows + ' row(s).');
       })
       
 };
