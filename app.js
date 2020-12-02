@@ -33,7 +33,7 @@ socketIO.on('connection', function (socket) {
 
     socket.join(roomID);    // 加入房间
     // 通知房间内人员
-    socketIO.to(roomID).emit('sys', user + '加入了房间', roomInfo[roomID]);  
+    socketIO.to(roomID).emit('sys', user + '加入了房間', roomInfo[roomID]);  
     console.log(user + '加入了' + roomID);
   });
 
@@ -49,7 +49,7 @@ socketIO.on('connection', function (socket) {
     }
 
     socket.leave(roomID);    // 退出房间
-    socketIO.to(roomID).emit('sys', user + '退出了房间', roomInfo[roomID]);
+    socketIO.to(roomID).emit('sys', user + '退出了房間', roomInfo[roomID]);
     console.log(user + '退出了' + roomID);
   });
 
@@ -59,6 +59,12 @@ socketIO.on('connection', function (socket) {
     if (roomInfo[roomID].indexOf(user) === -1) {  
       return false;
     }
+    /*function updateData(){
+      conn.query('INSERT INTO chat (Name, chatcontent, room) VALUES (?, ?, ?);', [user ,msg,cookies],
+            function (err, results, fields) {
+              if (err) throw err;
+          else console.log('In' + results.affectedRows + ' row(s).');
+      })*/
     socketIO.to(roomID).emit('msg', user, msg);
   });
 

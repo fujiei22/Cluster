@@ -63,6 +63,10 @@ try {
 
     <style>
       body,html {height:100%;}
+      body{
+        overflow-y: hidden;
+        overflow-x: hidden;
+      }
         .leftnav{
           background-color: rgb(141, 141, 141);
           height: 100%;
@@ -70,13 +74,20 @@ try {
       a{
         color:black;
       }
+      a:hover{text-decoration:none;}
         .mainarea{
           background-color: white;
+          overflow:scroll;
         }
+       i{
+         color:white;
+       } 
         .chatdiv{
+          color:white;
+          width:200px;
           background-color: rgb(141, 174, 211);
           padding:15px;
-          margin:15px;
+          margin-top:15px;
           border-radius: 10%;
         }
         .mainboard{
@@ -97,8 +108,7 @@ try {
           width:60%;
           
         }
-  
-  
+
         .h2div{
           position: relative;
           z-index: 1;
@@ -177,6 +187,43 @@ try {
           width:20%;
           margin:10px;
         }
+
+        #myTabContent{
+          width:100%;
+          overflow:scroll;
+          
+        }
+         #myTabContent::-webkit-scrollbar-track
+          {
+            border-radius: 10px;
+          }
+
+          #myTabContent::-webkit-scrollbar
+          {
+            width: 10px;
+          }
+
+          #myTabContent::-webkit-scrollbar-thumb
+          {
+            border-radius: 10px;
+            background-color:rgba(108,108,108,0.2);
+          }
+
+         .mainarea::-webkit-scrollbar-track
+          {
+            border-radius: 10px;
+          }
+
+          .mainarea::-webkit-scrollbar
+          {
+            width: 10px;
+          }
+
+          .mainarea::-webkit-scrollbar-thumb
+          {
+            border-radius: 10px;
+            background-color:rgba(108,108,108,0.2);
+          }
   
        </style>
 </head>
@@ -192,22 +239,22 @@ try {
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
             <%String name =(String) session.getAttribute("name");%>
-            <a class="nav-link active" href="member.jsp"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle"></i><%=name%></a>
+            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle fa-2x"></i>　<%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
-            <a class="nav-link active" href="homepage.jsp"><i class="far fa-newspaper"></i>　話題</a>
+            <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#"><i class="far fa-bell"></i>　通知</a>
+            <a class="nav-link" href="notification.jsp"style="color:white;font-size:large"><i class="far fa-bell"></i>　通知</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="friends.jsp"><i class="far fa-address-book"></i>　好友</a>
+            <a class="nav-link" href="friends.jsp"style="color:white;font-size:large"><i class="far fa-address-book"></i>　好友</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#"><i class="far fa-comments"></i>　聊天</a>
+            <a class="nav-link" href="#"style="color:white;font-size:large"><i class="far fa-comments"></i>　聊天</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="logout.jsp"><i class="fas fa-power-off"></i>　登出</a>
+            <a class="nav-link" href="logout.jsp"style="color:white;font-size:large"><i class="fas fa-power-off"></i>　登出</a>
           </li>
           <li class="nav-item" style="height: 17%"></li>
         </ul>
@@ -278,7 +325,8 @@ try {
                     out.println("<div class='maindiv'>");
                       out.println("<span class=''>"+rs.getString(4)+"</span>");
                       out.println("<p class=''>"+rs.getString(5)+"</span>");
-                      out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
+                        out.println("</br>");
+                        out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
                       out.println("</div>");
                     out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
@@ -341,41 +389,44 @@ try {
 
       <!--第三區-->
       <div class="col mainarea">
+        <div class="thirdarea"style="height:100%">
+          
+        <div class="row">
+          <div class="chatdiv">
+            <i class="fas fa-pizza-slice fa-2x" ></i>
+            <span style="color:white">　5 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
+            <br>
+            <span class="">早餐吃什麼</span>
+            <p class="">蛋餅還是三明治？</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="chatdiv">
+            <i class="fas fa-baseball-ball fa-2x"></i>
+            <span style="color:white">　4 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
+            <br>
+            <span class="">星期六有沒有人要打球</span>
+            <p class="">球我帶</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="chatdiv">
+            <i class="fas fa-gamepad fa-2x"></i>
+            <span style="color:white">　2 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
+            <br>
+            <span class="">有人玩過FF嗎?</span>
+            <p class="">最近在特價，值得買嗎？</span>
+          </div>
+        </div>
         
-        <div class="row">
-          <div class="chatdiv">
-            <img src="img/test.jpg" style="width:25%;">
-            <img src="img/test.jpg" style="width:15%;"><img src="img/test.jpg" style="width:15%;">...+5
-            <br>
-            <span class="">話題標題</span>
-            <p class="">話題內容話題內容</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="chatdiv">
-            <img src="img/test.jpg" style="width:25%;">
-            <img src="img/test.jpg" style="width:15%;"><img src="img/test.jpg" style="width:15%;">...+5
-            <br>
-            <span class="">話題標題</span>
-            <p class="">話題內容話題內容</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="chatdiv">
-            <img src="img/test.jpg" style="width:25%;">
-            <img src="img/test.jpg" style="width:15%;"><img src="img/test.jpg" style="width:15%;">...+5
-            <br>
-            <span class="">話題標題</span>
-            <p class="">話題內容話題內容</span>
-          </div>
-        </div>
+        
         <div class="row">
           <button class="open-button" onclick="openForm()">+</button>
         </div>
       </div>
+    </div>
 
       </div>
-    </div>
   </div>
   
 

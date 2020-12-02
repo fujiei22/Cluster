@@ -36,7 +36,7 @@ try {
                     if(rs.next())
                       {
                         out.println("該Email已被註冊");
-                        response.setHeader("Refresh","3;register.jsp");
+                        response.setHeader("Refresh","0;register.jsp");
                       }
                     else
                       {
@@ -59,8 +59,7 @@ try {
                       sql+="'4', ";
                       sql+="'7')";
                       con.createStatement().execute(sql);
-                      out.println("註冊成功，3秒後頁面自動進行跳轉");
-                      response.setHeader("Refresh","3;login.jsp");
+                      response.setHeader("Refresh","0;login.jsp");
                       }
                   }
             else

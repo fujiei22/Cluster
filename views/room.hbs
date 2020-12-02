@@ -12,6 +12,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script type="text/javascript" src="menu.js"></script> 
         <link rel="stylesheet" type="text/css" href="style/comm.css"/>
+        <link href="css/icon/css/all.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="style/layout.css"/>
 <script type="text/javascript" src="script/jquery-1.4.2.min.js"></script>
   <style>
@@ -46,27 +47,168 @@
 
 
 
-    html,body{
-      height:100%;
-    }
-    
-      .leftnav{
-        background-color: rgb(141, 141, 141);
-        height: 100%;
-        margin-right:0px;      
-      } 
-    a{
-      color:black;
-      text-decoration:none;
-    }
-    a:hover{
-      text-decoration:none;
-      color:black;
-    }
-    #box1{
-      width:240px;
-      height: 100%;
+    body,html {height:100%;}
+      body{
+        overflow-y: hidden;
+        overflow-x: hidden;
+      }
+        .leftnav{
+          background-color: rgb(141, 141, 141);
+          height: 100%;
+        } 
+      a{
+        color:black;
+      }
+      a:hover{text-decoration:none;}
+        .mainarea{
+          background-color: white;
+          overflow:scroll;
         }
+       i{
+         color:white;
+       } 
+        .chatdiv{
+          color:white;
+          width:200px;
+          background-color: rgb(141, 174, 211);
+          padding:15px;
+          margin-top:15px;
+          border-radius: 10%;
+        }
+        .mainboard{
+          margin:30px;
+          
+        }
+        #myTabContent{
+          padding:30px;
+          border-radius:15px;
+          background-color: rgb(188, 228, 238);
+          height:85%;
+        }
+        .maindiv{
+          background-color:white;
+          padding:5px;
+          margin-top:10px;
+          border-radius: 10px;
+          width:60%;
+          
+        }
+
+        .h2div{
+          position: relative;
+          z-index: 1;
+        }
+        .open-button {
+          background-color: #555;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          opacity: 0.8;
+          position: fixed;
+          bottom: 23px;
+          right: 28px;
+          height:50px;
+          width: 50px;
+        }
+  
+        /* The popup form - hidden by default */
+        .form-popup {
+          display: none;
+          border: 3px solid #f1f1f1;
+          position: absolute;
+          z-index: 3;
+          top:-5px;
+          right:-5px;
+          width: 350px;
+        }
+  
+        /* Add styles to the form container */
+        .form-container {
+          max-width: 350px;
+          padding: 10px;
+          background-color: white;
+        }
+  
+        /* Full-width input fields */
+        .form-container input[type=text], .form-container input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          border: none;
+          background: #f1f1f1;
+        }
+  
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+  
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px;
+          margin: 5px;
+          border: none;
+          cursor: pointer;
+          width: 30%;
+          margin-bottom:10px;
+          opacity: 0.8;
+        }
+  
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+          background-color: red;
+        }
+  
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-button:hover {
+          opacity: 1;
+        }
+        
+        .percent{
+          width:20%;
+          margin:10px;
+        }
+
+        #myTabContent{
+          width:100%;
+          overflow:scroll;
+          
+        }
+         #myTabContent::-webkit-scrollbar-track
+          {
+            border-radius: 10px;
+          }
+
+          #myTabContent::-webkit-scrollbar
+          {
+            width: 10px;
+          }
+
+          #myTabContent::-webkit-scrollbar-thumb
+          {
+            border-radius: 10px;
+            background-color:rgba(108,108,108,0.2);
+          }
+
+         .mainarea::-webkit-scrollbar-track
+          {
+            border-radius: 10px;
+          }
+
+          .mainarea::-webkit-scrollbar
+          {
+            width: 10px;
+          }
+
+          .mainarea::-webkit-scrollbar-thumb
+          {
+            border-radius: 10px;
+            background-color:rgba(108,108,108,0.2);
+          }
 ul, li {
   padding: 10px 0;
   list-style: none;
@@ -332,22 +474,23 @@ function getCookieByRoom(room) {
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
-            <a class="nav-link active" href="member.html">User name</a>
+            
+            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><span id="userName"></span></a>
           </li>
           <li class="nav-item" style="height: 10%">
-            <a class="nav-link active" href="homepage.html">話題</a>
+            <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#">通知</a>
+            <a class="nav-link" href="notification.jsp"style="color:white;font-size:large"><i class="far fa-bell"></i>　通知</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#">好友</a>
+            <a class="nav-link" href="friends.jsp"style="color:white;font-size:large"><i class="far fa-address-book"></i>　好友</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#">聊天</a>
+            <a class="nav-link" href="#"style="color:white;font-size:large"><i class="far fa-comments"></i>　聊天</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#">登出</a>
+            <a class="nav-link" href="logout.jsp"style="color:white;font-size:large"><i class="fas fa-power-off"></i>　登出</a>
           </li>
           <li class="nav-item" style="height: 17%"></li>
         </ul>
@@ -378,8 +521,8 @@ function getCookieByRoom(room) {
       <div id="tab1" class="tab_content">
       <div class="mesarea">
 
-        用戶: <span id="userName"></span> <br/>
-      <!--  房間: {{roomID}} <br/>-->
+       <!-- 用戶: <span id="userName"></span> <br/>
+        房間: {{roomID}} <br/>-->
         在線人數: <span id="count">{{users.length}}</span> <br/>
         在線用户:  <div id="users">{{users}}</div>
 
@@ -388,7 +531,7 @@ function getCookieByRoom(room) {
         </div>
         <textarea name="message" id="messageInput"></textarea>
         <br/>
-        <button id="joinOrLeave">退出房間</button>
+        <!--<button id="joinOrLeave">退出房間</button>-->
 
       </div>        
         <div class="mestop">
@@ -459,8 +602,8 @@ function getCookieByRoom(room) {
 
       // 监听系统消息
       socket.on('sys', function (sysMsg, users) {
-        var message = '<div class="sysMsg">' + sysMsg + '</div>';
-        $('#msglog').append(message);
+        //var message = '<div class="sysMsg">' + sysMsg + '</div>';
+       // $('#msglog').append(message);
 
         $('#count').text(users.length);
         $('#users').text(users);
