@@ -13,16 +13,16 @@ try {
            sql="USE `cluster`";
            con.createStatement().execute(sql);
           //執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet  
-           sql="SELECT * FROM `post`"; //算出共幾筆留言
-           ResultSet rs=con.createStatement().executeQuery(sql);
+           //sql="SELECT * FROM `post`";
+           //ResultSet rs=con.createStatement().executeQuery(sql);
 
            //先移到檔尾, getRow()後, 就可知道共有幾筆記錄
-           rs.last();
-           int total_content=rs.getRow();
+           //rs.last();
+           //int total_content=rs.getRow();
            //out.println("共"+total_content+"筆留言<p>");
            
            //每頁顯示10筆, 算出共幾頁◄ ►
-           int page_num=(int)Math.ceil((double)total_content/10.0); //無條件進位
+           //int page_num=(int)Math.ceil((double)total_content/10.0); //無條件進位
            //out.println("頁數");
            //使用超連結方式, 呼叫自己, 使用get方式傳遞參數(變數名稱為page)
          //  for(int i=1;i<=page_num;i++) //建立1,2,...頁超連結
@@ -30,20 +30,20 @@ try {
           //  out.println("<p>");
 
            //讀取page變數
-           String page_string = request.getParameter("page");
-           if (page_string == null) 
-               page_string = "0";          
-           int current_page=Integer.valueOf(page_string);
-           if(current_page==0) //若未指定page, 令current_page為1
-            current_page=1;
+           //String page_string = request.getParameter("page");
+           //if (page_string == null) 
+               //page_string = "0";          
+           //int current_page=Integer.valueOf(page_string);
+           //if(current_page==0) //若未指定page, 令current_page為1
+            //current_page=1;
            //計算開始記錄位置   
            //顯示結果 
-           int start_record=(current_page-1)*10;
+           //int start_record=(current_page-1)*10;
            //遞減排序, 讓最新的資料排在最前面
-           sql="SELECT * FROM `post` ORDER BY `pno` DESC LIMIT ";
-           sql+=start_record+",10";
+           //sql="SELECT * FROM `post` ORDER BY `pno` DESC LIMIT ";
+           //sql+=start_record+",10";
 
-           rs=con.createStatement().executeQuery(sql);
+           //rs=con.createStatement().executeQuery(sql);
            %>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,6 +59,7 @@ try {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="css/header.css" rel="stylesheet" media="screen">
+    <link href="css/icon/css/all.css" rel="stylesheet">
 
     <style>
       body,html {height:100%;}
@@ -191,22 +192,22 @@ try {
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
             <%String name =(String) session.getAttribute("name");%>
-            <a class="nav-link active" href="member.jsp"><%@ include file="importheader1.jsp" %><%=name%></a>
+            <a class="nav-link active" href="member.jsp"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle"></i><%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
-            <a class="nav-link active" href="homepage.jsp">話題</a>
+            <a class="nav-link active" href="homepage.jsp"><i class="far fa-newspaper"></i>　話題</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#">通知</a>
+            <a class="nav-link" href="#"><i class="far fa-bell"></i>　通知</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="friends.jsp">好友</a>
+            <a class="nav-link" href="friends.jsp"><i class="far fa-address-book"></i>　好友</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#">聊天</a>
+            <a class="nav-link" href="#"><i class="far fa-comments"></i>　聊天</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="logout.jsp">登出</a>
+            <a class="nav-link" href="logout.jsp"><i class="fas fa-power-off"></i>　登出</a>
           </li>
           <li class="nav-item" style="height: 17%"></li>
         </ul>
@@ -265,32 +266,33 @@ try {
 
             <div class="tab-pane fade show active" id="guess" role="tabpanel" aria-labelledby="home-tab">
               <%
+              sql="SELECT * FROM `post`";
+              ResultSet rs=con.createStatement().executeQuery(sql);
               while(rs.next())
                   {
-                    String set =rs.getString(1);
-                    out.println("<a href='#' onclick='setcookie("+set+")'>");
+                    String set =rs.getString(4);
+                    String roomurl ="http://localhost:3000/room/"+set;
+                    out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
                     out.println("<div class='row' >");
                     out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
                     out.println("<div class='maindiv'>");
-                    out.println("<span class=''>"+rs.getString(4)+"</span>");
-                    out.println("<p class=''>"+rs.getString(5)+"</span>");
-                    out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
-                    out.println("</div>");
+                      out.println("<span class=''>"+rs.getString(4)+"</span>");
+                      out.println("<p class=''>"+rs.getString(5)+"</span>");
+                      out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
+                      out.println("</div>");
                     out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
                     out.println("</a>");
                   }
               %> 
             </div>
-
             <script>
               function setcookie(set) { 
                 document.cookie = "room=" + set + ";" + ";path=/";
-                window.location.href="http://localhost:3000/"
               }
             
             </script>
-            
+
             <div class="tab-pane fade" id="hot" role="tabpanel" aria-labelledby="profile-tab">
               <div class="row" >
                 <img src="img/test.jpg" style="width:10%;margin:10px;">

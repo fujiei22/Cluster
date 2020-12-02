@@ -5,6 +5,15 @@ const path = require('path');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const port = process.env.PORT || 3000;
+var router = express.Router();
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
+var socketIO = io(server);
+// 房间用户名单
+var roomInfo = {};
 
 const mysql = require('mysql');
 
@@ -19,85 +28,48 @@ var config =
 
 const conn = new mysql.createConnection(config);
 
-/*conn.connect(
-    function (err) { 
-        if (err) { 
-            console.log("!!! Cannot connect !!! Error:");
-            throw err;
-        }
-        else {
-            console.log("Connection established.");
-            updateData();
-        }   
-    });
-
-    updateData();
-function updateData(){
-      conn.query('INSERT INTO chat (userid, chatcontent) VALUES (?, ?);', [160 , '測試test'],
-            function (err, results, fields) {
-              if (err) throw err;
-          else console.log('Inserted ' + results.affectedRows + ' row(s).');
-      })
-      conn.end(
-          function (err) { 
-                if (err) throw err;
-                else  console.log('Done.') 
-        });
-};*/
-
 /*
-const mysql = require('mysql');
-const pool = mysql.createPool({
-connectionLimit: 10,
-host: 'localhost',
-user: 'root',
-password: '1234',
-database: 'cluster'
-}); 
-
-app.get('/', function(req, res){
-  // 接上連接池
-  pool.getConnection((err, connection) => {
-    if (err) throw err;
-    // 輸入 SQL 語法查詢
-    connection.query('SELECT * FROM chat ORDER BY rand() limit 1',   
-    (err, rows, fields) => {
-      if (err) throw err;
-      // 送出查詢結果
-      res.send(rows);
-      // 斷開連結
-      connection.release();
-    });
-  });
-});*/
-
-
 server.listen(port, () => {
   console.log('Server listening at port %d', port);
 });
 
 // Routing
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', router);*/
 
 // Chatroom
-
 let numUsers = 0;
 
-io.on('connection', (socket) => {
+socketIO.on('connection', (socket) => {
   let addedUser = false;
 
-  //1130
-  var roomno = 1;
-  io.on('connection', function(socket) {
-     
-     //Increase roomno 2 clients are present in a room.
-     if(io.nsps['/'].adapter.rooms["room-"+roomno] && io.nsps['/'].adapter.rooms["room-"+roomno].length > 1) roomno++;
-     socket.join("room-"+roomno);
+  var url = socket.request.headers.referer;
+  var splited = url.split('/');
+  var roomID = splited[splited.length - 1];   // 获取房间ID
+  var user = '';
+  /*1130
   
-     //Send this event to everyone in the room.
-     io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
-  })
-    //1130
+  socket.on('connectToRoom', (room)  => {
+    //console.log(room);
+     socket.join("room-"+room);
+     io.sockets.in("room-"+room).emit('welcomsg', "You are in room "+room);
+    });
+  */
+
+ socket.on('join', function (userName) {
+  user = userName;
+
+  // 将用户昵称加入房间名单中
+  if (!roomInfo[roomID]) {
+    roomInfo[roomID] = [];
+  }
+  roomInfo[roomID].push(user);
+
+  socket.join(roomID);    // 加入房间
+  // 通知房间内人员
+  socketIO.to(roomID).emit('sys', user + '加入了房间', roomInfo[roomID]);  
+  console.log(user + '加入了' + roomID);
+});
+
 
   // when the client emits 'new message', this listens and executes
   socket.on('new message', (data , cookies) => {
@@ -105,7 +77,7 @@ io.on('connection', (socket) => {
     console.log(cookies);
     // we tell the client to execute 'new message'
 
-    socket.broadcast.emit('new message', {
+    io.sockets.in("room-"+room).emit('new message', {
       username: socket.username,
       message: data,
       cookies : cookies
@@ -122,28 +94,33 @@ io.on('connection', (socket) => {
       
 };
 
-/*
-conn.end(
-  function (err) { 
-        if (err) throw err;
-        else  console.log('Done.') 
-}); */
-
   });
+
+  socket.on('message', function (msg) {
+    // 验证如果用户不在房间内则不给发送
+    if (roomInfo[roomID].indexOf(user) === -1) {  
+      return false;
+    }
+    socketIO.to(roomID).emit('msg', user, msg);
+  });
+
+
   
   // when the client emits 'add user', this listens and executes
-  socket.on('add user', (username) => {
+  socket.on('add user', (username,room) => {
     if (addedUser) return;
 
+    socket.join("room-"+room);
+    io.sockets.in("room-"+room).emit('welcomsg', "You are in room "+room);
     // we store the username in the socket session for this client
     socket.username = username;
     ++numUsers;
     addedUser = true;
-    socket.emit('login', {
+    io.sockets.in("room-"+room).emit('login', {
       numUsers: numUsers
     });
     // echo globally (all clients) that a person has connected
-    socket.broadcast.emit('user joined', {
+    io.sockets.in("room-"+room).emit('user joined', {
       username: socket.username,
       numUsers: numUsers
     });
@@ -151,28 +128,61 @@ conn.end(
 
   // when the client emits 'typing', we broadcast it to others
   socket.on('typing', () => {
-    socket.broadcast.emit('typing', {
+    io.sockets.in("room-"+room).emit('typing', {
       username: socket.username
     });
   });
 
   // when the client emits 'stop typing', we broadcast it to others
   socket.on('stop typing', () => {
-    socket.broadcast.emit('stop typing', {
+    io.sockets.in("room-"+room).emit('stop typing', {
       username: socket.username
     });
   });
 
   // when the user disconnects.. perform this
+
+  socket.on('leave', function () {
+    socket.emit('disconnect');
+  });
+
+  socket.on('disconnect', function () {
+    // 从房间名单中移除
+    var index = roomInfo[roomID].indexOf(user);
+    if (index !== -1) {
+      roomInfo[roomID].splice(index, 1);
+    }
+
+    socket.leave(roomID);    // 退出房间
+    socketIO.to(roomID).emit('sys', user + '退出了房间', roomInfo[roomID]);
+    console.log(user + '退出了' + roomID);
+  });
+
   socket.on('disconnect', () => {
     if (addedUser) {
       --numUsers;
 
       // echo globally that this client has left
-      socket.broadcast.emit('user left', {
+      io.sockets.in("room-"+room).emit('user left', {
         username: socket.username,
         numUsers: numUsers
       });
     }
   });
+});
+
+router.get('/room/:roomID', function (req, res) {
+  var roomID = req.params.roomID;
+
+  // 渲染页面数据(见views/room.hbs)
+  res.render('room', {
+    roomID: roomID,
+    users: roomInfo[roomID]
+  });
+});
+
+app.use('/', router);
+
+server.listen(3000, function () {
+  console.log('server listening on port 3000');
 });

@@ -1,7 +1,7 @@
 <body>
 <%
                 String new_mail=(String)(session.getAttribute("email"));
-                con.createStatement().execute("USE `cluster`");
+                //con.createStatement().execute("USE `cluster`");
                 String sql1 = "SELECT * FROM `memberskin` WHERE `Email`='"+new_mail+"'";
                 ResultSet rs1 =  con.createStatement().executeQuery(sql1);
                 con.createStatement().execute(sql1);
@@ -16,6 +16,6 @@
                     out.println("<img src='img/header/clothes/clothes"+rs1.getString(8)+".png' id='clothes'>");
                     out.println("<img src='img/header/accessories/accessories"+rs1.getString(9)+".png' id='accessories'>");
                 }
-                con.close();
+                //con.close();
 %>
 </body>
