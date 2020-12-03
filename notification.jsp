@@ -302,6 +302,7 @@
           </span>
         </div>      
 
+        
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -321,9 +322,11 @@
   </div>
 </div>
 		
-	    </div>
-	</div>
-     <!--第三區-->
+      </div>
+      
+ 
+
+
     <!--第三區-->
     <div class="col mainarea">
       <div class="thirdarea"style="height:100%">

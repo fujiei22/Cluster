@@ -387,6 +387,51 @@ try {
 
       </div>
 
+      <!--第二區/搜尋結果的顯示頁面 
+      <div class="col-8 mainarea">
+        <div class="mainboard" style="height:80%">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <div class="h2div" ><h2>話題</h2></div>
+
+          <ul class="nav justify-content-end" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#search" role="tab" aria-controls="search" aria-selected="true">"晚餐"的搜尋結果</a>
+            </li>
+          </ul>
+
+      <div class="tab-content" id="myTabContent">
+
+        <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="row" >
+            <img src="img/test.jpg" style="width:10%;margin:10px;">
+          <div class="maindiv">
+              <span class="">話題標題</span>
+              <p class="">話題內容話題內容</span><br>
+                <span class="badge badge-primary">音樂</span>
+            </div>
+            <div class="percent"><h2>80%</h2></div>
+          </div> 
+          <div class="row" >
+            <img src="img/test.jpg" style="width:10%;margin:10px;">
+          <div class="maindiv">
+              <span class="">話題標題</span>
+              <p class="">話題內容話題內容</span><br>
+                <span class="badge badge-primary">音樂</span>
+            </div>
+            <div class="percent"><h2>80%</h2></div>
+          </div> 
+          
+        </div>
+      </div>
+  </div>
+	</div>
+-->    
+
+
+
       <!--第三區-->
       <div class="col mainarea">
         <div class="thirdarea"style="height:100%">
