@@ -1,81 +1,592 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*, java.util.*"%>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>會員頁面</title>
 
-    <link href="css/member.css" rel=stylesheet type="text/css" >
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>會員頁</title>
+    <!-- bootstrap required-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <link rel="stylesheet" href="css/header.css">
+    <link href="css/icon/css/all.css" rel="stylesheet">
+
+
     <style type="text/css">
-body {
-margin-top: 0px;
-margin-right: 0px;
-margin-bottom: 0px;
-margin-left: 0px;
+body,html {height:100%;}
+      body{
+        overflow-y: hidden;
+        overflow-x: hidden;
+      }
+        .leftnav{
+          background-color: rgb(141, 141, 141);
+          height: 100%;
+        } 
+      a{
+        color:black;
+      }
+      a:hover{text-decoration:none;}
+        .mainarea{
+          background-color: white;
+          overflow-x: hidden;
+        }
+       i{
+         color:white;
+       } 
+        .chatdiv{
+          color:white;
+          width:200px;
+          background-color: rgb(141, 174, 211);
+          padding:15px;
+          margin-top:15px;
+          border-radius: 10%;
+        }
+        .mainboard{
+          margin:30px;
+          
+        }
+        #myTabContent{
+          padding:30px;
+          border-radius:15px;
+          background-color: rgb(188, 228, 238);
+          height:85%;
+        }
+        .maindiv{
+          background-color:white;
+          padding:5px;
+          margin-top:10px;
+          border-radius: 10px;
+          width:60%;
+          
+        }
+
+        .h2div{
+          position: relative;
+          z-index: 1;
+        }
+        .open-button {
+          background-color: #555;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          opacity: 0.8;
+          position: fixed;
+          bottom: 23px;
+          right: 28px;
+          height:50px;
+          width: 50px;
+        }
+  
+        /* The popup form - hidden by default */
+        .form-popup {
+          display: none;
+          border: 3px solid #f1f1f1;
+          position: absolute;
+          z-index: 3;
+          top:-5px;
+          right:-5px;
+          width: 350px;
+        }
+  
+        /* Add styles to the form container */
+        .form-container {
+          max-width: 350px;
+          padding: 10px;
+          background-color: white;
+        }
+  
+        /* Full-width input fields */
+        .form-container input[type=text], .form-container input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          border: none;
+          background: #f1f1f1;
+        }
+  
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+  
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px;
+          margin: 5px;
+          border: none;
+          cursor: pointer;
+          width: 30%;
+          margin-bottom:10px;
+          opacity: 0.8;
+        }
+  
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+          background-color: red;
+        }
+  
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-button:hover {
+          opacity: 1;
+        }
+        
+        .percent{
+          width:20%;
+          margin:10px;
+        }
+
+        #myTabContent{
+          width:100%;
+          overflow:scroll;
+          
+        }
+         #myTabContent::-webkit-scrollbar-track
+          {
+            border-radius: 10px;
+          }
+
+          #myTabContent::-webkit-scrollbar
+          {
+            width: 10px;
+          }
+
+          #myTabContent::-webkit-scrollbar-thumb
+          {
+            border-radius: 10px;
+            background-color:rgba(108,108,108,0.2);
+          }
+
+         .mainarea::-webkit-scrollbar-track
+          {
+            border-radius: 10px;
+          }
+
+          .mainarea::-webkit-scrollbar
+          {
+            width: 10px;
+          }
+
+          .mainarea::-webkit-scrollbar-thumb
+          {
+            border-radius: 10px;
+            background-color:rgba(108,108,108,0.2);
+          }
+      #box1{
+        position: absolute;
+        top: 25px;
+          color: #5B5B5B;
+      }
+      #sq{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,1.00);
+        top:20px;
+        left: 100px;
+      }
+      #box2{
+        height: 500px;
+        width: 300px;
+        position: absolute;
+        top:100px;
+        left: 80px;
+        border-radius:20px;
+        background:rgb(188, 228, 238);
+      }
+.member_name{
+  width:300px;
+  height: 25px;
+  position: absolute;
+  text-align:center;
+  margin-top:30px;
+  color: #5B5B5B;
+  font-family:微軟正黑體;
+  font-size: 25px;
+
+}
+.signature{
+  width:300px;
+  height:17px;
+  font-size:17px;
+  color: #5B5B5B;
+  position:absolute;
+  text-align:center;
+  margin-top:70px;  
+}
+#heart{
+  position:absolute;
+  top:210px;
+  left:10px;
+}
+#likebox{
+  width:180px;
+  height:35px;
+  position:absolute;
+  left:60px;
+  top:210px;
+}
+.tagbox{
+width:auto;
+height:auto;
+color:#fff;
+background: #7B7B7B;
+line-height: 20px;
+text-align: center;
+border-radius: 8px;
+font-size:10px;
+margin-left: 10px;
+display: inline-block;
+margin-top: 5px;
+padding: 1px 5px;
+float:left;
+}
+.panel{
+  margin:0px;
+  padding:5px;
+  text-align:center;
+  display:none;
+  width:auto;
+  background: rgba(255,255,255,1.00);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width:200px;
+  position:absolute;
+  left:55px;
+  top:245px;
+  z-index: 3;
+
+}
+.pane2{
+  margin:0px;
+  padding:5px;
+  text-align:center;
+  display:none;
+  width:auto;
+  background: rgba(255,255,255,1.00);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width:200px;
+  position:absolute;
+  left:55px;
+  top:305px;
+  z-index: 4;
+
+}
+#hatebox{
+  width:180px;
+  height:35px;
+  position:absolute;
+  left:60px;
+  top:270px;
+}
+#hate{
+  position:absolute;
+  top:270px;
+  left:15px; 
+}
+#introductionbox{
+  width:270px;
+  height: 150px;
+  position:absolute;
+  left:15px;
+  top:340px;
+    color: #5B5B5B;
+}
+#start{
+  width:300px;
+  position:absolute;
+  left:55%;
+  top:120px;
+    color: #5B5B5B;
+  
+}
+#startdate{
+  position:relative;
+  left:30px;
+
+}
+#flot-placeholder{
+  position:absolute;
+  left:50%;
+  top:170px;
+  width:350px;
+  height:180px;
+}       
+#mouth{
+  position:absolute;
+  left:93%;
+  top:331px;
+  font-size:13px;
+} 
+.verticalLine {
+  width: 80px;
+  height: 75px;
+  border-right: solid #7B7B7B;
+  position: absolute;
+  top:370px;
+  left:62.5%;
+  color: #5B5B5B;
+  font-family:微軟正黑體;
+  font-size: 17px;
+}
+.verticalLine2{
+  width: 80px;
+  height: 70px;
+  position: absolute;
+  top: 370px;
+  left: 73%;
+  color: #5B5B5B;
+  font-family:微軟正黑體;
+  font-size: 17px;
+}
+#badge{
+  width:350px;
+  height:130px;
+  position:absolute;
+  left:52%;
+  top:470px;
+}
+.badgeimg{
+  margin-right:10px;
+  margin-left:10px;
+  margin-top:10px;
+  float: left;
+  height:30px;
 }
 
 
-
 </style>
+<script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://www.pureexample.com/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript">
+$(function(){
+$(".flip").hover(function(){
+    $(".panel").slideToggle("normal");
+    $(".xs1").toggle();
+    $(".xs2").toggle();
+  });
+});
+$(function(){
+$(".flip2").hover(function(){
+    $(".pane2").slideToggle("normal");
+    $(".xs1").toggle();
+    $(".xs2").toggle();
+  });
+});
+
+//折線圖
+var data = [[1, 30], [2, 40], [3, 15], [4, 25], [5, 30], [6, 40], [7, 60], [8, 35]];
+ 
+ var dataset = [{label: "活躍度",data: data}];
+ var options = {
+  series: {
+    lines: { show: true },
+    points: {
+    radius: 3,
+    show: true
+          }
+            }
+        };
+ 
+$(document).ready(function () {
+  $.plot($("#flot-placeholder"), dataset, options);
+        });
+
+
+</script>
 </head>
 
 <body>
 
-    <div id="backcolor">
-        <div class="menu">
-          <a href="#會員介面"><img src="img/member.png" id="membericon"></a>
-          <a href="#主頁"><img src="img/home.png" id="homeicon"></a>
-          <a href="#通知"><img src="img/bell.png" id="bellicon"></a>
-          <a href="#logo"><img src="img/logo.png" id="logo"></a>
-          <a href="#設定"><img src="img/setting.png" id="settingicon"></a>
 
+  <div class="container-fluid" style="height: 100%;">
+    <div class="row justify-content-center" style="height: 100%;">
+      <!--第一區-->
+      <div class="col leftnav">
+        <ul class="nav flex-column" style="height: 100%">
+          <li class="nav-item" style="height: 17%"></li>
+          <li class="nav-item" style="height: 15%">
+            <%String name =(String) session.getAttribute("name");%>
+            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle fa-2x"></i>　<%=name%></a>
+          </li>
+          <li class="nav-item" style="height: 10%">
+            <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
+          </li>
+          <li class="nav-item"style="height: 10%">
+            <a class="nav-link" href="notification.jsp"style="color:white;font-size:large"><i class="far fa-bell"></i>　通知</a>
+          </li>
+          <li class="nav-item"style="height: 10%">
+            <a class="nav-link" href="friends.jsp"style="color:white;font-size:large"><i class="far fa-address-book"></i>　好友</a>
+          </li>
+          <li class="nav-item"style="height: 10%">
+            <a class="nav-link" href="#"style="color:white;font-size:large"><i class="far fa-comments"></i>　聊天</a>
+          </li>
+          <li class="nav-item"style="height: 10%">
+            <a class="nav-link" href="logout.jsp"style="color:white;font-size:large"><i class="fas fa-power-off"></i>　登出</a>
+          </li>
+          <li class="nav-item" style="height: 17%"></li>
+        </ul>
+      </div>
+
+      <!--第二區-->
+      <div class="col-8 mainarea">
+        <div id="box1">
+          <p>Hi! <%=name%></p>
+          <p>關於你</p>
         </div>
-    	   <div id="box1">
-    	   	  <div id="box2">
-    	   	    <img src="img/test.jpg" id="sq"style="z-index:999;position: relative">  
-    		      <div id="memberbackcolor">
-    		      	<div class="verticalLine">
-                      <p>朋友</p>
-                      <span style="font-family:Times;font-size:50px;"><a href="#朋友列表">14</a></span>
-                    </div>
-                <div class="verticalLine2">
-                  <p>獎章</p>
-                  <span style="font-family:Times;font-size:50px;"><a href="#獎章列表">10</a></span>
-                </div>
-                
+            <div id="box2">
+               <a href="setting.jsp"><img src="img/setting.png" style="height:25px;position:absolute;left:5px;top:5px;"></a>
+              <!--img src="img/test.jpg" id="sq"style="z-index:2;position: relative;"-->  
+                <%//@ include file="importheader.jsp" %>
                 <div class="member_name">
-                  <p>Adrienne&nbsp;&nbsp;♀</p>
-                  <span style="font-size: 19px;"><p>我想中發票</p></span>
-                </div></div></div>
-                <div id="likehate">
-                  <img src="img/heart.png" id="heart">  
-                  <div id="likebox">
-                   <div class="tagbox">#園藝</div> 
-                   <div class="tagboxsame">#寵物</div>
-                   <div class="tagbox">#古典樂</div>
-                   <div class="tagbox">#繪畫</div>
-                   <div class="tagboxsame">#登山</div>
-                   <div class="tagboxsame">#手沖咖啡</div>
-                   <div class="tagboxsame">#韓劇</div>
-                   <div class="tagbox">#閱讀</div> 
-                  </div>
-                  <div id="hatebox">
-                    <div class="tagbox">#視覺系音樂</div>
-                    <div class="tagbox">#昆蟲</div>
-                    <div class="tagboxsame">#外語</div>
-                  </div>
-                  <img src="img/hate.png" id="hate">
-                 <div class="link-top"></div>   
-                <div id="introductionbox">
+                  <p><%=name%>&nbsp;&nbsp;♀</p>
+                </div>
+                <div class="signature">
+                  <p>個簽</p>
+                </div>
+                <img src="img/heart.png" id="heart" style="height:30px;">               
+                <div id="likebox" class="flip">                
+                 <div class="tagbox">#園藝</div>
+                 <div class="tagbox">#手沖咖啡</div>
+                 <div class="tagbox">#電影</div>                 
+                 </div>
+                 
+                 <div class="panel">
+                 <div class="tagbox">#寵物</div>
+                 <div class="tagbox">#登山</div>
+                 <div class="tagbox">#繪畫</div>
+                 <div class="tagbox">#戲劇</div>
+                 <div class="tagbox">#小說</div>
+                 <div class="tagbox">#球類運動</div>
+                 </div>
+               
+                <img src="img/hate.png" id="hate" style="height:30px;">               
+                <div id="hatebox" class="flip2">                
+                 <div class="tagbox">#園藝</div>
+                 <div class="tagbox">#手沖咖啡</div>
+                 <div class="tagbox">#電影</div>                 
+                 </div>
+                 
+                 <div class="pane2">
+                 <div class="tagbox">#穿搭</div>
+                 <div class="tagbox">#古典樂</div>
+                 <div class="tagbox">#歌劇</div>
+                 <div class="tagbox">#手工藝</div>
+                 </div>
+
+                 <div id="introductionbox">
                   <p>自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介</p>
                 </div>
-                </div>                  
                 </div>
+              <div id="start">
+                <b>註冊日期</b>
+                <span id="startdate">
+                2020/07/07
+                </span> 
+              </div>
+              <div id="flot-placeholder"></div>
+              <span id="mouth">(月)</span>
+                    <div class="verticalLine">
+                      <b><p>發起話題</p></b>
+                      <span style="font-family:Times;font-size:25px;margin-left:20px">15</span>
+                    </div>
+                <div class="verticalLine2">
+                  <b><p>參與話題</p></b>
+                  <span style="font-family:Times;font-size:25px; margin-left:20px">55</span>
                 </div>
+
+              <div id="badge">
+                <b><span style="color: #5B5B5B;">你的徽章</span></b><br>
+                <img src="img/badge.png" class="badgeimg">   
+                <img src="img/badge.png" class="badgeimg"> 
+                <img src="img/badge.png" class="badgeimg"> 
+                <img src="img/badge.png" class="badgeimg">
+                <img src="img/badge.png" class="badgeimg">
+                <img src="img/badge.png" class="badgeimg">
+                <img src="img/badge.png" class="badgeimg">
+                <img src="img/badge.png" class="badgeimg">
+                <img src="img/badge.png" class="badgeimg">
+              </div>
                 </div>
-              
-    		   	  
-	
+       
+                 <!--form-->
+      <div class="form-popup" id="myForm">
+        <form action="add_topic.jsp" class="form-container">
+          <h2>開新話題</h2>
+            <div class="form-group">
+              <label for="title">標題</label>
+              <input type="text" class="form-control" id="title" name="subject" placeholder="請輸入標題">
+            </div>
+            <div class="form-group">
+              <label for="textarea">內文</label>
+              <textarea class="form-control" id="textarea" name="content" rows="4" placeholder="請輸入內文"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="category">分類</label>
+              <select class="form-control" id="category" name="category">
+                <option>音樂</option>
+                <option>電影</option>
+                <option>運動</option>
+                <option>遊戲</option>
+                <option>旅遊</option>
+                <option>美食</option>
+              </select>
+            </div>
+          <button type="submit" class="btn">提交</button><button type="button" class="btn cancel" onclick="closeForm()">取消</button>
+        </form>
+      </div>
+
+     <!--第三區-->
+    <div class="col mainarea">
+      <div class="thirdarea"style="height:100%">
+        
+      <div class="row">
+        <div class="chatdiv">
+          <i class="fas fa-pizza-slice fa-2x" ></i>
+          <span style="color:white">　5 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
+          <br>
+          <span class="">早餐吃什麼</span>
+          <p class="">蛋餅還是三明治？</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chatdiv">
+          <i class="fas fa-baseball-ball fa-2x"></i>
+          <span style="color:white">　4 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
+          <br>
+          <span class="">星期六有沒有人要打球</span>
+          <p class="">球我帶</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chatdiv">
+          <i class="fas fa-gamepad fa-2x"></i>
+          <span style="color:white">　2 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
+          <br>
+          <span class="">有人玩過FF嗎?</span>
+          <p class="">最近在特價，值得買嗎？</span>
+        </div>
+      </div>
+      
+      
+      <div class="row">
+        <button class="open-button" onclick="openForm()">+</button>
+      </div>
+    </div>
+  </div>
+
+    </div>
+</div>
+
 </body>
 </html>
