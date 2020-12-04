@@ -25,7 +25,7 @@
               註冊
             </span>
             <div class="wrap-input100">
-              <input class="input100" type="text" name="name" placeholder="姓名">
+              <input class="input100" type="text" name="name" placeholder="姓名" required="required">
               <span class="focus-input100"></span>
               <span class="symbol-input100">
               </span>
@@ -48,19 +48,19 @@
               </div>
             </div>
             <div class="wrap-input100">
-              <input class="input100" type="text" name="email" placeholder="Email">
+              <input class="input100" type="email" name="email" placeholder="Email" required="required">
               <span class="focus-input100"></span>
               <span class="symbol-input100">
               </span>
             </div>
             <div class="wrap-input100">
-              <input class="input100" type="password" name="password" placeholder="密碼">
+              <input class="input100" type="password" name="password" placeholder="密碼"required="required">
               <span class="focus-input100"></span>
               <span class="symbol-input100">
               </span>
             </div>
             <div class="wrap-input100">
-              <input class="input100" type="password" name="password" placeholder="重複密碼">
+              <input class="input100" type="password" name="password" placeholder="重複密碼"required="required">
               <span class="focus-input100"></span>
               <span class="symbol-input100">
               </span>

@@ -36,7 +36,7 @@ body,html {height:100%;}
       a:hover{text-decoration:none;}
         .mainarea{
           background-color: white;
-          overflow:scroll;
+          overflow-x: hidden;
         }
        i{
          color:white;
@@ -445,7 +445,7 @@ $(document).ready(function () {
           <p>關於你</p>
         </div>
             <div id="box2">
-   
+               <a href="setting.jsp"><img src="img/setting.png" style="height:25px;position:absolute;left:5px;top:5px;"></a>
               <!--img src="img/test.jpg" id="sq"style="z-index:2;position: relative;"-->  
                 <%//@ include file="importheader.jsp" %>
                 <div class="member_name">
