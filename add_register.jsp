@@ -35,19 +35,24 @@ try {
                     ResultSet rs =con.createStatement().executeQuery(sql);
                     if(rs.next())
                       {
-                        out.println("該Email已被註冊");
-                        response.setHeader("Refresh","0;register.jsp");
+                        out.println("<SCRIPT LANGUAGE='JavaScript'>");
+                        out.println("alert('該Email已被註冊')");
+                        out.println("history.back();");
+                        out.println("</SCRIPT>");
                       }
                     else
                       {
-                      sql="INSERT `member` (`Name`, `Gender` , `Birthday`, `Email`, `Password`, `Createtime`)";
+                      sql="INSERT `member` (`Name`, `Gender` , `Birthday`, `Email`, `Password`, `Createtime`, `Signature`, `Introduction`)";
                       sql+="VALUE ('" +new_name+ "', ";
                       sql+="'"+new_gender+"', ";
                       sql+="'"+new_date+"', ";     
                       sql+="'"+new_mail+"', ";
                       sql+="'"+new_pwd+"', ";
-                      sql+="'"+new_createtime+"')";
+                      sql+="'"+new_createtime+"', ";
+                      sql+="'', ";
+                      sql+="'')";
                       con.createStatement().execute(sql);
+
                       sql="INSERT `memberskin` (`Email`, `Skin`, `Eyes` , `Eyebrow`, `Mouth`, `Fronthair`, `Backhair`, `Clothes`, `Accessories`)";
                       sql+="VALUE ('" +new_mail+ "', ";
                       sql+="'1', ";
@@ -64,33 +69,14 @@ try {
                   }
             else
             {
-              out.println("請輸入帳號密碼");
-              //response.setHeader("Refresh","3;register.jsp");
+              out.println("<SCRIPT LANGUAGE='JavaScript'>");
+                        out.println("alert('請輸入帳號密碼')");
+                        out.println("history.back();");
+                        out.println("</SCRIPT>");
             } 
 
-            /*else
-            {
-              out.println("請輸入帳號密碼");
-              response.setHeader("Refresh","3;register.jsp");
-            }*/
-           
-//Step 4: 執行 SQL 指令	
-/*
-          sql="INSERT `member` (`Name`, `Gender` , `Birthday`, `Email`, `Password`)";
-           sql+="VALUE ('" +new_name+ "', ";
-           sql+="'"+new_gender+"', ";
-           sql+="'"+new_date+"', ";     
-           sql+="'"+new_mail+"', ";
-           sql+="'"+new_pwd+"')";      
-           con.createStatement().execute(sql); 
-           */
-
 //Step 6: 關閉連線
-           con.close();
-//Step 5: 顯示結果 
-          //直接顯示最新的資料
-      
-      
+           con.close();   
         }
 
   }

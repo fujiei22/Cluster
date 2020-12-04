@@ -1,9 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import = "java.sql.*, java.util.*"%>
+<%
+try {
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        String sql="";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+          out.println("連線建立失敗");
+        else
+        {
+            con.createStatement().execute("USE `cluster`");
+            sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+			ResultSet rs =con.createStatement().executeQuery(sql);
+			String name="", gender="", signature="", introduction="",  email="", pwd="";
+			while(rs.next()){
+	    		name=rs.getString("Name");
+				gender=rs.getString("Gender");
+				signature=rs.getString("Signature");
+				introduction=rs.getString("Introduction");
+				email=rs.getString("Email");
+				pwd=rs.getString("Password");
+			}
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
     <title>會員頁</title>
@@ -111,21 +136,24 @@ padding: 1px 5px;
 float:left;
 }
        </style>
-   </head>
+	      </head>
+
+
+
    <body>
 	<a href="member.jsp"><img src="img/back.png" id="backicon"></a>
    	<span style="position:absolute; left:22%; top:30px;font-family: Microsoft JhengHei;color: #5B5B5B;"><b>個人檔案</b></span>
    	<div class="fristdiv">
-   		<from>
+   		<form action="updatesetting.jsp" method="post">
    			<span style="position:absolute; left:50px; top:15%;font-family: Microsoft JhengHei;color: #5B5B5B;">更改頭像</span>
    			<a href="header.jsp"><img src="img/test.jpg" id="header"></a>
             <span style="position:absolute; left:50px; top:30%;font-family: Microsoft JhengHei;color: #5B5B5B;">暱稱</span>
-            <input value="null" style="position:absolute;left:170px;top:30%; ">
+            <input type="text" value="<%=name%>" name="name" style="position:absolute;left:170px;top:30%; ">
             <span style="position:absolute; left:50px; top:40%;font-family: Microsoft JhengHei;color: #5B5B5B;">性別</span>
-            <select style="position:absolute;left:170px;top:40%; ">
-              <option>男性</option>
-              <option>女性</option>
-              <option value="3">不方便透露</option>
+            <select style="position:absolute;left:170px;top:40%;" name="gender" value="<%=gender%>">
+              <option value="male">男性</option>
+              <option value="female">女性</option>
+              <option value="other">不方便透露</option>
             </select>
             <span style="position:absolute; left:50px; top:50%;font-family: Microsoft JhengHei;color: #5B5B5B;">喜歡的標籤</span>
                 <div id="liketag">                
@@ -146,23 +174,40 @@ float:left;
       
                  </div>
             <span style="position:absolute; left:50px; top:70%;font-family: Microsoft JhengHei;color: #5B5B5B;">個簽</span>       
-            <input value="原本的個簽" style="position:absolute;left:170px;top:70%;width:300px; ">  
+            <input value="<%=signature%>" name="signature" style="position:absolute;left:170px;top:70%;width:300px; ">  
             <span style="position:absolute; left:50px; top:85%;font-family: Microsoft JhengHei;color: #5B5B5B;">自介</span> 
-            <textarea value="原本的自介" style="position:absolute;left:170px;top:80%;width:300px; height:80px;"></textarea>        
-   		</from>
+            <textarea name="introduction" style="position:absolute;left:170px;top:80%;width:300px; height:80px;"><%=introduction%></textarea>        
    	</div>
    	<span style="position:absolute; left:22%; top:580px;font-family: Microsoft JhengHei;color: #5B5B5B;"><b>帳號密碼</b></span>
    	<div class="seconddiv">
    			<span style="position:absolute; left:50px; top:10%;font-family: Microsoft JhengHei;color: #5B5B5B;">E-mail</span>
-   			<input value="原本的E-mail" style="position:absolute;left:170px;top:10%;width:400px; ">  
+   			<input value="<%=email%>" style="position:absolute;left:170px;top:10%;width:400px;"  disabled="disabled">  
    			<span style="position:absolute; left:50px; top:30%;font-family: Microsoft JhengHei;color: #5B5B5B;">變更密碼</span>
+
    			<span style="position:absolute; left:70px; top:40%;font-family: Microsoft JhengHei;color: #5B5B5B;">請輸入舊密碼</span>
-   			<input type="password" style="position:absolute;left:190px;top:40%;">
+   			<input type="password" style="position:absolute;left:190px;top:40%;" name="oldpwd">
+			   
    			<span style="position:absolute; left:70px; top:60%;font-family: Microsoft JhengHei;color: #5B5B5B;">請輸入新密碼</span>
-   			<input type="password" style="position:absolute;left:190px;top:60%;">
+   			<input type="password" style="position:absolute;left:190px;top:60%;" name="newpwd">
+
    			<span style="position:absolute; left:70px; top:80%;font-family: Microsoft JhengHei;color: #5B5B5B;">確認密碼</span>
-   			<input type="password" style="position:absolute;left:190px;top:80%;">
+   			<input type="password" style="position:absolute;left:190px;top:80%;" name="renewpwd">
    	</div>
-   	<button type="button" class="btn btn-light" style="position:absolute;top:860px;left:45%; margin-bottom: 20px;">確認修改</button>
+   	<button type="submit" class="btn btn-light" style="position:absolute;top:860px;left:45%; margin-bottom: 20px;">確認修改</button>
+	      		</form>
+
+<%
+   con.close();
+		}
+		}
+    catch (SQLException sExec) {
+           out.println("SQL錯誤"+sExec.toString());
+    }
+}
+catch (ClassNotFoundException err) {
+   out.println("class錯誤"+err.toString());
+}
+   %>
    </body>
    </html>
+ 
