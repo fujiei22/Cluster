@@ -14,9 +14,10 @@ try {
            con.createStatement().execute(sql);
            sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
-			    String name="";
+			    String name="", Createtime="";
 			    while(memberrs.next()){
-	    		name=memberrs.getString("Name");
+	    		name = memberrs.getString("Name");
+          Createtime = memberrs.getString("Createtime");
 			}
            %>
 <!DOCTYPE html>
@@ -508,7 +509,7 @@ $(document).ready(function () {
               <div id="start">
                 <b>註冊日期</b>
                 <span id="startdate">
-                2020/07/07
+                <%=Createtime%>
                 </span> 
               </div>
               <div id="flot-placeholder"></div>
