@@ -12,38 +12,12 @@ try {
         else { 
            sql="USE `cluster`";
            con.createStatement().execute(sql);
-          //執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet  
-           //sql="SELECT * FROM `post`";
-           //ResultSet rs=con.createStatement().executeQuery(sql);
-
-           //先移到檔尾, getRow()後, 就可知道共有幾筆記錄
-           //rs.last();
-           //int total_content=rs.getRow();
-           //out.println("共"+total_content+"筆留言<p>");
-           
-           //每頁顯示10筆, 算出共幾頁◄ ►
-           //int page_num=(int)Math.ceil((double)total_content/10.0); //無條件進位
-           //out.println("頁數");
-           //使用超連結方式, 呼叫自己, 使用get方式傳遞參數(變數名稱為page)
-         //  for(int i=1;i<=page_num;i++) //建立1,2,...頁超連結
-          //   out.print("<a href='viewpost.jsp?page="+i+"'>"+i+"</a>&nbsp;");
-          //  out.println("<p>");
-
-           //讀取page變數
-           //String page_string = request.getParameter("page");
-           //if (page_string == null) 
-               //page_string = "0";          
-           //int current_page=Integer.valueOf(page_string);
-           //if(current_page==0) //若未指定page, 令current_page為1
-            //current_page=1;
-           //計算開始記錄位置   
-           //顯示結果 
-           //int start_record=(current_page-1)*10;
-           //遞減排序, 讓最新的資料排在最前面
-           //sql="SELECT * FROM `post` ORDER BY `pno` DESC LIMIT ";
-           //sql+=start_record+",10";
-
-           //rs=con.createStatement().executeQuery(sql);
+           sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+			    ResultSet memberrs =con.createStatement().executeQuery(sql);
+			    String name="";
+			    while(memberrs.next()){
+	    		name=memberrs.getString("Name");
+			}
            %>
 <!DOCTYPE html>
 <html lang="en">
@@ -238,8 +212,7 @@ try {
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
-            <%String name =(String) session.getAttribute("name");%>
-            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle fa-2x"></i>　<%=name%></a>
+            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><i class="fas fa-user-circle fa-2x"></i><%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
             <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>

@@ -30,8 +30,14 @@ try{
                   	session.setAttribute("birthday",rs.getString("Birthday"));
                   	session.setAttribute("email",rs.getString("Email"));
                     session.setAttribute("password",rs.getString("Password"));
-                    
-                    response.setHeader("Refresh","3;public/index.html");
+                    if(rs.getString("Music") !=null)
+                      {
+                        response.setHeader("Refresh","0;homepage.jsp");
+                      }
+                    else
+                      {
+                        response.setHeader("Refresh","0;public/index.html");
+                      }
                   }
 
                 else
@@ -40,7 +46,6 @@ try{
                       out.println("alert('帳號密碼錯誤，請再試一次！')");
                       out.println("window.document.location.href='login.jsp';");
                       out.println("</SCRIPT>");
-                      //response.sendRedirect("login.jsp");
                   }
         con.close();
               }

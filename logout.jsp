@@ -6,5 +6,5 @@ session.removeAttribute("gender");
 session.removeAttribute("birthday");
 session.removeAttribute("email");
 session.removeAttribute("password");
-response.setHeader("Refresh","3;login.jsp");
+response.setHeader("Refresh","0;login.jsp");
 %>
