@@ -236,10 +236,12 @@ try {
       <!--第二區-->
       <div class="col-8 mainarea">
         <div class="mainboard" style="height:80%">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+
+        <form class="form-inline my-2 my-lg-0" action="add_search.jsp">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        
         <div class="h2div" ><h2>話題</h2>
 
         <div class="form-popup" id="myForm">

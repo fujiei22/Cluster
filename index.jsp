@@ -357,6 +357,7 @@ try {
            sql+="`Signature` VARCHAR(30),";
            sql+="`Introduction` TEXT,";
            sql+="PRIMARY KEY(`Email`))";
+           sql+="DEFAULT CHARSET=utf8";
            con.createStatement().execute(sql);
 
            sql="CREATE TABLE IF NOT EXISTS `post`";
@@ -368,6 +369,7 @@ try {
            sql+="`Category` VARCHAR(30),";
            sql+="`PostDate` DATE,";
            sql+="PRIMARY KEY(pno))";
+           sql+="DEFAULT CHARSET=utf8";
            con.createStatement().execute(sql);
 
            sql="CREATE TABLE IF NOT EXISTS `skin`";
@@ -375,6 +377,7 @@ try {
            sql+="`file_path` VARCHAR(30),";
            sql+="`img_file` VARCHAR(30),";
            sql+="PRIMARY KEY(imgno))";
+           sql+="DEFAULT CHARSET=utf8";
            con.createStatement().execute(sql);
 
            sql="CREATE TABLE IF NOT EXISTS `memberskin`";
@@ -388,11 +391,13 @@ try {
            sql+="`Clothes` VARCHAR(30),";
            sql+="`Accessories` VARCHAR(30),";
            sql+="PRIMARY KEY(Email))";
+           sql+="DEFAULT CHARSET=utf8";
            con.createStatement().execute(sql);
 
            sql="CREATE TABLE IF NOT EXISTS `friends`";
            sql+="(`Email` VARCHAR(30),";
            sql+="`Friends` VARCHAR(30))";
+           sql+="DEFAULT CHARSET=utf8";
            con.createStatement().execute(sql);
 
            con.close();
