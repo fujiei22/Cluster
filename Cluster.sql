@@ -87,7 +87,7 @@ CREATE TABLE `member` (
   `Signature` varchar(30) DEFAULT NULL,
   `Introduction` text,
   PRIMARY KEY (`Email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `memberskin` (
   `Clothes` varchar(30) DEFAULT NULL,
   `Accessories` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`Email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +172,7 @@ CREATE TABLE `skin` (
   `file_path` varchar(30) DEFAULT NULL,
   `img_file` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`imgno`)
-) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
