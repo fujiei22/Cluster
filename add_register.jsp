@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import = "java.sql.*, java.util.*"%>
+<%@page import = "java.sql.*, java.util.*"%>
 <%
 try {
 //Step 1: 載入資料庫驅動程式 
@@ -13,84 +13,81 @@ try {
            out.println("連線建立失敗");
         else {
 //Step 3: 選擇資料庫   
-           sql="use `cluster`";
-           con.createStatement().execute(sql);
-           //從表格傳遞中文到資料庫, 必須使用getBytes("ISO-8859-1"),"UTF-8"編碼
-           String new_name=new String(request.getParameter("name").getBytes("ISO-8859-1"),"UTF-8");
-           String new_gender=request.getParameter("gender");
-           String new_date=request.getParameter("birthday");
-           String new_mail=request.getParameter("email");
-           String new_pwd=new String(request.getParameter("password").getBytes("ISO-8859-1"),"UTF-8");
-           java.sql.Date new_createtime=new java.sql.Date(System.currentTimeMillis());
+          sql="use `cluster`";
+          con.createStatement().execute(sql);
+          //從表格傳遞中文到資料庫, 必須使用getBytes("ISO-8859-1"),"UTF-8"編碼
+          String new_name=new String(request.getParameter("name").getBytes("ISO-8859-1"),"UTF-8");
+          String new_gender=request.getParameter("gender");
+          String new_date=request.getParameter("birthday");
+          String new_mail=request.getParameter("email");
+          String new_pwd=request.getParameter("password");
+          String new_repwd=request.getParameter("repassword");
+          java.sql.Date new_createtime=new java.sql.Date(System.currentTimeMillis());
 
-           new_name=new_name.replace(" ","");
-           new_mail=new_mail.replace(" ","");
-           new_pwd=new_pwd.replace(" ","");
+          new_name=new_name.replace(" ","");
+          new_mail=new_mail.replace(" ","");
+          new_pwd=new_pwd.replace(" ","");
 
-           out.println(new_name);
+          out.println(new_name);
 
-           if(new_mail != null && new_mail != "" && new_pwd != null && new_pwd != "")
-                  {
-                    sql = "SELECT * FROM `member` WHERE `Email`='" +new_mail+"'"; 
-                    ResultSet rs =con.createStatement().executeQuery(sql);
-                    if(rs.next())
-                      {
-                        out.println("該Email已被註冊");
-                        response.setHeader("Refresh","0;register.jsp");
-                      }
-                    else
-                      {
-                      sql="INSERT `member` (`Name`, `Gender` , `Birthday`, `Email`, `Password`, `Createtime`)";
-                      sql+="VALUE ('" +new_name+ "', ";
-                      sql+="'"+new_gender+"', ";
-                      sql+="'"+new_date+"', ";     
-                      sql+="'"+new_mail+"', ";
-                      sql+="'"+new_pwd+"', ";
-                      sql+="'"+new_createtime+"')";
-                      con.createStatement().execute(sql);
-                      sql="INSERT `memberskin` (`Email`, `Skin`, `Eyes` , `Eyebrow`, `Mouth`, `Fronthair`, `Backhair`, `Clothes`, `Accessories`)";
-                      sql+="VALUE ('" +new_mail+ "', ";
-                      sql+="'1', ";
-                      sql+="'1', ";
-                      sql+="'4', ";     
-                      sql+="'1', ";
-                      sql+="'5', ";
-                      sql+="'2', ";
-                      sql+="'4', ";
-                      sql+="'7')";
-                      con.createStatement().execute(sql);
-                      response.setHeader("Refresh","0;login.jsp");
-                      }
-                  }
+          if(new_mail != null && new_mail != "" && new_pwd != null && new_pwd != "")
+          {
+            if(new_pwd.equals(new_repwd))
+            {
+              sql = "SELECT * FROM `member` WHERE `Email`='" +new_mail+"'"; 
+              ResultSet rs =con.createStatement().executeQuery(sql);
+              if(rs.next())
+              {
+                out.println("<SCRIPT LANGUAGE='JavaScript'>");
+                out.println("alert('該Email已被註冊')");
+                out.println("history.back();");
+                out.println("</SCRIPT>");
+              }
+              else
+              {
+                sql="INSERT `member` (`Name`, `Gender` , `Birthday`, `Email`, `Password`, `Createtime`, `Signature`, `Introduction`)";
+                sql+="VALUE ('" +new_name+ "', ";
+                sql+="'"+new_gender+"', ";
+                sql+="'"+new_date+"', ";     
+                sql+="'"+new_mail+"', ";
+                sql+="'"+new_pwd+"', ";
+                sql+="'"+new_createtime+"', ";
+                sql+="'', ";
+                sql+="'')";
+                con.createStatement().execute(sql);
+
+                sql="INSERT `memberskin` (`Email`, `Skin`, `Eyes` , `Eyebrow`, `Mouth`, `Fronthair`, `Backhair`, `Clothes`, `Accessories`)";
+                sql+="VALUE ('" +new_mail+ "', ";
+                sql+="'1', ";
+                sql+="'1', ";
+                sql+="'4', ";     
+                sql+="'1', ";
+                sql+="'5', ";
+                sql+="'2', ";
+                sql+="'4', ";
+                sql+="'7')";
+                con.createStatement().execute(sql);
+                response.setHeader("Refresh","0;login.jsp");
+              }
+            }
             else
             {
-              out.println("請輸入帳號密碼");
-              //response.setHeader("Refresh","3;register.jsp");
-            } 
-
-            /*else
-            {
-              out.println("請輸入帳號密碼");
-              response.setHeader("Refresh","3;register.jsp");
-            }*/
-           
-//Step 4: 執行 SQL 指令	
-/*
-          sql="INSERT `member` (`Name`, `Gender` , `Birthday`, `Email`, `Password`)";
-           sql+="VALUE ('" +new_name+ "', ";
-           sql+="'"+new_gender+"', ";
-           sql+="'"+new_date+"', ";     
-           sql+="'"+new_mail+"', ";
-           sql+="'"+new_pwd+"')";      
-           con.createStatement().execute(sql); 
-           */
+              out.println("<SCRIPT LANGUAGE='JavaScript'>");
+              out.println("alert('密碼 與 重複密碼不符')");
+              out.println("history.back();");
+              out.println("</SCRIPT>");
+            }  
+          }
+          else
+          {
+            out.println("<SCRIPT LANGUAGE='JavaScript'>");
+            out.println("alert('請輸入帳號密碼')");
+            out.println("history.back();");
+            out.println("</SCRIPT>");
+          } 
 
 //Step 6: 關閉連線
-           con.close();
-//Step 5: 顯示結果 
-          //直接顯示最新的資料
-      
-      
+           con.close();   
         }
 
   }

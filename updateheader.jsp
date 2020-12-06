@@ -35,6 +35,9 @@ try {
 
         con.createStatement().execute(sql);
         con.close();
+        out.println("<SCRIPT LANGUAGE='JavaScript'>");
+        out.println("window.document.location.href='member.jsp';");
+        out.println("</SCRIPT>");
         }
       }
     catch (SQLException sExec) {

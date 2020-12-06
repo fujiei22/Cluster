@@ -1,6 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*, java.util.*"%>
-
+<%
+try {
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        String sql="";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+           out.println("連線建立失敗");
+        else { 
+           sql="USE `cluster`";
+           con.createStatement().execute(sql);
+           sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+			    ResultSet memberrs =con.createStatement().executeQuery(sql);
+			    String name="", createtime="", introduction="";
+			    while(memberrs.next()){
+	    		name = memberrs.getString("Name");
+          createtime = memberrs.getString("Createtime");
+          introduction = memberrs.getString("Introduction");
+			}
+           %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -416,7 +436,6 @@ $(document).ready(function () {
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
-            <%String name =(String) session.getAttribute("name");%>
             <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle fa-2x"></i>　<%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
@@ -485,13 +504,13 @@ $(document).ready(function () {
                  </div>
 
                  <div id="introductionbox">
-                  <p>自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介</p>
+                  <p><%=introduction%></p>
                 </div>
                 </div>
               <div id="start">
                 <b>註冊日期</b>
                 <span id="startdate">
-                2020/07/07
+                <%=createtime%>
                 </span> 
               </div>
               <div id="flot-placeholder"></div>
@@ -587,6 +606,19 @@ $(document).ready(function () {
 
     </div>
 </div>
-
+<%
+//Step 6: 關閉連線
+          con.close();
+      }
+    }
+    catch (SQLException sExec) {
+           out.println("SQL錯誤");
+		   
+    }
+}
+catch (ClassNotFoundException err) {
+      out.println("class錯誤");
+}
+%>
 </body>
 </html>

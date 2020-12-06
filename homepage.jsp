@@ -12,38 +12,12 @@ try {
         else { 
            sql="USE `cluster`";
            con.createStatement().execute(sql);
-          //執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet  
-           //sql="SELECT * FROM `post`";
-           //ResultSet rs=con.createStatement().executeQuery(sql);
-
-           //先移到檔尾, getRow()後, 就可知道共有幾筆記錄
-           //rs.last();
-           //int total_content=rs.getRow();
-           //out.println("共"+total_content+"筆留言<p>");
-           
-           //每頁顯示10筆, 算出共幾頁◄ ►
-           //int page_num=(int)Math.ceil((double)total_content/10.0); //無條件進位
-           //out.println("頁數");
-           //使用超連結方式, 呼叫自己, 使用get方式傳遞參數(變數名稱為page)
-         //  for(int i=1;i<=page_num;i++) //建立1,2,...頁超連結
-          //   out.print("<a href='viewpost.jsp?page="+i+"'>"+i+"</a>&nbsp;");
-          //  out.println("<p>");
-
-           //讀取page變數
-           //String page_string = request.getParameter("page");
-           //if (page_string == null) 
-               //page_string = "0";          
-           //int current_page=Integer.valueOf(page_string);
-           //if(current_page==0) //若未指定page, 令current_page為1
-            //current_page=1;
-           //計算開始記錄位置   
-           //顯示結果 
-           //int start_record=(current_page-1)*10;
-           //遞減排序, 讓最新的資料排在最前面
-           //sql="SELECT * FROM `post` ORDER BY `pno` DESC LIMIT ";
-           //sql+=start_record+",10";
-
-           //rs=con.createStatement().executeQuery(sql);
+           sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+			    ResultSet memberrs =con.createStatement().executeQuery(sql);
+			    String name="";
+			    while(memberrs.next()){
+	    		name=memberrs.getString("Name");
+			}
            %>
 <!DOCTYPE html>
 <html lang="en">
@@ -238,8 +212,7 @@ try {
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
-            <%String name =(String) session.getAttribute("name");%>
-            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle fa-2x"></i>　<%=name%></a>
+            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><i class="fas fa-user-circle fa-2x"></i><%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
             <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
@@ -263,10 +236,12 @@ try {
       <!--第二區-->
       <div class="col-8 mainarea">
         <div class="mainboard" style="height:80%">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+
+        <form class="form-inline my-2 my-lg-0" action="add_search.jsp">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        
         <div class="h2div" ><h2>話題</h2>
 
         <div class="form-popup" id="myForm">
@@ -334,53 +309,51 @@ try {
                   }
               %> 
             </div>
+
             <script>
               function setcookie(set) { 
                 document.cookie = "room=" + set + ";" + ";path=/";
               }
-            
             </script>
 
             <div class="tab-pane fade" id="hot" role="tabpanel" aria-labelledby="profile-tab">
-              <div class="row" >
-                <img src="img/test.jpg" style="width:10%;margin:10px;">
-              <div class="maindiv">
-                  <span class="">話題標題</span>
-                  <p class="">話題內容話題內容</span><br>
-                    <span class="badge badge-primary">音樂</span>
-                </div>
-                <div class="percent"><h2>80%</h2></div>
-              </div> 
-              <div class="row" >
-                <img src="img/test.jpg" style="width:10%;margin:10px;">
-              <div class="maindiv">
-                  <span class="">話題標題</span>
-                  <p class="">話題內容話題內容</span><br>
-                    <span class="badge badge-primary">音樂</span>
-                </div>
-                <div class="percent"><h2>80%</h2></div>
-              </div> 
-              
+            <%
+            sql="SELECT `pno`,COUNT(chat.title) AS 討論度, `Subject`, `Content`, `Category` FROM post join chat ON post.pno = chat.title GROUP BY chat.title ORDER BY COUNT(chat.title) DESC";
+              ResultSet rs2=con.createStatement().executeQuery(sql);
+              while(rs2.next())
+                  {
+                    out.println("<div class='row' >");
+                    out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
+                    out.println("<div class='maindiv'>");
+                    out.println("<span class=''>"+rs2.getString(3)+"</span>");
+                    out.println("<p class=''>"+rs2.getString(4)+"</span>");
+                    out.println("</br>");
+                    out.println("<span class='badge badge-primary'>"+rs2.getString(5)+"</span>");
+                    out.println("</div>");
+                    out.println("<div class='percent'><h2>80%</h2></div>");
+                    out.println("</div>");
+                  }
+            %>
             </div>
+            
             <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="contact-tab">
-              <div class="row" >
-                <img src="img/test.jpg" style="width:10%;margin:10px;">
-              <div class="maindiv">
-                  <span class="">話題標題</span>
-                  <p class="">話題內容話題內容</span><br>
-                    <span class="badge badge-primary">音樂</span>
-                </div>
-                <div class="percent"><h2>80%</h2></div>
-              </div> 
-              <div class="row" >
-                <img src="img/test.jpg" style="width:10%;margin:10px;">
-              <div class="maindiv">
-                  <span class="">話題標題</span>
-                  <p class="">話題內容話題內容</span><br>
-                    <span class="badge badge-primary">音樂</span>
-                </div>
-                <div class="percent"><h2>80%</h2></div>
-              </div> 
+              <%
+              sql="SELECT * FROM `post`";
+              ResultSet rs3=con.createStatement().executeQuery(sql);
+              while(rs3.next())
+                  {
+                    out.println("<div class='row' >");
+                    out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
+                    out.println("<div class='maindiv'>");
+                    out.println("<span class=''>"+rs3.getString(4)+"</span>");
+                    out.println("<p class=''>"+rs3.getString(5)+"</span>");
+                    out.println("</br>");
+                    out.println("<span class='badge badge-primary'>"+rs3.getString(6)+"</span>");
+                    out.println("</div>");
+                    out.println("<div class='percent'><h2>80%</h2></div>");
+                    out.println("</div>");
+                  }
+              %> 
             </div>
           </div>
         </div>
@@ -473,67 +446,6 @@ try {
 
       </div>
   </div>
-  
-
-  <%--
-try {
-    Class.forName("com.mysql.jdbc.Driver");
-    try {
-        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
-        String sql="";
-        Connection con=DriverManager.getConnection(url,"root","1234");
-        if(con.isClosed())
-           out.println("連線建立失敗");
-        else { 
-           sql="USE `cluster`";
-           con.createStatement().execute(sql);
-          //執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet	
-           sql="SELECT * FROM `post`"; //算出共幾筆留言
-           ResultSet rs=con.createStatement().executeQuery(sql);
-
-           //先移到檔尾, getRow()後, 就可知道共有幾筆記錄
-           rs.last();
-           int total_content=rs.getRow();
-           //out.println("共"+total_content+"筆留言<p>");
-           
-           //每頁顯示10筆, 算出共幾頁◄ ►
-           int page_num=(int)Math.ceil((double)total_content/10.0); //無條件進位
-           //out.println("頁數");
-           //使用超連結方式, 呼叫自己, 使用get方式傳遞參數(變數名稱為page)
-           for(int i=1;i<=page_num;i++) //建立1,2,...頁超連結
-              out.print("<a href='viewpost.jsp?page="+i+"'>"+i+"</a>&nbsp;");
-            out.println("<p>");
-
-           //讀取page變數
-           String page_string = request.getParameter("page");
-           if (page_string == null) 
-               page_string = "0";          
-           int current_page=Integer.valueOf(page_string);
-           if(current_page==0) //若未指定page, 令current_page為1
-	          current_page=1;
-	         //計算開始記錄位置   
-           //顯示結果 
-           int start_record=(current_page-1)*10;
-           //遞減排序, 讓最新的資料排在最前面
-           sql="SELECT * FROM `post` ORDER BY `pno` DESC LIMIT ";
-           sql+=start_record+",10";
-
-           rs=con.createStatement().executeQuery(sql);
-           //逐筆顯示, 直到沒有資料(最多還是10筆)
-           while(rs.next())
-                {
-                  out.println("<div class='row'>");
-                  out.println("<div class='chatdiv'>");
-                  out.println("<span class=''>"+rs.getString(4)+"</span>");
-                  out.println("<p class=''>"+rs.getString(5)+"</span>");
-                  out.println("</div>");
-
-                 
-                 out.println("主題:"+rs.getString(4)+"<br>");
-                 out.println("內容:"+rs.getString(5)+"<br>");
-                 out.println("時間:"+rs.getString(6)+"<br><hr>");
-          }
-          --%>
           <%
 //Step 6: 關閉連線
           con.close();
@@ -548,18 +460,13 @@ catch (ClassNotFoundException err) {
       out.println("class錯誤");
 }
 %>
-
-
-
-  <script>
-    function openForm() {
-      document.getElementById("myForm").style.display = "block";
-    }
-    
-    function closeForm() {
-      document.getElementById("myForm").style.display = "none";
-    }
-    </script>
-
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
 </body>
 </html>

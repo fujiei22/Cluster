@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `cluster` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `cluster`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: cluster
@@ -16,6 +14,55 @@ USE `cluster`;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `chat`
+--
+
+DROP TABLE IF EXISTS `chat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chat` (
+  `chatid` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(23) NOT NULL,
+  `title` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `chatcontent` varchar(45) NOT NULL,
+  `room` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`chatid`)
+) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chat`
+--
+
+LOCK TABLES `chat` WRITE;
+/*!40000 ALTER TABLE `chat` DISABLE KEYS */;
+INSERT INTO `chat` VALUES (169,'456','8','測試!!!!!!!!!','1123'),(170,'456','8','測!','1123'),(171,'456','8','測!!','%E4%B8%8D%E7%9F%A5%E5%90%83%E4%BB%80%E9%BA%BC'),(172,'456','8','測試!','%E4%B8%8D%E7%9F%A5%E5%90%83%E4%BB%80%E9%BA%BC'),(173,'456','7','冊冊冊','%E6%99%9A%E9%A4%90%E5%90%83%E8%B1%AC%E6%8E%92'),(174,'456','8','wwwww','%E6%99%9A%E9%A4%90%E5%90%83%E8%B1%AC%E6%8E%92'),(175,'456','7','ejic32i','%E6%99%9A%E9%A4%90%E5%90%83%E8%B1%AC%E6%8E%92'),(176,'456','7','iej23ji33','%E6%99%9A%E9%A4%90%E5%90%83%E8%B1%AC%E6%8E%92'),(177,'456','7','ie9239','%E6%99%9A%E9%A4%90%E5%90%83%E8%B1%AC%E6%8E%92'),(178,'456','7','ce223hu','%E4%B8%8D%E7%9F%A5%E5%90%83%E4%BB%80%E9%BA%BC'),(179,'456','7','ejci32','%E4%B8%8D%E7%9F%A5%E5%90%83%E4%BB%80%E9%BA%BC'),(180,'123','7','ec32','1123'),(181,'123','9','ec2k3o','1123'),(182,'123','9','ejci23','1123'),(187,'456','9','??','%E6%99%9A%E9%A4%90%E5%90%83%E8%B1%AC%E6%8E%92');
+/*!40000 ALTER TABLE `chat` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `friends`
+--
+
+DROP TABLE IF EXISTS `friends`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `friends` (
+  `Email` varchar(30) DEFAULT NULL,
+  `Friends` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `friends`
+--
+
+LOCK TABLES `friends` WRITE;
+/*!40000 ALTER TABLE `friends` DISABLE KEYS */;
+/*!40000 ALTER TABLE `friends` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `member`
@@ -37,6 +84,8 @@ CREATE TABLE `member` (
   `Game` varchar(30) DEFAULT NULL,
   `Travel` varchar(30) DEFAULT NULL,
   `Food` varchar(30) DEFAULT NULL,
+  `Signature` varchar(30) DEFAULT NULL,
+  `Introduction` text,
   PRIMARY KEY (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -47,6 +96,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
+INSERT INTO `member` VALUES ('123','male','','123@e','111','2020-12-05',NULL,NULL,NULL,NULL,NULL,NULL,'測試用的','測試測試測試'),('wwe','male','','123@f','we','2020-12-05',NULL,NULL,NULL,NULL,NULL,NULL,'',''),('ueue','male','','123@gm','123','2020-12-05',NULL,NULL,NULL,NULL,NULL,NULL,'',''),('Rex','male','12/30/2020','123@gmail.com','123','2020-12-05','76','50','50','50','50','50','',''),('456','male','','456@gmail','456','2020-12-06',NULL,NULL,NULL,NULL,NULL,NULL,'','');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,6 +127,7 @@ CREATE TABLE `memberskin` (
 
 LOCK TABLES `memberskin` WRITE;
 /*!40000 ALTER TABLE `memberskin` DISABLE KEYS */;
+INSERT INTO `memberskin` VALUES ('123@e','1','1','3','1','16','2','19','7'),('123@f','1','1','4','1','5','2','4','7'),('123@gm','1','1','4','1','5','2','4','7'),('123@gmail.com','1','1','4','1','5','2','4','7'),('456@gmail','1','1','4','1','5','2','4','7');
 /*!40000 ALTER TABLE `memberskin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +147,7 @@ CREATE TABLE `post` (
   `Category` varchar(30) DEFAULT NULL,
   `PostDate` date DEFAULT NULL,
   PRIMARY KEY (`pno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,6 +156,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
+INSERT INTO `post` VALUES (7,'123','123@e','1123','ec23','運動','2020-12-05'),(8,'123','123@e','晚餐吃豬排','測試用的','美食','2020-12-06'),(9,'123','123@e','不知吃什麼','不知吃什麼不知吃什麼','音樂','2020-12-06');
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-29 16:59:15
+-- Dump completed on 2020-12-06 13:08:31

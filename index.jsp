@@ -354,7 +354,10 @@ try {
            sql+="`Game` VARCHAR(30),";
            sql+="`Travel` VARCHAR(30),";
            sql+="`Food` VARCHAR(30),";
+           sql+="`Signature` VARCHAR(30),";
+           sql+="`Introduction` TEXT,";
            sql+="PRIMARY KEY(`Email`))";
+           sql+="DEFAULT CHARSET=utf8";
            con.createStatement().execute(sql);
 
            sql="CREATE TABLE IF NOT EXISTS `post`";
@@ -366,6 +369,7 @@ try {
            sql+="`Category` VARCHAR(30),";
            sql+="`PostDate` DATE,";
            sql+="PRIMARY KEY(pno))";
+           sql+="DEFAULT CHARSET=utf8";
            con.createStatement().execute(sql);
 
            sql="CREATE TABLE IF NOT EXISTS `skin`";
@@ -373,8 +377,7 @@ try {
            sql+="`file_path` VARCHAR(30),";
            sql+="`img_file` VARCHAR(30),";
            sql+="PRIMARY KEY(imgno))";
-           //sql+="INSERT `skin` VALUE (1,'img/header/accessories/',accessories),(2,'img/header/accessories/','accessories'),(3,'img/header/accessories/','accessories'),(4,'img/header/accessories/','accessories'),(5,'img/header/accessories/','accessories'),(6,'img/header/accessories/','accessories'),(7,'img/header/accessories/','accessories'),(8,'img/header/accessories/','accessories'),(9,'img/header/backhair/','backhair'),(10,'img/header/backhair/','backhair'),(11,'img/header/backhair/','backhair'),(12,'img/header/backhair/','backhair'),(13,'img/header/backhair/','backhair'),(14,'img/header/backhair/','backhair'),(15,'img/header/backhair/','backhair'),(16,'img/header/backhair/','backhair'),(17,'img/header/backhair/','backhair'),(18,'img/header/backhair/','backhair'),(19,'img/header/backhair/','backhair'),(20,'img/header/backhair/','backhair'),(21,'img/header/backhair/','backhair'),(22,'img/header/backhair/','backhair'),(23,'img/header/backhair/','backhair'),(24,'img/header/backhair/','backhair'),(25,'img/header/backhair/','backhair'),(26,'img/header/backhair/','backhair'),(27,'img/header/backhair/','backhair'),(28,'img/header/backhair/','backhair'),(29,'img/header/backhair/','backhair'),(30,'img/header/backhair/','backhair'),(31,'img/header/backhair/','backhair'),(32,'img/header/backhair/','backhair'),(33,'img/header/backhair/','backhair'),(34,'img/header/backhair/','backhair'),(35,'img/header/backhair/','backhair'),(36,'img/header/backhair/','backhair'),(37,'img/header/backhair/','backhair'),(38,'img/header/backhair/','backhair'),(39,'img/header/backhair/','backhair'),(40,'img/header/backhair/','backhair'),(41,'img/header/backhair/','backhair'),(42,'img/header/backhair/','backhair'),(43,'img/header/backhair/','backhair'),(44,'img/header/backhair/','backhair'),(45,'img/header/clothes/','clothes'),(46,'img/header/clothes/','clothes'),(47,'img/header/clothes/','clothes'),(48,'img/header/clothes/','clothes'),(49,'img/header/clothes/','clothes'),(50,'img/header/clothes/','clothes'),(51,'img/header/clothes/','clothes'),(52,'img/header/clothes/','clothes'),(53,'img/header/clothes/','clothes'),(54,'img/header/clothes/','clothes'),(55,'img/header/clothes/','clothes'),(56,'img/header/clothes/','clothes'),(57,'img/header/clothes/','clothes'),(58,'img/header/clothes/','clothes'),(59,'img/header/clothes/','clothes'),(60,'img/header/clothes/','clothes'),(61,'img/header/clothes/','clothes'),(62,'img/header/clothes/','clothes'),(63,'img/header/clothes/','clothes'),(64,'img/header/clothes/','clothes'),(65,'img/header/eyebrow/','eyebrow'),(66,'img/header/eyebrow/','eyebrow'),(67,'img/header/eyebrow/','eyebrow'),(68,'img/header/eyebrow/','eyebrow'),(69,'img/header/eyes/','eyes'),(70,'img/header/eyes/','eyes'),(71,'img/header/eyes/','eyes'),(72,'img/header/eyes/','eyes'),(73,'img/header/eyes/','eyes'),(74,'img/header/eyes/','eyes'),(75,'img/header/eyes/','eyes'),(76,'img/header/eyes/','eyes'),(77,'img/header/eyes/','eyes'),(78,'img/header/eyes/','eyes'),(79,'img/header/eyes/','eyes'),(80,'img/header/eyes/','eyes'),(81,'img/header/eyes/','eyes'),(82,'img/header/eyes/','eyes'),(83,'img/header/eyes/','eyes'),(84,'img/header/eyes/','eyes'),(85,'img/header/eyes/','eyes'),(86,'img/header/eyes/','eyes'),(87,'img/header/eyes/','eyes'),(88,'img/header/eyes/','eyes'),(89,'img/header/fronthair/','fronthair'),(90,'img/header/fronthair/','fronthair'),(91,'img/header/fronthair/','fronthair'),(92,'img/header/fronthair/','fronthair'),(93,'img/header/fronthair/','fronthair'),(94,'img/header/fronthair/','fronthair'),(95,'img/header/fronthair/','fronthair'),(96,'img/header/fronthair/','fronthair'),(97,'img/header/fronthair/','fronthair'),(98,'img/header/fronthair/','fronthair'),(99,'img/header/fronthair/','fronthair'),(100,'img/header/fronthair/','fronthair'),(101,'img/header/fronthair/','fronthair'),(102,'img/header/fronthair/','fronthair'),(103,'img/header/fronthair/','fronthair'),(104,'img/header/fronthair/','fronthair'),(105,'img/header/fronthair/','fronthair'),(106,'img/header/fronthair/','fronthair'),(107,'img/header/fronthair/','fronthair'),(108,'img/header/fronthair/','fronthair'),(109,'img/header/fronthair/','fronthair'),(110,'img/header/fronthair/','fronthair'),(111,'img/header/fronthair/','fronthair'),(112,'img/header/fronthair/','fronthair'),(113,'img/header/fronthair/','fronthair'),(114,'img/header/fronthair/','fronthair'),(115,'img/header/fronthair/','fronthair'),(116,'img/header/fronthair/','fronthair'),(117,'img/header/fronthair/','fronthair'),(118,'img/header/fronthair/','fronthair'),(119,'img/header/fronthair/','fronthair'),(120,'img/header/fronthair/','fronthair'),(121,'img/header/fronthair/','fronthair'),(122,'img/header/fronthair/','fronthair'),(123,'img/header/fronthair/','fronthair'),(124,'img/header/fronthair/','fronthair'),(125,'img/header/fronthair/','fronthair'),(126,'img/header/fronthair/','fronthair'),(127,'img/header/fronthair/','fronthair'),(128,'img/header/mouth/','mouth'),(129,'img/header/mouth/','mouth'),(130,'img/header/mouth/','mouth'),(131,'img/header/mouth/','mouth'),(132,'img/header/mouth/','mouth'),(133,'img/header/mouth/','mouth'),(134,'img/header/mouth/','mouth'),(135,'img/header/mouth/','mouth'),(136,'img/header/skin/','skin'),(137,'img/header/skin/','skin'),(138,'img/header/skin/','skin'),(139,'img/header/skin/','skin')";
-           //out.println(sql);
+           sql+="DEFAULT CHARSET=utf8";
            con.createStatement().execute(sql);
 
            sql="CREATE TABLE IF NOT EXISTS `memberskin`";
@@ -388,6 +391,13 @@ try {
            sql+="`Clothes` VARCHAR(30),";
            sql+="`Accessories` VARCHAR(30),";
            sql+="PRIMARY KEY(Email))";
+           sql+="DEFAULT CHARSET=utf8";
+           con.createStatement().execute(sql);
+
+           sql="CREATE TABLE IF NOT EXISTS `friends`";
+           sql+="(`Email` VARCHAR(30),";
+           sql+="`Friends` VARCHAR(30))";
+           sql+="DEFAULT CHARSET=utf8";
            con.createStatement().execute(sql);
 
            con.close();
