@@ -190,10 +190,16 @@ input[type=text]:focus {
                   <p>美食</p>
                   <input type="range" min="1" max="100" value="50" class="slider" id="food" name="food">
                   <br>
+<<<<<<< Updated upstream
                   <input type="submit" value="Submit" class="submit">
                   </form>
 
                   <p onclick="myFunction()">下一步</p>
+=======
+                  <input type="submit" value="下一步" class="submit"  onclick="myFunction()">
+                  </form>
+
+>>>>>>> Stashed changes
                 </div>
             </div>
           
@@ -226,9 +232,14 @@ input[type=text]:focus {
                   <input type="text" id="word1" name="word1" class="inputkeyword"><br>
                   <input type="text" id="word2" name="word2" class="inputkeyword"><br>
                   <input type="text" id="word3" name="word3" class="inputkeyword"><br>
+<<<<<<< Updated upstream
                   <input type="submit" value="Submit" class="submit">
                 </form>
                 <p onclick="myFunction2()">下一步</p>
+=======
+                  <input type="submit" value="下一步" class="submit"onclick="myFunction2()">
+                </form>
+>>>>>>> Stashed changes
             </div>
           </div>
 
@@ -246,7 +257,11 @@ input[type=text]:focus {
               <h1>恭喜您！</h1>
               <hr>
               <p>現在已可以開始使用Cluster提供的服務！</p>
+<<<<<<< Updated upstream
               <a href="homepage.html">開始</a>
+=======
+              <a href="homepage.jsp">開始</a>
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>
