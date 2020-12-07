@@ -14,10 +14,11 @@ try {
            con.createStatement().execute(sql);
            sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
-			    String name="", Createtime="";
+			    String name="", createtime="", introduction="";
 			    while(memberrs.next()){
 	    		name = memberrs.getString("Name");
-          Createtime = memberrs.getString("Createtime");
+          createtime = memberrs.getString("Createtime");
+          introduction = memberrs.getString("Introduction");
 			}
            %>
 <!DOCTYPE html>
@@ -503,13 +504,13 @@ $(document).ready(function () {
                  </div>
 
                  <div id="introductionbox">
-                  <p>自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介</p>
+                  <p><%=introduction%></p>
                 </div>
                 </div>
               <div id="start">
                 <b>註冊日期</b>
                 <span id="startdate">
-                <%=Createtime%>
+                <%=createtime%>
                 </span> 
               </div>
               <div id="flot-placeholder"></div>
