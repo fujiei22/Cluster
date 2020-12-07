@@ -1,5 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*, java.util.*"%>
+<%
+try {
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        String sql="";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+           out.println("連線建立失敗");
+        else { 
+          sql="USE `cluster`";
+          con.createStatement().execute(sql);
+          sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+			    ResultSet memberrs =con.createStatement().executeQuery(sql);
+			    String name="";
+			    while(memberrs.next()){
+	    		name=memberrs.getString("Name");
+          }
+          sql = "SELECT member.Email, member.Name, member.Gender, member.Signature, member.Introduction FROM `friends` JOIN `member` ON friends.Friends = member.Email WHERE friends.Email = '"+session.getAttribute("email")+"'"; 
+			    ResultSet frrs =con.createStatement().executeQuery(sql);
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -352,8 +373,7 @@ $(".flip2").hover(function(){
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
-            <%String name =(String) session.getAttribute("name");%>
-            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle fa-2x"></i>　<%=name%></a>
+            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%/*@ include file="importheader1.jsp" */%><i class="fas fa-user-circle fa-2x"></i><%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
             <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
@@ -379,13 +399,60 @@ $(".flip2").hover(function(){
          <span style="color: #5B5B5B; font-size: 23px;position:absolute; top: 10px;">好友列表</span>
          <div class="frienddiv">
             <div id="box1">
-              <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">  
-                
+            <%
+              while(frrs.next()){
+              out.println("<img src='img/test.jpg' id='sq' style='z-index:2;position: relative;'>");
+
+              out.println("<div class='member_name'>");
+              out.println("<p>"+frrs.getString("Name")+"&nbsp;&nbsp;♀</p>");
+              out.println("</div>");
+
+              out.println("<div class='signature'>");
+              out.println("<p>"+frrs.getString("Signature")+"</p>");
+              out.println("</div>");
+
+              out.println("<img src='img/heart.png' id='heart' style='height:18px;'>");
+              out.println("<div id='likebox' class='flip'>");
+              out.println("<div class='tagbox'>#園藝</div>");
+              out.println("<div class='tagbox'>#手沖咖啡</div>");
+              out.println("<div class='tagbox'>#電影</div>");
+              out.println("</div>");
+
+              out.println("<div class='panel'>");
+              out.println("<div class='tagbox'>#寵物</div>");
+              out.println("<div class='tagbox'>#登山</div>");
+              out.println("<div class='tagbox'>#繪畫</div>");
+              out.println("<div class='tagbox'>#戲劇</div>");
+              out.println("<div class='tagbox'>#小說</div>");
+              out.println("<div class='tagbox'>#球類運動</div>");
+              out.println("</div>");
+
+              out.println("<img src='img/hate.png' id='hate' style='height:18px;'>");
+              out.println("<div id='hatebox' class='flip2'>");
+              out.println("<div class='tagbox'>#園藝</div>");
+              out.println("<div class='tagbox'>#手沖咖啡</div>");
+              out.println("<div class='tagbox'>#電影</div>");
+              out.println("</div>");
+
+              out.println("<div class='pane2'>");
+              out.println("<div class='tagbox'>#穿搭</div>");
+              out.println("<div class='tagbox'>#古典樂</div>");
+              out.println("<div class='tagbox'>#歌劇</div>");
+              out.println("<div class='tagbox'>#手工藝</div>");
+              out.println("</div>");
+
+              out.println("<div id='introductionbox'>");
+              out.println("<p>"+frrs.getString("Introduction")+"</p>");
+              out.println("</div>");
+              }
+            %>
+
+              <%-- <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">  
                 <div class="member_name">
-                  <p>name&nbsp;&nbsp;♀</p>
+                  <p><%=name%>&nbsp;&nbsp;♀</p>
                 </div>
                 <div class="signature">
-                  <p>個簽</p>
+                  <p><%=signature%></p>
                 </div>
                 <img src="img/heart.png" id="heart" style="height:18px;">               
                 <div id="likebox" class="flip">                
@@ -404,7 +471,7 @@ $(".flip2").hover(function(){
                  </div>
                
                 <img src="img/hate.png" id="hate" style="height:18px;">               
-                <div id="hatebox" class="flip2">                
+                <div id="hatebox" class="flip2">
                  <div class="tagbox">#園藝</div>
                  <div class="tagbox">#手沖咖啡</div>
                  <div class="tagbox">#電影</div>                 
@@ -418,8 +485,10 @@ $(".flip2").hover(function(){
                  </div>
 
                  <div id="introductionbox">
-                  <p>自介自介自介自介自介自介自介自介自介自介自介自介自介</p>
-                </div>
+                  <p><%=introduction%></p>
+                </div> --%>
+
+
                 </div>
                </div>
                 </div>
@@ -492,7 +561,20 @@ $(".flip2").hover(function(){
 
       </div>
   </div>
-  
+<%
+//Step 6: 關閉連線
+          con.close();
+      }
+    }
+    catch (SQLException sExec) {
+           out.println("SQL錯誤");
+		   
+    }
+}
+catch (ClassNotFoundException err) {
+      out.println("class錯誤");
+}
+%>  
   
 </body>
 </html>
