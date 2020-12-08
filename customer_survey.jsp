@@ -176,6 +176,7 @@ input[type=text]:focus {
               <h2>興趣調查</h2>
               <hr>
               <p>為了獲得更好的使用體驗，首先我們想調查您對每個主題感興趣的程度</p>
+              <p style="position:absolute; left: 215px;">more</p><p style="position:absolute; right: 215px;">less</p>
                 <form action="add_customer_survey.jsp" method="post">
                   <p>音樂</p>
                   <input type="range" min="1" max="100" value="50" class="slider" id="music" name="music">
