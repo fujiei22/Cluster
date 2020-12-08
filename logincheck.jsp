@@ -36,7 +36,7 @@ try{
                       }
                     else
                       {
-                        response.setHeader("Refresh","0;public/index.html");
+                        response.setHeader("Refresh","0;customer_survey.jsp");
                       }
                   }
 

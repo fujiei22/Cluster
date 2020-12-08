@@ -455,14 +455,15 @@ function getCookieByName(name) {
 
   return value;
 }
-function getCookieByRoom(room) {
-  var value = parseCookie()[room];
+function getCookieByPno(pno) {
+  var value = parseCookie()[pno];
   if (value) {
       value = decodeURIComponent(value);
   }
 
   return value;
 }
+
 </script>
 </head>
 <body>
@@ -574,6 +575,7 @@ function getCookieByRoom(room) {
     $(function () {
       // ----------设置昵称-------------
       var userName = '';
+      var pno ='';
       while ($('#userName').text().trim() === '') {
        userName = getCookieByName('name');
         $('#userName').text(userName);
@@ -585,7 +587,8 @@ function getCookieByRoom(room) {
 
       // 加入房间
       socket.on('connect', function () {
-        socket.emit('join', userName);
+        pno=getCookieByPno('pno');
+        socket.emit('join', userName,pno);
       });
 
       // 监听消息
@@ -600,6 +603,7 @@ function getCookieByRoom(room) {
         $('#msglog').scrollTop($('#msglog')[0].scrollHeight);  
       });
 
+      
       // 监听系统消息
       socket.on('sys', function (sysMsg, users) {
         //var message = '<div class="sysMsg">' + sysMsg + '</div>';

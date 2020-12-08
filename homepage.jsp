@@ -293,8 +293,9 @@ try {
               while(rs.next())
                   {
                     String set =rs.getString(4);
+                    String room =rs.getString(1);
                     String roomurl ="http://localhost:3000/room/"+set;
-                    out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
+                    out.println("<a href="+roomurl+" onclick='setcookie("+room+");'>");
                     out.println("<div class='row' >");
                     out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
                     out.println("<div class='maindiv'>");
@@ -311,8 +312,9 @@ try {
             </div>
 
             <script>
-              function setcookie(set) { 
-                document.cookie = "room=" + set + ";" + ";path=/";
+              function setcookie(room) { 
+                //document.cookie = "room=" + set + ";" + ";path=/";
+                document.cookie = "pno=" + room + ";" + ";path=/";
               }
             </script>
 
