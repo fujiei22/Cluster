@@ -10,9 +10,9 @@ try {
         if(con.isClosed())
            out.println("連線建立失敗");
         else { 
-           sql="USE `cluster`";
-           con.createStatement().execute(sql);
-           sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+          sql="USE `cluster`";
+          con.createStatement().execute(sql);
+          sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
 			    String name="";
 			    while(memberrs.next()){
@@ -298,11 +298,11 @@ try {
                     out.println("<div class='row' >");
                     out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
                     out.println("<div class='maindiv'>");
-                      out.println("<span class=''>"+rs.getString(4)+"</span>");
-                      out.println("<p class=''>"+rs.getString(5)+"</span>");
-                        out.println("</br>");
-                        out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
-                      out.println("</div>");
+                    out.println("<span class=''>"+rs.getString(4)+"</span>");
+                    out.println("<p class=''>"+rs.getString(5)+"</span>");
+                    out.println("</br>");
+                    out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
+                    out.println("</div>");
                     out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
                     out.println("</a>");
@@ -322,6 +322,9 @@ try {
               ResultSet rs2=con.createStatement().executeQuery(sql);
               while(rs2.next())
                   {
+                    String set =rs2.getString(4);
+                    String roomurl ="http://localhost:3000/room/"+set;
+                    out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
                     out.println("<div class='row' >");
                     out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
                     out.println("<div class='maindiv'>");
@@ -332,9 +335,16 @@ try {
                     out.println("</div>");
                     out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
+                    out.println("</a>");
                   }
             %>
             </div>
+
+            <script>
+              function setcookie(set) { 
+                document.cookie = "room=" + set + ";" + ";path=/";
+              }
+            </script>
             
             <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="contact-tab">
               <%
@@ -342,6 +352,9 @@ try {
               ResultSet rs3=con.createStatement().executeQuery(sql);
               while(rs3.next())
                   {
+                    String set =rs3.getString(4);
+                    String roomurl ="http://localhost:3000/room/"+set;
+                    out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
                     out.println("<div class='row' >");
                     out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
                     out.println("<div class='maindiv'>");
@@ -352,9 +365,17 @@ try {
                     out.println("</div>");
                     out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
+                    out.println("</a>");
                   }
               %> 
             </div>
+
+            <script>
+              function setcookie(set) { 
+                document.cookie = "room=" + set + ";" + ";path=/";
+              }
+            </script>
+
           </div>
         </div>
 
@@ -446,7 +467,7 @@ try {
 
       </div>
   </div>
-          <%
+<%
 //Step 6: 關閉連線
           con.close();
       }
