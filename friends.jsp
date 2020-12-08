@@ -201,15 +201,7 @@ body,html {height:100%;}
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-      #sq{
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: 1px solid rgba(255,255,255,1.00);
-        top:12px;
-        left: 60px;
-        position:absolute;
-      }
+
       .box1{
         height: 300px;
         width: 180px;
@@ -339,6 +331,96 @@ float:left;
 {
   border-radius: 10px;
   background-color:rgba(108,108,108,0.2);
+}
+      #sq{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,1.00);
+        top:12px;
+        left: 60px;
+        position:absolute;
+      }
+#skin{
+  z-index:2;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 60px;
+}
+#eyes{
+  z-index:3;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 60px;
+
+}
+#eyebrow{
+  z-index:4;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 60px;
+}
+#mouth{
+  z-index:5;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 60px;
+}
+#fronthair{
+  z-index:6;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 60px;
+}
+#backhair{
+  z-index:7;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 60px;
+}
+#clothes{
+  z-index:8;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 60px;
+}
+#accessories{
+  z-index:9;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 60px;
 }
 
 
