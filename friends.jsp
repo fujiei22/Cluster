@@ -10,24 +10,24 @@ try {
         if(con.isClosed())
            out.println("連線建立失敗");
         else { 
-           sql="USE `cluster`";
-           con.createStatement().execute(sql);
-           sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+          sql="USE `cluster`";
+          con.createStatement().execute(sql);
+          sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
-			    String name="", createtime="", introduction="";
+			    String name="";
 			    while(memberrs.next()){
-	    		name = memberrs.getString("Name");
-          createtime = memberrs.getString("Createtime");
-          introduction = memberrs.getString("Introduction");
-			}
-           %>
+	    		name=memberrs.getString("Name");
+          }
+          sql = "SELECT member.Email, member.Name, member.Gender, member.Signature, member.Introduction FROM `friends` JOIN `member` ON friends.Friends = member.Email WHERE friends.Email = '"+session.getAttribute("email")+"'"; 
+			    ResultSet frrs =con.createStatement().executeQuery(sql);
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>會員頁</title>
+    <title>好友列表</title>
     <!-- bootstrap required-->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -36,10 +36,8 @@ try {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <html xmlns="http://www.w3.org/1999/xhtml">
-    <link rel="stylesheet" href="css/header.css">
     <link href="css/icon/css/all.css" rel="stylesheet">
-
-
+    
     <style type="text/css">
 body,html {height:100%;}
       body{
@@ -56,7 +54,7 @@ body,html {height:100%;}
       a:hover{text-decoration:none;}
         .mainarea{
           background-color: white;
-          overflow-x: hidden;
+          overflow:scroll;
         }
        i{
          color:white;
@@ -203,62 +201,66 @@ body,html {height:100%;}
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-      #box1{
-        position: absolute;
-        top: 25px;
-          color: #5B5B5B;
+      #sq{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,1.00);
+        top:12px;
+        left: 60px;
+        position:absolute;
       }
-      #box2{
-        height: 500px;
-        width: 300px;
-        position: absolute;
-        top:100px;
-        left: 80px;
+      .box1{
+        height: 300px;
+        width: 180px;
+        margin-top:10px;
+        margin-right:15px;
+        margin-left:5px;
         border-radius:20px;
         background:rgb(188, 228, 238);
+        float: left;
       }
 .member_name{
-  width:300px;
-  height:25px;
+  width:180px;
+  height: 15px;
   position: absolute;
   text-align:center;
-  margin-top:120px;
+  margin-top:18px;
   color: #5B5B5B;
   font-family:微軟正黑體;
-  font-size: 25px;
+  font-size: 15px;
 
 }
 .signature{
-  width:300px;
-  height:17px;
-  font-size:17px;
+  width:180px;
+  height:10.2px;
+  font-size:10.2px;
   color: #5B5B5B;
   position:absolute;
   text-align:center;
-  margin-top:70px;  
+  margin-top:40px;  
 }
 #heart{
   position:absolute;
-  top:210px;
+  top:132px;
   left:10px;
 }
 #likebox{
-  width:180px;
-  height:35px;
+  width:135px;
+  height:21px;
   position:absolute;
-  left:60px;
-  top:210px;
+  left:36px;
+  top:126px;
 }
 .tagbox{
 width:auto;
 height:auto;
 color:#fff;
 background: #7B7B7B;
-line-height: 20px;
 text-align: center;
 border-radius: 8px;
-font-size:10px;
-margin-left: 10px;
+font-size:6px;
+margin-left: 6px;
 display: inline-block;
 margin-top: 5px;
 padding: 1px 5px;
@@ -272,10 +274,10 @@ float:left;
   width:auto;
   background: rgba(255,255,255,1.00);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  width:200px;
+  width:120px;
   position:absolute;
-  left:55px;
-  top:245px;
+  left:33px;
+  top:180px;
   z-index: 3;
 
 }
@@ -287,180 +289,60 @@ float:left;
   width:auto;
   background: rgba(255,255,255,1.00);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  width:200px;
+  width:120px;
   position:absolute;
-  left:55px;
-  top:305px;
+  left:33px;
+  top:235px;
   z-index: 4;
 
 }
 #hatebox{
-  width:180px;
-  height:35px;
+  width:135px;
+  height:21px;
   position:absolute;
-  left:60px;
-  top:270px;
+  left:36px;
+  top:180px;
 }
 #hate{
   position:absolute;
-  top:270px;
-  left:15px; 
+  top:187px;
+  left:13px; 
 }
 #introductionbox{
-  width:270px;
-  height: 150px;
+  width:162px;
+  height:90px;
   position:absolute;
   left:15px;
-  top:340px;
-    color: #5B5B5B;
-}
-#start{
-  width:300px;
-  position:absolute;
-  left:55%;
-  top:120px;
-    color: #5B5B5B;
-  
-}
-#startdate{
-  position:relative;
-  left:30px;
-
-}
-#flot-placeholder{
-  position:absolute;
-  left:50%;
-  top:170px;
-  width:350px;
-  height:180px;
-}       
-#month{
-  position:absolute;
-  left:93%;
-  top:331px;
-  font-size:13px;
-} 
-.verticalLine {
-  width: 80px;
-  height: 75px;
-  border-right: solid #7B7B7B;
-  position: absolute;
-  top:370px;
-  left:62.5%;
+  top:240px;
   color: #5B5B5B;
-  font-family:微軟正黑體;
-  font-size: 17px;
+  font-size: 10px;
 }
-.verticalLine2{
-  width: 80px;
-  height: 70px;
-  position: absolute;
-  top: 370px;
-  left: 73%;
-  color: #5B5B5B;
-  font-family:微軟正黑體;
-  font-size: 17px;
-}
-#badge{
-  width:350px;
-  height:130px;
-  position:absolute;
-  left:52%;
-  top:470px;
-}
-.badgeimg{
-  margin-right:10px;
-  margin-left:10px;
-  margin-top:10px;
-  float: left;
-  height:30px;
-}
-#skin{
-  z-index:2;
-  position: absolute;  
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:20px;
-  left: 100px;
-}
-#eyes{
-  z-index:3;
-  position: absolute;  
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:20px;
-  left: 100px;
 
+.frienddiv{
+  width:820px;
+  height: 500px;
+  overflow:auto;
+  position:absolute;
+  top:50px;
+}     
+.frienddiv::-webkit-scrollbar-track
+{
+  border-radius: 10px;
 }
-#eyebrow{
-  z-index:4;
-  position: absolute;  
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:20px;
-  left: 100px;
+
+.frienddiv::-webkit-scrollbar
+{
+  width: 10px;
 }
-#mouth{
-  z-index:5;
-  position: absolute;  
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:20px;
-  left: 100px;
-}
-#fronthair{
-  z-index:6;
-  position: absolute;  
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:20px;
-  left: 100px;
-}
-#backhair{
-  z-index:7;
-  position: absolute;  
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:20px;
-  left: 100px;
-}
-#clothes{
-  z-index:8;
-  position: absolute;  
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:20px;
-  left: 100px;
-}
-#accessories{
-  z-index:9;
-  position: absolute;  
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:20px;
-  left: 100px;
+
+.frienddiv::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color:rgba(108,108,108,0.2);
 }
 
 
 </style>
-<script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="http://www.pureexample.com/js/flot/jquery.flot.min.js"></script>
 <script type="text/javascript">
 $(function(){
 $(".flip").hover(function(){
@@ -477,23 +359,6 @@ $(".flip2").hover(function(){
   });
 });
 
-//折線圖
-var data = [[1, 30], [2, 40], [3, 15], [4, 25], [5, 30], [6, 40], [7, 60], [8, 35]];
- 
- var dataset = [{label: "活躍度",data: data}];
- var options = {
-  series: {
-    lines: { show: true },
-    points: {
-    radius: 3,
-    show: true
-          }
-            }
-        };
- 
-$(document).ready(function () {
-  $.plot($("#flot-placeholder"), dataset, options);
-        });
 
 
 </script>
@@ -509,7 +374,7 @@ $(document).ready(function () {
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
-            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle fa-2x"></i>　<%=name%></a>
+            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%/*@ include file="importheader1.jsp" */%><i class="fas fa-user-circle fa-2x"></i><%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
             <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
@@ -532,28 +397,66 @@ $(document).ready(function () {
 
       <!--第二區-->
       <div class="col-8 mainarea">
-        <div id="box1">
-          <p>Hi! <%=name%></p>
-          <p>關於你</p>
-        </div>
-            <div id="box2">
-               <a href="setting.jsp"><img src="img/setting.png" style="height:25px;position:absolute;left:5px;top:5px;"></a>
-                  <img src="img/header/skin/skin1.png" id="skin" class="headersstyle">
-                  <img src="img/header/eyes/eyes1.png" id="eyes" class="headersstyle">
-                  <img src="img/header/eyebrow/eyebrow4.png" id="eyebrow" class="headersstyle">
-                  <img src="img/header/mouth/mouth1.png" id="mouth" class="headersstyle">
-                  <img src="img/header/fronthair/fronthair29.png" id="fronthair" class="headersstyle">
-                  <img src="img/header/backhair/backhair8.png" id="backhair" class="headersstyle">
-                  <img src="img/header/clothes/clothes18.png" id="clothes" class="headersstyle">
-                  <img src="img/header/accessories/accessories7.png" id="accessories" class="headersstyle">
-                <%//@ include file="importheader.jsp" %>
+         <span style="color: #5B5B5B; font-size: 23px;position:absolute; top: 10px;">好友列表</span>
+         <div class="frienddiv">
+            <%
+              while(frrs.next()){
+              out.println("<div class='box1'>");
+              out.println("<img src='img/test.jpg' id='sq' style='z-index:2;position: relative;'>");
+
+              out.println("<div class='member_name'>");
+              out.println("<p>"+frrs.getString("Name")+"&nbsp;&nbsp;♀</p>");
+              out.println("</div>");
+
+              out.println("<div class='signature'>");
+              out.println("<p>"+frrs.getString("Signature")+"</p>");
+              out.println("</div>");
+
+              out.println("<img src='img/heart.png' id='heart' style='height:18px;'>");
+              out.println("<div id='likebox' class='flip'>");
+              out.println("<div class='tagbox'>#園藝</div>");
+              out.println("<div class='tagbox'>#手沖咖啡</div>");
+              out.println("<div class='tagbox'>#電影</div>");
+              out.println("</div>");
+
+              out.println("<div class='panel'>");
+              out.println("<div class='tagbox'>#寵物</div>");
+              out.println("<div class='tagbox'>#登山</div>");
+              out.println("<div class='tagbox'>#繪畫</div>");
+              out.println("<div class='tagbox'>#戲劇</div>");
+              out.println("<div class='tagbox'>#小說</div>");
+              out.println("<div class='tagbox'>#球類運動</div>");
+              out.println("</div>");
+
+              out.println("<img src='img/hate.png' id='hate' style='height:18px;'>");
+              out.println("<div id='hatebox' class='flip2'>");
+              out.println("<div class='tagbox'>#園藝</div>");
+              out.println("<div class='tagbox'>#手沖咖啡</div>");
+              out.println("<div class='tagbox'>#電影</div>");
+              out.println("</div>");
+
+              out.println("<div class='pane2'>");
+              out.println("<div class='tagbox'>#穿搭</div>");
+              out.println("<div class='tagbox'>#古典樂</div>");
+              out.println("<div class='tagbox'>#歌劇</div>");
+              out.println("<div class='tagbox'>#手工藝</div>");
+              out.println("</div>");
+
+              out.println("<div id='introductionbox'>");
+              out.println("<p>"+frrs.getString("Introduction")+"</p>");
+              out.println("</div>");
+              out.println("</div>");
+              }
+            %>
+
+              <%-- <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">  
                 <div class="member_name">
                   <p><%=name%>&nbsp;&nbsp;♀</p>
                 </div>
                 <div class="signature">
-                  <p>個簽</p>
+                  <p><%=signature%></p>
                 </div>
-                <img src="img/heart.png" id="heart" style="height:30px;">               
+                <img src="img/heart.png" id="heart" style="height:18px;">               
                 <div id="likebox" class="flip">                
                  <div class="tagbox">#園藝</div>
                  <div class="tagbox">#手沖咖啡</div>
@@ -569,8 +472,8 @@ $(document).ready(function () {
                  <div class="tagbox">#球類運動</div>
                  </div>
                
-                <img src="img/hate.png" id="hate" style="height:30px;">               
-                <div id="hatebox" class="flip2">                
+                <img src="img/hate.png" id="hate" style="height:18px;">               
+                <div id="hatebox" class="flip2">
                  <div class="tagbox">#園藝</div>
                  <div class="tagbox">#手沖咖啡</div>
                  <div class="tagbox">#電影</div>                 
@@ -585,107 +488,80 @@ $(document).ready(function () {
 
                  <div id="introductionbox">
                   <p><%=introduction%></p>
-                </div>
-                </div>
-              <div id="start">
-                <b>註冊日期</b>
-                <span id="startdate">
-                <%=createtime%>
-                </span> 
-              </div>
-              <div id="flot-placeholder"></div>
-              <span id="month">(月)</span>
-                    <div class="verticalLine">
-                      <b><p>發起話題</p></b>
-                      <span style="font-family:Times;font-size:25px;margin-left:20px">15</span>
-                    </div>
-                <div class="verticalLine2">
-                  <b><p>參與話題</p></b>
-                  <span style="font-family:Times;font-size:25px; margin-left:20px">55</span>
-                </div>
+                </div> --%>
 
-              <div id="badge">
-                <b><span style="color: #5B5B5B;">你的徽章</span></b><br>
-                <img src="img/badge.png" class="badgeimg">   
-                <img src="img/badge.png" class="badgeimg"> 
-                <img src="img/badge.png" class="badgeimg"> 
-                <img src="img/badge.png" class="badgeimg">
-                <img src="img/badge.png" class="badgeimg">
-                <img src="img/badge.png" class="badgeimg">
-                <img src="img/badge.png" class="badgeimg">
-                <img src="img/badge.png" class="badgeimg">
-                <img src="img/badge.png" class="badgeimg">
-              </div>
+
+               </div>
                 </div>
        
-                 <!--form-->
-      <div class="form-popup" id="myForm">
-        <form action="add_topic.jsp" class="form-container">
-          <h2>開新話題</h2>
-            <div class="form-group">
-              <label for="title">標題</label>
-              <input type="text" class="form-control" id="title" name="subject" placeholder="請輸入標題">
-            </div>
-            <div class="form-group">
-              <label for="textarea">內文</label>
-              <textarea class="form-control" id="textarea" name="content" rows="4" placeholder="請輸入內文"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="category">分類</label>
-              <select class="form-control" id="category" name="category">
-                <option>音樂</option>
-                <option>電影</option>
-                <option>運動</option>
-                <option>遊戲</option>
-                <option>旅遊</option>
-                <option>美食</option>
-              </select>
-            </div>
-          <button type="submit" class="btn">提交</button><button type="button" class="btn cancel" onclick="closeForm()">取消</button>
-        </form>
+ <!--form-->
+ <div class="form-popup" id="myForm">
+  <form action="add_topic.jsp" class="form-container">
+    <h2>開新話題</h2>
+      <div class="form-group">
+        <label for="title">標題</label>
+        <input type="text" class="form-control" id="title" name="subject" placeholder="請輸入標題">
       </div>
-
-     <!--第三區-->
-    <div class="col mainarea">
-      <div class="thirdarea"style="height:100%">
-        
-      <div class="row">
-        <div class="chatdiv">
-          <i class="fas fa-pizza-slice fa-2x" ></i>
-          <span style="color:white">　5 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-          <br>
-          <span class="">早餐吃什麼</span>
-          <p class="">蛋餅還是三明治？</span>
-        </div>
+      <div class="form-group">
+        <label for="textarea">內文</label>
+        <textarea class="form-control" id="textarea" name="content" rows="4" placeholder="請輸入內文"></textarea>
       </div>
-      <div class="row">
-        <div class="chatdiv">
-          <i class="fas fa-baseball-ball fa-2x"></i>
-          <span style="color:white">　4 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-          <br>
-          <span class="">星期六有沒有人要打球</span>
-          <p class="">球我帶</span>
-        </div>
+      <div class="form-group">
+        <label for="category">分類</label>
+        <select class="form-control" id="category" name="category">
+          <option>音樂</option>
+          <option>電影</option>
+          <option>運動</option>
+          <option>遊戲</option>
+          <option>旅遊</option>
+          <option>美食</option>
+        </select>
       </div>
-      <div class="row">
-        <div class="chatdiv">
-          <i class="fas fa-gamepad fa-2x"></i>
-          <span style="color:white">　2 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-          <br>
-          <span class="">有人玩過FF嗎?</span>
-          <p class="">最近在特價，值得買嗎？</span>
-        </div>
-      </div>
-      
-      
-      <div class="row">
-        <button class="open-button" onclick="openForm()">+</button>
-      </div>
-    </div>
-  </div>
-
-    </div>
+    <button type="submit" class="btn">提交</button><button type="button" class="btn cancel" onclick="closeForm()">取消</button>
+  </form>
 </div>
+
+      <!--第三區-->
+      <div class="col mainarea">
+        <div class="thirdarea"style="height:100%">
+          
+        <div class="row">
+          <div class="chatdiv">
+            <i class="fas fa-pizza-slice fa-2x" ></i>
+            <span style="color:white">　5 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
+            <br>
+            <span class="">早餐吃什麼</span>
+            <p class="">蛋餅還是三明治？</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="chatdiv">
+            <i class="fas fa-baseball-ball fa-2x"></i>
+            <span style="color:white">　4 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
+            <br>
+            <span class="">星期六有沒有人要打球</span>
+            <p class="">球我帶</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="chatdiv">
+            <i class="fas fa-gamepad fa-2x"></i>
+            <span style="color:white">　2 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
+            <br>
+            <span class="">有人玩過FF嗎?</span>
+            <p class="">最近在特價，值得買嗎？</span>
+          </div>
+        </div>
+        
+        
+        <div class="row">
+          <button class="open-button" onclick="openForm()">+</button>
+        </div>
+      </div>
+    </div>
+
+      </div>
+  </div>
 <%
 //Step 6: 關閉連線
           con.close();
@@ -699,6 +575,7 @@ $(document).ready(function () {
 catch (ClassNotFoundException err) {
       out.println("class錯誤");
 }
-%>
+%>  
+  
 </body>
 </html>

@@ -1,11 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import = "java.sql.*, java.util.*"%>
+<%
+try {
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        String sql="";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+          out.println("連線建立失敗");
+        else
+        {
+            con.createStatement().execute("USE `cluster`");
+            sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+			ResultSet rs =con.createStatement().executeQuery(sql);
+			String name="", gender="", signature="", introduction="",  email="", pwd="";
+			while(rs.next()){
+	    		name=rs.getString("Name");
+				gender=rs.getString("Gender");
+				signature=rs.getString("Signature");
+				introduction=rs.getString("Introduction");
+				email=rs.getString("Email");
+				pwd=rs.getString("Password");
+			}
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
     <title>設定</title>
        <style type="text/css">
@@ -111,102 +135,101 @@ margin-top: 5px;
 padding: 1px 5px;
 float:left;
 }
-.tagdiv{
-  width:465px;
-  height: 150px;
+#skin{
+  z-index:2;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0; 
 }
+#eyes{
+  z-index:3;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
 
-#list {
-margin: 0;
-padding: 0;
-list-style: none;
-float: left;
+}
+#eyebrow{
+  z-index:4;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
+#mouth{
+  z-index:5;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
+#fronthair{
+  z-index:6;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
+#backhair{
+  z-index:7;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
+#clothes{
+  z-index:8;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
+#accessories{
+  z-index:9;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
 }
        </style>
-<<<<<<< Updated upstream
-   </head>
-=======
-<script type="text/javascript">
-$('#exampleModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this)
-  modal.find('.modal-body input').val(recipient)
-})
-
-
-window.onload = function(event){
-var btn = document.querySelector('#add');
-var text = document.querySelector('#StringTextBox');
-var list = document.querySelector('#list');
-var colors = ["tag"];
-var nub = 0;
-btn.onclick = function(event){
-if(text.value.trim() == ""){
-alert("打點字吧");
-return false;
-}
-var li = document.createElement("li");
-li.innerHTML = "#"+text.value;
-// li.className = colors[nub%colors.length];
-/* 判斷a標籤已經被新增，就讓a標籤顯示出來，否則就新增 */
-(list.children[0]&&list.children[0].className=="tagbox")
-li.className = "tagbox";
-
-var a = null;
-li.onmouseover = function(event){
-if(a) {
-a.style.display = "block";
-} else {
-a = document.createElement("a");
-a.href = "javascript:;";
-a.onclick = function (){
-list.removeChild(this.parentNode);
-};
-this.appendChild(a);
-}
-};
-li.onmouseout = function(){
-a.style.display = "none";
-};
-list.insertBefore(li,list.children[0]);
-text.value ="";
-nub  ;
-};
-};
- 
-
-
-</script>
 	      </head>
 
 
 
->>>>>>> Stashed changes
    <body>
 	<a href="member.jsp"><img src="img/back.png" id="backicon"></a>
    	<span style="position:absolute; left:22%; top:30px;font-family: Microsoft JhengHei;color: #5B5B5B;"><b>個人檔案</b></span>
    	<div class="fristdiv">
-   		<from>
+   		<form action="updatesetting.jsp" method="post">
    			<span style="position:absolute; left:50px; top:15%;font-family: Microsoft JhengHei;color: #5B5B5B;">更改頭像</span>
-   			<a href="header.jsp"><img src="img/test.jpg" id="header"></a>
+   			<a href="header.jsp">
+                  <img src="img/header/skin/skin1.png" id="skin" class="headersstyle">
+                  <img src="img/header/eyes/eyes1.png" id="eyes" class="headersstyle">
+                  <img src="img/header/eyebrow/eyebrow4.png" id="eyebrow" class="headersstyle">
+                  <img src="img/header/mouth/mouth1.png" id="mouth" class="headersstyle">
+                  <img src="img/header/fronthair/fronthair29.png" id="fronthair" class="headersstyle">
+                  <img src="img/header/backhair/backhair8.png" id="backhair" class="headersstyle">
+                  <img src="img/header/clothes/clothes18.png" id="clothes" class="headersstyle">
+                  <img src="img/header/accessories/accessories7.png" id="accessories" class="headersstyle">  
+        </a>
             <span style="position:absolute; left:50px; top:30%;font-family: Microsoft JhengHei;color: #5B5B5B;">暱稱</span>
-            <input value="null" style="position:absolute;left:170px;top:30%; ">
+            <input type="text" value="<%=name%>" name="name" style="position:absolute;left:170px;top:30%; ">
             <span style="position:absolute; left:50px; top:40%;font-family: Microsoft JhengHei;color: #5B5B5B;">性別</span>
-<<<<<<< Updated upstream
-            <select style="position:absolute;left:170px;top:40%; ">
-              <option>男性</option>
-              <option>女性</option>
-              <option value="3">不方便透露</option>
-=======
-            <select style="position:absolute;left:170px;top:40%;" name="gender" value="<%=gender%>" selected = "<%=gender%>">
+            <select style="position:absolute;left:170px;top:40%;" name="gender" value="<%=gender%>">
               <option value="male">男性</option>
               <option value="female">女性</option>
-              <option value="other">不方便透露</option>
->>>>>>> Stashed changes
+              <option value="other">其他</option>
             </select>
+
             <span style="position:absolute; left:50px; top:50%;font-family: Microsoft JhengHei;color: #5B5B5B;">喜歡的標籤</span>
                 <div id="liketag">                
                  <div class="tagbox">#園藝</div>
@@ -214,7 +237,7 @@ nub  ;
                  <div class="tagbox">#電影</div>   
                  <div class="tagbox">#手沖咖啡</div>
                  <div class="tagbox">#手沖咖啡</div>
-                 <img src="img/pen.png" class="penicon" data-toggle="modal" data-target="#exampleModal" type="button">               
+                 <img src="img/pen.png" class="penicon">               
                  </div>
             <span style="position:absolute; left:50px; top:60%;font-family: Microsoft JhengHei;color: #5B5B5B;">討厭的標籤</span>   
                 <div id="hatetag">                
@@ -222,77 +245,44 @@ nub  ;
                  <div class="tagbox">#手沖咖啡</div>
                  <div class="tagbox">#電影</div> 
                  <div class="tagbox">#手沖咖啡</div>   
-<<<<<<< Updated upstream
-                 <img src="img/pen.png" class="penicon" data-toggle="modal" data-target="#exampleModal" data-whatever="like">     
-=======
-                 <img src="img/pen.png" class="penicon" data-toggle="modal" data-target="#exampleModal" type="button">     
->>>>>>> Stashed changes
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-<<<<<<< Updated upstream
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-=======
-        <h5 class="modal-title" id="exampleModalLabel">編輯</h5>
->>>>>>> Stashed changes
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-<<<<<<< Updated upstream
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-=======
-        <div class="tagdiv">
-          <ul id="list"></ul>
-        </div>
-        <form>
-          <div class="form-group">
-            <textarea type="text" id="StringTextBox" style="width:300px; position:absolute; top:130px;"></textarea>
-            <input type="button" value="添加" id="add" class="btn btn-success" style="position:absolute; top:145px; right: 100px;">
->>>>>>> Stashed changes
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-<<<<<<< Updated upstream
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>        
-=======
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-        <button type="submit" class="btn btn-primary">確認修改</button>
-      </div>
-    </div>
-  </div>
-</div>         
->>>>>>> Stashed changes
+                 <img src="img/pen.png" class="penicon">     
+      
                  </div>
             <span style="position:absolute; left:50px; top:70%;font-family: Microsoft JhengHei;color: #5B5B5B;">個簽</span>       
-            <input value="原本的個簽" style="position:absolute;left:170px;top:70%;width:300px; ">  
+            <input value="<%=signature%>" name="signature" style="position:absolute;left:170px;top:70%;width:300px; ">  
             <span style="position:absolute; left:50px; top:85%;font-family: Microsoft JhengHei;color: #5B5B5B;">自介</span> 
-            <textarea value="原本的自介" style="position:absolute;left:170px;top:80%;width:300px; height:80px;"></textarea>        
-   		</from>
+            <textarea name="introduction" style="position:absolute;left:170px;top:80%;width:300px; height:80px;"><%=introduction%></textarea>        
    	</div>
    	<span style="position:absolute; left:22%; top:580px;font-family: Microsoft JhengHei;color: #5B5B5B;"><b>帳號密碼</b></span>
    	<div class="seconddiv">
    			<span style="position:absolute; left:50px; top:10%;font-family: Microsoft JhengHei;color: #5B5B5B;">E-mail</span>
-   			<input value="原本的E-mail" style="position:absolute;left:170px;top:10%;width:400px; ">  
+   			<input value="<%=email%>" style="position:absolute;left:170px;top:10%;width:400px;"  disabled="disabled">  
    			<span style="position:absolute; left:50px; top:30%;font-family: Microsoft JhengHei;color: #5B5B5B;">變更密碼</span>
+
    			<span style="position:absolute; left:70px; top:40%;font-family: Microsoft JhengHei;color: #5B5B5B;">請輸入舊密碼</span>
-   			<input type="password" style="position:absolute;left:190px;top:40%;">
+   			<input type="password" style="position:absolute;left:190px;top:40%;" name="oldpwd">
+			   
    			<span style="position:absolute; left:70px; top:60%;font-family: Microsoft JhengHei;color: #5B5B5B;">請輸入新密碼</span>
-   			<input type="password" style="position:absolute;left:190px;top:60%;">
+   			<input type="password" style="position:absolute;left:190px;top:60%;" name="newpwd">
+
    			<span style="position:absolute; left:70px; top:80%;font-family: Microsoft JhengHei;color: #5B5B5B;">確認密碼</span>
-   			<input type="password" style="position:absolute;left:190px;top:80%;">
+   			<input type="password" style="position:absolute;left:190px;top:80%;" name="renewpwd">
    	</div>
-   	<button type="button" class="btn btn-light" style="position:absolute;top:860px;left:45%; margin-bottom: 20px;">確認修改</button>
+   	<button type="submit" class="btn btn-light" style="position:absolute;top:860px;left:45%; margin-bottom: 20px;">確認修改</button>
+	      		</form>
+
+<%
+   con.close();
+		}
+		}
+    catch (SQLException sExec) {
+           out.println("SQL錯誤"+sExec.toString());
+    }
+}
+catch (ClassNotFoundException err) {
+   out.println("class錯誤"+err.toString());
+}
+   %>
    </body>
    </html>
+ 
