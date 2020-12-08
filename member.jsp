@@ -1,6 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*, java.util.*"%>
-
+<%
+try {
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        String sql="";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+           out.println("連線建立失敗");
+        else { 
+           sql="USE `cluster`";
+           con.createStatement().execute(sql);
+           sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+			    ResultSet memberrs =con.createStatement().executeQuery(sql);
+			    String name="", createtime="", introduction="";
+			    while(memberrs.next()){
+	    		name = memberrs.getString("Name");
+          createtime = memberrs.getString("Createtime");
+          introduction = memberrs.getString("Introduction");
+			}
+           %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -188,14 +208,6 @@ body,html {height:100%;}
         top: 25px;
           color: #5B5B5B;
       }
-      #sq{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        border: 1px solid rgba(255,255,255,1.00);
-        top:20px;
-        left: 100px;
-      }
       #box2{
         height: 500px;
         width: 300px;
@@ -322,7 +334,7 @@ float:left;
   width:350px;
   height:180px;
 }       
-#mouth{
+#month{
   position:absolute;
   left:93%;
   top:331px;
@@ -362,6 +374,87 @@ float:left;
   margin-top:10px;
   float: left;
   height:30px;
+}
+#skin{
+  z-index:2;
+  position: relative;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#eyes{
+  z-index:3;
+  position: relative;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+
+}
+#eyebrow{
+  z-index:4;
+  position: relative;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#mouth{
+  z-index:5;
+  position: relative;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#fronthair{
+  z-index:6;
+  position: relative;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#backhair{
+  z-index:7;
+  position: relative;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#clothes{
+  z-index:8;
+  position: relative;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#accessories{
+  z-index:9;
+  position: relative;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
 }
 
 
@@ -416,7 +509,6 @@ $(document).ready(function () {
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
-            <%String name =(String) session.getAttribute("name");%>
             <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle fa-2x"></i>　<%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
@@ -446,7 +538,14 @@ $(document).ready(function () {
         </div>
             <div id="box2">
                <a href="setting.jsp"><img src="img/setting.png" style="height:25px;position:absolute;left:5px;top:5px;"></a>
-              <!--img src="img/test.jpg" id="sq"style="z-index:2;position: relative;"-->  
+                <img src="img/header/skin/skin1.png" id="skin" class="headersstyle">
+                <img src="img/header/eyes/eyes1.png" id="eyes" class="headersstyle">
+                <img src="img/header/eyebrow/eyebrow4.png" id="eyebrow" class="headersstyle">
+                <img src="img/header/mouth/mouth1.png" id="mouth" class="headersstyle">
+                <img src="img/header/fronthair/fronthair5.png" id="fronthair" class="headersstyle">
+                <img src="img/header/backhair/backhair2.png" id="backhair" class="headersstyle">
+                <img src="img/header/clothes/clothes4.png" id="clothes" class="headersstyle">
+                <img src="img/header/accessories/accessories7.png" id="accessories" class="headersstyle">
                 <%//@ include file="importheader.jsp" %>
                 <div class="member_name">
                   <p><%=name%>&nbsp;&nbsp;♀</p>
@@ -485,13 +584,13 @@ $(document).ready(function () {
                  </div>
 
                  <div id="introductionbox">
-                  <p>自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介自介</p>
+                  <p><%=introduction%></p>
                 </div>
                 </div>
               <div id="start">
                 <b>註冊日期</b>
                 <span id="startdate">
-                2020/07/07
+                <%=createtime%>
                 </span> 
               </div>
               <div id="flot-placeholder"></div>
@@ -587,6 +686,19 @@ $(document).ready(function () {
 
     </div>
 </div>
-
+<%
+//Step 6: 關閉連線
+          con.close();
+      }
+    }
+    catch (SQLException sExec) {
+           out.println("SQL錯誤");
+		   
+    }
+}
+catch (ClassNotFoundException err) {
+      out.println("class錯誤");
+}
+%>
 </body>
 </html>
