@@ -14,10 +14,12 @@ try {
            con.createStatement().execute(sql);
            sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
-			    String name="", createtime="", introduction="";
+			    String name="", gender="",  createtime="", signature="", introduction="";
 			    while(memberrs.next()){
 	    		name = memberrs.getString("Name");
+          gender = memberrs.getString("Gender");
           createtime = memberrs.getString("Createtime");
+          signature = memberrs.getString("Signature");
           introduction = memberrs.getString("Introduction");
 			}
            %>
@@ -471,7 +473,7 @@ $(document).ready(function () {
                   <p><%=name%>&nbsp;&nbsp;♀</p>
                 </div>
                 <div class="signature">
-                  <p>個簽</p>
+                  <p><%=signature%></p>
                 </div>
                 <img src="img/heart.png" id="heart" style="height:30px;">               
                 <div id="likebox" class="flip">                
