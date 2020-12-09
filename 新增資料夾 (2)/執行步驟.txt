@@ -1,0 +1,30 @@
+1.開啟Streamlit
+(1)activate kagari //打開虛擬機
+(2)streamlit run Streamlit_practice_dataset_12_04.py //跑程式
+(3)點選Kmeans繪圖
+
+
+2.開啟Flask
+(1)activate kagari //打開虛擬機
+(2)python flask_api.py
+(3)確認有出現Port號
+
+
+3.Python傳值測試
+(1)activate kagari //打開虛擬機
+(2)jupyter notebook //打開Jupyter notebook
+(3)點選 call.ipynb
+(4)Shift+Enter 執行
+
+note:
+記得除了目標欄位以外，其他必須全是數值資料
+圖形area、line、bar請使用圖形右上方選項手動儲存
+圖形dot暫不可用
+執行Kmeans後，會在Model產生(1)模型本身(2)分群的csv
+
+Q:我想在其他電腦執行?
+A:如果要在你的電腦以外的電腦(終端)跑的話，這邊假設是用Anaconda作為安裝環境，請確保額外安裝以下套件->flask、seaborn、sklearn、streamlit、jupyter notebook、flask-cors
+
+Q:沒安裝的怎麼安裝呢?
+A:以flask為例子，(1)開啟虛擬機(2)pip install flask，這樣就行了，其他套件方式一樣
+

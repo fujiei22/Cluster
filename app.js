@@ -37,8 +37,8 @@ socketIO.on('connection', function (socket) {
 
   socket.on('join', function (userName,pnumber) {
     user = userName;
-    pno=pnumber;
-    //console.log(pno);
+    pno = pnumber;
+    console.log(pno);
   
     // 将用户昵称加入房间名单中
     if (!roomInfo[roomID]) {
@@ -48,7 +48,7 @@ socketIO.on('connection', function (socket) {
 
     socket.join(roomID);    // 加入房间
     // 通知房间内人员
-    conn.query('SELECT Name,chatcontent FROM chat WHERE room = ?', [roomID],
+    conn.query('SELECT Name,chatcontent FROM chat WHERE title = ?', [pno],
               function (err, results, fields) {
                 if (err) throw err;
             else {

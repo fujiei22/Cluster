@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>{{roomID}}</title>
+  
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -16,10 +16,19 @@
 <link rel="stylesheet" type="text/css" href="style/layout.css"/>
 <script type="text/javascript" src="script/jquery-1.4.2.min.js"></script>
   <style>
-    #msglog, #messageInput {
+    #messageInput {
       border: 1px solid #ccc;
       width: 500px;
-      height: 350px;
+      height: 200px;
+      border-radius: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+    #msglog{
+      border:none;
+      
+      width: 500px;
+      height: 400px;
       overflow-y: auto;
       font-size: 14px;
     }
@@ -27,12 +36,15 @@
       height: 80px;
     }
     .message {
+      font-size: large;
+      padding:5px;
       line-height: 22px;
     }
     .message .user {
-      padding-right: 5px;
-      padding-left: 5px;
-      color: brown;
+      font-weight: bold;
+      font-size: large;
+      padding:5px;
+      color: rgb(60, 70, 204);
     }
     .sysMsg {
       color: #c1bfbf;
@@ -289,9 +301,9 @@ div.tab_container {
   font-size: 10px;
 }
 .mestop{
-  width:575px;
-  height:80px;
-  position:fixed;
+  padding:30px;
+  width:500px;
+  height:40px;
   top: 0px;
 }
 .fname2{
@@ -339,6 +351,7 @@ div.tab_container {
   width:575px;
   height:100%;
   position:absolute;
+  padding:30px;
   top:80px;
   overflow:scroll;
 }
@@ -455,8 +468,8 @@ function getCookieByName(name) {
 
   return value;
 }
-function getCookieByPno(pno) {
-  var value = parseCookie()[pno];
+function getCookieByPno(room) {
+  var value = parseCookie()[room];
   if (value) {
       value = decodeURIComponent(value);
   }
@@ -468,9 +481,9 @@ function getCookieByPno(pno) {
 </head>
 <body>
 
-  <div class="container-fluid" style="height: 100%;">
+  <!--<div class="container-fluid" style="height: 100%;">
     <div class="row justify-content-center" style="height: 100%;">
-      <!--第一區-->
+      第一區
       <div class="col leftnav">
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
@@ -497,7 +510,7 @@ function getCookieByPno(pno) {
         </ul>
       </div>
 
-      <!--第二區-->
+      第二區
       <div class="col-10 mainarea">
         <div id="box1">
          <div class="box2" style="padding: 10px;position:fixed; z-index: 999;width:240px; height: 50px;background: #fff;"> 
@@ -519,25 +532,28 @@ function getCookieByPno(pno) {
     </ul>
     </div>    
     <div class="tab_container">
-      <div id="tab1" class="tab_content">
+      <div id="tab1" class="tab_content">-->
+        <div class="mestop"> 
+           <h2> {{roomID}}</h2>
+          <span id="userName" style="display:none"></span>
+         <!--房間: {{roomID}} <br/>-->
+         <span id="count"style="display:none">{{users.length}}</span> <br/>
+       <div id="users"style="display:none">{{users}}</div>
+       </div>
+
       <div class="mesarea">
 
-       <!-- 用戶: <span id="userName"></span> <br/>
-        房間: {{roomID}} <br/>-->
-        在線人數: <span id="count">{{users.length}}</span> <br/>
-        在線用户:  <div id="users">{{users}}</div>
-
-        <div id="msglog">
+      <div id="msglog">
 
         </div>
         <textarea name="message" id="messageInput"></textarea>
         <br/>
         <!--<button id="joinOrLeave">退出房間</button>-->
 
-      </div>        
-        <div class="mestop">
+       <!--</div>        
+       <div class="mestop">
           <span class="fname2"> {{roomID}}</span>
-        <!--  <span class="online">在線</span>-->
+          <span class="online">在線</span>-
           <img src="img/star1.png" class="star">
           <img src="img/blockade.png" class="block" onclick="myFunction()">
 
@@ -546,36 +562,35 @@ function getCookieByPno(pno) {
             <li><a href="#">檢舉</a></li>          
         </li></ul>
       </div>
-    <!--  <div class="inputmes">
+      <div class="inputmes">
         <input type="text" class="send">
         <button type="submit" class="sendbtn">發送</button>
       </div>
-    -->  
+     
       <div class="memberbox">
         <img src="img/test.jpg" class="sq2">
         <div class="fname3">Name1</div>
       </div>
 
-        </div><!--tab1--> 
+        </div>tab1
 
 
 
-      </div> <!--tab_container-->     
-    </div><!--box1-->      
-      </div><!--col-10-->
+      </div> tab_container    
+    </div>box1    
+      </div>col-10
   
 
 
   </div>
-</div>
-
+</div>-->
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/jquery.js"></script>
   <script>
     $(function () {
       // ----------设置昵称-------------
       var userName = '';
-      var pno ='';
+      var pno = getCookieByPno('room');
       while ($('#userName').text().trim() === '') {
        userName = getCookieByName('name');
         $('#userName').text(userName);
@@ -587,7 +602,7 @@ function getCookieByPno(pno) {
 
       // 加入房间
       socket.on('connect', function () {
-        pno=getCookieByPno('pno');
+        
         socket.emit('join', userName,pno);
       });
 
