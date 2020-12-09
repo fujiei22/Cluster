@@ -30,13 +30,13 @@ try{
                   	session.setAttribute("birthday",rs.getString("Birthday"));
                   	session.setAttribute("email",rs.getString("Email"));
                     session.setAttribute("password",rs.getString("Password"));
-                    if(rs.getString("Music") !=null)
+                    if(rs.getString("read") !=null)
                       {
                         response.setHeader("Refresh","0;homepage.jsp");
                       }
                     else
                       {
-                        response.setHeader("Refresh","0;customer_survey.jsp");
+                        response.setHeader("Refresh","0;public/index.html");
                       }
                   }
 
