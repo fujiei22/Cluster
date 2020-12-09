@@ -18,14 +18,16 @@ try {
         else {
            sql="use `cluster`";
            con.createStatement().execute(sql);
-           String new_music=request.getParameter("music");
+           String new_read=request.getParameter("read");
+           String new_draw=request.getParameter("draw");
+           String new_game=request.getParameter("game");
            String new_movie=request.getParameter("movie");
            String new_sport=request.getParameter("sport");
-           String new_game=request.getParameter("game");
+           String new_dance=request.getParameter("dance");
            String new_travel=request.getParameter("travel");
-           String new_food=request.getParameter("food");
+           String new_shopping=request.getParameter("shopping");
 
-           sql="UPDATE `member` SET `Music`='" + new_music + "', `Movie`='" + new_movie + "', `Sport`='" + new_sport + "', `Game`='" + new_game + "', `Travel`='" + new_travel + "', `Food`='" + new_food + "' WHERE `Email` = '" + email + "'";
+           sql="UPDATE `member` SET `read`='" + new_read + "', `draw`='" + new_draw + "', `game`='" + new_game + "', `movie`='" + new_movie + "', `sport`='" + new_sport + "', `dance`='" + new_dance + "' , `travel`='" + new_travel + "', `shopping`='" + new_shopping + "' WHERE `Email` = '" + email + "'";
            con.createStatement().execute(sql);
            response.setHeader("Refresh","customer_survey.jsp");
            con.close();

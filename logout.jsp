@@ -6,6 +6,5 @@ session.removeAttribute("gender");
 session.removeAttribute("birthday");
 session.removeAttribute("email");
 session.removeAttribute("password");
-out.println("登出成功，3秒後頁面自動進行跳轉");
-response.setHeader("Refresh","3;login.jsp");
+response.setHeader("Refresh","0;login.jsp");
 %>
