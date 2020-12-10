@@ -21,7 +21,6 @@
   position:absolute;
   left: 20px;
   top:10px;
-
 }
 #finishicon{
   width: 50px;
@@ -42,7 +41,6 @@
   left: 35.5%;
   top:8.5px;
   z-index: 2;
-
 }
 #eyebrow{
   width:300px;
@@ -91,13 +89,11 @@
   margin-left:20%;
   margin-right:20%;
 }
-
 .cbtn{
   height:115px;
   margin-right:5px;
   margin-left:5px;
   margin-top:10px;
-
 }
 .cbtn2{
   height: 70px;
@@ -105,7 +101,6 @@
   margin-right:5px;
   margin-top:10px;
 }
-
 ul, li {
   margin: 0;
   padding: 0;
@@ -168,7 +163,6 @@ div.tab_container {
     position: relative;
     display: inline-block;
 }
-
 .dropdown-content {
     display:none;
     background-color: #f9f9f9;
@@ -176,12 +170,8 @@ div.tab_container {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     white-space: nowrap;
     position: absolute;
-
 }
-
-
 .dropdown a:hover {background-color: #f1f1f1}
-
 .show {display:block;}
     </style>
 
@@ -260,7 +250,6 @@ $(function(){
 function myFunction(num) {
     document.getElementById("myDropdown"+num).classList.toggle("show");
 }
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
@@ -274,7 +263,6 @@ window.onclick = function(event) {
     }
   }
 }
-
 </script>
 </head>
 
@@ -810,7 +798,6 @@ try {
 		<%
           con.close();
       }
-
     catch (SQLException sExec) {
            out.println("SQL錯誤"+sExec);
 		   
@@ -821,23 +808,17 @@ catch (ClassNotFoundException err) {
 }
 %>
 <script>
-
 $("#finishicon").click(function(){
 $(".headersstyle").each(function( x,item ) {
     console.log(item)
 	let currPath = item.getAttribute("src")
     var text = currPath.lastIndexOf('/')
     text = currPath.slice(text+1,-4)
-
     thenum = text.match(/\d+/)[0] 
     let type = text.replace(thenum,"")
     console.log("[Type]:",type);
     console.log("[Number]:",thenum);
-
     $("#input"+type).attr("value",thenum)
-
-
-
 });
 $( "#hiddenform" ).submit();
 });

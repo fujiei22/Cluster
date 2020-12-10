@@ -15,11 +15,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
      <style>
-
         .slidecontainer {
   width: 100%;
 }
-
 .slider {
   -webkit-appearance: none;
   width: 80%;
@@ -30,11 +28,9 @@
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
-
 .slider:hover {
   opacity: 1;
 }
-
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -43,18 +39,15 @@
   background:black;
   cursor: pointer;
 }
-
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
   background:black;
   cursor: pointer;
 }
-
 .form-css{
   text-align: center;
 }
-
 /* The container */
 .container {
   display: block;
@@ -68,7 +61,6 @@
   -ms-user-select: none;
   user-select: none;
 }
-
 /* Hide the browser's default checkbox */
 .container input {
   position: absolute;
@@ -77,7 +69,6 @@
   height: 0;
   width: 0;
 }
-
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
@@ -87,29 +78,24 @@
   width: 25px;
   background-color: #eee;
 }
-
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
   background-color: #ccc;
 }
-
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
   background-color: #2196F3;
 }
-
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-
 /* Show the checkmark when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
 }
-
 /* Style the checkmark/indicator */
 .container .checkmark:after {
   left: 9px;
@@ -122,14 +108,12 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
 input[type=text]:focus {
   border:solid #555;
   background-color:black;
   color:white;
   transition: 0.2s;
 }
-
   .inputkeyword{
     font-size: 22px;
     width:60%;
@@ -139,7 +123,6 @@ input[type=text]:focus {
     background-color: rgb(212, 212, 212);
     border:none;
 }
-
 .submit{
   border:0;
   background-color:black;
@@ -148,13 +131,11 @@ input[type=text]:focus {
   padding:10px 20px 10px 20px;
   margin:20px;
   cursor:pointer;}
-
  .submit:hover{
   color:black;
   background-color:#fff;
   border:2px black solid;
 }
-
 #next{
   display: none;
 }
@@ -260,7 +241,6 @@ input[type=text]:focus {
   document.getElementById("next").style.display = "inline";
   document.getElementById("pre").style.display = "none";
 }
-
 </script>
 
 

@@ -87,7 +87,6 @@ body,html {height:100%;}
           width:60%;
           
         }
-
         .h2div{
           position: relative;
           z-index: 1;
@@ -166,7 +165,6 @@ body,html {height:100%;}
           width:20%;
           margin:10px;
         }
-
         #myTabContent{
           width:100%;
           overflow:scroll;
@@ -176,28 +174,23 @@ body,html {height:100%;}
           {
             border-radius: 10px;
           }
-
           #myTabContent::-webkit-scrollbar
           {
             width: 10px;
           }
-
           #myTabContent::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-
          .mainarea::-webkit-scrollbar-track
           {
             border-radius: 10px;
           }
-
           .mainarea::-webkit-scrollbar
           {
             width: 10px;
           }
-
           .mainarea::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
@@ -226,7 +219,6 @@ body,html {height:100%;}
   color: #5B5B5B;
   font-family:微軟正黑體;
   font-size: 25px;
-
 }
 .signature{
   width:300px;
@@ -277,7 +269,6 @@ float:left;
   left:55px;
   top:245px;
   z-index: 3;
-
 }
 .pane2{
   margin:0px;
@@ -292,7 +283,6 @@ float:left;
   left:55px;
   top:305px;
   z-index: 4;
-
 }
 #hatebox{
   width:180px;
@@ -325,7 +315,6 @@ float:left;
 #startdate{
   position:relative;
   left:30px;
-
 }
 #flot-placeholder{
   position:absolute;
@@ -394,7 +383,6 @@ float:left;
   border: 1px solid rgba(255,255,255,1.00);
   top:20px;
   left: 100px;
-
 }
 #eyebrow{
   z-index:4;
@@ -456,8 +444,6 @@ float:left;
   top:20px;
   left: 100px;
 }
-
-
 </style>
 <script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="http://www.pureexample.com/js/flot/jquery.flot.min.js"></script>
@@ -476,7 +462,6 @@ $(".flip2").hover(function(){
     $(".xs2").toggle();
   });
 });
-
 //折線圖
 var data = [[1, 30], [2, 40], [3, 15], [4, 25], [5, 30], [6, 40], [7, 60], [8, 35]];
  
@@ -494,8 +479,6 @@ var data = [[1, 30], [2, 40], [3, 15], [4, 25], [5, 30], [6, 40], [7, 60], [8, 3
 $(document).ready(function () {
   $.plot($("#flot-placeholder"), dataset, options);
         });
-
-
 </script>
 </head>
 
@@ -529,7 +512,6 @@ $(document).ready(function () {
           <li class="nav-item" style="height: 17%"></li>
         </ul>
       </div>
-
       <!--第二區-->
       <div class="col-8 mainarea">
         <div id="box1">

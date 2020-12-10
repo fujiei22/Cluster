@@ -11,23 +11,50 @@
 
 <script>
 
-var data = '{"sepal length": 6.0, "sepal width": 2.2, "petal length": 4.0, "petal width": 1.0}';
-
-
-
-var request = new XMLHttpRequest();
-request.open('POST', 'http://127.0.0.1:5000/predict', true);
-request.onload = function() {
-  if (request.status >= 200 && request.status < 400) {
-
-    // Success!
-    console.log(request.responseText);
-	document.getElementById("Result").innerHTML=request.response;
-	
+function parseCookie() {
+  var cookieObj = {};
+  var cookieAry = document.cookie.split(';');
+  var cookie;
+  
+  for (var i=0, l=cookieAry.length; i<l; ++i) {
+      cookie = jQuery.trim(cookieAry[i]);
+      cookie = cookie.split('=');
+      cookieObj[cookie[0]] = cookie[1];
   }
-};
-request.setRequestHeader('Content-Type', 'application/json');
-request.send(data);
+  
+  return cookieObj;
+}
+
+
+function getCookieByName(room) {
+  var value = parseCookie()[room];
+  if (value) {
+      value = decodeURIComponent(value);
+  }
+
+  return value;
+}
+
+
+var room =getCookieByName(room);
+document.getElementById("Result").innerHTML=room;
+
+              
+     /*   var  data = '{"read":1, "draw": 1, "game": 1, "movie": 1, "sport": 1, "dance": 1, "travel": 100, "shopping": 100}';
+        var request = new XMLHttpRequest();
+              request.open('POST', 'http://127.0.0.1:5000/predict', true);
+              request.onload = function() {
+                if (request.status >= 200 && request.status < 400) {
+
+                  // Success!
+                  console.log(request.responseText);
+                document.getElementById("Result").innerHTML=request.response;
+                
+                }
+              };
+              request.setRequestHeader('Content-Type', 'application/json');
+              request.send(data);*/
+
 //發送請求
 </script>
 </body>

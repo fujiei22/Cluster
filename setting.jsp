@@ -42,18 +42,15 @@ try {
           {
             border-radius: 10px;
           }
-
           body::-webkit-scrollbar
           {
             width: 10px;
           }
-
           body.mainarea::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-
        	.fristdiv{
        	border-radius:20px;
        	width: 60%;
@@ -98,7 +95,6 @@ try {
        	    position: absolute;
        	    left:20%;
        	    top:610px;
-
        	}
        	#liketag{
        		height:7%;
@@ -150,7 +146,6 @@ float:left;
   left:170px;
   top:5%;
   border: 1.5px solid #D0D0D0;
-
 }
 #eyebrow{
   z-index:4;
@@ -285,4 +280,3 @@ catch (ClassNotFoundException err) {
    %>
    </body>
    </html>
- 

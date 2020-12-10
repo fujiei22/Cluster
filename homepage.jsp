@@ -87,10 +87,6 @@ try {
           position: relative;
           z-index: 1;
         }
-        .iframediv{
-          position: relative;
-          z-index: 2;
-        }
         .open-button {
           background-color: #555;
           color: white;
@@ -202,37 +198,7 @@ try {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-
-
-/* The popup chat - hidden by default */
-.chat-popup2 {
-  display: none;
-  position: fixed;
-  top: 30px;
-  margin:0px auto;
-  right: 300px;
-  border: 2px solid #f1f1f1;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container2 {
-  width:600px;
-  padding: 10px;
-  background-color: white;
-}
-
-/* Full-width textarea */
-.form-container2 iframe {
-  width: 100%;  
-  height:650px;
-  padding: 5px;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 300px;
-}
-
+  
        </style>
 </head>
 
@@ -257,7 +223,9 @@ try {
           <li class="nav-item"style="height: 10%">
             <a class="nav-link" href="friends.jsp"style="color:white;font-size:large"><i class="far fa-address-book"></i>　好友</a>
           </li>
-          
+          <li class="nav-item"style="height: 10%">
+            <a class="nav-link" href="#"style="color:white;font-size:large"><i class="far fa-comments"></i>　聊天</a>
+          </li>
           <li class="nav-item"style="height: 10%">
             <a class="nav-link" href="logout.jsp"style="color:white;font-size:large"><i class="fas fa-power-off"></i>　登出</a>
           </li>
@@ -304,9 +272,6 @@ try {
         
       </div>
 
-      
-
-
           <ul class="nav justify-content-end" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#guess" role="tab" aria-controls="guess" aria-selected="true">猜你喜歡</a>
@@ -330,7 +295,7 @@ try {
                     String set =rs.getString(4);
                     String room =rs.getString(1);
                     String roomurl ="http://localhost:3000/room/"+set;
-                    out.println("<div onclick='setcookie("+room+");change()'>");
+                    out.println("<a href="+roomurl+" onclick='setcookie("+room+");'>");
                     out.println("<div class='row' >");
                     out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
                     out.println("<div class='maindiv'>");
@@ -339,22 +304,17 @@ try {
                     out.println("</br>");
                     out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
                     out.println("</div>");
+                    out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
-                    out.println("</div>");
+                    out.println("</a>");
                   }
               %> 
             </div>
 
-            <!--
-java.net.URLEncoder.encode( set, "UTF-8" );
-
-            -->
-            
-
             <script>
               function setcookie(room) { 
-                document.cookie = "room=" + set + ";" + ";path=/";
-               // document.cookie = "pno=" + room + ";" + ";path=/";
+                //document.cookie = "room=" + set + ";" + ";path=/";
+                document.cookie = "pno=" + room + ";" + ";path=/";
               }
             </script>
 
@@ -375,6 +335,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
                     out.println("</br>");
                     out.println("<span class='badge badge-primary'>"+rs2.getString(5)+"</span>");
                     out.println("</div>");
+                    out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
                     out.println("</a>");
                   }
@@ -404,6 +365,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
                     out.println("</br>");
                     out.println("<span class='badge badge-primary'>"+rs3.getString(6)+"</span>");
                     out.println("</div>");
+                    out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
                     out.println("</a>");
                   }
@@ -480,7 +442,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
           </div>
         </div>
         <div class="row">
-          <div class="chatdiv" onclick="change()">
+          <div class="chatdiv">
             <i class="fas fa-baseball-ball fa-2x"></i>
             <span style="color:white">　4 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
             <br>
@@ -497,31 +459,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
             <p class="">最近在特價，值得買嗎？</span>
           </div>
         </div>
-       
-    <div class="chat-popup2" id="myForm2">
-          <div class="form-container2">
-            
-             <iframe id="myframe" src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >
-                    你的瀏覽器不支援 iframe
-             </iframe>
-          </div>
-        </div>
         
-        
-        <script>
-        var isShow = false;
-        function change() {
-        if(!isShow) {
-        isShow = true;
-        document.getElementById('myForm2').style.display='block';
-        //document.getElementById("myframe").src=roomurl;
-        }
-        else {
-        isShow = false;
-        document.getElementById('myForm2').style.display='none';
-        }
-        }
-        </script>
         
         <div class="row">
           <button class="open-button" onclick="openForm()">+</button>
