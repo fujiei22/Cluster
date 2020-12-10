@@ -21,6 +21,8 @@ try {
            
           // var data = '{"sepal length": 6.0, "sepal width": 2.2, "petal length": 4.0, "petal width": 1.0}';
            String new_read=request.getParameter("read");
+           //各新增一個cookie，名稱就叫各自的名字（ex:read、draw....)
+           
            String new_draw=request.getParameter("draw");
            String new_game=request.getParameter("game");
            String new_movie=request.getParameter("movie");
