@@ -18,7 +18,7 @@ try {
 			    while(memberrs.next()){
 	    		name=memberrs.getString("Name");
           }
-          sql = "SELECT member.Email, member.Name, member.Gender, member.Signature, member.Introduction FROM `friends` JOIN `member` ON friends.Friends = member.Email WHERE friends.Email = '"+session.getAttribute("email")+"'"; 
+          sql = "SELECT member.Email, member.Name, member.Gender, memberskin.Skin, memberskin.Eyes, memberskin.Eyebrow, memberskin.Mouth, memberskin.Fronthair, memberskin.Backhair, memberskin.Clothes, memberskin.Accessories, member.Signature, member.Introduction FROM `friends` JOIN `member` ON friends.Friends = member.Email JOIN `memberskin` ON friends.Friends = memberskin.Email WHERE friends.Email = '"+session.getAttribute("email")+"'"; 
 			    ResultSet frrs =con.createStatement().executeQuery(sql);
 %>
 <!DOCTYPE html>
@@ -464,14 +464,14 @@ $(".flip2").hover(function(){
             <%
               while(frrs.next()){
               out.println("<div class='box1'>");
-              out.println("<img src='img/header/skin/skin1.png' id='skin' class='headersstyle'>");
-              out.println("<img src='img/header/eyes/eyes1.png' id='eyes' class='headersstyle'>");
-              out.println("<img src='img/header/eyebrow/eyebrow4.png' id='eyebrow' class='headersstyle'>");
-              out.println("<img src='img/header/mouth/mouth1.png' id='mouth' class='headersstyle'>");
-              out.println("<img src='img/header/fronthair/fronthair29.png' id='fronthair' class='headersstyle'>");
-              out.println("<img src='img/header/backhair/backhair8.png' id='backhair' class='headersstyle'>");
-              out.println("<img src='img/header/clothes/clothes18.png' id='clothes' class='headersstyle'>");
-              out.println("<img src='img/header/accessories/accessories7.png' id='accessories' class='headersstyle'>");
+              out.println("<img src='img/header/skin/skin"+frrs.getString("Skin")+".png' id='skin' class='headersstyle'>");
+              out.println("<img src='img/header/eyes/eyes"+frrs.getString("Eyes")+".png' id='eyes' class='headersstyle'>");
+              out.println("<img src='img/header/eyebrow/eyebrow"+frrs.getString("Eyebrow")+".png' id='eyebrow' class='headersstyle'>");
+              out.println("<img src='img/header/mouth/mouth"+frrs.getString("Mouth")+".png' id='mouth' class='headersstyle'>");
+              out.println("<img src='img/header/fronthair/fronthair"+frrs.getString("Fronthair")+".png' id='fronthair' class='headersstyle'>");
+              out.println("<img src='img/header/backhair/backhair"+frrs.getString("Backhair")+".png' id='backhair' class='headersstyle'>");
+              out.println("<img src='img/header/clothes/clothes"+frrs.getString("Clothes")+".png' id='clothes' class='headersstyle'>");
+              out.println("<img src='img/header/accessories/accessories"+frrs.getString("Accessories")+".png' id='accessories' class='headersstyle'>");
               out.println("<div class='member_name'>");
               out.println("<p>"+frrs.getString("Name")+"&nbsp;&nbsp;♀</p>");
               out.println("</div>");

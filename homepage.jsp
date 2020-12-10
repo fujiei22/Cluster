@@ -288,7 +288,7 @@ try {
 
             <div class="tab-pane fade show active" id="guess" role="tabpanel" aria-labelledby="home-tab">
               <%
-              sql="SELECT * FROM `post`";
+              sql="SELECT * FROM post JOIN memberskin ON post.Email = memberskin.Email";
               ResultSet rs=con.createStatement().executeQuery(sql);
               while(rs.next())
                   {
@@ -297,7 +297,14 @@ try {
                     String roomurl ="http://localhost:3000/room/"+set;
                     out.println("<a href="+roomurl+" onclick='setcookie("+room+");'>");
                     out.println("<div class='row' >");
-                    out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
+                    out.println("<img src='img/header/skin/skin"+rs.getString("Skin")+".png' id='skin'");
+                    out.println("<img src='img/header/eyes/eyes"+rs.getString("Eyes")+".png' id='eyes'");
+                    out.println("<img src='img/header/eyebrow/eyebrow"+rs.getString("Eyebrow")+".png' id='eyebrow'");
+                    out.println("<img src='img/header/mouth/mouth"+rs.getString("Mouth")+".png' id='mouth'");
+                    out.println("<img src='img/header/fronthair/fronthair"+rs.getString("Fronthair")+".png' id='fronthair'");
+                    out.println("<img src='img/header/backhair/backhair"+rs.getString("Backhair")+".png' id='backhair'");
+                    out.println("<img src='img/header/clothes/clothes"+rs.getString("Clothes")+".png' id='clothes'");
+                    out.println("<img src='img/header/accessories/accessories"+rs.getString("Accessories")+".png' id='accessories'");
                     out.println("<div class='maindiv'>");
                     out.println("<span class=''>"+rs.getString(4)+"</span>");
                     out.println("<p class=''>"+rs.getString(5)+"</span>");
@@ -320,7 +327,7 @@ try {
 
             <div class="tab-pane fade" id="hot" role="tabpanel" aria-labelledby="profile-tab">
             <%
-            sql="SELECT `pno`,COUNT(chat.title) AS 討論度, `Subject`, `Content`, `Category` FROM post join chat ON post.pno = chat.title GROUP BY chat.title ORDER BY COUNT(chat.title) DESC";
+            sql="SELECT `pno`,COUNT(chat.title) AS 討論度, `Subject`, `Content`, `Category`, memberskin.Skin, memberskin.Eyes, memberskin.Eyebrow, memberskin.Mouth, memberskin.Fronthair, memberskin.Backhair, memberskin.Clothes, memberskin.Accessories FROM post JOIN chat ON post.pno = chat.title JOIN memberskin ON post.Email = memberskin.Email GROUP BY chat.title ORDER BY COUNT(chat.title) DESC";
               ResultSet rs2=con.createStatement().executeQuery(sql);
               while(rs2.next())
                   {
@@ -328,7 +335,14 @@ try {
                     String roomurl ="http://localhost:3000/room/"+set;
                     out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
                     out.println("<div class='row' >");
-                    out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
+                    out.println("<img src='img/header/skin/skin"+rs2.getString("Skin")+".png' id='skin'");
+                    out.println("<img src='img/header/eyes/eyes"+rs2.getString("Eyes")+".png' id='eyes'");
+                    out.println("<img src='img/header/eyebrow/eyebrow"+rs2.getString("Eyebrow")+".png' id='eyebrow'");
+                    out.println("<img src='img/header/mouth/mouth"+rs2.getString("Mouth")+".png' id='mouth'");
+                    out.println("<img src='img/header/fronthair/fronthair"+rs2.getString("Fronthair")+".png' id='fronthair'");
+                    out.println("<img src='img/header/backhair/backhair"+rs2.getString("Backhair")+".png' id='backhair'");
+                    out.println("<img src='img/header/clothes/clothes"+rs2.getString("Clothes")+".png' id='clothes'");
+                    out.println("<img src='img/header/accessories/accessories"+rs2.getString("Accessories")+".png' id='accessories'");
                     out.println("<div class='maindiv'>");
                     out.println("<span class=''>"+rs2.getString(3)+"</span>");
                     out.println("<p class=''>"+rs2.getString(4)+"</span>");
@@ -350,7 +364,7 @@ try {
             
             <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="contact-tab">
               <%
-              sql="SELECT * FROM `post`";
+              sql="SELECT * FROM post JOIN memberskin ON post.Email = memberskin.Email ORDER BY pno DESC";
               ResultSet rs3=con.createStatement().executeQuery(sql);
               while(rs3.next())
                   {
@@ -358,7 +372,14 @@ try {
                     String roomurl ="http://localhost:3000/room/"+set;
                     out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
                     out.println("<div class='row' >");
-                    out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
+                    out.println("<img src='img/header/skin/skin"+rs3.getString("Skin")+".png' id='skin'");
+                    out.println("<img src='img/header/eyes/eyes"+rs3.getString("Eyes")+".png' id='eyes'");
+                    out.println("<img src='img/header/eyebrow/eyebrow"+rs3.getString("Eyebrow")+".png' id='eyebrow'");
+                    out.println("<img src='img/header/mouth/mouth"+rs3.getString("Mouth")+".png' id='mouth'");
+                    out.println("<img src='img/header/fronthair/fronthair"+rs3.getString("Fronthair")+".png' id='fronthair'");
+                    out.println("<img src='img/header/backhair/backhair"+rs3.getString("Backhair")+".png' id='backhair'");
+                    out.println("<img src='img/header/clothes/clothes"+rs3.getString("Clothes")+".png' id='clothes'");
+                    out.println("<img src='img/header/accessories/accessories"+rs3.getString("Accessories")+".png' id='accessories'");
                     out.println("<div class='maindiv'>");
                     out.println("<span class=''>"+rs3.getString(4)+"</span>");
                     out.println("<p class=''>"+rs3.getString(5)+"</span>");
