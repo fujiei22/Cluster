@@ -31,7 +31,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-    <title>會員頁</title>
+    <title>設定</title>
        <style type="text/css">
        	body{
        	background:rgb(188, 228, 238);
@@ -135,6 +135,71 @@ margin-top: 5px;
 padding: 1px 5px;
 float:left;
 }
+#skin{
+  z-index:2;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0; 
+}
+#eyes{
+  z-index:3;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+
+}
+#eyebrow{
+  z-index:4;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
+#mouth{
+  z-index:5;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
+#fronthair{
+  z-index:6;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
+#backhair{
+  z-index:7;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
+#clothes{
+  z-index:8;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
+#accessories{
+  z-index:9;
+  height: 100px;
+  position:absolute;
+  left:170px;
+  top:5%;
+  border: 1.5px solid #D0D0D0;
+}
        </style>
 	      </head>
 
@@ -146,15 +211,25 @@ float:left;
    	<div class="fristdiv">
    		<form action="updatesetting.jsp" method="post">
    			<span style="position:absolute; left:50px; top:15%;font-family: Microsoft JhengHei;color: #5B5B5B;">更改頭像</span>
-   			<a href="header.jsp"><img src="img/test.jpg" id="header"></a>
+   			<a href="header.jsp">
+                  <img src="img/header/skin/skin1.png" id="skin" class="headersstyle">
+                  <img src="img/header/eyes/eyes1.png" id="eyes" class="headersstyle">
+                  <img src="img/header/eyebrow/eyebrow4.png" id="eyebrow" class="headersstyle">
+                  <img src="img/header/mouth/mouth1.png" id="mouth" class="headersstyle">
+                  <img src="img/header/fronthair/fronthair29.png" id="fronthair" class="headersstyle">
+                  <img src="img/header/backhair/backhair8.png" id="backhair" class="headersstyle">
+                  <img src="img/header/clothes/clothes18.png" id="clothes" class="headersstyle">
+                  <img src="img/header/accessories/accessories7.png" id="accessories" class="headersstyle">  
+        </a>
             <span style="position:absolute; left:50px; top:30%;font-family: Microsoft JhengHei;color: #5B5B5B;">暱稱</span>
             <input type="text" value="<%=name%>" name="name" style="position:absolute;left:170px;top:30%; ">
             <span style="position:absolute; left:50px; top:40%;font-family: Microsoft JhengHei;color: #5B5B5B;">性別</span>
             <select style="position:absolute;left:170px;top:40%;" name="gender" value="<%=gender%>">
               <option value="male">男性</option>
               <option value="female">女性</option>
-              <option value="other">不方便透露</option>
+              <option value="other">其他</option>
             </select>
+
             <span style="position:absolute; left:50px; top:50%;font-family: Microsoft JhengHei;color: #5B5B5B;">喜歡的標籤</span>
                 <div id="liketag">                
                  <div class="tagbox">#園藝</div>

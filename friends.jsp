@@ -37,7 +37,7 @@ try {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <html xmlns="http://www.w3.org/1999/xhtml">
     <link href="css/icon/css/all.css" rel="stylesheet">
-
+    
     <style type="text/css">
 body,html {height:100%;}
       body{
@@ -201,15 +201,8 @@ body,html {height:100%;}
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-      #sq{
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: 1px solid rgba(255,255,255,1.00);
-        top:12px;
-        left: 60px;
-      }
-      #box1{
+
+      .box1{
         height: 300px;
         width: 180px;
         margin-top:10px;
@@ -224,7 +217,7 @@ body,html {height:100%;}
   height: 15px;
   position: absolute;
   text-align:center;
-  margin-top:18px;
+  margin-top:70px;
   color: #5B5B5B;
   font-family:微軟正黑體;
   font-size: 15px;
@@ -339,6 +332,96 @@ float:left;
   border-radius: 10px;
   background-color:rgba(108,108,108,0.2);
 }
+      #sq{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,1.00);
+        top:12px;
+        left: 60px;
+        position:absolute;
+      }
+#skin{
+  z-index:2;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#eyes{
+  z-index:3;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+
+}
+#eyebrow{
+  z-index:4;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#mouth{
+  z-index:5;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#fronthair{
+  z-index:6;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#backhair{
+  z-index:7;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#clothes{
+  z-index:8;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#accessories{
+  z-index:9;
+  position: absolute;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
 
 
 </style>
@@ -398,10 +481,17 @@ $(".flip2").hover(function(){
       <div class="col-8 mainarea">
          <span style="color: #5B5B5B; font-size: 23px;position:absolute; top: 10px;">好友列表</span>
          <div class="frienddiv">
-            <div id="box1">
             <%
               while(frrs.next()){
-              out.println("<img src='img/test.jpg' id='sq' style='z-index:2;position: relative;'>");
+              out.println("<div class='box1'>");
+              out.println("<img src='img/header/skin/skin1.png' id='skin' class='headersstyle'>");
+              out.println("<img src='img/header/eyes/eyes1.png' id='eyes' class='headersstyle'>");
+              out.println("<img src='img/header/eyebrow/eyebrow4.png' id='eyebrow' class='headersstyle'>");
+              out.println("<img src='img/header/mouth/mouth1.png' id='mouth' class='headersstyle'>");
+              out.println("<img src='img/header/fronthair/fronthair29.png' id='fronthair' class='headersstyle'>");
+              out.println("<img src='img/header/backhair/backhair8.png' id='backhair' class='headersstyle'>");
+              out.println("<img src='img/header/clothes/clothes18.png' id='clothes' class='headersstyle'>");
+              out.println("<img src='img/header/accessories/accessories7.png' id='accessories' class='headersstyle'>");
 
               out.println("<div class='member_name'>");
               out.println("<p>"+frrs.getString("Name")+"&nbsp;&nbsp;♀</p>");
@@ -443,6 +533,7 @@ $(".flip2").hover(function(){
 
               out.println("<div id='introductionbox'>");
               out.println("<p>"+frrs.getString("Introduction")+"</p>");
+              out.println("</div>");
               out.println("</div>");
               }
             %>
@@ -489,7 +580,6 @@ $(".flip2").hover(function(){
                 </div> --%>
 
 
-                </div>
                </div>
                 </div>
        

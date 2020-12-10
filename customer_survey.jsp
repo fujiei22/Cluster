@@ -176,6 +176,7 @@ input[type=text]:focus {
               <h2>興趣調查</h2>
               <hr>
               <p>為了獲得更好的使用體驗，首先我們想調查您對每個主題感興趣的程度</p>
+              <p style="position:absolute; left: 215px;">more</p><p style="position:absolute; right: 215px;">less</p>
                 <form action="add_customer_survey.jsp" method="post">
                   <p>音樂</p>
                   <input type="range" min="1" max="100" value="50" class="slider" id="music" name="music">
@@ -190,10 +191,9 @@ input[type=text]:focus {
                   <p>美食</p>
                   <input type="range" min="1" max="100" value="50" class="slider" id="food" name="food">
                   <br>
-                  <input type="submit" value="Submit" class="submit">
+                  <input type="submit" value="下一步" class="submit" onclick="myFunction()">
                   </form>
 
-                  <p onclick="myFunction()">下一步</p>
                 </div>
             </div>
           
@@ -226,9 +226,9 @@ input[type=text]:focus {
                   <input type="text" id="word1" name="word1" class="inputkeyword"><br>
                   <input type="text" id="word2" name="word2" class="inputkeyword"><br>
                   <input type="text" id="word3" name="word3" class="inputkeyword"><br>
-                  <input type="submit" value="Submit" class="submit">
+                  <a href="public/index.html"><input type="submit" value="下一步" class="submit"></a>
                 </form>
-                <a href="public/index.html">下一步</a>
+                
             </div>
           </div>
 

@@ -10,7 +10,180 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style type="text/css">
+       	body{
+         background:#C4E1FF;
+         height: 100%;
+         overflow: hidden;
+       	}
+#backicon{
+  width: 50px;
+  position:absolute;
+  left: 20px;
+  top:10px;
 
+}
+#finishicon{
+  width: 50px;
+  position:absolute;
+  top:10px;
+  right: 20px;
+}
+#skin{
+  width: 300px;
+  position:absolute;
+  left: 35.5%;
+  top:8.5px;
+  z-index: 1;  
+}
+#eyes{
+  width:300px;
+  position:absolute;
+  left: 35.5%;
+  top:8.5px;
+  z-index: 2;
+
+}
+#eyebrow{
+  width:300px;
+  position:absolute;
+  left: 35.5%;
+  top:7px;
+  z-index: 3;
+}
+#mouth{
+  width:300px;
+  position:absolute;
+  left: 35.5%;
+  top:8.5px;
+  z-index: 4; 
+}
+#fronthair{
+  width:300px;
+  position:absolute;
+  left: 35.5%;
+  top:8.5px;
+  z-index: 5;
+}
+#backhair{
+  width:300px;
+  position:absolute;
+  left: 35.5%;
+  top:8.5px;
+  z-index: 6; 
+}
+#clothes{
+  width:300px;
+  position:absolute;
+  left: 35.5%;
+  top:8.5px;  
+  z-index: 7; 
+}
+#accessories{
+  width:300px;
+  position:absolute;
+  left: 35.5%;
+  top:8.5px;
+  z-index: 8; 
+}
+.clickimg{
+  height: 45px;
+  margin-left:20%;
+  margin-right:20%;
+}
+
+.cbtn{
+  height:115px;
+  margin-right:5px;
+  margin-left:5px;
+  margin-top:10px;
+
+}
+.cbtn2{
+  height: 70px;
+  margin-left:5px
+  margin-right:5px;
+  margin-top:10px;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.abgne_tab {
+  clear: left;
+  width: 1296px;
+  margin: 10px 0;
+  height: 50px;
+  position:absolute;
+  top: 49%;
+}
+ul.tabs {
+  width: 100%;
+}
+ul.tabs li {
+  float: left;
+  height: 50px;
+  width: 160px;
+  position: relative;
+  border: none;
+  background:rgba(255,255,255,0.6);
+}
+ul.tabs li a {
+  display: block;
+  padding: 0 20px;
+  color: #000;
+  border:1.2px solid #fff;
+  text-decoration: none;
+}
+ul.tabs li a:hover {
+  background: #fff;
+}
+ul.tabs li.active  {
+  background: #fff;
+  border-bottom: 1px solid#fff;
+}
+ul.tabs li.active a:hover {
+  background: #fff;
+}
+div.tab_container {
+  clear: left;
+  width: 100%;
+  height: 254px;
+  position:absolute;
+  bottom: 0px;
+  border: none;
+  background: #fff;
+}
+.dropbtn {
+    background-color: #ffffff;
+    border: none;
+    height:115px;
+    margin-right:5px;
+    margin-left:5px;
+    margin-top:10px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display:none;
+    background-color: #f9f9f9;
+    width:auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    position: absolute;
+
+}
+
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+    </style>
 
 <script type="text/javascript">
 $(function(){
@@ -148,15 +321,15 @@ try {
 
 
 	<div id="backcolor">
-	<a href="member.jsp"><img src="img/back.png" id="backicon"></a>
-	<a href="#完成"><img src="img/finish.png" id="finishicon"></a>
+	<a href="setting.jsp"><img src="img/back.png" id="backicon"></a>
+	<a href="setting.jsp"><img src="img/finish.png" id="finishicon"></a>
 	<img src="img/header/skin/skin1.png" id="skin" class="headersstyle">
 	<img src="img/header/eyes/eyes1.png" id="eyes" class="headersstyle">
 	<img src="img/header/eyebrow/eyebrow4.png" id="eyebrow" class="headersstyle">
 	<img src="img/header/mouth/mouth1.png" id="mouth" class="headersstyle">
-	<img src="img/header/fronthair/fronthair5.png" id="fronthair" class="headersstyle">
-	<img src="img/header/backhair/backhair2.png" id="backhair" class="headersstyle">
-	<img src="img/header/clothes/clothes4.png" id="clothes" class="headersstyle">
+	<img src="img/header/fronthair/fronthair29.png" id="fronthair" class="headersstyle">
+	<img src="img/header/backhair/backhair8.png" id="backhair" class="headersstyle">
+	<img src="img/header/clothes/clothes18.png" id="clothes" class="headersstyle">
 	<img src="img/header/accessories/accessories7.png" id="accessories" class="headersstyle">
 			<div class="abgne_tab">
 				<ul class="tabs">
@@ -602,7 +775,7 @@ try {
 						while(rs22.next())
 						{	
 							rs22_count+=1;
-							out.println("<img src="+rs22.getString(2)+rs22.getString(3)+".png class='cbtn2' id='c"+rs22_count+"'>");
+							out.println("<img src="+rs22.getString(2)+rs22.getString(3)+".png class='cbtn' id='c"+rs22_count+"'>");
 						}
 					
 			  		%>

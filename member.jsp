@@ -14,12 +14,10 @@ try {
            con.createStatement().execute(sql);
            sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
-			    String name="", gender="",  createtime="", signature="", introduction="";
+			    String name="", createtime="", introduction="";
 			    while(memberrs.next()){
 	    		name = memberrs.getString("Name");
-          gender = memberrs.getString("Gender");
           createtime = memberrs.getString("Createtime");
-          signature = memberrs.getString("Signature");
           introduction = memberrs.getString("Introduction");
 			}
            %>
@@ -210,14 +208,6 @@ body,html {height:100%;}
         top: 25px;
           color: #5B5B5B;
       }
-      #sq{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        border: 1px solid rgba(255,255,255,1.00);
-        top:20px;
-        left: 100px;
-      }
       #box2{
         height: 500px;
         width: 300px;
@@ -229,10 +219,10 @@ body,html {height:100%;}
       }
 .member_name{
   width:300px;
-  height: 25px;
+  height:25px;
   position: absolute;
   text-align:center;
-  margin-top:30px;
+  margin-top:120px;
   color: #5B5B5B;
   font-family:微軟正黑體;
   font-size: 25px;
@@ -344,7 +334,7 @@ float:left;
   width:350px;
   height:180px;
 }       
-#mouth{
+#month{
   position:absolute;
   left:93%;
   top:331px;
@@ -384,6 +374,87 @@ float:left;
   margin-top:10px;
   float: left;
   height:30px;
+}
+#skin{
+  z-index:2;
+  position: absolute;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#eyes{
+  z-index:3;
+  position: absolute;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+
+}
+#eyebrow{
+  z-index:4;
+  position: absolute;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#mouth{
+  z-index:5;
+  position: absolute;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#fronthair{
+  z-index:6;
+  position: absolute;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#backhair{
+  z-index:7;
+  position: absolute;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#clothes{
+  z-index:8;
+  position: absolute;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
+}
+#accessories{
+  z-index:9;
+  position: absolute;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:20px;
+  left: 100px;
 }
 
 
@@ -467,13 +538,20 @@ $(document).ready(function () {
         </div>
             <div id="box2">
                <a href="setting.jsp"><img src="img/setting.png" style="height:25px;position:absolute;left:5px;top:5px;"></a>
-              <!--img src="img/test.jpg" id="sq"style="z-index:2;position: relative;"-->  
+                  <img src="img/header/skin/skin1.png" id="skin" class="headersstyle">
+                  <img src="img/header/eyes/eyes1.png" id="eyes" class="headersstyle">
+                  <img src="img/header/eyebrow/eyebrow4.png" id="eyebrow" class="headersstyle">
+                  <img src="img/header/mouth/mouth1.png" id="mouth" class="headersstyle">
+                  <img src="img/header/fronthair/fronthair29.png" id="fronthair" class="headersstyle">
+                  <img src="img/header/backhair/backhair8.png" id="backhair" class="headersstyle">
+                  <img src="img/header/clothes/clothes18.png" id="clothes" class="headersstyle">
+                  <img src="img/header/accessories/accessories7.png" id="accessories" class="headersstyle">
                 <%//@ include file="importheader.jsp" %>
                 <div class="member_name">
                   <p><%=name%>&nbsp;&nbsp;♀</p>
                 </div>
                 <div class="signature">
-                  <p><%=signature%></p>
+                  <p>個簽</p>
                 </div>
                 <img src="img/heart.png" id="heart" style="height:30px;">               
                 <div id="likebox" class="flip">                
@@ -516,7 +594,7 @@ $(document).ready(function () {
                 </span> 
               </div>
               <div id="flot-placeholder"></div>
-              <span id="mouth">(月)</span>
+              <span id="month">(月)</span>
                     <div class="verticalLine">
                       <b><p>發起話題</p></b>
                       <span style="font-family:Times;font-size:25px;margin-left:20px">15</span>
