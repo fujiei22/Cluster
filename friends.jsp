@@ -85,6 +85,7 @@ body,html {height:100%;}
           width:60%;
           
         }
+
         .h2div{
           position: relative;
           z-index: 1;
@@ -163,6 +164,7 @@ body,html {height:100%;}
           width:20%;
           margin:10px;
         }
+
         #myTabContent{
           width:100%;
           overflow:scroll;
@@ -172,28 +174,34 @@ body,html {height:100%;}
           {
             border-radius: 10px;
           }
+
           #myTabContent::-webkit-scrollbar
           {
             width: 10px;
           }
+
           #myTabContent::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
+
          .mainarea::-webkit-scrollbar-track
           {
             border-radius: 10px;
           }
+
           .mainarea::-webkit-scrollbar
           {
             width: 10px;
           }
+
           .mainarea::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
+
       .box1{
         height: 300px;
         width: 180px;
@@ -203,16 +211,18 @@ body,html {height:100%;}
         border-radius:20px;
         background:rgb(188, 228, 238);
         float: left;
+        position:relative;
       }
 .member_name{
   width:180px;
   height: 15px;
   position: absolute;
   text-align:center;
-  margin-top:70px;
+  margin-top:75px;
   color: #5B5B5B;
   font-family:微軟正黑體;
   font-size: 15px;
+
 }
 .signature{
   width:180px;
@@ -249,7 +259,7 @@ margin-top: 5px;
 padding: 1px 5px;
 float:left;
 }
-.panel{
+#panel1{
   margin:0px;
   padding:5px;
   text-align:center;
@@ -263,7 +273,7 @@ float:left;
   top:180px;
   z-index: 3;
 }
-.pane2{
+#panel2{
   margin:0px;
   padding:5px;
   text-align:center;
@@ -298,6 +308,7 @@ float:left;
   color: #5B5B5B;
   font-size: 10px;
 }
+
 .frienddiv{
   width:820px;
   height: 500px;
@@ -309,24 +320,18 @@ float:left;
 {
   border-radius: 10px;
 }
+
 .frienddiv::-webkit-scrollbar
 {
   width: 10px;
 }
+
 .frienddiv::-webkit-scrollbar-thumb
 {
   border-radius: 10px;
   background-color:rgba(108,108,108,0.2);
 }
-      #sq{
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: 1px solid rgba(255,255,255,1.00);
-        top:12px;
-        left: 60px;
-        position:absolute;
-      }
+
 #skin{
   z-index:2;
   position: absolute;  
@@ -346,6 +351,7 @@ float:left;
   border: 1px solid rgba(255,255,255,1.00);
   top:12px;
   left: 65px;
+
 }
 #eyebrow{
   z-index:4;
@@ -407,22 +413,27 @@ float:left;
   top:12px;
   left: 65px;
 }
+
+
 </style>
 <script type="text/javascript">
 $(function(){
-$(".flip").hover(function(){
-    $(".panel").slideToggle("normal");
+$("#likebox").hover(function(){
+    $("#panel1").slideToggle("normal");
     $(".xs1").toggle();
     $(".xs2").toggle();
   });
 });
 $(function(){
-$(".flip2").hover(function(){
-    $(".pane2").slideToggle("normal");
+$("#hatebox").hover(function(){
+    $("#panel2").slideToggle("normal");
     $(".xs1").toggle();
     $(".xs2").toggle();
   });
 });
+
+
+
 </script>
 </head>
 
@@ -472,19 +483,24 @@ $(".flip2").hover(function(){
               out.println("<img src='img/header/backhair/backhair8.png' id='backhair' class='headersstyle'>");
               out.println("<img src='img/header/clothes/clothes18.png' id='clothes' class='headersstyle'>");
               out.println("<img src='img/header/accessories/accessories7.png' id='accessories' class='headersstyle'>");
+
               out.println("<div class='member_name'>");
               out.println("<p>"+frrs.getString("Name")+"&nbsp;&nbsp;♀</p>");
               out.println("</div>");
+
               out.println("<div class='signature'>");
               out.println("<p>"+frrs.getString("Signature")+"</p>");
               out.println("</div>");
+
               out.println("<img src='img/heart.png' id='heart' style='height:18px;'>");
-              out.println("<div id='likebox' class='flip'>");
+            
+              out.println("<div id='likebox' class='flip1'>");
               out.println("<div class='tagbox'>#園藝</div>");
               out.println("<div class='tagbox'>#手沖咖啡</div>");
               out.println("<div class='tagbox'>#電影</div>");
               out.println("</div>");
-              out.println("<div class='panel'>");
+
+              out.println("<div id='panel1'>");
               out.println("<div class='tagbox'>#寵物</div>");
               out.println("<div class='tagbox'>#登山</div>");
               out.println("<div class='tagbox'>#繪畫</div>");
@@ -492,23 +508,28 @@ $(".flip2").hover(function(){
               out.println("<div class='tagbox'>#小說</div>");
               out.println("<div class='tagbox'>#球類運動</div>");
               out.println("</div>");
-              out.println("<img src='img/hate.png' id='hate' style='height:18px;'>");
+
+              out.println("<img src='img/hate.png' id='hate' style='height:18px;'>");  
               out.println("<div id='hatebox' class='flip2'>");
               out.println("<div class='tagbox'>#園藝</div>");
               out.println("<div class='tagbox'>#手沖咖啡</div>");
               out.println("<div class='tagbox'>#電影</div>");
               out.println("</div>");
-              out.println("<div class='pane2'>");
+
+              out.println("<div id='panel2'>");
               out.println("<div class='tagbox'>#穿搭</div>");
               out.println("<div class='tagbox'>#古典樂</div>");
               out.println("<div class='tagbox'>#歌劇</div>");
               out.println("<div class='tagbox'>#手工藝</div>");
               out.println("</div>");
+
               out.println("<div id='introductionbox'>");
               out.println("<p>"+frrs.getString("Introduction")+"</p>");
               out.println("</div>");
               out.println("</div>");
               }
+
+
             %>
 
               <%-- <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">  
@@ -547,6 +568,7 @@ $(".flip2").hover(function(){
                  <div class="tagbox">#歌劇</div>
                  <div class="tagbox">#手工藝</div>
                  </div>
+
                  <div id="introductionbox">
                   <p><%=introduction%></p>
                 </div> --%>

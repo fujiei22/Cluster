@@ -172,6 +172,8 @@ try {
          #myTabContent::-webkit-scrollbar-track
           {
             border-radius: 10px;
+            margin-top:10px;
+            margin-bottom: 10px;
           }
           #myTabContent::-webkit-scrollbar
           {
