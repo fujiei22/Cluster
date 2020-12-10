@@ -223,6 +223,86 @@ try {
   resize: none;
   min-height: 300px;
 }
+#skin{
+  z-index:2;
+  height: 10%;
+  width:10%;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+}
+#eyes{
+  z-index:3;
+  height: 10%;
+  width:10%;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+}
+#eyebrow{
+  z-index:4;
+  height: 10%;
+  width:10%;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+}
+#mouth{
+  z-index:5;
+  height: 10%;
+  width:10%;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+}
+#fronthair{
+  z-index:6;
+  height: 10%;
+  width:10%;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+}
+#backhair{
+  z-index:7;
+  height: 10%;
+  width:10%;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+}
+#clothes{
+  z-index:8;
+  height: 10%;
+  width:10%;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+}
+#accessories{
+  z-index:9;
+  height: 10%;
+  width:10%;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+}
        </style>
 </head>
 
@@ -256,7 +336,7 @@ try {
                 }
                 //con.close();
 %>
-              <%=name%></a>
+              <span style="position:absolute; left: 70px;"><%=name%></span></a>
           </li>
           <li class="nav-item" style="height: 10%">
             <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
