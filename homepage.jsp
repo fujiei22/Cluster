@@ -82,10 +82,13 @@ try {
           width:60%;
           
         }
-
         .h2div{
           position: relative;
           z-index: 1;
+        }
+        .iframediv{
+          position: relative;
+          z-index: 2;
         }
         .open-button {
           background-color: #555;
@@ -161,7 +164,6 @@ try {
           width:20%;
           margin:10px;
         }
-
         #myTabContent{
           width:100%;
           overflow:scroll;
@@ -171,34 +173,54 @@ try {
           {
             border-radius: 10px;
           }
-
           #myTabContent::-webkit-scrollbar
           {
             width: 10px;
           }
-
           #myTabContent::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-
          .mainarea::-webkit-scrollbar-track
           {
             border-radius: 10px;
           }
-
           .mainarea::-webkit-scrollbar
           {
             width: 10px;
           }
-
           .mainarea::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-  
+/* The popup chat - hidden by default */
+.chat-popup2 {
+  display: none;
+  position: fixed;
+  top: 30px;
+  margin:0px auto;
+  right: 300px;
+  border: 2px solid #f1f1f1;
+  z-index: 9;
+}
+/* Add styles to the form container */
+.form-container2 {
+  width:600px;
+  padding: 10px;
+  background-color: white;
+}
+/* Full-width textarea */
+.form-container2 iframe {
+  width: 100%;  
+  height:650px;
+  padding: 5px;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 300px;
+}
        </style>
 </head>
 
@@ -212,7 +234,27 @@ try {
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
-            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><i class="fas fa-user-circle fa-2x"></i><%=name%></a>
+            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
+              <%
+                String new_mail=(String)(session.getAttribute("email"));
+                //con.createStatement().execute("USE `cluster`");
+                String sql1 = "SELECT * FROM `memberskin` WHERE `Email`='"+new_mail+"'";
+                ResultSet rs1 =  con.createStatement().executeQuery(sql1);
+                con.createStatement().execute(sql1);
+                while(rs1.next())
+                {
+                    out.println("<img src='img/header/skin/skin"+rs1.getString(2)+".png' id='skin'>");
+                    out.println("<img src='img/header/eyes/eyes"+rs1.getString(3)+".png' id='eyes'>");
+                    out.println("<img src='img/header/eyebrow/eyebrow"+rs1.getString(4)+".png' id='eyebrow'>");
+                    out.println("<img src='img/header/mouth/mouth"+rs1.getString(5)+".png' id='mouth'>");
+                    out.println("<img src='img/header/fronthair/fronthair"+rs1.getString(6)+".png' id='fronthair'>");
+                    out.println("<img src='img/header/backhair/backhair"+rs1.getString(7)+".png' id='backhair'>");
+                    out.println("<img src='img/header/clothes/clothes"+rs1.getString(8)+".png' id='clothes'>");
+                    out.println("<img src='img/header/accessories/accessories"+rs1.getString(9)+".png' id='accessories'>");
+                }
+                //con.close();
+%>
+              <%=name%></a>
           </li>
           <li class="nav-item" style="height: 10%">
             <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
@@ -223,9 +265,7 @@ try {
           <li class="nav-item"style="height: 10%">
             <a class="nav-link" href="friends.jsp"style="color:white;font-size:large"><i class="far fa-address-book"></i>　好友</a>
           </li>
-          <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#"style="color:white;font-size:large"><i class="far fa-comments"></i>　聊天</a>
-          </li>
+          
           <li class="nav-item"style="height: 10%">
             <a class="nav-link" href="logout.jsp"style="color:white;font-size:large"><i class="fas fa-power-off"></i>　登出</a>
           </li>
@@ -272,6 +312,9 @@ try {
         
       </div>
 
+      
+
+
           <ul class="nav justify-content-end" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#guess" role="tab" aria-controls="guess" aria-selected="true">猜你喜歡</a>
@@ -295,7 +338,7 @@ try {
                     String set =rs.getString(4);
                     String room =rs.getString(1);
                     String roomurl ="http://localhost:3000/room/"+set;
-                    out.println("<a href="+roomurl+" onclick='setcookie("+room+");'>");
+                    out.println("<div onclick='setcookie("+room+");change()'>");
                     out.println("<div class='row' >");
                     out.println("<img src='img/header/skin/skin"+rs.getString("Skin")+".png' id='skin'");
                     out.println("<img src='img/header/eyes/eyes"+rs.getString("Eyes")+".png' id='eyes'");
@@ -311,17 +354,21 @@ try {
                     out.println("</br>");
                     out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
                     out.println("</div>");
-                    out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
-                    out.println("</a>");
+                    out.println("</div>");
                   }
               %> 
             </div>
 
+            <!--
+java.net.URLEncoder.encode( set, "UTF-8" );
+            -->
+            
+
             <script>
               function setcookie(room) { 
-                //document.cookie = "room=" + set + ";" + ";path=/";
-                document.cookie = "pno=" + room + ";" + ";path=/";
+                document.cookie = "room=" + set + ";" + ";path=/";
+               // document.cookie = "pno=" + room + ";" + ";path=/";
               }
             </script>
 
@@ -349,7 +396,6 @@ try {
                     out.println("</br>");
                     out.println("<span class='badge badge-primary'>"+rs2.getString(5)+"</span>");
                     out.println("</div>");
-                    out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
                     out.println("</a>");
                   }
@@ -386,7 +432,6 @@ try {
                     out.println("</br>");
                     out.println("<span class='badge badge-primary'>"+rs3.getString(6)+"</span>");
                     out.println("</div>");
-                    out.println("<div class='percent'><h2>80%</h2></div>");
                     out.println("</div>");
                     out.println("</a>");
                   }
@@ -412,15 +457,12 @@ try {
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         <div class="h2div" ><h2>話題</h2></div>
-
           <ul class="nav justify-content-end" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#search" role="tab" aria-controls="search" aria-selected="true">"晚餐"的搜尋結果</a>
             </li>
           </ul>
-
       <div class="tab-content" id="myTabContent">
-
         <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="profile-tab">
           <div class="row" >
             <img src="img/test.jpg" style="width:10%;margin:10px;">
@@ -463,7 +505,7 @@ try {
           </div>
         </div>
         <div class="row">
-          <div class="chatdiv">
+          <div class="chatdiv" onclick="change()">
             <i class="fas fa-baseball-ball fa-2x"></i>
             <span style="color:white">　4 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
             <br>
@@ -480,7 +522,31 @@ try {
             <p class="">最近在特價，值得買嗎？</span>
           </div>
         </div>
+       
+    <div class="chat-popup2" id="myForm2">
+          <div class="form-container2">
+            
+             <iframe id="myframe" src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >
+                    你的瀏覽器不支援 iframe
+             </iframe>
+          </div>
+        </div>
         
+        
+        <script>
+        var isShow = false;
+        function change() {
+        if(!isShow) {
+        isShow = true;
+        document.getElementById('myForm2').style.display='block';
+        //document.getElementById("myframe").src=roomurl;
+        }
+        else {
+        isShow = false;
+        document.getElementById('myForm2').style.display='none';
+        }
+        }
+        </script>
         
         <div class="row">
           <button class="open-button" onclick="openForm()">+</button>
