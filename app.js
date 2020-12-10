@@ -70,6 +70,10 @@ socketIO.on('connection', function (socket) {
     socket.emit('disconnect');
   });
 
+  socket.on('friend', function (username ) {
+    console.log(username + '成功加好友' );
+  });
+
   socket.on('disconnect', function () {
     // 从房间名单中移除
     var index = roomInfo[roomID].indexOf(user);

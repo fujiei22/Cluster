@@ -257,9 +257,7 @@ try {
           <li class="nav-item"style="height: 10%">
             <a class="nav-link" href="friends.jsp"style="color:white;font-size:large"><i class="far fa-address-book"></i>　好友</a>
           </li>
-          <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#"style="color:white;font-size:large"><i class="far fa-comments"></i>　聊天</a>
-          </li>
+          
           <li class="nav-item"style="height: 10%">
             <a class="nav-link" href="logout.jsp"style="color:white;font-size:large"><i class="fas fa-power-off"></i>　登出</a>
           </li>
@@ -332,7 +330,7 @@ try {
                     String set =rs.getString(4);
                     String room =rs.getString(1);
                     String roomurl ="http://localhost:3000/room/"+set;
-                    out.println("<a href="+roomurl+" onclick='setcookie("+room+");'>");
+                    out.println("<div onclick='setcookie("+room+");change()'>");
                     out.println("<div class='row' >");
                     out.println("<img src='img/test.jpg' style='width:10%;margin:10px;'>");
                     out.println("<div class='maindiv'>");
@@ -342,15 +340,21 @@ try {
                     out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
                     out.println("</div>");
                     out.println("</div>");
-                    out.println("</a>");
+                    out.println("</div>");
                   }
               %> 
             </div>
 
+            <!--
+java.net.URLEncoder.encode( set, "UTF-8" );
+
+            -->
+            
+
             <script>
               function setcookie(room) { 
-                //document.cookie = "room=" + set + ";" + ";path=/";
-                document.cookie = "pno=" + room + ";" + ";path=/";
+                document.cookie = "room=" + set + ";" + ";path=/";
+               // document.cookie = "pno=" + room + ";" + ";path=/";
               }
             </script>
 
@@ -497,7 +501,7 @@ try {
     <div class="chat-popup2" id="myForm2">
           <div class="form-container2">
             
-             <iframe src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >
+             <iframe id="myframe" src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >
                     你的瀏覽器不支援 iframe
              </iframe>
           </div>
@@ -510,6 +514,7 @@ try {
         if(!isShow) {
         isShow = true;
         document.getElementById('myForm2').style.display='block';
+        //document.getElementById("myframe").src=roomurl;
         }
         else {
         isShow = false;

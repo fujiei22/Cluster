@@ -41,7 +41,7 @@
       line-height: 22px;
     }
     .message .user {
-      font-weight: bold;
+      font-style:bold;
       font-size: large;
       padding:5px;
       color: rgb(60, 70, 204);
@@ -610,7 +610,7 @@ function getCookieByPno(room) {
       socket.on('msg', function (userName, msg) {
         var message = '' +
             '<div class="message">' +
-            '  <span class="user">' + userName + ': </span>' +
+            '  <span class="user">' + userName + '</span>' +
             '  <span class="msg">' + msg + '</span>' +
             '</div>';
         $('#msglog').append(message);
