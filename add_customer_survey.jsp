@@ -31,14 +31,14 @@ try {
             Cookie dance_cookie = new Cookie("dance", request.getParameter("dance"));
             Cookie travel_cookie = new Cookie("travel", request.getParameter("travel"));
             Cookie shopping_cookie = new Cookie("shopping", request.getParameter("shopping"));
-            response.addCookie(read);
-            response.addCookie(draw);
-            response.addCookie(game);
-            response.addCookie(movie);
-            response.addCookie(sport);
-            response.addCookie(dance);
-            response.addCookie(travel);
-            response.addCookie(shopping);
+            response.addCookie(read_cookie);
+            response.addCookie(draw_cookie);
+            response.addCookie(game_cookie);
+            response.addCookie(movie_cookie);
+            response.addCookie(sport_cookie);
+            response.addCookie(dance_cookie);
+            response.addCookie(travel_cookie);
+            response.addCookie(shopping_cookie);
 
             String new_read=request.getParameter("read");
             String new_draw=request.getParameter("draw");
@@ -62,6 +62,7 @@ try {
              sql="UPDATE `member` SET `read`='" + new_read + "', `draw`='" + new_draw + "', `game`='" + new_game + "', `movie`='" + new_movie + "', `sport`='" + new_sport + "', `dance`='" + new_dance + "' , `travel`='" + new_travel + "', `shopping`='" + new_shopping + "' WHERE `Email` = '" + email + "'";
              con.createStatement().execute(sql);
              con.close();
+             response.setHeader("Refresh","0;model/api_test.html");
 
            //  }
            }

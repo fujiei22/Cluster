@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p id="Result">This is a paragraph.</p>
+
+<script>
+
+function parseCookie() {
+  var cookieObj = {};
+  var cookieAry = document.cookie.split(';');
+  var cookie;
+  
+  for (var i=0, l=cookieAry.length; i<l; ++i) {
+      cookie = jQuery.trim(cookieAry[i]);
+      cookie = cookie.split('=');
+      cookieObj[cookie[0]] = cookie[1];
+  }
+  
+  return cookieObj;
+}
+
+
+function getCookieByName(read) {
+  var value = parseCookie()[read];
+  if (value) {
+      value = decodeURIComponent(value);
+  }
+
+  return value;
+}
+function getCookieByName(draw) {
+  var value = parseCookie()[draw];
+  if (value) {
+      value = decodeURIComponent(value);
+  }
+
+  return value;
+}
+function getCookieByName(game) {
+  var value = parseCookie()[game];
+  if (value) {
+      value = decodeURIComponent(value);
+  }
+
+  return value;
+}
+function getCookieByName(movie) {
+  var value = parseCookie()[movie];
+  if (value) {
+      value = decodeURIComponent(value);
+  }
+
+  return value;
+}
+function getCookieByName(sport) {
+  var value = parseCookie()[sport];
+  if (value) {
+      value = decodeURIComponent(value);
+  }
+
+  return value;
+}
+function getCookieByName(dance) {
+  var value = parseCookie()[dance];
+  if (value) {
+      value = decodeURIComponent(value);
+  }
+
+  return value;
+}
+function getCookieByName(travel) {
+  var value = parseCookie()[travel];
+  if (value) {
+      value = decodeURIComponent(value);
+  }
+
+  return value;
+}
+function getCookieByName(shopping) {
+  var value = parseCookie()[shopping];
+  if (value) {
+      value = decodeURIComponent(value);
+  }
+  
+  return value;
+}
+//取各種cookie值
+
+var read =getCookieByName('read');
+var draw =getCookieByName('draw');
+var game =getCookieByName('game');
+var movie =getCookieByName('movie');
+var sport =getCookieByName('sport');
+var dance =getCookieByName('dance');
+var travel =getCookieByName('travel');
+var shopping =getCookieByName('shopping');
+
+              
+       var  data = '{"read":'+read+', "draw": '+draw+', "game": '+game+', "movie": '+movie+', "sport": '+sport+', "dance": '+dance+', "travel":  '+travel+', "shopping":  '+shopping+'}';
+        var request = new XMLHttpRequest();
+              request.open('POST', 'http://127.0.0.1:5000/predict', true);
+              request.onload = function() {
+                if (request.status >= 200 && request.status < 400) {
+
+                  // Success!
+                  console.log(request.responseText);
+                  var str =request.responseText;
+                  str = str.substring(1,2);
+                  document.cookie = "class=" + str + ";" + ";path=/";
+                  document.getElementById("Result").innerHTML=str;
+                 
+                 //window.location.href='http://localhost:8080/test/ClusterApp/add_class.jsp';
+                
+                }
+              };
+              request.setRequestHeader('Content-Type', 'application/json');
+              request.send(data);
+
+//發送請求
+</script>
+</body>
+</html>

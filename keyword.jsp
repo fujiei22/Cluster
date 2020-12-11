@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>初次調查</title>
+    <title>關鍵字調查</title>
     <!-- bootstrap required-->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -136,56 +136,47 @@ input[type=text]:focus {
   background-color:#fff;
   border:2px black solid;
 }
-#next{
-  display: none;
-}
-#final{
-  display: none;
-}
-     </style>
+  </style>
 </head>
 
 <body>
 
-      <div class="row container-fluid" style="margin-top:20px;margin-bottom:20px">
+    
+      <div class="row container-fluid"style="margin-top:20px;margin-bottom:20px">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
           <div class="row justify-content-center">
-            
-            <div id="pre">
-            <div class="form-css">
-              <h2>興趣調查</h2>
-              <hr>
-              <p>為了獲得更好的使用體驗，首先我們想調查您對每個主題感興趣的程度</p>
-              <p style="position:absolute; left: 215px;">more</p><p style="position:absolute; right: 215px;">less</p>
-                <form action="add_customer_survey.jsp" method="post">
-                  <p>閱讀</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="read" name="read">
-                  <p>繪畫</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="draw" name="draw">
-                  <p>遊戲</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="game" name="game">
-                  <p>電影</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="movie" name="movie">
-                  <p>運動</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="sport" name="sport">
-                  <p>舞蹈</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="dance" name="dance">
-                  <p>旅遊</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="travel" name="travel">
-                  <p>購物</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="shopping" name="shopping">
-                  <br>
-                  <input type="submit" value="下一步" class="submit">
-                  </form>
 
-                </div>
+            <div id="next">
+            <div class="form-css">
+              <h2>隱藏關鍵字</h2>
+              <hr>
+              <p>若您有任何不想看到的內容，請勾選，我們會為您減少相關文章</p>
+              <form action="">
+                <label class="container">政治
+                  <input type="checkbox" name="political">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">成人
+                  <input type="checkbox" name="adult">
+                  <span class="checkmark"></span>
+                </label>
+                <p>您也可以填寫關鍵字，稍後可在會員專區新增或修改</p>
+                  <input type="text" id="word1" name="word1" class="inputkeyword"><br>
+                  <input type="text" id="word2" name="word2" class="inputkeyword"><br>
+                  <input type="text" id="word3" name="word3" class="inputkeyword"><br>
+                  <a href="public/index.html"><input type="submit" value="下一步" class="submit"></a>
+                </form>
+                
             </div>
-          
+          </div>
+
           </div>
         </div>
         <div class="col-sm-2"></div>
       </div>
+    
+
 
 </body>
 </html>
