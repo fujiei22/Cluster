@@ -10,16 +10,36 @@ try {
         if(con.isClosed())
            out.println("連線建立失敗");
         else { 
-           sql="USE `cluster`";
-           con.createStatement().execute(sql);
-           sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+          sql="USE `cluster`";
+          con.createStatement().execute(sql);
+          sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
-			    String name="", createtime="", introduction="";
-			    while(memberrs.next()){
-	    		name = memberrs.getString("Name");
-          createtime = memberrs.getString("Createtime");
-          introduction = memberrs.getString("Introduction");
-			}
+			    String email="", name="", createtime="", read="", draw="", game="", movie="", sport="", dance="", travel="", shopping="", signature="", introduction="";
+			    while(memberrs.next())
+          {
+            email = memberrs.getString("Email");
+	    		  name = memberrs.getString("Name");
+            createtime = memberrs.getString("Createtime");
+            read = memberrs.getString("read");
+            draw = memberrs.getString("draw");
+            game = memberrs.getString("game");
+            movie = memberrs.getString("movie");
+            sport = memberrs.getString("sport");
+            dance = memberrs.getString("dance");
+            travel = memberrs.getString("travel");
+            shopping = memberrs.getString("shopping");
+            signature = memberrs.getString("Signature");
+            introduction = memberrs.getString("Introduction");
+          }
+
+          sql = "SELECT member.Name, member.Email, (SELECT COUNT(*) FROM post WHERE post.Email = '"+email+"') AS 發文數, (SELECT COUNT(*) FROM chat WHERE chat.Name = '"+name+"') AS 回文數 FROM `member` WHERE member.Email = '"+email+"'";
+          ResultSet prrs =con.createStatement().executeQuery(sql);
+          String po="", re="";
+          while(prrs.next())
+          {
+            po = prrs.getString(3);
+            re = prrs.getString(4);
+          }
            %>
 <!DOCTYPE html>
 <html lang="en">
@@ -533,7 +553,7 @@ $(document).ready(function () {
                   <p><%=name%>&nbsp;&nbsp;♀</p>
                 </div>
                 <div class="signature">
-                  <p>個簽</p>
+                  <p><%=signature%>></p>
                 </div>
                 <img src="img/heart.png" id="heart" style="height:30px;">               
                 <div id="likebox" class="flip">                
@@ -579,11 +599,11 @@ $(document).ready(function () {
               <span id="month">(月)</span>
                     <div class="verticalLine">
                       <b><p>發起話題</p></b>
-                      <span style="font-family:Times;font-size:25px;margin-left:20px">15</span>
+                      <span style="font-family:Times;font-size:25px;margin-left:20px"><%=po%></span>
                     </div>
                 <div class="verticalLine2">
                   <b><p>參與話題</p></b>
-                  <span style="font-family:Times;font-size:25px; margin-left:20px">55</span>
+                  <span style="font-family:Times;font-size:25px; margin-left:20px"><%=re%></span>
                 </div>
 
               <div id="badge">
