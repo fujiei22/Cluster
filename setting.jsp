@@ -30,8 +30,13 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
-    <title>設定</title>
+       <title>設定</title>
        <style type="text/css">
        	body{
        	background:rgb(188, 228, 238);
@@ -65,13 +70,6 @@ try {
             position:absolute;
             left: 20px;
             top:10px;
-       	}
-       	#header{
-       		height: 100px;
-       		position:absolute;
-       		left:170px;
-       		top:5%;
-       		border: 1.5px solid #D0D0D0; 
        	}
        	input{
             outline-style: none ;
@@ -116,21 +114,6 @@ try {
        		margin-left: 10px;
        		float:left;
        	}
-.tagbox{
-width:auto;
-height:auto;
-color:#fff;
-background: #7B7B7B;
-line-height: 20px;
-text-align: center;
-border-radius: 8px;
-font-size:10px;
-margin-left: 10px;
-display: inline-block;
-margin-top: 5px;
-padding: 1px 5px;
-float:left;
-}
 #skin{
   z-index:2;
   height: 100px;
@@ -195,8 +178,134 @@ float:left;
   top:5%;
   border: 1.5px solid #D0D0D0;
 }
-       </style>
-	      </head>
+.tagbox{
+width:auto;
+height:auto;
+color:#fff;
+background: #7B7B7B;
+line-height: 20px;
+text-align: center;
+border-radius: 8px;
+font-size:10px;
+margin-left: 10px;
+display: inline-block;
+margin-top: 5px;
+padding: 1px 5px;
+float:left;
+}
+.tagdiv{
+  width:465px;
+  height: 150px;
+}
+
+#list {
+margin: 0;
+padding: 0;
+list-style: none;
+float: left;
+}
+
+#list2 {
+margin: 0;
+padding: 0;
+list-style: none;
+float: left;
+}
+</style>
+<script type="text/javascript">
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-body input').val(recipient)
+})
+
+
+function addcontent(){
+var btn = document.querySelector('#add');
+var text = document.querySelector('#StringTextBox');
+var list = document.querySelector('#list');
+var colors = ["tag"];
+var nub = 0;
+btn.onclick = function(){
+if(text.value.trim() == ""){
+alert("打點字吧");
+return false;
+}
+var li = document.createElement("li");
+li.innerHTML = "#"+text.value;
+// li.className = colors[nub%colors.length];
+/* 判斷a標籤已經被新增，就讓a標籤顯示出來，否則就新增 */
+(list.children[0]&&list.children[0].className=="tagbox")
+li.className = "tagbox";
+
+var a = null;
+li.onmouseover = function(){
+if(a) {
+a.style.display = "block";
+} else {
+a = document.createElement("a");
+a.href = "javascript:;";
+a.onclick = function (){
+list.removeChild(this.parentNode);
+};
+this.appendChild(a);
+}
+};
+li.onmouseout = function(){
+a.style.display = "none";
+};
+list.insertBefore(li,list.children[0]);
+text.value ="";
+nub  ;
+};
+};
+
+function addcontent2(){
+var btn = document.querySelector('#add2');
+var text = document.querySelector('#StringTextBox2');
+var list = document.querySelector('#list2');
+var colors = ["tag"];
+var nub = 0;
+btn.onclick = function(){
+if(text.value.trim() == ""){
+alert("打點字吧");
+return false;
+}
+var li = document.createElement("li");
+li.innerHTML = "#"+text.value;
+// li.className = colors[nub%colors.length];
+/* 判斷a標籤已經被新增，就讓a標籤顯示出來，否則就新增 */
+(list.children[0]&&list.children[0].className=="tagbox")
+li.className = "tagbox";
+
+var a = null;
+li.onmouseover = function(){
+if(a) {
+a.style.display = "block";
+} else {
+a = document.createElement("a");
+a.href = "javascript:;";
+a.onclick = function (){
+list.removeChild(this.parentNode);
+};
+this.appendChild(a);
+}
+};
+li.onmouseout = function(){
+a.style.display = "none";
+};
+list.insertBefore(li,list.children[0]);
+text.value ="";
+nub  ;
+};
+};
+
+$( "#gender" ).val( "female" );
+
+</script>
 
 
 
@@ -225,16 +334,19 @@ float:left;
               out.println("<img src='img/header/accessories/accessories"+rs1.getString(9)+".png' id='accessories'>");
           }
           //con.close();
-%>
+          %>
         </a>
             <span style="position:absolute; left:50px; top:30%;font-family: Microsoft JhengHei;color: #5B5B5B;">暱稱</span>
             <input type="text" value="<%=name%>" name="name" style="position:absolute;left:170px;top:30%; ">
             <span style="position:absolute; left:50px; top:40%;font-family: Microsoft JhengHei;color: #5B5B5B;">性別</span>
-            <select style="position:absolute;left:170px;top:40%;" name="gender" value="<%=gender%>">
+            <select style="position:absolute; left:170px; top:40%;" name="gender" id="gender">
               <option value="male">男性</option>
               <option value="female">女性</option>
               <option value="other">其他</option>
             </select>
+            <script type="text/javascript">
+            $( "#gender" ).val( "<%=gender%>" );
+            </script>
 
             <span style="position:absolute; left:50px; top:50%;font-family: Microsoft JhengHei;color: #5B5B5B;">喜歡的標籤</span>
                 <div id="liketag">                
@@ -243,7 +355,7 @@ float:left;
                  <div class="tagbox">#電影</div>   
                  <div class="tagbox">#手沖咖啡</div>
                  <div class="tagbox">#手沖咖啡</div>
-                 <img src="img/pen.png" class="penicon">               
+                 <img src="img/pen.png" class="penicon" data-toggle="modal" data-target="#exampleModal" type="button" onclick="myMsg(1)">        
                  </div>
             <span style="position:absolute; left:50px; top:60%;font-family: Microsoft JhengHei;color: #5B5B5B;">討厭的標籤</span>   
                 <div id="hatetag">                
@@ -251,8 +363,56 @@ float:left;
                  <div class="tagbox">#手沖咖啡</div>
                  <div class="tagbox">#電影</div> 
                  <div class="tagbox">#手沖咖啡</div>   
-                 <img src="img/pen.png" class="penicon">     
-      
+                 <img src="img/pen.png" class="penicon" data-toggle="modal" data-target="#exampleModal2" type="button">     
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">編輯</h5>
+      </div>
+      <div class="modal-body">
+        <div class="tagdiv">
+          <ul id="list"></ul>
+        </div>
+        <form>
+          <div class="form-group">
+            <textarea type="text" id="StringTextBox" style="width:300px; position:absolute; top:130px;"></textarea>
+            <input type="button" value="添加" id="add" class="btn btn-success" onclick="addcontent()" style="position:absolute; top:145px; right: 100px;">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel">取消</button>
+        <button type="submit" class="btn btn-primary">確認修改</button>
+      </div>
+    </div>
+  </div>
+</div>     
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">編輯</h5>
+      </div>
+      <div class="modal-body">
+        <div class="tagdiv">
+          <ul id="list2"></ul>
+        </div>
+        <form>
+          <div class="form-group">
+            <textarea type="text" id="StringTextBox2" style="width:300px; position:absolute; top:130px;"></textarea>
+            <input type="button" value="添加" id="add2" class="btn btn-success" onclick="addcontent2()" style="position:absolute; top:145px; right: 100px;">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel">取消</button>
+        <button type="submit" class="btn btn-primary">確認修改</button>
+      </div>
+    </div>
+  </div>
+</div>  
                  </div>
             <span style="position:absolute; left:50px; top:70%;font-family: Microsoft JhengHei;color: #5B5B5B;">個簽</span>       
             <input value="<%=signature%>" name="signature" style="position:absolute;left:170px;top:70%;width:300px; ">  
