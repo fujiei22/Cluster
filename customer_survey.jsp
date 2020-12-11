@@ -159,18 +159,22 @@ input[type=text]:focus {
               <p>為了獲得更好的使用體驗，首先我們想調查您對每個主題感興趣的程度</p>
               <p style="position:absolute; left: 215px;">more</p><p style="position:absolute; right: 215px;">less</p>
                 <form action="add_customer_survey.jsp" method="post">
-                  <p>音樂</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="music" name="music">
+                  <p>閱讀</p>
+                  <input type="range" min="1" max="100" value="50" class="slider" id="read" name="read">
+                  <p>繪畫</p>
+                  <input type="range" min="1" max="100" value="50" class="slider" id="draw" name="draw">
+                  <p>遊戲</p>
+                  <input type="range" min="1" max="100" value="50" class="slider" id="game" name="game">
                   <p>電影</p>
                   <input type="range" min="1" max="100" value="50" class="slider" id="movie" name="movie">
                   <p>運動</p>
                   <input type="range" min="1" max="100" value="50" class="slider" id="sport" name="sport">
-                  <p>遊戲</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="game" name="game">
+                  <p>舞蹈</p>
+                  <input type="range" min="1" max="100" value="50" class="slider" id="dance" name="dance">
                   <p>旅遊</p>
                   <input type="range" min="1" max="100" value="50" class="slider" id="travel" name="travel">
-                  <p>美食</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="food" name="food">
+                  <p>購物</p>
+                  <input type="range" min="1" max="100" value="50" class="slider" id="shopping" name="shopping">
                   <br>
                   <input type="submit" value="下一步" class="submit" onclick="myFunction()">
                   </form>
