@@ -9,16 +9,16 @@ try {
         Connection con=DriverManager.getConnection(url,"root","1234");
         if(con.isClosed())
            out.println("連線建立失敗");
-        else { 
+        else {
           sql="USE `cluster`";
           con.createStatement().execute(sql);
-          sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+          sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'";
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
 			    String name="";
 			    while(memberrs.next()){
 	    		name=memberrs.getString("Name");
           }
-          sql = "SELECT member.Email, member.Name, member.Gender, memberskin.Skin, memberskin.Eyes, memberskin.Eyebrow, memberskin.Mouth, memberskin.Fronthair, memberskin.Backhair, memberskin.Clothes, memberskin.Accessories, member.Signature, member.Introduction FROM `friends` JOIN `member` ON friends.Friends = member.Email JOIN `memberskin` ON friends.Friends = memberskin.Email WHERE friends.Email = '"+session.getAttribute("email")+"'"; 
+          sql = "SELECT member.Email, member.Name, member.Gender, memberskin.Skin, memberskin.Eyes, memberskin.Eyebrow, memberskin.Mouth, memberskin.Fronthair, memberskin.Backhair, memberskin.Clothes, memberskin.Accessories, member.Signature, member.Introduction FROM `friends` JOIN `member` ON friends.Friends = member.Email JOIN `memberskin` ON friends.Friends = memberskin.Email WHERE friends.Email = '"+session.getAttribute("email")+"'";
 			    ResultSet frrs =con.createStatement().executeQuery(sql);
 %>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ try {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <html xmlns="http://www.w3.org/1999/xhtml">
     <link href="css/icon/css/all.css" rel="stylesheet">
-    
+
     <style type="text/css">
 body,html {height:100%;}
       body{
@@ -47,7 +47,7 @@ body,html {height:100%;}
         .leftnav{
           background-color: rgb(141, 141, 141);
           height: 100%;
-        } 
+        }
       a{
         color:black;
       }
@@ -58,7 +58,7 @@ body,html {height:100%;}
         }
        i{
          color:white;
-       } 
+       }
         .chatdiv{
           color:white;
           width:200px;
@@ -69,7 +69,7 @@ body,html {height:100%;}
         }
         .mainboard{
           margin:30px;
-          
+
         }
         #myTabContent{
           padding:30px;
@@ -83,8 +83,9 @@ body,html {height:100%;}
           margin-top:10px;
           border-radius: 10px;
           width:60%;
-          
+
         }
+
         .h2div{
           position: relative;
           z-index: 1;
@@ -102,7 +103,7 @@ body,html {height:100%;}
           height:50px;
           width: 50px;
         }
-  
+
         /* The popup form - hidden by default */
         .form-popup {
           display: none;
@@ -113,14 +114,14 @@ body,html {height:100%;}
           right:-5px;
           width: 350px;
         }
-  
+
         /* Add styles to the form container */
         .form-container {
           max-width: 350px;
           padding: 10px;
           background-color: white;
         }
-  
+
         /* Full-width input fields */
         .form-container input[type=text], .form-container input[type=password] {
           width: 100%;
@@ -129,13 +130,13 @@ body,html {height:100%;}
           border: none;
           background: #f1f1f1;
         }
-  
+
         /* When the inputs get focus, do something */
         .form-container input[type=text]:focus, .form-container input[type=password]:focus {
           background-color: #ddd;
           outline: none;
         }
-  
+
         /* Set a style for the submit/login button */
         .form-container .btn {
           background-color: #4CAF50;
@@ -148,52 +149,59 @@ body,html {height:100%;}
           margin-bottom:10px;
           opacity: 0.8;
         }
-  
+
         /* Add a red background color to the cancel button */
         .form-container .cancel {
           background-color: red;
         }
-  
+
         /* Add some hover effects to buttons */
         .form-container .btn:hover, .open-button:hover {
           opacity: 1;
         }
-        
+
         .percent{
           width:20%;
           margin:10px;
         }
+
         #myTabContent{
           width:100%;
           overflow:scroll;
-          
+
         }
          #myTabContent::-webkit-scrollbar-track
           {
             border-radius: 10px;
           }
+
           #myTabContent::-webkit-scrollbar
           {
             width: 10px;
           }
+
           #myTabContent::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
+
          .mainarea::-webkit-scrollbar-track
           {
             border-radius: 10px;
           }
+
           .mainarea::-webkit-scrollbar
           {
             width: 10px;
           }
+
           .mainarea::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
+
       .box1{
         height: 300px;
         width: 180px;
@@ -203,16 +211,18 @@ body,html {height:100%;}
         border-radius:20px;
         background:rgb(188, 228, 238);
         float: left;
+        position:relative;
       }
 .member_name{
   width:180px;
   height: 15px;
   position: absolute;
   text-align:center;
-  margin-top:70px;
+  margin-top:75px;
   color: #5B5B5B;
   font-family:微軟正黑體;
   font-size: 15px;
+
 }
 .signature{
   width:180px;
@@ -221,7 +231,7 @@ body,html {height:100%;}
   color: #5B5B5B;
   position:absolute;
   text-align:center;
-  margin-top:40px;  
+  margin-top:40px;
 }
 #heart{
   position:absolute;
@@ -249,7 +259,7 @@ margin-top: 5px;
 padding: 1px 5px;
 float:left;
 }
-.panel{
+#panel1{
   margin:0px;
   padding:5px;
   text-align:center;
@@ -263,7 +273,7 @@ float:left;
   top:180px;
   z-index: 3;
 }
-.pane2{
+#panel2{
   margin:0px;
   padding:5px;
   text-align:center;
@@ -287,7 +297,7 @@ float:left;
 #hate{
   position:absolute;
   top:187px;
-  left:13px; 
+  left:13px;
 }
 #introductionbox{
   width:162px;
@@ -298,38 +308,33 @@ float:left;
   color: #5B5B5B;
   font-size: 10px;
 }
+
 .frienddiv{
   width:820px;
   height: 500px;
   overflow:auto;
   position:absolute;
   top:50px;
-}     
+}
 .frienddiv::-webkit-scrollbar-track
 {
   border-radius: 10px;
 }
+
 .frienddiv::-webkit-scrollbar
 {
   width: 10px;
 }
+
 .frienddiv::-webkit-scrollbar-thumb
 {
   border-radius: 10px;
   background-color:rgba(108,108,108,0.2);
 }
-      #sq{
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: 1px solid rgba(255,255,255,1.00);
-        top:12px;
-        left: 60px;
-        position:absolute;
-      }
+
 #skin{
   z-index:2;
-  position: absolute;  
+  position: absolute;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -339,17 +344,18 @@ float:left;
 }
 #eyes{
   z-index:3;
-  position: absolute;  
+  position: absolute;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
   top:12px;
   left: 65px;
+
 }
 #eyebrow{
   z-index:4;
-  position: absolute;  
+  position: absolute;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -359,7 +365,7 @@ float:left;
 }
 #mouth{
   z-index:5;
-  position: absolute;  
+  position: absolute;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -369,7 +375,7 @@ float:left;
 }
 #fronthair{
   z-index:6;
-  position: absolute;  
+  position: absolute;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -379,7 +385,7 @@ float:left;
 }
 #backhair{
   z-index:7;
-  position: absolute;  
+  position: absolute;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -389,7 +395,7 @@ float:left;
 }
 #clothes{
   z-index:8;
-  position: absolute;  
+  position: absolute;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -399,7 +405,7 @@ float:left;
 }
 #accessories{
   z-index:9;
-  position: absolute;  
+  position: absolute;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -407,22 +413,27 @@ float:left;
   top:12px;
   left: 65px;
 }
+
+
 </style>
 <script type="text/javascript">
 $(function(){
-$(".flip").hover(function(){
-    $(".panel").slideToggle("normal");
+$("#likebox").hover(function(){
+    $("#panel1").slideToggle("normal");
     $(".xs1").toggle();
     $(".xs2").toggle();
   });
 });
 $(function(){
-$(".flip2").hover(function(){
-    $(".pane2").slideToggle("normal");
+$("#hatebox").hover(function(){
+    $("#panel2").slideToggle("normal");
     $(".xs1").toggle();
     $(".xs2").toggle();
   });
 });
+
+
+
 </script>
 </head>
 
@@ -475,16 +486,20 @@ $(".flip2").hover(function(){
               out.println("<div class='member_name'>");
               out.println("<p>"+frrs.getString("Name")+"&nbsp;&nbsp;♀</p>");
               out.println("</div>");
+
               out.println("<div class='signature'>");
               out.println("<p>"+frrs.getString("Signature")+"</p>");
               out.println("</div>");
+
               out.println("<img src='img/heart.png' id='heart' style='height:18px;'>");
-              out.println("<div id='likebox' class='flip'>");
+
+              out.println("<div id='likebox' class='flip1'>");
               out.println("<div class='tagbox'>#園藝</div>");
               out.println("<div class='tagbox'>#手沖咖啡</div>");
               out.println("<div class='tagbox'>#電影</div>");
               out.println("</div>");
-              out.println("<div class='panel'>");
+
+              out.println("<div id='panel1'>");
               out.println("<div class='tagbox'>#寵物</div>");
               out.println("<div class='tagbox'>#登山</div>");
               out.println("<div class='tagbox'>#繪畫</div>");
@@ -492,39 +507,44 @@ $(".flip2").hover(function(){
               out.println("<div class='tagbox'>#小說</div>");
               out.println("<div class='tagbox'>#球類運動</div>");
               out.println("</div>");
+
               out.println("<img src='img/hate.png' id='hate' style='height:18px;'>");
               out.println("<div id='hatebox' class='flip2'>");
               out.println("<div class='tagbox'>#園藝</div>");
               out.println("<div class='tagbox'>#手沖咖啡</div>");
               out.println("<div class='tagbox'>#電影</div>");
               out.println("</div>");
-              out.println("<div class='pane2'>");
+
+              out.println("<div id='panel2'>");
               out.println("<div class='tagbox'>#穿搭</div>");
               out.println("<div class='tagbox'>#古典樂</div>");
               out.println("<div class='tagbox'>#歌劇</div>");
               out.println("<div class='tagbox'>#手工藝</div>");
               out.println("</div>");
+
               out.println("<div id='introductionbox'>");
               out.println("<p>"+frrs.getString("Introduction")+"</p>");
               out.println("</div>");
               out.println("</div>");
               }
+
+
             %>
 
-              <%-- <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">  
+              <%-- <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">
                 <div class="member_name">
                   <p><%=name%>&nbsp;&nbsp;♀</p>
                 </div>
                 <div class="signature">
                   <p><%=signature%></p>
                 </div>
-                <img src="img/heart.png" id="heart" style="height:18px;">               
-                <div id="likebox" class="flip">                
+                <img src="img/heart.png" id="heart" style="height:18px;">
+                <div id="likebox" class="flip">
                  <div class="tagbox">#園藝</div>
                  <div class="tagbox">#手沖咖啡</div>
-                 <div class="tagbox">#電影</div>                 
+                 <div class="tagbox">#電影</div>
                  </div>
-                 
+
                  <div class="panel">
                  <div class="tagbox">#寵物</div>
                  <div class="tagbox">#登山</div>
@@ -533,20 +553,21 @@ $(".flip2").hover(function(){
                  <div class="tagbox">#小說</div>
                  <div class="tagbox">#球類運動</div>
                  </div>
-               
-                <img src="img/hate.png" id="hate" style="height:18px;">               
+
+                <img src="img/hate.png" id="hate" style="height:18px;">
                 <div id="hatebox" class="flip2">
                  <div class="tagbox">#園藝</div>
                  <div class="tagbox">#手沖咖啡</div>
-                 <div class="tagbox">#電影</div>                 
+                 <div class="tagbox">#電影</div>
                  </div>
-                 
+
                  <div class="pane2">
                  <div class="tagbox">#穿搭</div>
                  <div class="tagbox">#古典樂</div>
                  <div class="tagbox">#歌劇</div>
                  <div class="tagbox">#手工藝</div>
                  </div>
+
                  <div id="introductionbox">
                   <p><%=introduction%></p>
                 </div> --%>
@@ -554,7 +575,7 @@ $(".flip2").hover(function(){
 
                </div>
                 </div>
-       
+
  <!--form-->
  <div class="form-popup" id="myForm">
   <form action="add_topic.jsp" class="form-container">
@@ -585,7 +606,7 @@ $(".flip2").hover(function(){
       <!--第三區-->
       <div class="col mainarea">
         <div class="thirdarea"style="height:100%">
-          
+
         <div class="row">
           <div class="chatdiv">
             <i class="fas fa-pizza-slice fa-2x" ></i>
@@ -613,8 +634,8 @@ $(".flip2").hover(function(){
             <p class="">最近在特價，值得買嗎？</span>
           </div>
         </div>
-        
-        
+
+
         <div class="row">
           <button class="open-button" onclick="openForm()">+</button>
         </div>
@@ -630,13 +651,13 @@ $(".flip2").hover(function(){
     }
     catch (SQLException sExec) {
            out.println("SQL錯誤");
-		   
+
     }
 }
 catch (ClassNotFoundException err) {
       out.println("class錯誤");
 }
-%>  
-  
+%>
+
 </body>
 </html>
