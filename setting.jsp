@@ -207,14 +207,25 @@ float:left;
    		<form action="updatesetting.jsp" method="post">
    			<span style="position:absolute; left:50px; top:15%;font-family: Microsoft JhengHei;color: #5B5B5B;">更改頭像</span>
    			<a href="header.jsp">
-                  <img src="img/header/skin/skin1.png" id="skin" class="headersstyle">
-                  <img src="img/header/eyes/eyes1.png" id="eyes" class="headersstyle">
-                  <img src="img/header/eyebrow/eyebrow4.png" id="eyebrow" class="headersstyle">
-                  <img src="img/header/mouth/mouth1.png" id="mouth" class="headersstyle">
-                  <img src="img/header/fronthair/fronthair29.png" id="fronthair" class="headersstyle">
-                  <img src="img/header/backhair/backhair8.png" id="backhair" class="headersstyle">
-                  <img src="img/header/clothes/clothes18.png" id="clothes" class="headersstyle">
-                  <img src="img/header/accessories/accessories7.png" id="accessories" class="headersstyle">  
+          <%
+          String new_mail=(String)(session.getAttribute("email"));
+          //con.createStatement().execute("USE `cluster`");
+          String sql1 = "SELECT * FROM `memberskin` WHERE `Email`='"+new_mail+"'";
+          ResultSet rs1 =  con.createStatement().executeQuery(sql1);
+          con.createStatement().execute(sql1);
+          while(rs1.next())
+          {
+              out.println("<img src='img/header/skin/skin"+rs1.getString(2)+".png' id='skin'>");
+              out.println("<img src='img/header/eyes/eyes"+rs1.getString(3)+".png' id='eyes'>");
+              out.println("<img src='img/header/eyebrow/eyebrow"+rs1.getString(4)+".png' id='eyebrow'>");
+              out.println("<img src='img/header/mouth/mouth"+rs1.getString(5)+".png' id='mouth'>");
+              out.println("<img src='img/header/fronthair/fronthair"+rs1.getString(6)+".png' id='fronthair'>");
+              out.println("<img src='img/header/backhair/backhair"+rs1.getString(7)+".png' id='backhair'>");
+              out.println("<img src='img/header/clothes/clothes"+rs1.getString(8)+".png' id='clothes'>");
+              out.println("<img src='img/header/accessories/accessories"+rs1.getString(9)+".png' id='accessories'>");
+          }
+          //con.close();
+%>
         </a>
             <span style="position:absolute; left:50px; top:30%;font-family: Microsoft JhengHei;color: #5B5B5B;">暱稱</span>
             <input type="text" value="<%=name%>" name="name" style="position:absolute;left:170px;top:30%; ">

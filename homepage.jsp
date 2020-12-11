@@ -317,7 +317,7 @@ try {
           <li class="nav-item" style="height: 17%"></li>
           <li class="nav-item" style="height: 15%">
             <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
-              <%
+              <%--
                 String new_mail=(String)(session.getAttribute("email"));
                 //con.createStatement().execute("USE `cluster`");
                 String sql1 = "SELECT * FROM `memberskin` WHERE `Email`='"+new_mail+"'";
@@ -332,10 +332,10 @@ try {
                     out.println("<img src='img/header/fronthair/fronthair"+rs1.getString(6)+".png' id='fronthair'>");
                     out.println("<img src='img/header/backhair/backhair"+rs1.getString(7)+".png' id='backhair'>");
                     out.println("<img src='img/header/clothes/clothes"+rs1.getString(8)+".png' id='clothes'>");
-                    out.println("<img src='img/header/accessories/accessories"+rs1.getString(9)+".png' id='accessories'>");
+                    out.println("<img src='img/header/accessories/accessories"+rs1.getString(9)+".png' id='accessories'>");*/
                 }
                 //con.close();
-%>
+--%>
               <span style="position:absolute; left: 70px;"><%=name%></span></a>
           </li>
           <li class="nav-item" style="height: 10%">
@@ -422,14 +422,14 @@ try {
                     String roomurl ="http://localhost:3000/room/"+set;
                     out.println("<div onclick='setcookie("+room+");change()'>");
                     out.println("<div class='row' >");
-                    out.println("<img src='img/header/skin/skin"+rs.getString("Skin")+".png' id='skin'");
+                   /* out.println("<img src='img/header/skin/skin"+rs.getString(Skin")+".png' id='skin'");
                     out.println("<img src='img/header/eyes/eyes"+rs.getString("Eyes")+".png' id='eyes'");
                     out.println("<img src='img/header/eyebrow/eyebrow"+rs.getString("Eyebrow")+".png' id='eyebrow'");
                     out.println("<img src='img/header/mouth/mouth"+rs.getString("Mouth")+".png' id='mouth'");
                     out.println("<img src='img/header/fronthair/fronthair"+rs.getString("Fronthair")+".png' id='fronthair'");
                     out.println("<img src='img/header/backhair/backhair"+rs.getString("Backhair")+".png' id='backhair'");
                     out.println("<img src='img/header/clothes/clothes"+rs.getString("Clothes")+".png' id='clothes'");
-                    out.println("<img src='img/header/accessories/accessories"+rs.getString("Accessories")+".png' id='accessories'");
+                    out.println("<img src='img/header/accessories/accessories"+rs.getString("Accessories")+".png' id='accessories'");*/
                     out.println("<div class='maindiv'>");
                     out.println("<span class=''>"+rs.getString(4)+"</span>");
                     out.println("<p class=''>"+rs.getString(5)+"</span>");
