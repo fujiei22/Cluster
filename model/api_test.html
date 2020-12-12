@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p id="Result">This is a paragraph.</p>
 
 <script>
 
@@ -109,13 +106,13 @@ var shopping =getCookieByName('shopping');
                 if (request.status >= 200 && request.status < 400) {
 
                   // Success!
-                  console.log(request.responseText);
+                  //console.log(request.responseText);
                   var str =request.responseText;
                   str = str.substring(1,2);
                   document.cookie = "class=" + str + ";" + ";path=/";
-                  document.getElementById("Result").innerHTML=str;
+                  //document.getElementById("Result").innerHTML=str;
                  
-                 //window.location.href='http://localhost:8080/test/ClusterApp/add_class.jsp';
+                 window.location.href='http://localhost:8080/test/ClusterApp/add_class.jsp';
                 
                 }
               };

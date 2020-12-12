@@ -407,6 +407,45 @@ float:left;
   top:12px;
   left: 65px;
 }
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+.add:hover, a:hover {
+  opacity: 0.7;
+}
+
+
 </style>
 <script type="text/javascript">
 $(function(){
@@ -460,101 +499,68 @@ $(".flip2").hover(function(){
       <!--第二區-->
       <div class="col-8 mainarea">
          <span style="color: #5B5B5B; font-size: 23px;position:absolute; top: 10px;">好友列表</span>
-         <div class="frienddiv">
-            <%
-              while(frrs.next()){
-              out.println("<div class='box1'>");
-              out.println("<img src='img/header/skin/skin1.png' id='skin' class='headersstyle'>");
-              out.println("<img src='img/header/eyes/eyes1.png' id='eyes' class='headersstyle'>");
-              out.println("<img src='img/header/eyebrow/eyebrow4.png' id='eyebrow' class='headersstyle'>");
-              out.println("<img src='img/header/mouth/mouth1.png' id='mouth' class='headersstyle'>");
-              out.println("<img src='img/header/fronthair/fronthair29.png' id='fronthair' class='headersstyle'>");
-              out.println("<img src='img/header/backhair/backhair8.png' id='backhair' class='headersstyle'>");
-              out.println("<img src='img/header/clothes/clothes18.png' id='clothes' class='headersstyle'>");
-              out.println("<img src='img/header/accessories/accessories7.png' id='accessories' class='headersstyle'>");
-              out.println("<div class='member_name'>");
-              out.println("<p>"+frrs.getString("Name")+"&nbsp;&nbsp;♀</p>");
-              out.println("</div>");
-              out.println("<div class='signature'>");
-              out.println("<p>"+frrs.getString("Signature")+"</p>");
-              out.println("</div>");
-              out.println("<img src='img/heart.png' id='heart' style='height:18px;'>");
-              out.println("<div id='likebox' class='flip'>");
-              out.println("<div class='tagbox'>#園藝</div>");
-              out.println("<div class='tagbox'>#手沖咖啡</div>");
-              out.println("<div class='tagbox'>#電影</div>");
-              out.println("</div>");
-              out.println("<div class='panel'>");
-              out.println("<div class='tagbox'>#寵物</div>");
-              out.println("<div class='tagbox'>#登山</div>");
-              out.println("<div class='tagbox'>#繪畫</div>");
-              out.println("<div class='tagbox'>#戲劇</div>");
-              out.println("<div class='tagbox'>#小說</div>");
-              out.println("<div class='tagbox'>#球類運動</div>");
-              out.println("</div>");
-              out.println("<img src='img/hate.png' id='hate' style='height:18px;'>");
-              out.println("<div id='hatebox' class='flip2'>");
-              out.println("<div class='tagbox'>#園藝</div>");
-              out.println("<div class='tagbox'>#手沖咖啡</div>");
-              out.println("<div class='tagbox'>#電影</div>");
-              out.println("</div>");
-              out.println("<div class='pane2'>");
-              out.println("<div class='tagbox'>#穿搭</div>");
-              out.println("<div class='tagbox'>#古典樂</div>");
-              out.println("<div class='tagbox'>#歌劇</div>");
-              out.println("<div class='tagbox'>#手工藝</div>");
-              out.println("</div>");
-              out.println("<div id='introductionbox'>");
-              out.println("<p>"+frrs.getString("Introduction")+"</p>");
-              out.println("</div>");
-              out.println("</div>");
-              }
-            %>
-
-              <%-- <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">  
-                <div class="member_name">
-                  <p><%=name%>&nbsp;&nbsp;♀</p>
+         
+          <!--四個一組，超過四個就再多一個card-group-->  
+         <div class="card-group">  
+              <div class="card text-center">
+                <div class="card-body">
+                  <img src="img/test.jpg" alt="John" style="width:30%">
+                  <h5 class="card-title">用戶名</h5>
+                  <p class="card-text">個簽</p>
+                  <span class="badge rounded-pill bg-warning">喜歡的</span>
+                  <span class="badge rounded-pill bg-warning">標籤們</span>
+                  <br>
+                  <span class="badge rounded-pill bg-secondary">不喜歡的</span>
+                  <span class="badge rounded-pill bg-secondary">標籤們</span>
+                  <button class="btn btn-primary">加好友</button>
+                  <button class="btn btn-danger">不感興趣</button>
                 </div>
-                <div class="signature">
-                  <p><%=signature%></p>
+                <div class="card-footer text-muted">
+                  <span>推薦度：</span>
+                  <!--如果同個群就三個點，第二相關的群就兩個點-->
+                  <span>●●●</span>
                 </div>
-                <img src="img/heart.png" id="heart" style="height:18px;">               
-                <div id="likebox" class="flip">                
-                 <div class="tagbox">#園藝</div>
-                 <div class="tagbox">#手沖咖啡</div>
-                 <div class="tagbox">#電影</div>                 
-                 </div>
-                 
-                 <div class="panel">
-                 <div class="tagbox">#寵物</div>
-                 <div class="tagbox">#登山</div>
-                 <div class="tagbox">#繪畫</div>
-                 <div class="tagbox">#戲劇</div>
-                 <div class="tagbox">#小說</div>
-                 <div class="tagbox">#球類運動</div>
-                 </div>
-               
-                <img src="img/hate.png" id="hate" style="height:18px;">               
-                <div id="hatebox" class="flip2">
-                 <div class="tagbox">#園藝</div>
-                 <div class="tagbox">#手沖咖啡</div>
-                 <div class="tagbox">#電影</div>                 
-                 </div>
-                 
-                 <div class="pane2">
-                 <div class="tagbox">#穿搭</div>
-                 <div class="tagbox">#古典樂</div>
-                 <div class="tagbox">#歌劇</div>
-                 <div class="tagbox">#手工藝</div>
-                 </div>
-                 <div id="introductionbox">
-                  <p><%=introduction%></p>
-                </div> --%>
+              </div>
+              <div class="card text-center">
+                <div class="card-body">
+                  <img src="img/test.jpg" alt="John" style="width:30%">
+                  <h5 class="card-title">用戶名</h5>
+                  <p class="card-text">個簽</p>
+                  <button class="btn btn-primary">加好友</button>
+                  <button class="btn btn-primary">不感興趣</button>
+                </div>
+                <div class="card-footer text-muted">
+                  2 days ago
+                </div>
+              </div>
+              <div class="card text-center">
+                <div class="card-body">
+                  <img src="img/test.jpg" alt="John" style="width:30%">
+                  <h5 class="card-title">用戶名</h5>
+                  <p class="card-text">個簽</p>
+                  <button class="btn btn-primary">加好友</button>
+                  <button class="btn btn-primary">不感興趣</button>
+                </div>
+                <div class="card-footer text-muted">
+                  2 days ago
+                </div>
+              </div>
+              <div class="card text-center">
+                <div class="card-body">
+                  <img src="img/test.jpg" alt="John" style="width:30%">
+                  <h5 class="card-title">用戶名</h5>
+                  <p class="card-text">個簽</p>
+                  <button class="btn btn-primary">加好友</button>
+                  <button class="btn btn-primary">不感興趣</button>
+                </div>
+                <div class="card-footer text-muted">
+                  2 days ago
+                </div>
+              </div>
+            </div> 
+      </div>
 
 
-               </div>
-                </div>
-       
  <!--form-->
  <div class="form-popup" id="myForm">
   <form action="add_topic.jsp" class="form-container">
