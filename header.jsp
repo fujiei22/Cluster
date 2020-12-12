@@ -86,8 +86,8 @@
 }
 .clickimg{
   height: 45px;
-  margin-left:20%;
-  margin-right:20%;
+  margin-left:28%;
+  margin-right:28%;
 }
 .cbtn{
   height:115px;
@@ -375,7 +375,7 @@ try {
 			  		</div>
 				</div>
 			<div class="dropdown">
-				<img src="img/header/eyes/eyes8.png" class="dropbtn" onclick="myFunction(2)" height="115px">
+				<img src="img/header/eyes/eyes9.png" class="dropbtn" onclick="myFunction(2)" height="115px">
               	<div class="dropdown-content" id="myDropdown2">
               		<%
 			  			sql="SELECT * FROM `skin` WHERE `imgno` BETWEEN 76 AND 81";
