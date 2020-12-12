@@ -10,36 +10,16 @@ try {
         if(con.isClosed())
            out.println("連線建立失敗");
         else { 
-          sql="USE `cluster`";
-          con.createStatement().execute(sql);
-          sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+           sql="USE `cluster`";
+           con.createStatement().execute(sql);
+           sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
-			    String email="", name="", createtime="", read="", draw="", game="", movie="", sport="", dance="", travel="", shopping="", signature="", introduction="";
-			    while(memberrs.next())
-          {
-            email = memberrs.getString("Email");
-	    		  name = memberrs.getString("Name");
-            createtime = memberrs.getString("Createtime");
-            read = memberrs.getString("read");
-            draw = memberrs.getString("draw");
-            game = memberrs.getString("game");
-            movie = memberrs.getString("movie");
-            sport = memberrs.getString("sport");
-            dance = memberrs.getString("dance");
-            travel = memberrs.getString("travel");
-            shopping = memberrs.getString("shopping");
-            signature = memberrs.getString("Signature");
-            introduction = memberrs.getString("Introduction");
-          }
-
-          sql = "SELECT member.Name, member.Email, (SELECT COUNT(*) FROM post WHERE post.Email = '"+email+"') AS 發文數, (SELECT COUNT(*) FROM chat WHERE chat.Name = '"+name+"') AS 回文數 FROM `member` WHERE member.Email = '"+email+"'";
-          ResultSet prrs =con.createStatement().executeQuery(sql);
-          String po="", re="";
-          while(prrs.next())
-          {
-            po = prrs.getString(3);
-            re = prrs.getString(4);
-          }
+			    String name="", createtime="", introduction="";
+			    while(memberrs.next()){
+	    		name = memberrs.getString("Name");
+          createtime = memberrs.getString("Createtime");
+          introduction = memberrs.getString("Introduction");
+			}
            %>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,10 +38,12 @@ try {
     <html xmlns="http://www.w3.org/1999/xhtml">
     <link rel="stylesheet" href="css/header.css">
     <link href="css/icon/css/all.css" rel="stylesheet">
-
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://static.pureexample.com/js/flot/excanvas.min.js"></script>
+    <script src="http://static.pureexample.com/js/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript"src="http://lmcdwriting.org/userfiles/flot-0.8.3/flot/flot-axislabels-master/jquery.flot.axislabels.js"></script>
     <style type="text/css">
-body,html {height:100%;}
+      body,html {height:100%;}
       body{
         overflow-y: hidden;
         overflow-x: hidden;
@@ -464,9 +446,16 @@ float:left;
   top:20px;
   left: 100px;
 }
+
+#flotcontainer {
+    width: 350px;
+    height: 400px;
+    text-align: left;
+    position:absolute;
+    left:55%;
+    top:170px;
+}
 </style>
-<script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="http://www.pureexample.com/js/flot/jquery.flot.min.js"></script>
 <script type="text/javascript">
 $(function(){
 $(".flip").hover(function(){
@@ -482,23 +471,39 @@ $(".flip2").hover(function(){
     $(".xs2").toggle();
   });
 });
-//折線圖
-var data = [[1, 30], [2, 40], [3, 15], [4, 25], [5, 30], [6, 40], [7, 60], [8, 35]];
+
+//長條圖
+//data1=[[興趣數值(順序:閱讀、繪畫、電動、電影、運動、舞蹈、旅遊、購物),y軸(不要動)]]
+$(function () {    
+    var data1 = [
+        [90, 70], [20, 60], [30, 50], [40, 40], [80, 30], [60, 20], [50, 10], [40, 0]
+    ];
+
  
- var dataset = [{label: "活躍度",data: data}];
- var options = {
-  series: {
-    lines: { show: true },
-    points: {
-    radius: 3,
-    show: true
-          }
+    var options = {
+            series:{
+                bars:{show: true}
+            },
+            bars:{
+                horizontal:true,
+                barWidth:6
+            },
+            grid:{
+                backgroundColor: { colors: ["#fff", "#fff"] }
+            },
+            yaxis:{
+              ticks: [] 
+            },
+            xaxis:{
+              max:100 
             }
-        };
+    };
+
  
-$(document).ready(function () {
-  $.plot($("#flot-placeholder"), dataset, options);
-        });
+    $.plot($("#flotcontainer"), [data1], options); 
+
+     
+});
 </script>
 </head>
 
@@ -553,7 +558,7 @@ $(document).ready(function () {
                   <p><%=name%>&nbsp;&nbsp;♀</p>
                 </div>
                 <div class="signature">
-                  <p><%=signature%>></p>
+                  <p>個簽</p>
                 </div>
                 <img src="img/heart.png" id="heart" style="height:30px;">               
                 <div id="likebox" class="flip">                
@@ -594,30 +599,17 @@ $(document).ready(function () {
                 <span id="startdate">
                 <%=createtime%>
                 </span> 
-              </div>
-              <div id="flot-placeholder"></div>
-              <span id="month">(月)</span>
-                    <div class="verticalLine">
-                      <b><p>發起話題</p></b>
-                      <span style="font-family:Times;font-size:25px;margin-left:20px"><%=po%></span>
-                    </div>
-                <div class="verticalLine2">
-                  <b><p>參與話題</p></b>
-                  <span style="font-family:Times;font-size:25px; margin-left:20px"><%=re%></span>
-                </div>
+              </div>    
+              <span style="position:absolute;left:50%;top:182px;">閱讀</span>     
+              <span style="position:absolute;left:50%;top:230px;">繪畫</span>
+              <span style="position:absolute;left:50%;top:278px;">電動</span>
+              <span style="position:absolute;left:50%;top:326px;">電影</span>
+              <span style="position:absolute;left:50%;top:374px;">運動</span>
+              <span style="position:absolute;left:50%;top:422px;">舞蹈</span>
+              <span style="position:absolute;left:50%;top:470px;">旅遊</span>
+              <span style="position:absolute;left:50%;top:518px;">購物</span>
+                   <div id="flotcontainer"></div>
 
-              <div id="badge">
-                <b><span style="color: #5B5B5B;">你的徽章</span></b><br>
-                <img src="img/badge.png" class="badgeimg">   
-                <img src="img/badge.png" class="badgeimg"> 
-                <img src="img/badge.png" class="badgeimg"> 
-                <img src="img/badge.png" class="badgeimg">
-                <img src="img/badge.png" class="badgeimg">
-                <img src="img/badge.png" class="badgeimg">
-                <img src="img/badge.png" class="badgeimg">
-                <img src="img/badge.png" class="badgeimg">
-                <img src="img/badge.png" class="badgeimg">
-              </div>
                 </div>
        
                  <!--form-->
