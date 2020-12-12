@@ -446,22 +446,7 @@ float:left;
   top:20px;
   left: 100px;
 }
-    .wrap{
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 1em;
-    }
-    .bar{
-    background-color: navy;
-    width: 2em;
-    height: auto;
-    margin-right: 5px;
-    float: left;
-    position: relative;
-    color: #fff;
-    text-align: center;
-    padding-top: 5px;
-    }
+
 #flotcontainer {
     width: 350px;
     height: 400px;
