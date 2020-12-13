@@ -225,8 +225,8 @@ try {
 }
 #skin{
   z-index:2;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
@@ -235,80 +235,71 @@ try {
 }
 #eyes{
   z-index:3;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #eyebrow{
   z-index:4;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #mouth{
   z-index:5;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #fronthair{
   z-index:6;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #backhair{
   z-index:7;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #clothes{
   z-index:8;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #accessories{
   z-index:9;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #skin2{
   z-index:2;
   height: 100px;
   width:100px;
   position:absolute;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #eyes2{
   z-index:3;
@@ -368,7 +359,7 @@ try {
       <div class="col leftnav">
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
-          <li class="nav-item" style="height: 15%">
+          <li class="nav-item" style="height: 15%;">
             <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
               <%
                 String new_mail=(String)(session.getAttribute("email"));
@@ -389,7 +380,7 @@ try {
                 }
                 //con.close();
 %>
-              <span style="position:absolute; left: 70px;"><%=name%></span></a>
+              <span style="position:absolute; left: 80px;"><%=name%></span></a>
           </li>
           <li class="nav-item" style="height: 10%">
             <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
