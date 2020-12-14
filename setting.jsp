@@ -92,7 +92,7 @@ try {
        	    height: 230px;
        	    position: absolute;
        	    left:20%;
-       	    top:610px;
+       	    top:630px;
        	}
        	#liketag{
        		height:7%;
@@ -364,6 +364,14 @@ $( "#gender" ).val( "female" );
                  <div class="tagbox">#電影</div> 
                  <div class="tagbox">#手沖咖啡</div>   
                  <img src="img/pen.png" class="penicon" data-toggle="modal" data-target="#exampleModal2" type="button">     
+                 </div>
+            <span style="position:absolute; left:50px; top:70%;font-family: Microsoft JhengHei;color: #5B5B5B;">個簽</span>       
+            <input value="<%=signature%>" name="signature" style="position:absolute;left:170px;top:70%;width:300px; ">  
+            <span style="position:absolute; left:50px; top:85%;font-family: Microsoft JhengHei;color: #5B5B5B;">自介</span> 
+            <textarea name="introduction" style="position:absolute;left:170px;top:80%;width:300px; height:80px;"><%=introduction%></textarea>        
+   	       </div>
+           <button type="submit" class="btn btn-light" style=" position:absolute;left:45%; top:550px;">確認修改</button>
+           </form>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -374,17 +382,18 @@ $( "#gender" ).val( "female" );
         <div class="tagdiv">
           <ul id="list"></ul>
         </div>
-        <form>
+        <form action="updatesetting.jsp">
           <div class="form-group">
-            <textarea type="text" id="StringTextBox" style="width:300px; position:absolute; top:130px;"></textarea>
-            <input type="button" value="添加" id="add" class="btn btn-success" onclick="addcontent()" style="position:absolute; top:145px; right: 100px;">
+            <textarea type="text" id="StringTextBox" name="goodtag" style="width:300px; position:absolute; top:130px;"></textarea>
+            <input type="submit" value="添加" id="add" class="btn btn-success" onclick="addcontent()" style="position:absolute; top:145px; right: 100px;">
           </div>
-        </form>
+        </form>          
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel">取消</button>
-        <button type="submit" class="btn btn-primary">確認修改</button>
+        <button type="button" class="btn btn-primary">確認</button>
       </div>
+
     </div>
   </div>
 </div>     
@@ -399,28 +408,24 @@ $( "#gender" ).val( "female" );
         <div class="tagdiv">
           <ul id="list2"></ul>
         </div>
-        <form>
+        <form action="updatesetting.jsp">
           <div class="form-group">
-            <textarea type="text" id="StringTextBox2" style="width:300px; position:absolute; top:130px;"></textarea>
-            <input type="button" value="添加" id="add2" class="btn btn-success" onclick="addcontent2()" style="position:absolute; top:145px; right: 100px;">
+            <textarea type="text" id="StringTextBox2" name="badtag" style="width:300px; position:absolute; top:130px;"></textarea>
+            <input type="submit" value="添加" id="add2" class="btn btn-success" onclick="addcontent2()" style="position:absolute; top:145px; right: 100px;">
           </div>
-        </form>
+        </form>          
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel">取消</button>
-        <button type="submit" class="btn btn-primary">確認修改</button>
+        <button type="button" class="btn btn-primary">確認</button>
       </div>
+
     </div>
   </div>
 </div>  
-                 </div>
-            <span style="position:absolute; left:50px; top:70%;font-family: Microsoft JhengHei;color: #5B5B5B;">個簽</span>       
-            <input value="<%=signature%>" name="signature" style="position:absolute;left:170px;top:70%;width:300px; ">  
-            <span style="position:absolute; left:50px; top:85%;font-family: Microsoft JhengHei;color: #5B5B5B;">自介</span> 
-            <textarea name="introduction" style="position:absolute;left:170px;top:80%;width:300px; height:80px;"><%=introduction%></textarea>        
-   	</div>
-   	<span style="position:absolute; left:22%; top:580px;font-family: Microsoft JhengHei;color: #5B5B5B;"><b>帳號密碼</b></span>
+   	<span style="position:absolute; left:22%; top:600px;font-family: Microsoft JhengHei;color: #5B5B5B;"><b>帳號密碼</b></span>
    	<div class="seconddiv">
+        <form>
    			<span style="position:absolute; left:50px; top:10%;font-family: Microsoft JhengHei;color: #5B5B5B;">E-mail</span>
    			<input value="<%=email%>" style="position:absolute;left:170px;top:10%;width:400px;"  disabled="disabled">  
    			<span style="position:absolute; left:50px; top:30%;font-family: Microsoft JhengHei;color: #5B5B5B;">變更密碼</span>
@@ -434,8 +439,8 @@ $( "#gender" ).val( "female" );
    			<span style="position:absolute; left:70px; top:80%;font-family: Microsoft JhengHei;color: #5B5B5B;">確認密碼</span>
    			<input type="password" style="position:absolute;left:190px;top:80%;" name="renewpwd">
    	</div>
-   	<button type="submit" class="btn btn-light" style="position:absolute;top:860px;left:45%; margin-bottom: 20px;">確認修改</button>
-	      		</form>
+   	<button type="submit" class="btn btn-light" style="position:absolute;top:870px;left:45%; margin-bottom: 20px;">確認修改</button>
+	      </form>
 
 <%
    con.close();
