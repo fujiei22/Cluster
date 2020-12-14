@@ -202,7 +202,7 @@ body,html {height:100%;}
             background-color:rgba(108,108,108,0.2);
           }
 
-      .box1{
+      #box1{
         height: 300px;
         width: 180px;
         margin-top:10px;
@@ -258,34 +258,6 @@ display: inline-block;
 margin-top: 5px;
 padding: 1px 5px;
 float:left;
-}
-#panel1{
-  margin:0px;
-  padding:5px;
-  text-align:center;
-  display:none;
-  width:auto;
-  background: rgba(255,255,255,1.00);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  width:120px;
-  position:absolute;
-  left:33px;
-  top:180px;
-  z-index: 3;
-}
-#panel2{
-  margin:0px;
-  padding:5px;
-  text-align:center;
-  display:none;
-  width:auto;
-  background: rgba(255,255,255,1.00);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  width:120px;
-  position:absolute;
-  left:33px;
-  top:235px;
-  z-index: 4;
 }
 #hatebox{
   width:135px;
@@ -417,23 +389,6 @@ float:left;
 
 </style>
 <script type="text/javascript">
-$(function(){
-$("#likebox").hover(function(){
-    $("#panel1").slideToggle("normal");
-    $(".xs1").toggle();
-    $(".xs2").toggle();
-  });
-});
-$(function(){
-$("#hatebox").hover(function(){
-    $("#panel2").slideToggle("normal");
-    $(".xs1").toggle();
-    $(".xs2").toggle();
-  });
-});
-
-
-
 </script>
 </head>
 
@@ -474,7 +429,7 @@ $("#hatebox").hover(function(){
          <div class="frienddiv">
             <%
               while(frrs.next()){
-              out.println("<div class='box1'>");
+              out.println("<div id='box1'>");
               out.println("<img src='img/header/skin/skin"+frrs.getString("Skin")+".png' id='skin' class='headersstyle'>");
               out.println("<img src='img/header/eyes/eyes"+frrs.getString("Eyes")+".png' id='eyes' class='headersstyle'>");
               out.println("<img src='img/header/eyebrow/eyebrow"+frrs.getString("Eyebrow")+".png' id='eyebrow' class='headersstyle'>");
@@ -499,27 +454,11 @@ $("#hatebox").hover(function(){
               out.println("<div class='tagbox'>#電影</div>");
               out.println("</div>");
 
-              out.println("<div id='panel1'>");
-              out.println("<div class='tagbox'>#寵物</div>");
-              out.println("<div class='tagbox'>#登山</div>");
-              out.println("<div class='tagbox'>#繪畫</div>");
-              out.println("<div class='tagbox'>#戲劇</div>");
-              out.println("<div class='tagbox'>#小說</div>");
-              out.println("<div class='tagbox'>#球類運動</div>");
-              out.println("</div>");
-
               out.println("<img src='img/hate.png' id='hate' style='height:18px;'>");
               out.println("<div id='hatebox' class='flip2'>");
               out.println("<div class='tagbox'>#園藝</div>");
               out.println("<div class='tagbox'>#手沖咖啡</div>");
               out.println("<div class='tagbox'>#電影</div>");
-              out.println("</div>");
-
-              out.println("<div id='panel2'>");
-              out.println("<div class='tagbox'>#穿搭</div>");
-              out.println("<div class='tagbox'>#古典樂</div>");
-              out.println("<div class='tagbox'>#歌劇</div>");
-              out.println("<div class='tagbox'>#手工藝</div>");
               out.println("</div>");
 
               out.println("<div id='introductionbox'>");
@@ -528,7 +467,7 @@ $("#hatebox").hover(function(){
               out.println("</div>");
               }
 
-
+            
             %>
 
               <%-- <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">

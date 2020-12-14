@@ -209,14 +209,14 @@ try {
 }
 /* Add styles to the form container */
 .form-container2 {
-  width:600px;
+  width:520px;
   padding: 10px;
   background-color: white;
 }
 /* Full-width textarea */
 .form-container2 iframe {
   width: 100%;  
-  height:650px;
+  height:620px;
   padding: 5px;
   border: none;
   background: #f1f1f1;
@@ -225,8 +225,8 @@ try {
 }
 #skin{
   z-index:2;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
@@ -235,73 +235,117 @@ try {
 }
 #eyes{
   z-index:3;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #eyebrow{
   z-index:4;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #mouth{
   z-index:5;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #fronthair{
   z-index:6;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #backhair{
   z-index:7;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #clothes{
   z-index:8;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
 }
 #accessories{
   z-index:9;
-  height: 10%;
-  width:10%;
+  height: 50px;
+  width:50px;
   position:absolute;
   left:20px;
   top:15%;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
+}
+#skin2{
+  z-index:2;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#eyes2{
+  z-index:3;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#eyebrow2{
+  z-index:4;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#mouth2{
+  z-index:5;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#fronthair2{
+  z-index:6;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#backhair2{
+  z-index:7;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#clothes2{
+  z-index:8;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#accessories2{
+  z-index:9;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+.userheader{
+  position:relative;
+  margin-right: 110px;
 }
        </style>
 </head>
@@ -315,9 +359,9 @@ try {
       <div class="col leftnav">
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
-          <li class="nav-item" style="height: 15%">
+          <li class="nav-item" style="height: 15%;">
             <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
-              <%--
+              <%
                 String new_mail=(String)(session.getAttribute("email"));
                 //con.createStatement().execute("USE `cluster`");
                 String sql1 = "SELECT * FROM `memberskin` WHERE `Email`='"+new_mail+"'";
@@ -332,11 +376,11 @@ try {
                     out.println("<img src='img/header/fronthair/fronthair"+rs1.getString(6)+".png' id='fronthair'>");
                     out.println("<img src='img/header/backhair/backhair"+rs1.getString(7)+".png' id='backhair'>");
                     out.println("<img src='img/header/clothes/clothes"+rs1.getString(8)+".png' id='clothes'>");
-                    out.println("<img src='img/header/accessories/accessories"+rs1.getString(9)+".png' id='accessories'>");*/
+                    out.println("<img src='img/header/accessories/accessories"+rs1.getString(9)+".png' id='accessories'>");
                 }
                 //con.close();
---%>
-              <span style="position:absolute; left: 70px;"><%=name%></span></a>
+%>
+              <span style="position:absolute; left: 80px;"><%=name%></span></a>
           </li>
           <li class="nav-item" style="height: 10%">
             <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
@@ -420,16 +464,18 @@ try {
                     String set =rs.getString(4);
                     String room =rs.getString(1);
                     String roomurl ="http://localhost:3000/room/"+set;
-                    out.println("<div onclick='setcookie("+room+");change()'>");
-                    out.println("<div class='row' >");
-                   /* out.println("<img src='img/header/skin/skin"+rs.getString(Skin")+".png' id='skin'");
-                    out.println("<img src='img/header/eyes/eyes"+rs.getString("Eyes")+".png' id='eyes'");
-                    out.println("<img src='img/header/eyebrow/eyebrow"+rs.getString("Eyebrow")+".png' id='eyebrow'");
-                    out.println("<img src='img/header/mouth/mouth"+rs.getString("Mouth")+".png' id='mouth'");
-                    out.println("<img src='img/header/fronthair/fronthair"+rs.getString("Fronthair")+".png' id='fronthair'");
-                    out.println("<img src='img/header/backhair/backhair"+rs.getString("Backhair")+".png' id='backhair'");
-                    out.println("<img src='img/header/clothes/clothes"+rs.getString("Clothes")+".png' id='clothes'");
-                    out.println("<img src='img/header/accessories/accessories"+rs.getString("Accessories")+".png' id='accessories'");*/
+                    out.println("<div onclick='setcookie("+room+");change()'>");                  
+                    out.println("<div class='row'>");
+                    out.println("<div class='userheader'>");                         
+                    out.println("<img src='img/header/skin/skin"+rs.getString("Skin")+".png' id='skin2'>");
+                    out.println("<img src='img/header/eyes/eyes"+rs.getString("Eyes")+".png' id='eyes2'>");
+                    out.println("<img src='img/header/eyebrow/eyebrow"+rs.getString("Eyebrow")+".png' id='eyebrow2'>");
+                    out.println("<img src='img/header/mouth/mouth"+rs.getString("Mouth")+".png' id='mouth2'>");
+                    out.println("<img src='img/header/fronthair/fronthair"+rs.getString("Fronthair")+".png' id='fronthair2'>");
+                    out.println("<img src='img/header/backhair/backhair"+rs.getString("Backhair")+".png' id='backhair2'>");
+                    out.println("<img src='img/header/clothes/clothes"+rs.getString("Clothes")+".png' id='clothes2'>");
+                    out.println("<img src='img/header/accessories/accessories"+rs.getString("Accessories")+".png' id='accessories2'>");
+                    out.println("</div>");
                     out.println("<div class='maindiv'>");
                     out.println("<span class=''>"+rs.getString(4)+"</span>");
                     out.println("<p class=''>"+rs.getString(5)+"</span>");
@@ -531,7 +577,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
 
       </div>
 
-      <!--第二區/搜尋結果的顯示頁面 
+      <!--第二區/搜尋結果的顯示頁面
       <div class="col-8 mainarea">
         <div class="mainboard" style="height:80%">
         <form class="form-inline my-2 my-lg-0">
