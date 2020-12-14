@@ -202,7 +202,7 @@ body,html {height:100%;}
             background-color:rgba(108,108,108,0.2);
           }
 
-      #box1{
+      .box1{
         height: 300px;
         width: 180px;
         margin-top:10px;
@@ -258,6 +258,34 @@ display: inline-block;
 margin-top: 5px;
 padding: 1px 5px;
 float:left;
+}
+#panel1{
+  margin:0px;
+  padding:5px;
+  text-align:center;
+  display:none;
+  width:auto;
+  background: rgba(255,255,255,1.00);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width:120px;
+  position:absolute;
+  left:33px;
+  top:180px;
+  z-index: 3;
+}
+#panel2{
+  margin:0px;
+  padding:5px;
+  text-align:center;
+  display:none;
+  width:auto;
+  background: rgba(255,255,255,1.00);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width:120px;
+  position:absolute;
+  left:33px;
+  top:235px;
+  z-index: 4;
 }
 #hatebox{
   width:135px;
@@ -389,6 +417,23 @@ float:left;
 
 </style>
 <script type="text/javascript">
+$(function(){
+$("#likebox").hover(function(){
+    $("#panel1").slideToggle("normal");
+    $(".xs1").toggle();
+    $(".xs2").toggle();
+  });
+});
+$(function(){
+$("#hatebox").hover(function(){
+    $("#panel2").slideToggle("normal");
+    $(".xs1").toggle();
+    $(".xs2").toggle();
+  });
+});
+
+
+
 </script>
 </head>
 
@@ -429,7 +474,7 @@ float:left;
          <div class="frienddiv">
             <%
               while(frrs.next()){
-              out.println("<div id='box1'>");
+              out.println("<div class='box1'>");
               out.println("<img src='img/header/skin/skin"+frrs.getString("Skin")+".png' id='skin' class='headersstyle'>");
               out.println("<img src='img/header/eyes/eyes"+frrs.getString("Eyes")+".png' id='eyes' class='headersstyle'>");
               out.println("<img src='img/header/eyebrow/eyebrow"+frrs.getString("Eyebrow")+".png' id='eyebrow' class='headersstyle'>");
@@ -454,11 +499,27 @@ float:left;
               out.println("<div class='tagbox'>#電影</div>");
               out.println("</div>");
 
+              out.println("<div id='panel1'>");
+              out.println("<div class='tagbox'>#寵物</div>");
+              out.println("<div class='tagbox'>#登山</div>");
+              out.println("<div class='tagbox'>#繪畫</div>");
+              out.println("<div class='tagbox'>#戲劇</div>");
+              out.println("<div class='tagbox'>#小說</div>");
+              out.println("<div class='tagbox'>#球類運動</div>");
+              out.println("</div>");
+
               out.println("<img src='img/hate.png' id='hate' style='height:18px;'>");
               out.println("<div id='hatebox' class='flip2'>");
               out.println("<div class='tagbox'>#園藝</div>");
               out.println("<div class='tagbox'>#手沖咖啡</div>");
               out.println("<div class='tagbox'>#電影</div>");
+              out.println("</div>");
+
+              out.println("<div id='panel2'>");
+              out.println("<div class='tagbox'>#穿搭</div>");
+              out.println("<div class='tagbox'>#古典樂</div>");
+              out.println("<div class='tagbox'>#歌劇</div>");
+              out.println("<div class='tagbox'>#手工藝</div>");
               out.println("</div>");
 
               out.println("<div id='introductionbox'>");
@@ -467,7 +528,7 @@ float:left;
               out.println("</div>");
               }
 
-            
+
             %>
 
               <%-- <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">
@@ -545,8 +606,31 @@ float:left;
       <!--第三區-->
       <div class="col mainarea">
         <div class="thirdarea"style="height:100%">
-
-        <div class="row">
+        <%
+          sql="SELECT chat.Name, chat.title, COUNT(chat.title), post.Subject, post.Content, post.Category FROM chat JOIN post ON chat.title = post.pno WHERE chat.Name='"+name+"' GROUP BY title ORDER BY chatid DESC";
+          ResultSet rs4=con.createStatement().executeQuery(sql);
+          while(rs4.next())
+          {
+            String set =rs4.getString(4);
+            String roomurl ="http://localhost:3000/room/"+set;
+            out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
+            out.println("<div class='row' >");
+            out.println("<div class='chatdiv'>");
+            out.println("<i class='fas fa-pizza-slice fa-2x' ></i>");
+            out.println("<span style='color:white'>"+ rs4.getString(3) +"</span><i class='fas fa-user'></i><span style='color:white'>在線</span>");
+            out.println("<br>");
+            out.println("<span class=''>"+ rs4.getString(4) +"</span>");
+            out.println("<p class=''>"+ rs4.getString(5) +"</span>");
+            out.println("</div>");
+            out.println("</div>");
+          }
+          %>
+          <script>
+              function setcookie(set) { 
+                document.cookie = "room=" + set + ";" + ";path=/";
+              }
+            </script>
+        <%-- <div class="row">
           <div class="chatdiv">
             <i class="fas fa-pizza-slice fa-2x" ></i>
             <span style="color:white">　5 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
@@ -572,7 +656,7 @@ float:left;
             <span class="">有人玩過FF嗎?</span>
             <p class="">最近在特價，值得買嗎？</span>
           </div>
-        </div>
+        </div> --%>
 
 
         <div class="row">

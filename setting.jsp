@@ -382,17 +382,18 @@ $( "#gender" ).val( "female" );
         <div class="tagdiv">
           <ul id="list"></ul>
         </div>
-        <form>
+        <form action="updatesetting.jsp">
           <div class="form-group">
-            <textarea type="text" id="StringTextBox" style="width:300px; position:absolute; top:130px;"></textarea>
-            <input type="button" value="添加" id="add" class="btn btn-success" onclick="addcontent()" style="position:absolute; top:145px; right: 100px;">
+            <textarea type="text" id="StringTextBox" name="goodtag" style="width:300px; position:absolute; top:130px;"></textarea>
+            <input type="submit" value="添加" id="add" class="btn btn-success" onclick="addcontent()" style="position:absolute; top:145px; right: 100px;">
           </div>
+        </form>          
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel">取消</button>
-        <button type="submit" class="btn btn-primary">確認</button>
+        <button type="button" class="btn btn-primary">確認</button>
       </div>
-    </form>
+
     </div>
   </div>
 </div>     
@@ -407,17 +408,18 @@ $( "#gender" ).val( "female" );
         <div class="tagdiv">
           <ul id="list2"></ul>
         </div>
-        <form>
+        <form action="updatesetting.jsp">
           <div class="form-group">
-            <textarea type="text" id="StringTextBox2" style="width:300px; position:absolute; top:130px;"></textarea>
-            <input type="button" value="添加" id="add2" class="btn btn-success" onclick="addcontent2()" style="position:absolute; top:145px; right: 100px;">
+            <textarea type="text" id="StringTextBox2" name="badtag" style="width:300px; position:absolute; top:130px;"></textarea>
+            <input type="submit" value="添加" id="add2" class="btn btn-success" onclick="addcontent2()" style="position:absolute; top:145px; right: 100px;">
           </div>
+        </form>          
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel">取消</button>
-        <button type="submit" class="btn btn-primary">確認</button>
+        <button type="button" class="btn btn-primary">確認</button>
       </div>
-      </form>
+
     </div>
   </div>
 </div>  

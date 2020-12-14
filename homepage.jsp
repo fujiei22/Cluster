@@ -626,7 +626,25 @@ java.net.URLEncoder.encode( set, "UTF-8" );
       <!--第三區-->
       <div class="col mainarea">
         <div class="thirdarea"style="height:100%">
-          
+          <%
+          sql="SELECT chat.Name, chat.title, COUNT(chat.title), post.Subject, post.Content, post.Category FROM chat JOIN post ON chat.title = post.pno WHERE chat.Name='"+name+"' GROUP BY title ORDER BY chatid DESC";
+          ResultSet rs4=con.createStatement().executeQuery(sql);
+          while(rs4.next())
+          {
+            String set =rs4.getString(4);
+            String roomurl ="http://localhost:3000/room/"+set;
+            out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
+            out.println("<div class='row' >");
+            out.println("<div class='chatdiv'>");
+            out.println("<i class='fas fa-pizza-slice fa-2x' ></i>");
+            out.println("<span style='color:white'>"+ rs4.getString(3) +"</span><i class='fas fa-user'></i><span style='color:white'>在線</span>");
+            out.println("<br>");
+            out.println("<span class=''>"+ rs4.getString(4) +"</span>");
+            out.println("<p class=''>"+ rs4.getString(5) +"</span>");
+            out.println("</div>");
+            out.println("</div>");
+          }
+          %>
         <div class="row">
           <div class="chatdiv">
             <i class="fas fa-pizza-slice fa-2x" ></i>

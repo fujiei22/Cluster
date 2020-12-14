@@ -1,5 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import = "java.sql.*, java.util.*"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,10 +37,7 @@
 <body>
 
  <nav class="navbar navbar-expand-lg navbar-light">
-   <a class="navbar-brand" href="index.jsp">Cluster</a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
+   
  
    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -55,13 +51,9 @@
          <a class="nav-link" href="#功能展示">功能展示</a>
        </li>
        <li class="nav-item">
-         <a class="nav-link" href="login.jsp">註冊/登入</a>
+         <a class="nav-link" href="http://localhost:8080/test/ClusterApp/login.jsp">註冊/登入</a>
        </li>
      </ul>
-     <form class="form-inline my-2 my-lg-0">
-       <input class="form-control mr-sm-2" type="search" placeholder="Search">
-       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-     </form>
    </div>
  </nav>
 
@@ -75,18 +67,13 @@
  <div id="carouselExampleIndicators" class="carousel slide carousel1" data-ride="carousel">
    <ol class="carousel-indicators">
      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
    </ol>
    <div class="carousel-inner">
      <div class="carousel-item active">
-       <img class="d-block w-100" src="img/ad2.jpg" alt="First slide">
-     </div>
-     <div class="carousel-item">
-       <img class="d-block w-100" src="img/ad2.jpg" alt="Second slide">
-     </div>
-     <div class="carousel-item">
-       <img class="d-block w-100" src="img/ad2.jpg" alt="Third slide">
+       <video class="d-block w-100" loop="true" autoplay="autoplay" muted  alt="First slide">
+        <source src="img/Online.mp4" type="video/mp4" >
+        Your browser does not support the video tag.
+      </video>
      </div>
    </div>
    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -102,26 +89,24 @@
 </div>
 </div>
 
-<div class="container-fluid" style="margin-top:120px;margin-bottom:80px">
+<div class="container-fluid" style="margin-top:80px;margin-bottom:100px">
  <div class="row">
- <div class="col-sm-2"></div>
- <div class="col-sm-4 aside">
-   <img src="img/test.jpg" width="40%" height="auto">
+ <div class="col-sm-6 aside">
+   <img src="img/logo.png" width="80%" height="auto" style="padding-left:150px;">
    <br>
-   <img src="img/logo.png" width="30%" height="auto" style="margin-left:-30px;">
  </div>
  <div class="col-sm-6 aside">
      <div class="row">
        <div class="col-sm-12">
-         <h2 class="maintitle"><a name="簡介">簡介</a></h2>
+         <h2 class="maintitle" style="padding-top:50px;"><a name="簡介">簡介</a></h2>
+         <br>
        </div>
        <div class="col-sm-12" >
-         <p>Hello!</p>
-         <p>Hello!Hello!</p>
-         <p>Hello!Hello!Hello!</p>
-         <p>Hello!Hello!v</p>
-         <p>HelloHello!v!</p>
-         <p>HelloHello!vHello!Hello!!</p>
+         <p>現在這個網路發達的時代</p>
+         <p>交友方式已不再限縮在生活周遭</p>
+         <p>網路交友逐漸普及，但現今交友平台仍有許多缺點</p>
+         <p>我們希望藉由Cluster這個服務</p>
+          <p>讓科技真正拉近人們的距離</p>
        </div>
      </div>
      </div>
@@ -133,25 +118,24 @@
 <div class="row">
  <div class="col-sm-2"></div>
        <div class="col-sm middle middle1">
-         <a name="特色"><p>特色</p></a>
-         <p>特色特色特色特色特色特色<br>
-         特色特色特色特色特色<br>
-         特色特色特色特色特色<br>
-         特色特色特色特色特色</p>
+         <a name="特色"><p style="font-size:x-large;">特殊紙娃娃功能</p></a>
+         <p><br>
+         捨棄傳統上傳照片的模式<br>
+         透過自訂紙娃娃頭像<br>
+         展現個人特色同時保有隱私</p>
        </div>
        <div class="col-sm middle middle3">
-         <p>特色</p>
+         <p style="font-size:x-large;">特色2</p>
          <p>特色特色特色特色特色特色<br>
          特色特色特色特色特色<br>
          特色特色特色特色特色<br>
          特色特色特色特色特色</p>
        </div>
        <div class="col-sm middle middle2">
-         <p>特色</p>
-         <p>特色特色特色特色特色特色<br>
-         特色特色特色特色特色<br>
-         特色特色特色特色特色<br>
-         特色特色特色特色特色</p>
+         <p style="font-size:x-large;">捨棄傳統群組模式</p>
+         <p>我們使用「話題」取代傳統群組<br>
+         讓您不必煩惱從何聊起<br>
+         更容易找到有共同話題的用戶</p>
        </div>
  <div class="col-sm-2"></div>
 </div>
@@ -287,34 +271,18 @@
 
 <div class="container-fluid" style="background-color:white;padding:80px;color:black;">
  <div class="row">
- <div class="col-sm-2"></div>
- <div class="col-sm-4 aside">
    <p>有任何問題？</p>
-   <p>聯絡我們</p>
+   <p>聯絡我們：cluster@gmail.com</p>
    <img src="img/facebook.png" style="width:20px;height:20px;filter:invert(100%)">　
    <img src="img/email.png" style="width:20px;height:20px;filter:invert(100%)">　
    <img src="img/phone-call.png" style="width:20px;height:20px;filter:invert(100%)">
  </div>
- <div class="col-sm-4 aside">
-   <form action="">
-     <label for="formname">您的名字</label><br>
-       <input type="text" id="formname" name="formname"><br>
-     <label for="topic">主旨</label><br>
-       <input type="text" id="topic" name="topic"><br>  
-     <label for="formaddress">聯絡信箱</label><br>
-       <input type="text" id="formaddress" name="formaddress"><br>
-     <label for="formcontent">事由</label><br>
-       <input type="text" id="formcontent" name="formcontent" style="height: 80px;"><br><br>
-     <input type="submit" value="Submit">
-   </form>
-   </div>
- <div class="col-sm-2"></div>
 </div>
 </div>
 
 <div class="container-fluid" style="background-color:whiteB;color:black;">
 <div class="row justify-content-center">
- <p>copyright</p>
+ <p>copyright CYIM 2020</p>
 </div>
 </div>
 
@@ -326,90 +294,5 @@
   })
 </script>
 
-<%
-try {
-    Class.forName("com.mysql.jdbc.Driver");
-    try {   
-        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
-        String sql;
-        Connection con=DriverManager.getConnection(url,"root","1234");
-        if(con.isClosed())
-           out.println("連線建立失敗");
-        else
-        {      
-           sql="CREATE DATABASE IF NOT EXISTS `cluster`;";  
-           con.createStatement().execute(sql);    
-           sql="USE `cluster`";
-           con.createStatement().execute(sql);
-           sql="CREATE TABLE IF NOT EXISTS `member`";
-           sql+="(`Name` VARCHAR(30),";
-           sql+="`Gender` VARCHAR(30),";
-           sql+="`Birthday` VARCHAR(30),";
-           sql+="`Email` VARCHAR(30),";
-           sql+="`Password` VARCHAR(30),";
-           sql+="`Createtime` VARCHAR(30),";
-           sql+="`Music` VARCHAR(30),";
-           sql+="`Movie` VARCHAR(30),";
-           sql+="`Sport` VARCHAR(30),";
-           sql+="`Game` VARCHAR(30),";
-           sql+="`Travel` VARCHAR(30),";
-           sql+="`Food` VARCHAR(30),";
-           sql+="`Signature` VARCHAR(30),";
-           sql+="`Introduction` TEXT,";
-           sql+="PRIMARY KEY(`Email`))";
-           sql+="DEFAULT CHARSET=utf8";
-           con.createStatement().execute(sql);
-
-           sql="CREATE TABLE IF NOT EXISTS `post`";
-           sql+="(`pno` INT(4) AUTO_INCREMENT,";
-           sql+="`PostName` VARCHAR(30),";
-           sql+="`Email` VARCHAR(30),";
-           sql+="`Subject` VARCHAR(30),";
-           sql+="`Content` TEXT,";
-           sql+="`Category` VARCHAR(30),";
-           sql+="`PostDate` DATE,";
-           sql+="PRIMARY KEY(pno))";
-           sql+="DEFAULT CHARSET=utf8";
-           con.createStatement().execute(sql);
-
-           sql="CREATE TABLE IF NOT EXISTS `skin`";
-           sql+="(`imgno` INT(20) AUTO_INCREMENT,";
-           sql+="`file_path` VARCHAR(30),";
-           sql+="`img_file` VARCHAR(30),";
-           sql+="PRIMARY KEY(imgno))";
-           sql+="DEFAULT CHARSET=utf8";
-           con.createStatement().execute(sql);
-
-           sql="CREATE TABLE IF NOT EXISTS `memberskin`";
-           sql+="(`Email` VARCHAR(30),";
-           sql+="`Skin` VARCHAR(30),";
-           sql+="`Eyes` VARCHAR(30),";
-           sql+="`Eyebrow` VARCHAR(30),";
-           sql+="`Mouth` VARCHAR(30),";
-           sql+="`Fronthair` VARCHAR(30),";
-           sql+="`Backhair` VARCHAR(30),";
-           sql+="`Clothes` VARCHAR(30),";
-           sql+="`Accessories` VARCHAR(30),";
-           sql+="PRIMARY KEY(Email))";
-           sql+="DEFAULT CHARSET=utf8";
-           con.createStatement().execute(sql);
-
-           sql="CREATE TABLE IF NOT EXISTS `friends`";
-           sql+="(`Email` VARCHAR(30),";
-           sql+="`Friends` VARCHAR(30))";
-           sql+="DEFAULT CHARSET=utf8";
-           con.createStatement().execute(sql);
-
-           con.close();
-        }
-      }
-    catch (SQLException sExec) {
-          out.println("SQL錯誤"+sExec.toString());
-    }
-        }
-catch (ClassNotFoundException err) {
-       out.println("class錯誤"+err.toString());
-    }
-%>
 </body>
 </html>
