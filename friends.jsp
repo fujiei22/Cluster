@@ -607,22 +607,30 @@ $("#hatebox").hover(function(){
       <div class="col mainarea">
         <div class="thirdarea"style="height:100%">
         <%
-          sql="SELECT chat.Name, chat.title, COUNT(chat.title), post.Subject, post.Content, post.Category FROM chat JOIN post ON chat.title = post.pno WHERE chat.Name='"+name+"' GROUP BY title ORDER BY chatid DESC";
+          sql="SELECT title FROM chat WHERE chat.Name='"+name+"' GROUP BY title";
           ResultSet rs4=con.createStatement().executeQuery(sql);
           while(rs4.next())
           {
-            String set =rs4.getString(4);
-            String roomurl ="http://localhost:3000/room/"+set;
-            out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
-            out.println("<div class='row' >");
-            out.println("<div class='chatdiv'>");
-            out.println("<i class='fas fa-pizza-slice fa-2x' ></i>");
-            out.println("<span style='color:white'>"+ rs4.getString(3) +"</span><i class='fas fa-user'></i><span style='color:white'>在線</span>");
-            out.println("<br>");
-            out.println("<span class=''>"+ rs4.getString(4) +"</span>");
-            out.println("<p class=''>"+ rs4.getString(5) +"</span>");
-            out.println("</div>");
-            out.println("</div>");
+            sql="SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content FROM chat JOIN post ON chat.title = post.pno WHERE chat.title = '"+rs4.getString(1)+"' ORDER BY chatid DESC";
+            ResultSet rs5=con.createStatement().executeQuery(sql);
+            //out.println("<script>console.log('[sql]: "+rs4.getString(1)+"')</script>");
+            //out.println("<script>console.log('[sql]: "+"SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content FROM chat JOIN post ON chat.title = post.pno GROUP BY "+rs4.getString(1)+" ORDER BY chatid DESC"+"')</script>");
+            while(rs5.next())
+            {
+              String set =rs5.getString(4);
+              String roomurl ="http://localhost:3000/room/"+set;
+
+              out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
+              out.println("<div class='row' >");
+              out.println("<div class='chatdiv'>");
+              out.println("<i class='fas fa-pizza-slice fa-2x' ></i>");
+              out.println("<span style='color:white'>"+ rs5.getString(3) +"</span><i class='fas fa-user'></i><span style='color:white'>在線</span>");
+              out.println("<br>");
+              out.println("<span class=''>"+ rs5.getString(1) +"</span>");
+              out.println("</span>");
+              out.println("</div>");
+              out.println("</div>");
+            }
           }
           %>
           <script>
@@ -673,7 +681,7 @@ $("#hatebox").hover(function(){
       }
     }
     catch (SQLException sExec) {
-           out.println("SQL錯誤");
+           out.println("SQL錯誤"+sExec);
 
     }
 }

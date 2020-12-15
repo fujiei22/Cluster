@@ -31,7 +31,7 @@ CREATE TABLE `chat` (
   `chatcontent` varchar(45) NOT NULL,
   `room` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`chatid`)
-) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=195 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `chat` (
 
 LOCK TABLES `chat` WRITE;
 /*!40000 ALTER TABLE `chat` DISABLE KEYS */;
+INSERT INTO `chat` VALUES (188,'小明','7','123',NULL),(189,'張飛','8','321',NULL),(190,'張飛','8','1313',NULL),(191,'漩渦鳴人','9','1231321',NULL),(192,'漩渦鳴人','9','1231332',NULL),(193,'漩渦鳴人','9','13123213',NULL),(194,'張飛','9','414141',NULL);
 /*!40000 ALTER TABLE `chat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,6 +109,52 @@ INSERT INTO `member` VALUES ('淑芬','female','12/19/2019','0000@gmail.com','00
 UNLOCK TABLES;
 
 --
+-- Table structure for table `memberbadtag`
+--
+
+DROP TABLE IF EXISTS `memberbadtag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `memberbadtag` (
+  `Email` varchar(30) NOT NULL,
+  `badtag` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`Email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `memberbadtag`
+--
+
+LOCK TABLES `memberbadtag` WRITE;
+/*!40000 ALTER TABLE `memberbadtag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `memberbadtag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `membergoodtag`
+--
+
+DROP TABLE IF EXISTS `membergoodtag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `membergoodtag` (
+  `Email` varchar(30) NOT NULL,
+  `goodtag` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`Email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `membergoodtag`
+--
+
+LOCK TABLES `membergoodtag` WRITE;
+/*!40000 ALTER TABLE `membergoodtag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `membergoodtag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `memberskin`
 --
 
@@ -134,7 +181,7 @@ CREATE TABLE `memberskin` (
 
 LOCK TABLES `memberskin` WRITE;
 /*!40000 ALTER TABLE `memberskin` DISABLE KEYS */;
-INSERT INTO `memberskin` VALUES ('0000@gmail.com','1','1','4','1','5','2','4','7'),('1111@gmail.com','1','1','4','1','5','2','4','7'),('1122@gmail.com','3','1','1','1','1','2','4','7'),('1133@gmail.com','1','1','4','1','5','2','4','7'),('1144@gmail.com','1','1','4','1','5','2','4','7'),('1155@gmail.com','1','1','4','1','5','2','4','7'),('1166@gmail.com','1','1','4','1','5','2','4','7'),('1177@gmail.com','1','1','4','1','5','2','4','7'),('1188@gmail.com','1','1','4','1','5','2','4','7'),('1212@gmail.com','1','1','4','1','5','2','4','7'),('1234@gmail.com','1','1','4','1','5','2','4','7'),('2121@gmail.com','1','1','4','1','5','2','4','7'),('2222@gmail.com','1','1','4','1','5','2','4','7'),('3333@gmail.com','1','1','4','1','5','2','4','7'),('3344@gmail.com','1','1','4','1','5','2','4','7'),('4444@gmail.com','1','1','4','1','5','2','4','7'),('5555@gmail.com','1','1','4','1','5','2','4','7'),('5566@gmail.com','1','1','4','1','5','2','4','7'),('5678@gmail.com','1','1','4','1','5','2','4','7'),('6666@gmail.com','1','1','4','1','5','2','4','7'),('7777@gmail.com','1','1','4','1','5','2','4','7'),('7788@gmail.com','1','1','4','1','5','2','4','7'),('8888@gmail.com','1','1','4','1','5','2','4','7'),('9900@gmail.com','1','1','4','1','5','2','4','7'),('9999@gmail.com','1','1','4','1','5','2','4','7');
+INSERT INTO `memberskin` VALUES ('0000@gmail.com','1','1','4','1','5','2','4','7'),('1111@gmail.com','1','1','4','1','5','2','4','7'),('1122@gmail.com','3','1','1','1','1','2','4','7'),('1133@gmail.com','1','1','4','1','5','2','4','7'),('1144@gmail.com','1','1','4','1','5','2','4','7'),('1155@gmail.com','1','1','4','1','5','2','4','7'),('1166@gmail.com','1','1','4','1','5','2','4','7'),('1177@gmail.com','1','1','4','1','5','2','4','7'),('1188@gmail.com','3','1','4','1','5','2','4','7'),('1212@gmail.com','2','1','4','1','5','2','4','7'),('1234@gmail.com','1','1','4','1','5','2','4','7'),('2121@gmail.com','1','1','4','1','5','2','4','7'),('2222@gmail.com','1','1','4','1','5','2','4','7'),('3333@gmail.com','1','1','4','1','5','2','4','7'),('3344@gmail.com','1','1','4','1','5','2','4','7'),('4444@gmail.com','1','1','4','1','5','2','4','7'),('5555@gmail.com','1','1','4','1','5','2','4','7'),('5566@gmail.com','1','1','4','1','5','2','4','7'),('5678@gmail.com','1','1','4','1','5','2','4','7'),('6666@gmail.com','1','1','4','1','5','2','4','7'),('7777@gmail.com','1','1','4','1','5','2','4','7'),('7788@gmail.com','1','1','4','1','5','2','4','7'),('8888@gmail.com','1','1','4','1','5','2','4','7'),('9900@gmail.com','1','1','4','1','5','2','4','7'),('9999@gmail.com','1','1','4','1','5','2','4','7'),('fujiei2238@gmail.com','1','1','4','1','5','2','4','7'),('fujiei2266@gmail.com','1','1','4','1','5','2','4','7');
 /*!40000 ALTER TABLE `memberskin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,4 +248,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-11  0:35:21
+-- Dump completed on 2020-12-15 22:48:38
