@@ -40,6 +40,7 @@ CREATE TABLE `chat` (
 
 LOCK TABLES `chat` WRITE;
 /*!40000 ALTER TABLE `chat` DISABLE KEYS */;
+INSERT INTO `chat` VALUES (188,'小明','7','123',NULL),(189,'張飛','8','321',NULL),(190,'張飛','8','1313',NULL),(191,'漩渦鳴人','9','1231321',NULL),(192,'漩渦鳴人','9','1231332',NULL),(193,'漩渦鳴人','9','13123213',NULL),(194,'張飛','9','414141',NULL);
 /*!40000 ALTER TABLE `chat` ENABLE KEYS */;
 UNLOCK TABLES;
 
