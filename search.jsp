@@ -37,7 +37,7 @@ try {
         overflow-x: hidden;
       }
         .leftnav{
-          background-color: rgb(141, 141, 141);
+          background-color:#cb997e;
           height: 100%;
         } 
       a{
@@ -47,6 +47,7 @@ try {
         .mainarea{
           background-color: white;
           overflow:scroll;
+          height: 800px;
         }
        i{
          color:white;
@@ -54,33 +55,43 @@ try {
         .chatdiv{
           color:white;
           width:200px;
-          background-color: rgb(141, 174, 211);
+          background-color: #f2a65a;
           padding:15px;
           margin-top:15px;
           border-radius: 10%;
         }
         .mainboard{
           margin:30px;
-          
         }
         #myTabContent{
           padding:30px;
-          border-radius:15px;
-          background-color: rgb(188, 228, 238);
+          border-radius:20px;
+          background-color: #f8edeb;
           height:85%;
         }
         .maindiv{
           background-color:white;
           padding:5px;
-          margin-top:10px;
-          border-radius: 10px;
-          width:60%;
+          margin-top:20px;
+          border-radius: 20px;
+          width:80%;
           
         }
-
+        .userheader{
+          position:relative;
+          margin-top:20px;
+          margin-left: 20px;
+          margin-right: 120px;
+        }
         .h2div{
           position: relative;
-          z-index: 1;
+          font-weight: bolder;
+          margin:10px;
+          
+        }
+        .iframediv{
+          position: relative;
+          z-index: 2;
         }
         .open-button {
           background-color: #555;
@@ -156,7 +167,6 @@ try {
           width:20%;
           margin:10px;
         }
-
         #myTabContent{
           width:100%;
           overflow:scroll;
@@ -165,69 +175,251 @@ try {
          #myTabContent::-webkit-scrollbar-track
           {
             border-radius: 10px;
+            margin-top:10px;
+            margin-bottom: 10px;
           }
-
           #myTabContent::-webkit-scrollbar
           {
             width: 10px;
           }
-
           #myTabContent::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-
          .mainarea::-webkit-scrollbar-track
           {
             border-radius: 10px;
           }
-
           .mainarea::-webkit-scrollbar
           {
             width: 10px;
           }
-
           .mainarea::-webkit-scrollbar-thumb
           {
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-  
+/* The popup chat - hidden by default */
+.chat-popup2 {
+  display: none;
+  position: fixed;
+  top: 30px;
+  margin:0px auto;
+  right: 300px;
+  border: 2px solid #f1f1f1;
+  z-index: 9;
+}
+/* Add styles to the form container */
+.form-container2 {
+  width:520px;
+  padding: 10px;
+  background-color: white;
+}
+/* Full-width textarea */
+.form-container2 iframe {
+  width: 100%;  
+  height:620px;
+  padding: 5px;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 300px;
+}
+#skin{
+  z-index:2;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+}
+#eyes{
+  z-index:3;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+}
+#eyebrow{
+  z-index:4;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+}
+#mouth{
+  z-index:5;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+}
+#fronthair{
+  z-index:6;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+}
+#backhair{
+  z-index:7;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+}
+#clothes{
+  z-index:8;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
+  border-radius: 50%;
+}
+#accessories{
+  z-index:9;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
+}
+#skin2{
+  z-index:2;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#eyes2{
+  z-index:3;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#eyebrow2{
+  z-index:4;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#mouth2{
+  z-index:5;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#fronthair2{
+  z-index:6;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#backhair2{
+  z-index:7;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#clothes2{
+  z-index:8;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#accessories2{
+  z-index:9;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+
        </style>
 </head>
 
 <body>
 
 
-  <div class="container-fluid" style="height: 100%;">
-    <div class="row justify-content-center" style="height: 100%;">
-      <!--第一區-->
-      <div class="col leftnav">
-        <ul class="nav flex-column" style="height: 100%">
-          <li class="nav-item" style="height: 17%"></li>
-          <li class="nav-item" style="height: 15%">
-            <%String name =(String) session.getAttribute("name");%>
-            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%//@ include file="importheader1.jsp" %><i class="fas fa-user-circle fa-2x"></i>　<%=name%></a>
-          </li>
-          <li class="nav-item" style="height: 10%">
-            <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
-          </li>
-          <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="notification.jsp"style="color:white;font-size:large"><i class="far fa-bell"></i>　通知</a>
-          </li>
-          <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="friends.jsp"style="color:white;font-size:large"><i class="far fa-address-book"></i>　好友</a>
-          </li>
-          <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#"style="color:white;font-size:large"><i class="far fa-comments"></i>　聊天</a>
-          </li>
-          <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="logout.jsp"style="color:white;font-size:large"><i class="fas fa-power-off"></i>　登出</a>
-          </li>
-          <li class="nav-item" style="height: 17%"></li>
-        </ul>
-      </div>
+  <script>
+    var isShow = false;
+    function setcookie(set,title) { 
+      document.cookie = "room=" + set + ";" + ";path=/";
+      document.cookie = "title=" + title + ";" + ";path=/";
+      
+      if(!isShow) {
+      isShow = true;
+      document.getElementById('myForm2').style.display='block';
+      document.getElementById("myframe").src="http://localhost:3000/room/"+title;
+      }
+      else {
+      isShow = false;
+      document.getElementById('myForm2').style.display='none';
+      }
+    }
+  </script>
+
+<!--第一區-->
+<div class="container-fluid" style="height: 100%;">
+<div class="row justify-content-center" style="height: 100%;">
+<div class="col leftnav">
+<ul class="nav flex-column" style="height: 100%">
+<li class="nav-item" style="height: 17%"></li>
+<li class="nav-item" style="height: 15%;">
+  <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
+    <%
+      String new_mail=(String)(session.getAttribute("email"));
+      //con.createStatement().execute("USE `cluster`");
+      String sql1 = "SELECT * FROM `memberskin` WHERE `Email`='"+new_mail+"'";
+      ResultSet rs1 =  con.createStatement().executeQuery(sql1);
+      con.createStatement().execute(sql1);
+      while(rs1.next())
+      {
+          out.println("<img src='img/header/skin/skin"+rs1.getString(2)+".png' id='skin'>");
+          out.println("<img src='img/header/eyes/eyes"+rs1.getString(3)+".png' id='eyes'>");
+          out.println("<img src='img/header/eyebrow/eyebrow"+rs1.getString(4)+".png' id='eyebrow'>");
+          out.println("<img src='img/header/mouth/mouth"+rs1.getString(5)+".png' id='mouth'>");
+          out.println("<img src='img/header/fronthair/fronthair"+rs1.getString(6)+".png' id='fronthair'>");
+          out.println("<img src='img/header/backhair/backhair"+rs1.getString(7)+".png' id='backhair'>");
+          out.println("<img src='img/header/clothes/clothes"+rs1.getString(8)+".png' id='clothes'>");
+          out.println("<img src='img/header/accessories/accessories"+rs1.getString(9)+".png' id='accessories'>");
+      }
+      //con.close();
+%>
+<!--無法顯示名字-->
+    <span style="position:absolute; left: 120px;font-size:larger;"><%--=name--%></span></a>
+</li>
+<li class="nav-item" style="height: 10%">
+  <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="far fa-newspaper fa-lg"></i>　話題</a>
+</li>
+<li class="nav-item"style="height: 10%">
+  <a class="nav-link" href="recommend.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="far fa-bell fa-lg"></i>　推薦</a>
+</li>
+<li class="nav-item"style="height: 10%">
+  <a class="nav-link" href="friends.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="far fa-address-book fa-lg"></i>　好友</a>
+</li>
+
+<li class="nav-item"style="height: 10%">
+  <a class="nav-link" href="logout.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="fas fa-power-off fa-lg"></i>　登出</a>
+</li>
+<li class="nav-item" style="height: 17%"></li>
+</ul>
+</div>
+
+<!--第一區-->
+
 
     
 
@@ -265,7 +457,6 @@ try {
             out.println("<p class=''>"+ContentRs+"</span><br>");
             out.println("<span class='badge badge-primary'>"+CategoryRs+"</span>");
             out.println("</div>");
-            out.println("<div class='percent'><h2>80%</h2></div>");
             out.println("</div>");
          }
          if(flag){

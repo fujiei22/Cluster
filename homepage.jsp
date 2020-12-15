@@ -42,7 +42,7 @@ try {
         overflow-x: hidden;
       }
         .leftnav{
-          background-color: rgb(141, 141, 141);
+          background-color:#cb997e;
           height: 100%;
         } 
       a{
@@ -52,6 +52,7 @@ try {
         .mainarea{
           background-color: white;
           overflow:scroll;
+          height: 800px;
         }
        i{
          color:white;
@@ -59,32 +60,39 @@ try {
         .chatdiv{
           color:white;
           width:200px;
-          background-color: rgb(141, 174, 211);
+          background-color: #f2a65a;
           padding:15px;
           margin-top:15px;
           border-radius: 10%;
         }
         .mainboard{
           margin:30px;
-          
         }
         #myTabContent{
           padding:30px;
-          border-radius:15px;
-          background-color: rgb(188, 228, 238);
+          border-radius:20px;
+          background-color: #f8edeb;
           height:85%;
         }
         .maindiv{
           background-color:white;
           padding:5px;
-          margin-top:10px;
-          border-radius: 10px;
-          width:60%;
+          margin-top:20px;
+          border-radius: 20px;
+          width:80%;
           
+        }
+        .userheader{
+          position:relative;
+          margin-top:20px;
+          margin-left: 20px;
+          margin-right: 120px;
         }
         .h2div{
           position: relative;
-          z-index: 1;
+          font-weight: bolder;
+          margin:10px;
+          
         }
         .iframediv{
           position: relative;
@@ -225,8 +233,8 @@ try {
 }
 #skin{
   z-index:2;
-  height: 50px;
-  width:50px;
+  height: 80px;
+  width:80px;
   position:absolute;
   left:20px;
   top:15%;
@@ -235,8 +243,8 @@ try {
 }
 #eyes{
   z-index:3;
-  height: 50px;
-  width:50px;
+  height: 80px;
+  width:80px;
   position:absolute;
   left:20px;
   top:15%;
@@ -244,8 +252,8 @@ try {
 }
 #eyebrow{
   z-index:4;
-  height: 50px;
-  width:50px;
+  height: 80px;
+  width:80px;
   position:absolute;
   left:20px;
   top:15%;
@@ -253,8 +261,8 @@ try {
 }
 #mouth{
   z-index:5;
-  height: 50px;
-  width:50px;
+  height: 80px;
+  width:80px;
   position:absolute;
   left:20px;
   top:15%;
@@ -262,8 +270,8 @@ try {
 }
 #fronthair{
   z-index:6;
-  height: 50px;
-  width:50px;
+  height: 80px;
+  width:80px;
   position:absolute;
   left:20px;
   top:15%;
@@ -271,8 +279,8 @@ try {
 }
 #backhair{
   z-index:7;
-  height: 50px;
-  width:50px;
+  height: 80px;
+  width:80px;
   position:absolute;
   left:20px;
   top:15%;
@@ -280,8 +288,8 @@ try {
 }
 #clothes{
   z-index:8;
-  height: 50px;
-  width:50px;
+  height: 80px;
+  width:80px;
   position:absolute;
   left:20px;
   top:15%;
@@ -289,8 +297,8 @@ try {
 }
 #accessories{
   z-index:9;
-  height: 50px;
-  width:50px;
+  height: 80px;
+  width:80px;
   position:absolute;
   left:20px;
   top:15%;
@@ -343,19 +351,33 @@ try {
   width:100px;
   position:absolute;
 }
-.userheader{
-  position:relative;
-  margin-right: 110px;
-}
+
        </style>
 </head>
 
 <body>
 
+<script>
+              var isShow = false;
+              function setcookie(set,title) { 
+                document.cookie = "room=" + set + ";" + ";path=/";
+                document.cookie = "title=" + title + ";" + ";path=/";
+                
+                if(!isShow) {
+                isShow = true;
+                document.getElementById('myForm2').style.display='block';
+                document.getElementById("myframe").src="http://localhost:3000/room/"+title;
+                }
+                else {
+                isShow = false;
+                document.getElementById('myForm2').style.display='none';
+                }
+              }
+            </script>
 
+ <!--第一區-->
   <div class="container-fluid" style="height: 100%;">
     <div class="row justify-content-center" style="height: 100%;">
-      <!--第一區-->
       <div class="col leftnav">
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
@@ -380,35 +402,38 @@ try {
                 }
                 //con.close();
 %>
-              <span style="position:absolute; left: 80px;"><%=name%></span></a>
+              <span style="position:absolute; left: 120px;font-size:larger;"><%=name%></span></a>
           </li>
           <li class="nav-item" style="height: 10%">
-            <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
+            <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="far fa-newspaper fa-lg"></i>　話題</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="notification.jsp"style="color:white;font-size:large"><i class="far fa-bell"></i>　通知</a>
+            <a class="nav-link" href="recommend.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="far fa-bell fa-lg"></i>　推薦</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="friends.jsp"style="color:white;font-size:large"><i class="far fa-address-book"></i>　好友</a>
+            <a class="nav-link" href="friends.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="far fa-address-book fa-lg"></i>　好友</a>
           </li>
           
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="logout.jsp"style="color:white;font-size:large"><i class="fas fa-power-off"></i>　登出</a>
+            <a class="nav-link" href="logout.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="fas fa-power-off fa-lg"></i>　登出</a>
           </li>
           <li class="nav-item" style="height: 17%"></li>
         </ul>
       </div>
+
+ <!--第一區-->
+
 
       <!--第二區-->
       <div class="col-8 mainarea">
         <div class="mainboard" style="height:80%">
 
         <form class="form-inline my-2 my-lg-0" action="search.jsp">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <input class="form-control mr-sm-2" type="search" placeholder="在此搜尋話題" name="search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
         </form>
         
-        <div class="h2div" ><h2>話題</h2>
+        <div class="h2div" ><h2 style="font-weight:bold;">話題</h2>
 
         <div class="form-popup" id="myForm">
           <form action="add_topic.jsp" class="form-container">
@@ -443,19 +468,22 @@ try {
 
           <ul class="nav justify-content-end" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#guess" role="tab" aria-controls="guess" aria-selected="true">猜你喜歡</a>
+              <a class="nav-link active" style="font-size: larger;font-weight:bold;" id="home-tab" data-toggle="tab" href="#guess" role="tab" aria-controls="guess" aria-selected="true">猜你喜歡</a>
             </li>
+            <li style="font-size: larger;margin:6px;">/</li>
             <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#hot" role="tab" aria-controls="hot" aria-selected="false">熱門話題</a>
+              <a class="nav-link"  style="font-size: larger;font-weight:bold;" id="profile-tab" data-toggle="tab" href="#hot" role="tab" aria-controls="hot" aria-selected="false">熱門話題</a>
             </li>
+            <li style="font-size: larger;margin:6px;">/</li>
             <li class="nav-item">
-              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#new" role="tab" aria-controls="new" aria-selected="false">最新話題</a>
+              <a class="nav-link" style="font-size: larger;font-weight:bold;" id="contact-tab" data-toggle="tab" href="#new" role="tab" aria-controls="new" aria-selected="false">最新話題</a>
             </li>
           </ul>
        
           <div class="tab-content" id="myTabContent">
 
             <div class="tab-pane fade show active" id="guess" role="tabpanel" aria-labelledby="home-tab">
+            
               <%
               sql="SELECT * FROM post JOIN memberskin ON post.Email = memberskin.Email";
               ResultSet rs=con.createStatement().executeQuery(sql);
@@ -463,8 +491,7 @@ try {
                   {
                     String set =rs.getString(4);
                     String room =rs.getString(1);
-                    String roomurl ="http://localhost:3000/room/"+set;
-                    out.println("<div onclick='setcookie("+room+");change()'>");                  
+                    out.println("<a href='#' onclick=\"setcookie('"+room+"','"+set+"')\">"); 
                     out.println("<div class='row'>");
                     out.println("<div class='userheader'>");                         
                     out.println("<img src='img/header/skin/skin"+rs.getString("Skin")+".png' id='skin2'>");
@@ -477,13 +504,13 @@ try {
                     out.println("<img src='img/header/accessories/accessories"+rs.getString("Accessories")+".png' id='accessories2'>");
                     out.println("</div>");
                     out.println("<div class='maindiv'>");
-                    out.println("<span class=''>"+rs.getString(4)+"</span>");
-                    out.println("<p class=''>"+rs.getString(5)+"</span>");
+                    out.println("<span class='badge badge-danger' style='font-size:large;margin:10px;background-color: rgb(211, 82, 43);'>"+rs.getString(6)+"</span>");
                     out.println("</br>");
-                    out.println("<span class='badge badge-primary'>"+rs.getString(6)+"</span>");
+                    out.println("<span style='font-size: large;font-weight:bold;margin:10px;'>"+rs.getString(4)+"</span>");
+                    out.println("<p style='margin-left:10px;'>"+rs.getString(5)+"</span>");
                     out.println("</div>");
                     out.println("</div>");
-                    out.println("</div>");
+                    out.println("</a>");
                   }
               %> 
             </div>
@@ -493,12 +520,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
             -->
             
 
-            <script>
-              function setcookie(room) { 
-                document.cookie = "room=" + set + ";" + ";path=/";
-               // document.cookie = "pno=" + room + ";" + ";path=/";
-              }
-            </script>
+           
 
             <div class="tab-pane fade" id="hot" role="tabpanel" aria-labelledby="profile-tab">
             <%
@@ -532,11 +554,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
             %>
             </div>
 
-            <script>
-              function setcookie(set) { 
-                document.cookie = "room=" + set + ";" + ";path=/";
-              }
-            </script>
+            
             
             <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="contact-tab">
               <%
@@ -570,11 +588,6 @@ java.net.URLEncoder.encode( set, "UTF-8" );
               %> 
             </div>
 
-            <script>
-              function setcookie(set) { 
-                document.cookie = "room=" + set + ";" + ";path=/";
-              }
-            </script>
 
           </div>
         </div>
@@ -685,11 +698,11 @@ java.net.URLEncoder.encode( set, "UTF-8" );
         
         <script>
         var isShow = false;
-        function change() {
+        function change(roomurl) {
         if(!isShow) {
         isShow = true;
         document.getElementById('myForm2').style.display='block';
-        //document.getElementById("myframe").src=roomurl;
+        document.getElementById("myframe").src=roomurl;
         }
         else {
         isShow = false;
