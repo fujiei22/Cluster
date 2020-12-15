@@ -10,9 +10,15 @@ try {
         if(con.isClosed())
            out.println("連線建立失敗");
         else { 
-           sql="USE `cluster`";
-           con.createStatement().execute(sql);
-           String search = request.getParameter("search");
+            sql="USE `cluster`";
+            con.createStatement().execute(sql);
+            String search = request.getParameter("search");
+            sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+            ResultSet memberrs =con.createStatement().executeQuery(sql);
+            String name="";
+            while(memberrs.next()){
+            name=memberrs.getString("Name");
+            }
            %>
 <!DOCTYPE html>
 <html lang="en">
@@ -235,6 +241,7 @@ try {
   top:15%;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
+  background-color: white;
 }
 #eyes{
   z-index:3;
@@ -373,12 +380,12 @@ try {
 
 <!--第一區-->
 <div class="container-fluid" style="height: 100%;">
-  <div class="row justify-content-center" style="height: 100%;">
-    <div class="col leftnav">
-      <ul class="nav flex-column" style="height: 100%">
-        <li class="nav-item" style="height: 17%"></li>
-        <li class="nav-item" style="height: 15%;">
-          <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
+<div class="row justify-content-center" style="height: 100%;">
+<div class="col leftnav">
+<ul class="nav flex-column" style="height: 100%">
+<li class="nav-item" style="height: 17%"></li>
+<li class="nav-item" style="height: 15%;">
+  <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
     <%
       String new_mail=(String)(session.getAttribute("email"));
       //con.createStatement().execute("USE `cluster`");
@@ -399,7 +406,7 @@ try {
       //con.close();
 %>
 <!--無法顯示名字-->
-    <span style="position:absolute; left: 120px;font-size:larger;"><%--=name--%></span></a>
+    <span style="position:absolute; left: 120px;font-size:larger;"><%=name%></span></a>
 </li>
 <li class="nav-item" style="height: 10%">
   <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="far fa-newspaper fa-lg"></i>　話題</a>
@@ -430,11 +437,41 @@ try {
           <input class="form-control mr-sm-2" type="search" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <div class="h2div" ><h2>話題</h2></div>
+        <div class="h2div" ><h2 style="font-weight:bold;">話題</h2>
+
+          <!--第二區form-->
+       <div class="form-popup" id="myForm">
+         <form action="add_topic.jsp" class="form-container">
+           <h2>開新話題</h2>
+             <div class="form-group">
+               <label for="title">標題</label>
+               <input type="text" class="form-control" id="title" name="subject" placeholder="請輸入標題">
+             </div>
+             <div class="form-group">
+               <label for="textarea">內文</label>
+               <textarea class="form-control" id="textarea" name="content" rows="4" placeholder="請輸入內文"></textarea>
+             </div>
+             <div class="form-group">
+               <label for="category">分類</label>
+               <select class="form-control" id="category" name="category">
+                 <option>音樂</option>
+                 <option>電影</option>
+                 <option>運動</option>
+                 <option>遊戲</option>
+                 <option>旅遊</option>
+                 <option>美食</option>
+               </select>
+             </div>
+           <button type="submit" class="btn">提交</button><button type="button" class="btn cancel" onclick="closeForm()">取消</button>
+         </form>
+       </div>
+        <!--第二區form-->
+       
+     </div>
 
           <ul class="nav justify-content-end" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#search" role="tab" aria-controls="search" aria-selected="true">"<%=search%>"的搜尋結果</a>
+              <a class="nav-link active" style="font-size: larger;font-weight:bold;" id="home-tab" data-toggle="tab" href="#search" role="tab" aria-controls="search" aria-selected="true">"<%=search%>"的搜尋結果</a>
             </li>
           </ul>
 
@@ -450,14 +487,28 @@ try {
             String SubjectRs=searchRs.getString(4);
             String ContentRs=searchRs.getString(5);
             String CategoryRs=searchRs.getString(6);
+            //out.println("<a href='#' onclick=\"setcookie('"+room+"','"+set+"')\">"); 
             out.println("<div class='row'>");
 
-            out.println("<div class='maindiv'");
-            out.println("<span class=''>"+SubjectRs+"</span>");
-            out.println("<p class=''>"+ContentRs+"</span><br>");
-            out.println("<span class='badge badge-primary'>"+CategoryRs+"</span>");
+              /*  out.println("<div class='userheader'>");                         
+                out.println("<img src='img/header/skin/skin"+rs.getString("Skin")+".png' id='skin2'>");
+                out.println("<img src='img/header/eyes/eyes"+rs.getString("Eyes")+".png' id='eyes2'>");
+                out.println("<img src='img/header/eyebrow/eyebrow"+rs.getString("Eyebrow")+".png' id='eyebrow2'>");
+                out.println("<img src='img/header/mouth/mouth"+rs.getString("Mouth")+".png' id='mouth2'>");
+                out.println("<img src='img/header/fronthair/fronthair"+rs.getString("Fronthair")+".png' id='fronthair2'>");
+                out.println("<img src='img/header/backhair/backhair"+rs.getString("Backhair")+".png' id='backhair2'>");
+                out.println("<img src='img/header/clothes/clothes"+rs.getString("Clothes")+".png' id='clothes2'>");
+                out.println("<img src='img/header/accessories/accessories"+rs.getString("Accessories")+".png' id='accessories2'>");
+                out.println("</div>"); */
+                
+            out.println("<div class='maindiv'>");
+            out.println("<span class='badge badge-danger' style='font-size:large;margin:10px;background-color: rgb(211, 82, 43);'>"+CategoryRs+"</span>");
+            out.println("</br>");
+            out.println("<span style='font-size: large;font-weight:bold;margin:10px;'>"+SubjectRs+"</span>");
+            out.println("<p style='margin-left:10px;'>"+ContentRs+"</span><br>");
             out.println("</div>");
             out.println("</div>");
+            //out.println("</a>");
          }
          if(flag){
             out.println("<SCRIPT LANGUAGE='JavaScript'>");
@@ -494,47 +545,56 @@ try {
 
 
 
-      <!--第三區-->
-      <div class="col mainarea">
-        <div class="thirdarea"style="height:100%">
-          
-        <div class="row">
-          <div class="chatdiv">
-            <i class="fas fa-pizza-slice fa-2x" ></i>
-            <span style="color:white">　5 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-            <br>
-            <span class="">早餐吃什麼</span>
-            <p class="">蛋餅還是三明治？</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="chatdiv">
-            <i class="fas fa-baseball-ball fa-2x"></i>
-            <span style="color:white">　4 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-            <br>
-            <span class="">星期六有沒有人要打球</span>
-            <p class="">球我帶</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="chatdiv">
-            <i class="fas fa-gamepad fa-2x"></i>
-            <span style="color:white">　2 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-            <br>
-            <span class="">有人玩過FF嗎?</span>
-            <p class="">最近在特價，值得買嗎？</span>
-          </div>
-        </div>
-        
-        
-        <div class="row">
-          <button class="open-button" onclick="openForm()">+</button>
-        </div>
+  <!--第三區-->
+ <div class="col mainarea">
+  <div class="thirdarea"style="height:100%">
+  <%
+    sql="SELECT title FROM chat WHERE chat.Name='"+name+"' GROUP BY title";
+    ResultSet rs4=con.createStatement().executeQuery(sql);
+    while(rs4.next())
+    {
+      sql="SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content, post.pno FROM chat JOIN post ON chat.title = post.pno WHERE chat.title = '"+rs4.getString(1)+"' ORDER BY chatid DESC";ResultSet rs5=con.createStatement().executeQuery(sql);
+      //out.println("<script>console.log('[sql]: "+rs4.getString(1)+"')</script>");
+      //out.println("<script>console.log('[sql]: "+"SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content FROM chat JOIN post ON chat.title = post.pno GROUP BY "+rs4.getString(1)+" ORDER BY chatid DESC"+"')</script>");
+      while(rs5.next())
+      {
+        String room =rs5.getString(5);
+        String set =rs5.getString(1);
+
+        out.println("<a href='#' onclick=\"setcookie('"+room+"','"+set+"')\">"); 
+        out.println("<div class='row'>");
+        out.println("<div class='chatdiv'>");
+        out.println("<i class='fas fa-user fa-2x'></i><span style='color:white'>　討論度：</span><span style='color:white'>"+ rs5.getString(3) +"</span>");
+        out.println("<br>");
+        out.println("<span class=''>"+ rs5.getString(1) +"</span>");
+        out.println("</div>");
+        out.println("</div>");
+        out.println("</a>");
+      }
+    }
+    %>
+
+<!--第三區iframe-->       
+<div class="chat-popup2" id="myForm2">
+<div class="form-container2">
+  
+   <iframe id="myframe" src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >
+          你的瀏覽器不支援 iframe
+   </iframe>
+</div>
+</div>
+<!--第三區iframe-->
+
+      <div class="row">
+        <button class="open-button" onclick="openForm()">+</button>
       </div>
     </div>
+  </div>
+  <!--第三區-->
 
       </div>
   </div>
+    <!--close-->
   
 
   
