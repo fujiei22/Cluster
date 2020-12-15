@@ -310,7 +310,7 @@ try {
 
 	<div id="backcolor">
 	<a href="setting.jsp"><img src="img/back.png" id="backicon"></a>
-	<a href="setting.jsp"><img src="img/finish.png" id="finishicon"></a>
+	<img src="img/finish.png" id="finishicon">
 	<img src="img/header/skin/skin1.png" id="skin" class="headersstyle">
 	<img src="img/header/eyes/eyes1.png" id="eyes" class="headersstyle">
 	<img src="img/header/eyebrow/eyebrow4.png" id="eyebrow" class="headersstyle">
