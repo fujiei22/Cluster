@@ -240,6 +240,7 @@ try {
   top:15%;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
+  background:#fff;
 }
 #eyes{
   z-index:3;
