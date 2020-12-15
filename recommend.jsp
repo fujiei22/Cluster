@@ -12,13 +12,14 @@ try {
         else { 
           sql="USE `cluster`";
           con.createStatement().execute(sql);
-          sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
+          sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'";
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
-			    String name="";
+			    String name="", mbclass="";
 			    while(memberrs.next()){
-	    		name=memberrs.getString("Name");
+	    		name = memberrs.getString("Name");
+          mbclass = memberrs.getString("class");
           }
-          sql = "SELECT member.Email, member.Name, member.Gender, member.Signature, member.Introduction FROM `friends` JOIN `member` ON friends.Friends = member.Email WHERE friends.Email = '"+session.getAttribute("email")+"'"; 
+          sql = "SELECT member.Email, member.Name, member.Gender, memberskin.Skin, memberskin.Eyes, memberskin.Eyebrow, memberskin.Mouth, memberskin.Fronthair, memberskin.Backhair, memberskin.Clothes, memberskin.Accessories, member.Signature, member.Introduction, member.class FROM `member` JOIN `memberskin` ON member.Email = memberskin.Email WHERE member.class = '"+mbclass+"' AND member.Email NOT IN ('"+session.getAttribute("email")+"')";
 			    ResultSet frrs =con.createStatement().executeQuery(sql);
 %>
 <!DOCTYPE html>
@@ -501,8 +502,39 @@ $(".flip2").hover(function(){
          <span style="color: #5B5B5B; font-size: 23px;position:absolute; top: 10px;">好友列表</span>
          
           <!--四個一組，超過四個就再多一個card-group-->  
-         <div class="card-group">  
-              <div class="card text-center">
+         <div class="card-group"> 
+            <%
+            while(frrs.next())
+            {
+              out.println("<div class='card text-center'>");
+              out.println("<div class='card-body'>");
+              /*out.println("<img src='img/header/skin/skin"+frrs.getString("Skin")+".png' id='skin' class='headersstyle'>");
+              out.println("<img src='img/header/eyes/eyes"+frrs.getString("Eyes")+".png' id='eyes' class='headersstyle'>");
+              out.println("<img src='img/header/eyebrow/eyebrow"+frrs.getString("Eyebrow")+".png' id='eyebrow' class='headersstyle'>");
+              out.println("<img src='img/header/mouth/mouth"+frrs.getString("Mouth")+".png' id='mouth' class='headersstyle'>");
+              out.println("<img src='img/header/fronthair/fronthair"+frrs.getString("Fronthair")+".png' id='fronthair' class='headersstyle'>");
+              out.println("<img src='img/header/backhair/backhair"+frrs.getString("Backhair")+".png' id='backhair' class='headersstyle'>");
+              out.println("<img src='img/header/clothes/clothes"+frrs.getString("Clothes")+".png' id='clothes' class='headersstyle'>");
+              out.println("<img src='img/header/accessories/accessories"+frrs.getString("Accessories")+".png' id='accessories' class='headersstyle'>");*/
+              out.println("<h5 class='card-title'>"+frrs.getString("Name")+"</h5>");
+              out.println("<p class='card-text'>"+frrs.getString("Signature")+"</p>");
+              out.println("<span class='badge rounded-pill bg-warning'>喜歡的</span>");
+              out.println("<span class='badge rounded-pill bg-warning'>標籤們</span>");
+              out.println("<br>");
+              out.println("<span class='badge rounded-pill bg-secondary'>不喜歡的</span>");
+              out.println("<span class='badge rounded-pill bg-secondary'>標籤們</span>");
+              out.println("<button class='btn btn-primary'>加好友</button>");
+              out.println("<button class='btn btn-danger'>不感興趣</button>");
+              out.println("</div>");
+              out.println("<div class='card-footer text-muted'>");
+              out.println("<span>推薦度：</span>");
+              out.println("<span>●●●</span>");
+              out.println("</div>");
+              out.println("</div>");
+            }
+            
+            %>
+              <%-- <div class="card text-center">
                 <div class="card-body">
                   <img src="img/test.jpg" alt="John" style="width:30%">
                   <h5 class="card-title">用戶名</h5>
@@ -521,6 +553,7 @@ $(".flip2").hover(function(){
                   <span>●●●</span>
                 </div>
               </div>
+
               <div class="card text-center">
                 <div class="card-body">
                   <img src="img/test.jpg" alt="John" style="width:30%">
@@ -533,6 +566,7 @@ $(".flip2").hover(function(){
                   2 days ago
                 </div>
               </div>
+
               <div class="card text-center">
                 <div class="card-body">
                   <img src="img/test.jpg" alt="John" style="width:30%">
@@ -545,6 +579,7 @@ $(".flip2").hover(function(){
                   2 days ago
                 </div>
               </div>
+
               <div class="card text-center">
                 <div class="card-body">
                   <img src="img/test.jpg" alt="John" style="width:30%">
@@ -556,7 +591,8 @@ $(".flip2").hover(function(){
                 <div class="card-footer text-muted">
                   2 days ago
                 </div>
-              </div>
+              </div> --%>
+
             </div> 
       </div>
 
