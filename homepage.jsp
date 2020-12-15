@@ -533,14 +533,16 @@ java.net.URLEncoder.encode( set, "UTF-8" );
                     String roomurl ="http://localhost:3000/room/"+set;
                     out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
                     out.println("<div class='row' >");
-                    /*out.println("<img src='img/header/skin/skin"+rs2.getString("Skin")+".png' id='skin'");
-                    out.println("<img src='img/header/eyes/eyes"+rs2.getString("Eyes")+".png' id='eyes'");
-                    out.println("<img src='img/header/eyebrow/eyebrow"+rs2.getString("Eyebrow")+".png' id='eyebrow'");
-                    out.println("<img src='img/header/mouth/mouth"+rs2.getString("Mouth")+".png' id='mouth'");
-                    out.println("<img src='img/header/fronthair/fronthair"+rs2.getString("Fronthair")+".png' id='fronthair'");
-                    out.println("<img src='img/header/backhair/backhair"+rs2.getString("Backhair")+".png' id='backhair'");
-                    out.println("<img src='img/header/clothes/clothes"+rs2.getString("Clothes")+".png' id='clothes'");
-                    out.println("<img src='img/header/accessories/accessories"+rs2.getString("Accessories")+".png' id='accessories'");*/
+                   /*out.println("<div class='userheader'>");
+                    out.println("<img src='img/header/skin/skin"+rs.getString("Skin")+".png' id='skin2'>");
+                    out.println("<img src='img/header/eyes/eyes"+rs.getString("Eyes")+".png' id='eyes2'>");
+                    out.println("<img src='img/header/eyebrow/eyebrow"+rs.getString("Eyebrow")+".png' id='eyebrow2'>");
+                    out.println("<img src='img/header/mouth/mouth"+rs.getString("Mouth")+".png' id='mouth2'>");
+                    out.println("<img src='img/header/fronthair/fronthair"+rs.getString("Fronthair")+".png' id='fronthair2'>");
+                    out.println("<img src='img/header/backhair/backhair"+rs.getString("Backhair")+".png' id='backhair2'>");
+                    out.println("<img src='img/header/clothes/clothes"+rs.getString("Clothes")+".png' id='clothes2'>");
+                    out.println("<img src='img/header/accessories/accessories"+rs.getString("Accessories")+".png' id='accessories2'>");
+                    out.println("</div>");*/
                     out.println("<div class='maindiv'>");
                     out.println("<span class=''>"+rs2.getString(3)+"</span>");
                     out.println("<p class=''>"+rs2.getString(4)+"</span>");
@@ -565,14 +567,16 @@ java.net.URLEncoder.encode( set, "UTF-8" );
                     String roomurl ="http://localhost:3000/room/"+set;
                     out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
                     out.println("<div class='row' >");
-                    /*out.println("<img src='img/header/skin/skin"+rs3.getString("Skin")+".png' id='skin'");
-                    out.println("<img src='img/header/eyes/eyes"+rs3.getString("Eyes")+".png' id='eyes'");
-                    out.println("<img src='img/header/eyebrow/eyebrow"+rs3.getString("Eyebrow")+".png' id='eyebrow'");
-                    out.println("<img src='img/header/mouth/mouth"+rs3.getString("Mouth")+".png' id='mouth'");
-                    out.println("<img src='img/header/fronthair/fronthair"+rs3.getString("Fronthair")+".png' id='fronthair'");
-                    out.println("<img src='img/header/backhair/backhair"+rs3.getString("Backhair")+".png' id='backhair'");
-                    out.println("<img src='img/header/clothes/clothes"+rs3.getString("Clothes")+".png' id='clothes'");
-                    out.println("<img src='img/header/accessories/accessories"+rs3.getString("Accessories")+".png' id='accessories'");*/
+                   /*out.println("<div class='userheader'>");
+                    out.println("<img src='img/header/skin/skin"+rs.getString("Skin")+".png' id='skin2'>");
+                    out.println("<img src='img/header/eyes/eyes"+rs.getString("Eyes")+".png' id='eyes2'>");
+                    out.println("<img src='img/header/eyebrow/eyebrow"+rs.getString("Eyebrow")+".png' id='eyebrow2'>");
+                    out.println("<img src='img/header/mouth/mouth"+rs.getString("Mouth")+".png' id='mouth2'>");
+                    out.println("<img src='img/header/fronthair/fronthair"+rs.getString("Fronthair")+".png' id='fronthair2'>");
+                    out.println("<img src='img/header/backhair/backhair"+rs.getString("Backhair")+".png' id='backhair2'>");
+                    out.println("<img src='img/header/clothes/clothes"+rs.getString("Clothes")+".png' id='clothes2'>");
+                    out.println("<img src='img/header/accessories/accessories"+rs.getString("Accessories")+".png' id='accessories2'>");
+                    out.println("</div>");*/
                     out.println("<div class='maindiv'>");
                     out.println("<span class=''>"+rs3.getString(4)+"</span>");
                     out.println("<p class=''>"+rs3.getString(5)+"</span>");
@@ -664,7 +668,6 @@ java.net.URLEncoder.encode( set, "UTF-8" );
             <p class="">蛋餅還是三明治？</span>
           </div>
         </div>
-
         <div class="row">
           <div class="chatdiv" onclick="change()">
             <i class="fas fa-baseball-ball fa-2x"></i>
@@ -682,7 +685,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
             <span class="">有人玩過FF嗎?</span>
             <p class="">最近在特價，值得買嗎？</span>
           </div>
-        </div> --%>
+        </div>
        
     <div class="chat-popup2" id="myForm2">
           <div class="form-container2">
