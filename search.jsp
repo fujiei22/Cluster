@@ -373,12 +373,12 @@ try {
 
 <!--第一區-->
 <div class="container-fluid" style="height: 100%;">
-<div class="row justify-content-center" style="height: 100%;">
-<div class="col leftnav">
-<ul class="nav flex-column" style="height: 100%">
-<li class="nav-item" style="height: 17%"></li>
-<li class="nav-item" style="height: 15%;">
-  <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
+  <div class="row justify-content-center" style="height: 100%;">
+    <div class="col leftnav">
+      <ul class="nav flex-column" style="height: 100%">
+        <li class="nav-item" style="height: 17%"></li>
+        <li class="nav-item" style="height: 15%;">
+          <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
     <%
       String new_mail=(String)(session.getAttribute("email"));
       //con.createStatement().execute("USE `cluster`");

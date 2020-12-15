@@ -63,7 +63,7 @@ try {
           background-color: #f2a65a;
           padding:15px;
           margin-top:15px;
-          border-radius: 10%;
+          border-radius: 15px;
         }
         .mainboard{
           margin:30px;
@@ -436,6 +436,7 @@ try {
         
         <div class="h2div" ><h2 style="font-weight:bold;">話題</h2>
 
+           <!--第二區form-->
         <div class="form-popup" id="myForm">
           <form action="add_topic.jsp" class="form-container">
             <h2>開新話題</h2>
@@ -461,6 +462,7 @@ try {
             <button type="submit" class="btn">提交</button><button type="button" class="btn cancel" onclick="closeForm()">取消</button>
           </form>
         </div>
+         <!--第二區form-->
         
       </div>
 
@@ -595,131 +597,57 @@ java.net.URLEncoder.encode( set, "UTF-8" );
 
       </div>
 
-      <!--第二區/搜尋結果的顯示頁面
-      <div class="col-8 mainarea">
-        <div class="mainboard" style="height:80%">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <div class="h2div" ><h2>話題</h2></div>
-          <ul class="nav justify-content-end" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#search" role="tab" aria-controls="search" aria-selected="true">"晚餐"的搜尋結果</a>
-            </li>
-          </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="profile-tab">
-          <div class="row" >
-            <img src="img/test.jpg" style="width:10%;margin:10px;">
-          <div class="maindiv">
-              <span class="">話題標題</span>
-              <p class="">話題內容話題內容</span><br>
-                <span class="badge badge-primary">音樂</span>
-            </div>
-            <div class="percent"><h2>80%</h2></div>
-          </div> 
-          <div class="row" >
-            <img src="img/test.jpg" style="width:10%;margin:10px;">
-          <div class="maindiv">
-              <span class="">話題標題</span>
-              <p class="">話題內容話題內容</span><br>
-                <span class="badge badge-primary">音樂</span>
-            </div>
-            <div class="percent"><h2>80%</h2></div>
-          </div> 
-          
-        </div>
-      </div>
-  </div>
-	</div>
--->    
 
+ <!--第三區-->
+ <div class="col mainarea">
+  <div class="thirdarea"style="height:100%">
+  <%
+    sql="SELECT title FROM chat WHERE chat.Name='"+name+"' GROUP BY title";
+    ResultSet rs4=con.createStatement().executeQuery(sql);
+    while(rs4.next())
+    {
+      sql="SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content, post.pno FROM chat JOIN post ON chat.title = post.pno WHERE chat.title = '"+rs4.getString(1)+"' ORDER BY chatid DESC";ResultSet rs5=con.createStatement().executeQuery(sql);
+      //out.println("<script>console.log('[sql]: "+rs4.getString(1)+"')</script>");
+      //out.println("<script>console.log('[sql]: "+"SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content FROM chat JOIN post ON chat.title = post.pno GROUP BY "+rs4.getString(1)+" ORDER BY chatid DESC"+"')</script>");
+      while(rs5.next())
+      {
+        String room =rs5.getString(5);
+        String set =rs5.getString(1);
 
+        out.println("<a href='#' onclick=\"setcookie('"+room+"','"+set+"')\">"); 
+        out.println("<div class='row'>");
+        out.println("<div class='chatdiv'>");
+        out.println("<i class='fas fa-user fa-2x'></i><span style='color:white'>　討論度：</span><span style='color:white'>"+ rs5.getString(3) +"</span>");
+        out.println("<br>");
+        out.println("<span class=''>"+ rs5.getString(1) +"</span>");
+        out.println("</div>");
+        out.println("</div>");
+        out.println("</a>");
+      }
+    }
+    %>
 
-      <!--第三區-->
-      <div class="col mainarea">
-        <div class="thirdarea"style="height:100%">
-          <%
-          sql="SELECT chat.Name, chat.title, COUNT(chat.title), post.Subject, post.Content, post.Category FROM chat JOIN post ON chat.title = post.pno WHERE chat.Name='"+name+"' GROUP BY title ORDER BY chatid DESC";
-          ResultSet rs4=con.createStatement().executeQuery(sql);
-          while(rs4.next())
-          {
-            String set =rs4.getString(4);
-            String roomurl ="http://localhost:3000/room/"+set;
-            out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
-            out.println("<div class='row' >");
-            out.println("<div class='chatdiv'>");
-            out.println("<i class='fas fa-pizza-slice fa-2x' ></i>");
-            out.println("<span style='color:white'>"+ rs4.getString(3) +"</span><i class='fas fa-user'></i><span style='color:white'>在線</span>");
-            out.println("<br>");
-            out.println("<span class=''>"+ rs4.getString(4) +"</span>");
-            out.println("<p class=''>"+ rs4.getString(5) +"</span>");
-            out.println("</div>");
-            out.println("</div>");
-          }
-          %>
-        <div class="row">
-          <div class="chatdiv">
-            <i class="fas fa-pizza-slice fa-2x" ></i>
-            <span style="color:white">　5 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-            <br>
-            <span class="">早餐吃什麼</span>
-            <p class="">蛋餅還是三明治？</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="chatdiv" onclick="change()">
-            <i class="fas fa-baseball-ball fa-2x"></i>
-            <span style="color:white">　4 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-            <br>
-            <span class="">星期六有沒有人要打球</span>
-            <p class="">球我帶</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="chatdiv">
-            <i class="fas fa-gamepad fa-2x"></i>
-            <span style="color:white">　2 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-            <br>
-            <span class="">有人玩過FF嗎?</span>
-            <p class="">最近在特價，值得買嗎？</span>
-          </div>
-        </div>
-       
-    <div class="chat-popup2" id="myForm2">
-          <div class="form-container2">
-            
-             <iframe id="myframe" src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >
-                    你的瀏覽器不支援 iframe
-             </iframe>
-          </div>
-        </div>
-        
-        
-        <script>
-        var isShow = false;
-        function change(roomurl) {
-        if(!isShow) {
-        isShow = true;
-        document.getElementById('myForm2').style.display='block';
-        document.getElementById("myframe").src=roomurl;
-        }
-        else {
-        isShow = false;
-        document.getElementById('myForm2').style.display='none';
-        }
-        }
-        </script>
-        
-        <div class="row">
-          <button class="open-button" onclick="openForm()">+</button>
-        </div>
+<!--第三區iframe-->       
+<div class="chat-popup2" id="myForm2">
+<div class="form-container2">
+  
+   <iframe id="myframe" src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >
+          你的瀏覽器不支援 iframe
+   </iframe>
+</div>
+</div>
+<!--第三區iframe-->
+
+      <div class="row">
+        <button class="open-button" onclick="openForm()">+</button>
       </div>
     </div>
+  </div>
+  <!--第三區-->
 
       </div>
   </div>
+    <!--close-->
 <%
 //Step 6: 關閉連線
           con.close();

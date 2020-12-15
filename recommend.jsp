@@ -40,13 +40,13 @@ try {
     <link href="css/icon/css/all.css" rel="stylesheet">
     
     <style type="text/css">
-body,html {height:100%;}
+      body,html {height:100%;}
       body{
         overflow-y: hidden;
         overflow-x: hidden;
       }
         .leftnav{
-          background-color: rgb(141, 141, 141);
+          background-color:#cb997e;
           height: 100%;
         } 
       a{
@@ -56,6 +56,7 @@ body,html {height:100%;}
         .mainarea{
           background-color: white;
           overflow:scroll;
+          height: 800px;
         }
        i{
          color:white;
@@ -63,32 +64,43 @@ body,html {height:100%;}
         .chatdiv{
           color:white;
           width:200px;
-          background-color: rgb(141, 174, 211);
+          background-color: #f2a65a;
           padding:15px;
           margin-top:15px;
-          border-radius: 10%;
+          border-radius: 15px;
         }
         .mainboard{
           margin:30px;
-          
         }
         #myTabContent{
           padding:30px;
-          border-radius:15px;
-          background-color: rgb(188, 228, 238);
+          border-radius:20px;
+          background-color: #f8edeb;
           height:85%;
         }
         .maindiv{
           background-color:white;
           padding:5px;
-          margin-top:10px;
-          border-radius: 10px;
-          width:60%;
+          margin-top:20px;
+          border-radius: 20px;
+          width:80%;
           
+        }
+        .userheader{
+          position:relative;
+          margin-top:20px;
+          margin-left: 20px;
+          margin-right: 120px;
         }
         .h2div{
           position: relative;
-          z-index: 1;
+          font-weight: bolder;
+          margin:10px;
+          
+        }
+        .iframediv{
+          position: relative;
+          z-index: 2;
         }
         .open-button {
           background-color: #555;
@@ -172,6 +184,8 @@ body,html {height:100%;}
          #myTabContent::-webkit-scrollbar-track
           {
             border-radius: 10px;
+            margin-top:10px;
+            margin-bottom: 10px;
           }
           #myTabContent::-webkit-scrollbar
           {
@@ -195,218 +209,152 @@ body,html {height:100%;}
             border-radius: 10px;
             background-color:rgba(108,108,108,0.2);
           }
-      .box1{
-        height: 300px;
-        width: 180px;
-        margin-top:10px;
-        margin-right:15px;
-        margin-left:5px;
-        border-radius:20px;
-        background:rgb(188, 228, 238);
-        float: left;
-      }
-.member_name{
-  width:180px;
-  height: 15px;
-  position: absolute;
-  text-align:center;
-  margin-top:70px;
-  color: #5B5B5B;
-  font-family:微軟正黑體;
-  font-size: 15px;
+/* The popup chat - hidden by default */
+.chat-popup2 {
+  display: none;
+  position: fixed;
+  top: 30px;
+  margin:0px auto;
+  right: 300px;
+  border: 2px solid #f1f1f1;
+  z-index: 9;
 }
-.signature{
-  width:180px;
-  height:10.2px;
-  font-size:10.2px;
-  color: #5B5B5B;
-  position:absolute;
-  text-align:center;
-  margin-top:40px;  
+/* Add styles to the form container */
+.form-container2 {
+  width:520px;
+  padding: 10px;
+  background-color: white;
 }
-#heart{
-  position:absolute;
-  top:132px;
-  left:10px;
+/* Full-width textarea */
+.form-container2 iframe {
+  width: 100%;  
+  height:620px;
+  padding: 5px;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 300px;
 }
-#likebox{
-  width:135px;
-  height:21px;
-  position:absolute;
-  left:36px;
-  top:126px;
-}
-.tagbox{
-width:auto;
-height:auto;
-color:#fff;
-background: #7B7B7B;
-text-align: center;
-border-radius: 8px;
-font-size:6px;
-margin-left: 6px;
-display: inline-block;
-margin-top: 5px;
-padding: 1px 5px;
-float:left;
-}
-.panel{
-  margin:0px;
-  padding:5px;
-  text-align:center;
-  display:none;
-  width:auto;
-  background: rgba(255,255,255,1.00);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  width:120px;
-  position:absolute;
-  left:33px;
-  top:180px;
-  z-index: 3;
-}
-.pane2{
-  margin:0px;
-  padding:5px;
-  text-align:center;
-  display:none;
-  width:auto;
-  background: rgba(255,255,255,1.00);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  width:120px;
-  position:absolute;
-  left:33px;
-  top:235px;
-  z-index: 4;
-}
-#hatebox{
-  width:135px;
-  height:21px;
-  position:absolute;
-  left:36px;
-  top:180px;
-}
-#hate{
-  position:absolute;
-  top:187px;
-  left:13px; 
-}
-#introductionbox{
-  width:162px;
-  height:90px;
-  position:absolute;
-  left:15px;
-  top:240px;
-  color: #5B5B5B;
-  font-size: 10px;
-}
-.frienddiv{
-  width:820px;
-  height: 500px;
-  overflow:auto;
-  position:absolute;
-  top:50px;
-}     
-.frienddiv::-webkit-scrollbar-track
-{
-  border-radius: 10px;
-}
-.frienddiv::-webkit-scrollbar
-{
-  width: 10px;
-}
-.frienddiv::-webkit-scrollbar-thumb
-{
-  border-radius: 10px;
-  background-color:rgba(108,108,108,0.2);
-}
-      #sq{
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: 1px solid rgba(255,255,255,1.00);
-        top:12px;
-        left: 60px;
-        position:absolute;
-      }
 #skin{
   z-index:2;
-  position: absolute;  
-  width: 60px;
-  height: 60px;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
+  background:#fff;
 }
 #eyes{
   z-index:3;
-  position: absolute;  
-  width: 60px;
-  height: 60px;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
 }
 #eyebrow{
   z-index:4;
-  position: absolute;  
-  width: 60px;
-  height: 60px;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
 }
 #mouth{
   z-index:5;
-  position: absolute;  
-  width: 60px;
-  height: 60px;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
 }
 #fronthair{
   z-index:6;
-  position: absolute;  
-  width: 60px;
-  height: 60px;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
 }
 #backhair{
   z-index:7;
-  position: absolute;  
-  width: 60px;
-  height: 60px;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
 }
 #clothes{
   z-index:8;
-  position: absolute;  
-  width: 60px;
-  height: 60px;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
 }
 #accessories{
   z-index:9;
-  position: absolute;  
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
+  height: 80px;
+  width:80px;
+  position:absolute;
+  left:20px;
+  top:15%;
+}
+#skin2{
+  z-index:2;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#eyes2{
+  z-index:3;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#eyebrow2{
+  z-index:4;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#mouth2{
+  z-index:5;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#fronthair2{
+  z-index:6;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#backhair2{
+  z-index:7;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#clothes2{
+  z-index:8;
+  height: 100px;
+  width:100px;
+  position:absolute;
+}
+#accessories2{
+  z-index:9;
+  height: 100px;
+  width:100px;
+  position:absolute;
 }
 
 
@@ -436,12 +384,6 @@ button {
   font-size: 18px;
 }
 
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-}
-
 .add:hover, a:hover {
   opacity: 0.7;
 }
@@ -469,38 +411,89 @@ $(".flip2").hover(function(){
 <body>
 
 
-  <div class="container-fluid" style="height: 100%;">
+   <!--第一區-->
+   <div class="container-fluid" style="height: 100%;">
     <div class="row justify-content-center" style="height: 100%;">
-      <!--第一區-->
       <div class="col leftnav">
         <ul class="nav flex-column" style="height: 100%">
           <li class="nav-item" style="height: 17%"></li>
-          <li class="nav-item" style="height: 15%">
-            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large"><%/*@ include file="importheader1.jsp" */%><i class="fas fa-user-circle fa-2x"></i><%=name%></a>
+          <li class="nav-item" style="height: 15%;">
+            <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
+              <%
+                String new_mail=(String)(session.getAttribute("email"));
+                //con.createStatement().execute("USE `cluster`");
+                String sql1 = "SELECT * FROM `memberskin` WHERE `Email`='"+new_mail+"'";
+                ResultSet rs1 =  con.createStatement().executeQuery(sql1);
+                con.createStatement().execute(sql1);
+                while(rs1.next())
+                {
+                    out.println("<img src='img/header/skin/skin"+rs1.getString(2)+".png' id='skin'>");
+                    out.println("<img src='img/header/eyes/eyes"+rs1.getString(3)+".png' id='eyes'>");
+                    out.println("<img src='img/header/eyebrow/eyebrow"+rs1.getString(4)+".png' id='eyebrow'>");
+                    out.println("<img src='img/header/mouth/mouth"+rs1.getString(5)+".png' id='mouth'>");
+                    out.println("<img src='img/header/fronthair/fronthair"+rs1.getString(6)+".png' id='fronthair'>");
+                    out.println("<img src='img/header/backhair/backhair"+rs1.getString(7)+".png' id='backhair'>");
+                    out.println("<img src='img/header/clothes/clothes"+rs1.getString(8)+".png' id='clothes'>");
+                    out.println("<img src='img/header/accessories/accessories"+rs1.getString(9)+".png' id='accessories'>");
+                }
+                //con.close();
+%>
+              <span style="position:absolute; left: 120px;font-size:larger;"><%=name%></span></a>
           </li>
           <li class="nav-item" style="height: 10%">
-            <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:large"><i class="far fa-newspaper"></i>　話題</a>
+            <a class="nav-link active" href="homepage.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="far fa-newspaper fa-lg"></i>　話題</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="notification.jsp"style="color:white;font-size:large"><i class="far fa-bell"></i>　通知</a>
+            <a class="nav-link" href="recommend.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="far fa-bell fa-lg"></i>　推薦</a>
           </li>
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="friends.jsp"style="color:white;font-size:large"><i class="far fa-address-book"></i>　好友</a>
+            <a class="nav-link" href="friends.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="far fa-address-book fa-lg"></i>　好友</a>
           </li>
+          
           <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="#"style="color:white;font-size:large"><i class="far fa-comments"></i>　聊天</a>
-          </li>
-          <li class="nav-item"style="height: 10%">
-            <a class="nav-link" href="logout.jsp"style="color:white;font-size:large"><i class="fas fa-power-off"></i>　登出</a>
+            <a class="nav-link" href="logout.jsp"style="color:white;font-size:larger;margin-top:10px;"><i class="fas fa-power-off fa-lg"></i>　登出</a>
           </li>
           <li class="nav-item" style="height: 17%"></li>
         </ul>
       </div>
 
+ <!--第一區-->
+
       <!--第二區-->
       <div class="col-8 mainarea">
-         <span style="color: #5B5B5B; font-size: 23px;position:absolute; top: 10px;">好友列表</span>
+        <div class="mainboard" style="height:80%">
+          <div class="h2div" ><h2 style="font-weight:bold;">你可能感興趣的人</h2>
+
+            <!--第二區form-->
+         <div class="form-popup" id="myForm">
+           <form action="add_topic.jsp" class="form-container">
+             <h2>開新話題</h2>
+               <div class="form-group">
+                 <label for="title">標題</label>
+                 <input type="text" class="form-control" id="title" name="subject" placeholder="請輸入標題">
+               </div>
+               <div class="form-group">
+                 <label for="textarea">內文</label>
+                 <textarea class="form-control" id="textarea" name="content" rows="4" placeholder="請輸入內文"></textarea>
+               </div>
+               <div class="form-group">
+                 <label for="category">分類</label>
+                 <select class="form-control" id="category" name="category">
+                   <option>音樂</option>
+                   <option>電影</option>
+                   <option>運動</option>
+                   <option>遊戲</option>
+                   <option>旅遊</option>
+                   <option>美食</option>
+                 </select>
+               </div>
+             <button type="submit" class="btn">提交</button><button type="button" class="btn cancel" onclick="closeForm()">取消</button>
+           </form>
+         </div>
          
+       </div>
+ <!--第二區form-->
+
           <!--四個一組，超過四個就再多一個card-group-->  
          <div class="card-group"> 
             <%
@@ -508,14 +501,14 @@ $(".flip2").hover(function(){
             {
               out.println("<div class='card text-center'>");
               out.println("<div class='card-body'>");
-              /*out.println("<img src='img/header/skin/skin"+frrs.getString("Skin")+".png' id='skin' class='headersstyle'>");
-              out.println("<img src='img/header/eyes/eyes"+frrs.getString("Eyes")+".png' id='eyes' class='headersstyle'>");
-              out.println("<img src='img/header/eyebrow/eyebrow"+frrs.getString("Eyebrow")+".png' id='eyebrow' class='headersstyle'>");
-              out.println("<img src='img/header/mouth/mouth"+frrs.getString("Mouth")+".png' id='mouth' class='headersstyle'>");
-              out.println("<img src='img/header/fronthair/fronthair"+frrs.getString("Fronthair")+".png' id='fronthair' class='headersstyle'>");
-              out.println("<img src='img/header/backhair/backhair"+frrs.getString("Backhair")+".png' id='backhair' class='headersstyle'>");
-              out.println("<img src='img/header/clothes/clothes"+frrs.getString("Clothes")+".png' id='clothes' class='headersstyle'>");
-              out.println("<img src='img/header/accessories/accessories"+frrs.getString("Accessories")+".png' id='accessories' class='headersstyle'>");*/
+              out.println("<img src='img/header/skin/skin"+frrs.getString("Skin")+".png' id='skin2' class='headersstyle'>");
+              out.println("<img src='img/header/eyes/eyes"+frrs.getString("Eyes")+".png' id='eyes2' class='headersstyle'>");
+              out.println("<img src='img/header/eyebrow/eyebrow"+frrs.getString("Eyebrow")+".png' id='eyebrow2' class='headersstyle'>");
+              out.println("<img src='img/header/mouth/mouth"+frrs.getString("Mouth")+".png' id='mouth2' class='headersstyle'>");
+              out.println("<img src='img/header/fronthair/fronthair"+frrs.getString("Fronthair")+".png' id='fronthair2' class='headersstyle'>");
+              out.println("<img src='img/header/backhair/backhair"+frrs.getString("Backhair")+".png' id='backhair2' class='headersstyle'>");
+              out.println("<img src='img/header/clothes/clothes"+frrs.getString("Clothes")+".png' id='clothes2' class='headersstyle'>");
+              out.println("<img src='img/header/accessories/accessories"+frrs.getString("Accessories")+".png' id='accessories2' class='headersstyle'>");
               out.println("<h5 class='card-title'>"+frrs.getString("Name")+"</h5>");
               out.println("<p class='card-text'>"+frrs.getString("Signature")+"</p>");
               out.println("<span class='badge rounded-pill bg-warning'>喜歡的</span>");
@@ -526,145 +519,68 @@ $(".flip2").hover(function(){
               out.println("<button class='btn btn-primary'>加好友</button>");
               out.println("<button class='btn btn-danger'>不感興趣</button>");
               out.println("</div>");
-              out.println("<div class='card-footer text-muted'>");
-              out.println("<span>推薦度：</span>");
-              out.println("<span>●●●</span>");
-              out.println("</div>");
               out.println("</div>");
             }
             
             %>
-              <%-- <div class="card text-center">
-                <div class="card-body">
-                  <img src="img/test.jpg" alt="John" style="width:30%">
-                  <h5 class="card-title">用戶名</h5>
-                  <p class="card-text">個簽</p>
-                  <span class="badge rounded-pill bg-warning">喜歡的</span>
-                  <span class="badge rounded-pill bg-warning">標籤們</span>
-                  <br>
-                  <span class="badge rounded-pill bg-secondary">不喜歡的</span>
-                  <span class="badge rounded-pill bg-secondary">標籤們</span>
-                  <button class="btn btn-primary">加好友</button>
-                  <button class="btn btn-danger">不感興趣</button>
-                </div>
-                <div class="card-footer text-muted">
-                  <span>推薦度：</span>
-                  <!--如果同個群就三個點，第二相關的群就兩個點-->
-                  <span>●●●</span>
-                </div>
-              </div>
-
-              <div class="card text-center">
-                <div class="card-body">
-                  <img src="img/test.jpg" alt="John" style="width:30%">
-                  <h5 class="card-title">用戶名</h5>
-                  <p class="card-text">個簽</p>
-                  <button class="btn btn-primary">加好友</button>
-                  <button class="btn btn-primary">不感興趣</button>
-                </div>
-                <div class="card-footer text-muted">
-                  2 days ago
-                </div>
-              </div>
-
-              <div class="card text-center">
-                <div class="card-body">
-                  <img src="img/test.jpg" alt="John" style="width:30%">
-                  <h5 class="card-title">用戶名</h5>
-                  <p class="card-text">個簽</p>
-                  <button class="btn btn-primary">加好友</button>
-                  <button class="btn btn-primary">不感興趣</button>
-                </div>
-                <div class="card-footer text-muted">
-                  2 days ago
-                </div>
-              </div>
-
-              <div class="card text-center">
-                <div class="card-body">
-                  <img src="img/test.jpg" alt="John" style="width:30%">
-                  <h5 class="card-title">用戶名</h5>
-                  <p class="card-text">個簽</p>
-                  <button class="btn btn-primary">加好友</button>
-                  <button class="btn btn-primary">不感興趣</button>
-                </div>
-                <div class="card-footer text-muted">
-                  2 days ago
-                </div>
-              </div> --%>
-
-            </div> 
+          </div>
+        </div> 
       </div>
-
-
- <!--form-->
- <div class="form-popup" id="myForm">
-  <form action="add_topic.jsp" class="form-container">
-    <h2>開新話題</h2>
-      <div class="form-group">
-        <label for="title">標題</label>
-        <input type="text" class="form-control" id="title" name="subject" placeholder="請輸入標題">
-      </div>
-      <div class="form-group">
-        <label for="textarea">內文</label>
-        <textarea class="form-control" id="textarea" name="content" rows="4" placeholder="請輸入內文"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="category">分類</label>
-        <select class="form-control" id="category" name="category">
-          <option>音樂</option>
-          <option>電影</option>
-          <option>運動</option>
-          <option>遊戲</option>
-          <option>旅遊</option>
-          <option>美食</option>
-        </select>
-      </div>
-    <button type="submit" class="btn">提交</button><button type="button" class="btn cancel" onclick="closeForm()">取消</button>
-  </form>
-</div>
-
-      <!--第三區-->
-      <div class="col mainarea">
-        <div class="thirdarea"style="height:100%">
+            
           
-        <div class="row">
-          <div class="chatdiv">
-            <i class="fas fa-pizza-slice fa-2x" ></i>
-            <span style="color:white">　5 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-            <br>
-            <span class="">早餐吃什麼</span>
-            <p class="">蛋餅還是三明治？</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="chatdiv">
-            <i class="fas fa-baseball-ball fa-2x"></i>
-            <span style="color:white">　4 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-            <br>
-            <span class="">星期六有沒有人要打球</span>
-            <p class="">球我帶</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="chatdiv">
-            <i class="fas fa-gamepad fa-2x"></i>
-            <span style="color:white">　2 </span><i class='fas fa-user'></i><span style="color:white">在線</span>
-            <br>
-            <span class="">有人玩過FF嗎?</span>
-            <p class="">最近在特價，值得買嗎？</span>
-          </div>
-        </div>
-        
-        
-        <div class="row">
-          <button class="open-button" onclick="openForm()">+</button>
-        </div>
-      </div>
-    </div>
+    
 
-      </div>
+
+ <!--第三區-->
+ <div class="col mainarea">
+  <div class="thirdarea"style="height:100%">
+  <%
+    sql="SELECT title FROM chat WHERE chat.Name='"+name+"' GROUP BY title";
+    ResultSet rs4=con.createStatement().executeQuery(sql);
+    while(rs4.next())
+    {
+      sql="SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content, post.pno FROM chat JOIN post ON chat.title = post.pno WHERE chat.title = '"+rs4.getString(1)+"' ORDER BY chatid DESC";ResultSet rs5=con.createStatement().executeQuery(sql);
+      //out.println("<script>console.log('[sql]: "+rs4.getString(1)+"')</script>");
+      //out.println("<script>console.log('[sql]: "+"SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content FROM chat JOIN post ON chat.title = post.pno GROUP BY "+rs4.getString(1)+" ORDER BY chatid DESC"+"')</script>");
+      while(rs5.next())
+      {
+        String room =rs5.getString(5);
+        String set =rs5.getString(1);
+
+        out.println("<a href='#' onclick=\"setcookie('"+room+"','"+set+"')\">"); 
+        out.println("<div class='row'>");
+        out.println("<div class='chatdiv'>");
+        out.println("<i class='fas fa-user fa-2x'></i><span style='color:white'>　討論度：</span><span style='color:white'>"+ rs5.getString(3) +"</span>");
+        out.println("<br>");
+        out.println("<span class=''>"+ rs5.getString(1) +"</span>");
+        out.println("</div>");
+        out.println("</div>");
+        out.println("</a>");
+      }
+    }
+    %>
+
+<!--第三區iframe-->    
+<div class="chat-popup2" id="myForm2">
+<div class="form-container2">
+
+<iframe id="myframe" src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >
+      你的瀏覽器不支援 iframe
+</iframe>
+</div>
+</div>
+<!--第三區iframe-->
+
+  <div class="row">
+    <button class="open-button" onclick="openForm()">+</button>
   </div>
+</div>
+</div>
+<!--第三區-->
+
+  </div>
+</div>
+<!--close-->
 <%
 //Step 6: 關閉連線
           con.close();
