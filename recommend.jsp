@@ -497,6 +497,8 @@ $(".flip2").hover(function(){
           <!--四個一組，超過四個就再多一個card-group-->  
          <div class="card-group"> 
             <%
+            int i = 1, j = 0;
+                
             while(frrs.next())
             {
               out.println("<div class='card text-center'>");
@@ -516,10 +518,17 @@ $(".flip2").hover(function(){
               out.println("<br>");
               out.println("<span class='badge rounded-pill bg-secondary'>不喜歡的</span>");
               out.println("<span class='badge rounded-pill bg-secondary'>標籤們</span>");
-              out.println("<button class='btn btn-primary'>加好友</button>");
+
+                j+=i;
+                out.println("<form action='add_friends.jsp' method='post' id='add_friends"+j+"'>");
+                out.println("<input type='hidden' name='addEmail' value='"+frrs.getString("Email")+"'>");
+                out.println("</form>");
+
+              out.println("<button type='submit' form='add_friends"+j+"' value='submit' class='btn btn-primary'>加好友</button>");
               out.println("<button class='btn btn-danger'>不感興趣</button>");
               out.println("</div>");
               out.println("</div>");
+
             }
             
             %>
