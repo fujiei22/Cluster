@@ -483,7 +483,10 @@ try {
 
           while(searchRs.next()){
             flag = false;
-            //out.println("<a href='#' onclick=\"setcookie('"+room+"','"+set+"')\">"); 
+            String room = searchRs.getString("pno");
+            String set = searchRs.getString("Subject");
+
+            out.println("<a href='#' onclick=\"setcookie('"+room+"','"+set+"')\">"); 
             out.println("<div class='row'>");
 
             out.println("<div class='userheader'>");                         
@@ -496,18 +499,7 @@ try {
             out.println("<img src='img/header/clothes/clothes"+searchRs.getString("Clothes")+".png' id='clothes2'>");
             out.println("<img src='img/header/accessories/accessories"+searchRs.getString("Accessories")+".png' id='accessories2'>");
             out.println("</div>");
-
-              /*  out.println("<div class='userheader'>");                         
-                out.println("<img src='img/header/skin/skin"+rs.getString("Skin")+".png' id='skin2'>");
-                out.println("<img src='img/header/eyes/eyes"+rs.getString("Eyes")+".png' id='eyes2'>");
-                out.println("<img src='img/header/eyebrow/eyebrow"+rs.getString("Eyebrow")+".png' id='eyebrow2'>");
-                out.println("<img src='img/header/mouth/mouth"+rs.getString("Mouth")+".png' id='mouth2'>");
-                out.println("<img src='img/header/fronthair/fronthair"+rs.getString("Fronthair")+".png' id='fronthair2'>");
-                out.println("<img src='img/header/backhair/backhair"+rs.getString("Backhair")+".png' id='backhair2'>");
-                out.println("<img src='img/header/clothes/clothes"+rs.getString("Clothes")+".png' id='clothes2'>");
-                out.println("<img src='img/header/accessories/accessories"+rs.getString("Accessories")+".png' id='accessories2'>");
-                out.println("</div>"); */
-                
+            
             out.println("<div class='maindiv'>");
             out.println("<span class='badge badge-danger' style='font-size:large;margin:10px;background-color: rgb(211, 82, 43);'>"+searchRs.getString("Category")+"</span>");
             out.println("</br>");
@@ -515,7 +507,7 @@ try {
             out.println("<p style='margin-left:10px;'>"+searchRs.getString("Content")+"</span><br>");
             out.println("</div>");
             out.println("</div>");
-            //out.println("</a>");
+            out.println("</a>");
          }
          if(flag){
             out.println("<SCRIPT LANGUAGE='JavaScript'>");

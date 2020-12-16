@@ -38,7 +38,7 @@ try {
     <html xmlns="http://www.w3.org/1999/xhtml">
     <link href="css/icon/css/all.css" rel="stylesheet">
 
-    <style>
+    <style type="text/css">
       body,html {height:100%;}
       body{
         overflow-y: hidden;
@@ -66,7 +66,7 @@ try {
           background-color: #f2a65a;
           padding:15px;
           margin-top:15px;
-          border-radius: 10%;
+          border-radius: 15px;
         }
         .mainboard{
           margin:30px;
@@ -234,6 +234,212 @@ try {
   resize: none;
   min-height: 300px;
 }
+      .box1{
+        height: 300px;
+        width: 180px;
+        margin-top:30px;
+        margin-right:15px;
+        margin-left:5px;
+        border-radius:20px;
+        background:#f8edeb;
+        float: left;
+        position:relative;
+      }
+.member_name{
+  width:180px;
+  height: 15px;
+  position: absolute;
+  text-align:center;
+  margin-top:75px;
+  color: #5B5B5B;
+  font-family:微軟正黑體;
+  font-size: 15px;
+}
+.signature{
+  width:180px;
+  height:10.2px;
+  font-size:10.2px;
+  color: #5B5B5B;
+  position:absolute;
+  text-align:center;
+  margin-top:40px;
+}
+#heart{
+  position:absolute;
+  top:132px;
+  left:10px;
+}
+#likebox{
+  width:135px;
+  height:21px;
+  position:absolute;
+  left:36px;
+  top:126px;
+}
+.tagbox{
+width:auto;
+height:auto;
+color:#fff;
+background: #7B7B7B;
+text-align: center;
+border-radius: 8px;
+font-size:6px;
+margin-left: 6px;
+display: inline-block;
+margin-top: 5px;
+padding: 1px 5px;
+float:left;
+}
+#panel1{
+  margin:0px;
+  padding:5px;
+  text-align:center;
+  display:none;
+  width:auto;
+  background: rgba(255,255,255,1.00);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width:120px;
+  position:absolute;
+  left:33px;
+  top:180px;
+  z-index: 3;
+}
+#panel2{
+  margin:0px;
+  padding:5px;
+  text-align:center;
+  display:none;
+  width:auto;
+  background: rgba(255,255,255,1.00);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width:120px;
+  position:absolute;
+  left:33px;
+  top:235px;
+  z-index: 4;
+}
+#hatebox{
+  width:135px;
+  height:21px;
+  position:absolute;
+  left:36px;
+  top:180px;
+}
+#hate{
+  position:absolute;
+  top:187px;
+  left:13px;
+}
+#introductionbox{
+  width:162px;
+  height:90px;
+  position:absolute;
+  left:15px;
+  top:240px;
+  color: #5B5B5B;
+  font-size: 10px;
+}
+.frienddiv{
+  width:820px;
+  height: 500px;
+  overflow:auto;
+  position:absolute;
+  top:50px;
+}
+.frienddiv::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+}
+.frienddiv::-webkit-scrollbar
+{
+  width: 10px;
+}
+.frienddiv::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color:rgba(108,108,108,0.2);
+}
+#skin2{
+  z-index:2;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#eyes2{
+  z-index:3;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#eyebrow2{
+  z-index:4;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#mouth2{
+  z-index:5;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#fronthair2{
+  z-index:6;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#backhair2{
+  z-index:7;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#clothes2{
+  z-index:8;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+#accessories2{
+  z-index:9;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:12px;
+  left: 65px;
+}
+
 #skin{
   z-index:2;
   height: 80px;
@@ -307,56 +513,7 @@ try {
   left:20px;
   top:15%;
 }
-#skin2{
-  z-index:2;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#eyes2{
-  z-index:3;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#eyebrow2{
-  z-index:4;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#mouth2{
-  z-index:5;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#fronthair2{
-  z-index:6;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#backhair2{
-  z-index:7;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#clothes2{
-  z-index:8;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#accessories2{
-  z-index:9;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-
-       </style>
+</style>
 <script type="text/javascript">
 $(function(){
 $("#likebox").hover(function(){
@@ -372,32 +529,27 @@ $("#hatebox").hover(function(){
     $(".xs2").toggle();
   });
 });
-
-
-
 </script>
 </head>
 
-<body>
 
-
-  <script>
-    var isShow = false;
-    function setcookie(set,title) { 
-      document.cookie = "room=" + set + ";" + ";path=/";
-      document.cookie = "title=" + title + ";" + ";path=/";
-      
-      if(!isShow) {
-      isShow = true;
-      document.getElementById('myForm2').style.display='block';
-      document.getElementById("myframe").src="http://localhost:3000/room/"+title;
-      }
-      else {
-      isShow = false;
-      document.getElementById('myForm2').style.display='none';
-      }
+<script>
+  var isShow = false;
+  function setcookie(set,title) { 
+    document.cookie = "room=" + set + ";" + ";path=/";
+    document.cookie = "title=" + title + ";" + ";path=/";
+    
+    if(!isShow) {
+    isShow = true;
+    document.getElementById('myForm2').style.display='block';
+    document.getElementById("myframe").src="http://localhost:3000/room/"+title;
     }
-  </script>
+    else {
+    isShow = false;
+    document.getElementById('myForm2').style.display='none';
+    }
+  }
+</script>
 
 <!--第一區-->
 <div class="container-fluid" style="height: 100%;">
@@ -447,21 +599,57 @@ $("#hatebox").hover(function(){
 
 <!--第一區-->
 
-      <!--第二區-->
-      <div class="col-8 mainarea">
-         <span style="color: #5B5B5B; font-size: 23px;position:absolute; top: 10px;">好友列表</span>
+ <!--第二區-->
+ <div class="col-8 mainarea">
+  <div class="mainboard" style="height:80%">
+
+  <div class="h2div" ><h2 style="font-weight:bold;">好友</h2>
+
+     <!--第二區form-->
+  <div class="form-popup" id="myForm">
+    <form action="add_topic.jsp" class="form-container">
+      <h2>開新話題</h2>
+        <div class="form-group">
+          <label for="title">標題</label>
+          <input type="text" class="form-control" id="title" name="subject" placeholder="請輸入標題">
+        </div>
+        <div class="form-group">
+          <label for="textarea">內文</label>
+          <textarea class="form-control" id="textarea" name="content" rows="4" placeholder="請輸入內文"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="category">分類</label>
+          <select class="form-control" id="category" name="category">
+            <option>音樂</option>
+            <option>電影</option>
+            <option>運動</option>
+            <option>遊戲</option>
+            <option>旅遊</option>
+            <option>美食</option>
+          </select>
+        </div>
+      <button type="submit" class="btn">提交</button><button type="button" class="btn cancel" onclick="closeForm()">取消</button>
+    </form>
+  </div>
+   <!--第二區form-->
+  
+</div>
          <div class="frienddiv">
             <%
               while(frrs.next()){
+
+                String set =frrs.getString(2);
+                String room =frrs.getString(1);
+                
               out.println("<div class='box1'>");
-              out.println("<img src='img/header/skin/skin"+frrs.getString("Skin")+".png' id='skin' class='headersstyle'>");
-              out.println("<img src='img/header/eyes/eyes"+frrs.getString("Eyes")+".png' id='eyes' class='headersstyle'>");
-              out.println("<img src='img/header/eyebrow/eyebrow"+frrs.getString("Eyebrow")+".png' id='eyebrow' class='headersstyle'>");
-              out.println("<img src='img/header/mouth/mouth"+frrs.getString("Mouth")+".png' id='mouth' class='headersstyle'>");
-              out.println("<img src='img/header/fronthair/fronthair"+frrs.getString("Fronthair")+".png' id='fronthair' class='headersstyle'>");
-              out.println("<img src='img/header/backhair/backhair"+frrs.getString("Backhair")+".png' id='backhair' class='headersstyle'>");
-              out.println("<img src='img/header/clothes/clothes"+frrs.getString("Clothes")+".png' id='clothes' class='headersstyle'>");
-              out.println("<img src='img/header/accessories/accessories"+frrs.getString("Accessories")+".png' id='accessories' class='headersstyle'>");
+              out.println("<img src='img/header/skin/skin"+frrs.getString("Skin")+".png' id='skin2' class='headersstyle'>");
+              out.println("<img src='img/header/eyes/eyes"+frrs.getString("Eyes")+".png' id='eyes2' class='headersstyle'>");
+              out.println("<img src='img/header/eyebrow/eyebrow"+frrs.getString("Eyebrow")+".png' id='eyebrow2' class='headersstyle'>");
+              out.println("<img src='img/header/mouth/mouth"+frrs.getString("Mouth")+".png' id='mouth2' class='headersstyle'>");
+              out.println("<img src='img/header/fronthair/fronthair"+frrs.getString("Fronthair")+".png' id='fronthair2' class='headersstyle'>");
+              out.println("<img src='img/header/backhair/backhair"+frrs.getString("Backhair")+".png' id='backhair2' class='headersstyle'>");
+              out.println("<img src='img/header/clothes/clothes"+frrs.getString("Clothes")+".png' id='clothes2' class='headersstyle'>");
+              out.println("<img src='img/header/accessories/accessories"+frrs.getString("Accessories")+".png' id='accessories2' class='headersstyle'>");
               out.println("<div class='member_name'>");
               out.println("<p>"+frrs.getString("Name")+"&nbsp;&nbsp;♀</p>");
               out.println("</div>");
@@ -503,13 +691,14 @@ $("#hatebox").hover(function(){
 
               out.println("<div id='introductionbox'>");
               out.println("<p>"+frrs.getString("Introduction")+"</p>");
+              out.println("<button type='button' class='btn btn-warning' style='margin-left:20px;margin:bottom:10px;' onclick=\"setcookie('"+room+"','"+set+"')\">與好友聊天</button>");
               out.println("</div>");
               out.println("</div>");
               }
 
 
             %>
-
+          </div>
               <%-- <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">
                 <div class="member_name">
                   <p><%=name%>&nbsp;&nbsp;♀</p>
@@ -553,35 +742,8 @@ $("#hatebox").hover(function(){
 
 
                </div>
-                </div>
+            </div>
 
- <!--第二區form-->
- <div class="form-popup" id="myForm">
-  <form action="add_topic.jsp" class="form-container">
-    <h2>開新話題</h2>
-      <div class="form-group">
-        <label for="title">標題</label>
-        <input type="text" class="form-control" id="title" name="subject" placeholder="請輸入標題">
-      </div>
-      <div class="form-group">
-        <label for="textarea">內文</label>
-        <textarea class="form-control" id="textarea" name="content" rows="4" placeholder="請輸入內文"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="category">分類</label>
-        <select class="form-control" id="category" name="category">
-          <option>音樂</option>
-          <option>電影</option>
-          <option>運動</option>
-          <option>遊戲</option>
-          <option>旅遊</option>
-          <option>美食</option>
-        </select>
-      </div>
-    <button type="submit" class="btn">提交</button><button type="button" class="btn cancel" onclick="closeForm()">取消</button>
-  </form>
-</div>
- <!--第二區form-->
 
       <!--第三區-->
       <div class="col mainarea">
