@@ -16,6 +16,9 @@
          height: 100%;
          overflow: hidden;
        	}
+       	html{
+       		height: 100%;
+       	}
 #backicon{
   width: 50px;
   position:absolute;
@@ -29,59 +32,59 @@
   right: 20px;
 }
 #skin{
-  width: 300px;
+  width: 20%;
   position:absolute;
-  left: 35.5%;
-  top:8.5px;
+  left: 40%;
+  top:0.8%;
   z-index: 1;  
 }
 #eyes{
-  width:300px;
+  width: 20%;
   position:absolute;
-  left: 35.5%;
-  top:8.5px;
+  left: 40%;
+  top:0.8%;
   z-index: 2;
 }
 #eyebrow{
-  width:300px;
+  width: 20%;
   position:absolute;
-  left: 35.5%;
-  top:7px;
+  left: 40%;
+  top:0.8%;
   z-index: 3;
 }
 #mouth{
-  width:300px;
+  width: 20%;
   position:absolute;
-  left: 35.5%;
-  top:8.5px;
+  left: 40%;
+  top:0.8%;
   z-index: 4; 
 }
 #fronthair{
-  width:300px;
+  width: 20%;
   position:absolute;
-  left: 35.5%;
-  top:8.5px;
+  left: 40%;
+  top:0.8%;
   z-index: 5;
 }
 #backhair{
-  width:300px;
+  width: 20%;
   position:absolute;
-  left: 35.5%;
-  top:8.5px;
+  left: 40%;
+  top:0.8%;
   z-index: 6; 
 }
 #clothes{
-  width:300px;
+  width: 20%;
   position:absolute;
-  left: 35.5%;
-  top:8.5px;  
+  left: 40%;
+  top:0.8%;
   z-index: 7; 
 }
 #accessories{
-  width:300px;
+  width: 20%;
   position:absolute;
-  left: 35.5%;
-  top:8.5px;
+  left: 40%;
+  top:0.8%;
   z-index: 8; 
 }
 .clickimg{
@@ -108,19 +111,19 @@ ul, li {
 }
 .abgne_tab {
   clear: left;
-  width: 1296px;
+  width: 100%;
   margin: 10px 0;
   height: 50px;
   position:absolute;
-  top: 49%;
+  top: 41%;
 }
 ul.tabs {
   width: 100%;
 }
 ul.tabs li {
   float: left;
-  height: 50px;
-  width: 160px;
+  height:50px;
+  width: 12.5%;
   position: relative;
   border: none;
   background:rgba(255,255,255,0.6);
@@ -145,7 +148,7 @@ ul.tabs li.active a:hover {
 div.tab_container {
   clear: left;
   width: 100%;
-  height: 254px;
+  height: 50%;
   position:absolute;
   bottom: 0px;
   border: none;
