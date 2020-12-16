@@ -388,7 +388,6 @@ try {
   <a class="nav-link active" href="member.jsp" style="color:white;font-size:large">
     <%
       String new_mail=(String)(session.getAttribute("email"));
-      //con.createStatement().execute("USE `cluster`");
       String sql1 = "SELECT * FROM `memberskin` WHERE `Email`='"+new_mail+"'";
       ResultSet rs1 =  con.createStatement().executeQuery(sql1);
       con.createStatement().execute(sql1);
@@ -478,17 +477,25 @@ try {
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="profile-tab">
         <%
-          sql = "SELECT * FROM `post` WHERE CONCAT(IFNULL(`Subject`,''),IFNULL(`Content`,'')) LIKE '%"+search+"%'";
+          sql = "SELECT * FROM `post` JOIN memberskin ON memberskin.Email = post.Email WHERE CONCAT(IFNULL(`Subject`,''),IFNULL(`Content`,'')) LIKE '%"+search+"%'";
           ResultSet searchRs=con.createStatement().executeQuery(sql);
           boolean flag = true;
 
           while(searchRs.next()){
             flag = false;
-            String SubjectRs=searchRs.getString(4);
-            String ContentRs=searchRs.getString(5);
-            String CategoryRs=searchRs.getString(6);
             //out.println("<a href='#' onclick=\"setcookie('"+room+"','"+set+"')\">"); 
             out.println("<div class='row'>");
+
+            out.println("<div class='userheader'>");                         
+            out.println("<img src='img/header/skin/skin"+searchRs.getString("Skin")+".png' id='skin2'>");
+            out.println("<img src='img/header/eyes/eyes"+searchRs.getString("Eyes")+".png' id='eyes2'>");
+            out.println("<img src='img/header/eyebrow/eyebrow"+searchRs.getString("Eyebrow")+".png' id='eyebrow2'>");
+            out.println("<img src='img/header/mouth/mouth"+searchRs.getString("Mouth")+".png' id='mouth2'>");
+            out.println("<img src='img/header/fronthair/fronthair"+searchRs.getString("Fronthair")+".png' id='fronthair2'>");
+            out.println("<img src='img/header/backhair/backhair"+searchRs.getString("Backhair")+".png' id='backhair2'>");
+            out.println("<img src='img/header/clothes/clothes"+searchRs.getString("Clothes")+".png' id='clothes2'>");
+            out.println("<img src='img/header/accessories/accessories"+searchRs.getString("Accessories")+".png' id='accessories2'>");
+            out.println("</div>");
 
               /*  out.println("<div class='userheader'>");                         
                 out.println("<img src='img/header/skin/skin"+rs.getString("Skin")+".png' id='skin2'>");
@@ -502,10 +509,10 @@ try {
                 out.println("</div>"); */
                 
             out.println("<div class='maindiv'>");
-            out.println("<span class='badge badge-danger' style='font-size:large;margin:10px;background-color: rgb(211, 82, 43);'>"+CategoryRs+"</span>");
+            out.println("<span class='badge badge-danger' style='font-size:large;margin:10px;background-color: rgb(211, 82, 43);'>"+searchRs.getString("Category")+"</span>");
             out.println("</br>");
-            out.println("<span style='font-size: large;font-weight:bold;margin:10px;'>"+SubjectRs+"</span>");
-            out.println("<p style='margin-left:10px;'>"+ContentRs+"</span><br>");
+            out.println("<span style='font-size: large;font-weight:bold;margin:10px;'>"+searchRs.getString("Subject")+"</span>");
+            out.println("<p style='margin-left:10px;'>"+searchRs.getString("Content")+"</span><br>");
             out.println("</div>");
             out.println("</div>");
             //out.println("</a>");
