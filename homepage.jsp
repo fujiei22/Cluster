@@ -628,7 +628,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
     %>
 
 <!--第三區iframe-->       
-<div class="chat-popup2" id="myForm2">
+<div class="chat-popup2" id="myForm2" style="margin-right:-90px;">
 <div class="form-container2">
   
    <iframe id="myframe" src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >

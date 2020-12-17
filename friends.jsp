@@ -234,9 +234,11 @@ try {
   resize: none;
   min-height: 300px;
 }
+
+
       .box1{
-        height: 300px;
-        width: 180px;
+        height: 450px;
+        width: 250px;
         margin-top:30px;
         margin-right:15px;
         margin-left:5px;
@@ -250,31 +252,35 @@ try {
   height: 15px;
   position: absolute;
   text-align:center;
-  margin-top:75px;
+  margin-top:120px;
+  margin-left:30px;
   color: #5B5B5B;
   font-family:微軟正黑體;
-  font-size: 15px;
+  font-weight: bold;
+  font-size: 20px;
 }
 .signature{
   width:180px;
-  height:10.2px;
-  font-size:10.2px;
+  height:15px;
+  font-size:15px;
   color: #5B5B5B;
   position:absolute;
   text-align:center;
-  margin-top:105px;
+  margin-top:150px;
+  margin-left:35px;
+  margin-bottom: 10px;
 }
 #heart{
   position:absolute;
-  top:132px;
-  left:10px;
+  top:200px;
+  left:28px;
 }
 #likebox{
-  width:135px;
-  height:21px;
+  width:150px;
+  height:25px;
   position:absolute;
-  left:36px;
-  top:126px;
+  left:60px;
+  top:180px;
 }
 .tagbox{
 width:auto;
@@ -319,32 +325,32 @@ float:left;
   z-index: 4;
 }
 #hatebox{
-  width:135px;
-  height:21px;
+  width:150px;
+  height:25px;
   position:absolute;
-  left:36px;
-  top:180px;
-}
+  left:60px;
+  top:240px;
+} 
 #hate{
   position:absolute;
-  top:187px;
-  left:13px;
+  top:260px;
+  left:28px;
 }
 #introductionbox{
-  width:162px;
+  width:200px;
   height:90px;
   position:absolute;
-  left:15px;
-  top:240px;
+  left:25px;
+  top:310px;
   color: #5B5B5B;
-  font-size: 10px;
+  font-size: 15px;
 }
 .frienddiv{
-  width:820px;
-  height: 500px;
+  width:900px;
+  height: 600px;
   overflow:auto;
   position:absolute;
-  top:50px;
+  top:80px;
 }
 .frienddiv::-webkit-scrollbar-track
 {
@@ -362,82 +368,83 @@ float:left;
 #skin2{
   z-index:2;
   position: absolute;
-  width: 60px;
-  height: 60px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
+  top:30px;
+  width: 80px;
+  height: 80px;
+  left: 77px;
+  background-color: white;
 }
 #eyes2{
   z-index:3;
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+  left: 77px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
+  top:30px;
 }
 #eyebrow2{
   z-index:4;
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+  left: 77px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
+  top:30px;
 }
 #mouth2{
   z-index:5;
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+  left: 77px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
+  top:30px;
 }
 #fronthair2{
   z-index:6;
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+  left: 77px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
+  top:30px;
 }
 #backhair2{
   z-index:7;
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+  left: 77px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
+  top:30px;
 }
 #clothes2{
   z-index:8;
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+  left: 77px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
+  top:30px;
 }
 #accessories2{
   z-index:9;
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+  left: 77px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,1.00);
-  top:12px;
-  left: 65px;
+  top:30px;
 }
 
 #skin{
@@ -638,7 +645,7 @@ float:left;
               out.println("<img src='img/header/clothes/clothes"+frrs.getString("Clothes")+".png' id='clothes2' class='headersstyle'>");
               out.println("<img src='img/header/accessories/accessories"+frrs.getString("Accessories")+".png' id='accessories2' class='headersstyle'>");
               out.println("<div class='member_name'>");
-              out.println("<p>"+frrs.getString("Name")+"&nbsp;&nbsp;♀</p>");
+              out.println("<p>"+frrs.getString("Name"));
               out.println("</div>");
 
               out.println("<div class='signature'>");
@@ -648,10 +655,10 @@ float:left;
               out.println("<img src='img/heart.png' id='heart' style='height:18px;'>");
 
               out.println("<div id='likebox' class='flip1'>");
-              out.println("<div class='tagbox'>#園藝</div>");
-              out.println("<div class='tagbox'>#手沖咖啡</div>");
-              out.println("<div class='tagbox'>#電影</div>");
-              out.println("</div>");
+                out.println("<div class='tagbox' style='background-color: rgb(204, 50, 30);font-size:13px;'>#寫作</div>");
+                out.println("<div class='tagbox' style='background-color: rgb(204, 50, 30);font-size:13px;'>#人像素描</div>");
+                out.println("<div class='tagbox' style='background-color: rgb(204, 50, 30);font-size:13px;'>#讀小說</div>");
+                out.println("</div>");
 
               out.println("<div id='panel1'>");
               out.println("<div class='tagbox'>#寵物</div>");
@@ -664,9 +671,9 @@ float:left;
 
               out.println("<img src='img/hate.png' id='hate' style='height:18px;'>");
               out.println("<div id='hatebox' class='flip2'>");
-              out.println("<div class='tagbox'>#園藝</div>");
-              out.println("<div class='tagbox'>#手沖咖啡</div>");
-              out.println("<div class='tagbox'>#電影</div>");
+              out.println("<div class='tagbox' style='background-color: rgb(25, 60, 124);font-size:13px;'>#戶外運動</div>");
+              out.println("<div class='tagbox' style='background-color: rgb(25, 60, 124);font-size:13px;'>#曬太陽</div>");
+              out.println("<div class='tagbox' style='background-color: rgb(25, 60, 124);font-size:13px;'>#下雨天出門</div>");
               out.println("</div>");
 
               out.println("<div id='panel2'>");
@@ -678,7 +685,7 @@ float:left;
 
               out.println("<div id='introductionbox'>");
               out.println("<p>"+frrs.getString("Introduction")+"</p>");
-              out.println("<button type='button' class='btn btn-warning' style='margin-left:20px;margin:bottom:10px;' onclick=\"setcookie('"+room+"','"+set+"')\">與好友聊天</button>");
+              out.println("<button type='button' class='btn btn-warning' style='margin-left:40px' onclick=\"setcookie('"+room+"','"+set+"')\">與好友聊天</button>");
               out.println("</div>");
               out.println("</div>");
               }
@@ -688,7 +695,7 @@ float:left;
           </div>
               <%-- <img src="img/test.jpg" id="sq"style="z-index:2;position: relative;">
                 <div class="member_name">
-                  <p><%=name%>&nbsp;&nbsp;♀</p>
+                  <p><%=name%></p>
                 </div>
                 <div class="signature">
                   <p><%=signature%></p>
@@ -732,57 +739,56 @@ float:left;
             </div>
 
 
-      <!--第三區-->
-      <div class="col mainarea">
-        <div class="thirdarea"style="height:100%">
-        <%
-          sql="SELECT title FROM chat WHERE chat.Name='"+name+"' GROUP BY title";
-          ResultSet rs4=con.createStatement().executeQuery(sql);
-          while(rs4.next())
-          {
-            sql="SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content, post.pno FROM chat JOIN post ON chat.title = post.pno WHERE chat.title = '"+rs4.getString(1)+"' ORDER BY chatid DESC";ResultSet rs5=con.createStatement().executeQuery(sql);
-            //out.println("<script>console.log('[sql]: "+rs4.getString(1)+"')</script>");
-            //out.println("<script>console.log('[sql]: "+"SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content FROM chat JOIN post ON chat.title = post.pno GROUP BY "+rs4.getString(1)+" ORDER BY chatid DESC"+"')</script>");
-            while(rs5.next())
-            {
-              String room =rs5.getString(5);
-              String set =rs5.getString(1);
+     <!--第三區-->
+ <div class="col mainarea">
+  <div class="thirdarea"style="height:100%">
+  <%
+    sql="SELECT title FROM chat WHERE chat.Name='"+name+"' GROUP BY title";
+    ResultSet rs4=con.createStatement().executeQuery(sql);
+    while(rs4.next())
+    {
+      sql="SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content, post.pno FROM chat JOIN post ON chat.title = post.pno WHERE chat.title = '"+rs4.getString(1)+"' ORDER BY chatid DESC";ResultSet rs5=con.createStatement().executeQuery(sql);
+      //out.println("<script>console.log('[sql]: "+rs4.getString(1)+"')</script>");
+      //out.println("<script>console.log('[sql]: "+"SELECT post.Subject, post.Category, COUNT(title) AS 討論度, post.Content FROM chat JOIN post ON chat.title = post.pno GROUP BY "+rs4.getString(1)+" ORDER BY chatid DESC"+"')</script>");
+      while(rs5.next())
+      {
+        String room =rs5.getString(5);
+        String set =rs5.getString(1);
 
-              out.println("<a href='#' onclick=\"setcookie('"+room+"','"+set+"')\">"); 
-              out.println("<div class='row'>");
-              out.println("<div class='chatdiv'>");
-              out.println("<i class='fas fa-pizza-slice fa-2x' ></i>");
-              out.println("<span style='color:white'>"+ rs5.getString(3) +"</span><i class='fas fa-user'></i><span style='color:white'>在線</span>");
-              out.println("<br>");
-              out.println("<span class=''>"+ rs5.getString(1) +"</span>");
-              out.println("</span>");
-              out.println("</div>");
-              out.println("</div>");
-              out.println("</a>");
-            }
-          }
-          %>
+        out.println("<a href='#' onclick=\"setcookie('"+room+"','"+set+"')\">"); 
+        out.println("<div class='row'>");
+        out.println("<div class='chatdiv'>");
+        out.println("<i class='fas fa-user fa-2x'></i><span style='color:white'>　討論度：</span><span style='color:white'>"+ rs5.getString(3) +"</span>");
+        out.println("<br>");
+        out.println("<span class=''>"+ rs5.getString(1) +"</span>");
+        out.println("</div>");
+        out.println("</div>");
+        out.println("</a>");
+      }
+    }
+    %>
 
 <!--第三區iframe-->    
 <div class="chat-popup2" id="myForm2">
-  <div class="form-container2">
-    
-     <iframe id="myframe" src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >
-            你的瀏覽器不支援 iframe
-     </iframe>
-  </div>
+<div class="form-container2">
+
+<iframe id="myframe" src="http://localhost:3000/room/%E6%9C%89%E4%BA%BA%E8%B7%9F%E6%88%91%E4%B8%80%E6%A8%A3%E6%80%95%E7%95%AB%E7%95%AB%E5%97%8E%EF%BC%9F" >
+      你的瀏覽器不支援 iframe
+</iframe>
+</div>
 </div>
 <!--第三區iframe-->
 
-        <div class="row">
-          <button class="open-button" onclick="openForm()">+</button>
-        </div>
-      </div>
-    </div>
-    <!--第三區-->
-
-      </div>
+  <div class="row">
+    <button class="open-button" onclick="openForm()">+</button>
   </div>
+</div>
+</div>
+<!--第三區-->
+
+  </div>
+</div>
+<!--close-->
 <%
 //Step 6: 關閉連線
           con.close();

@@ -38,7 +38,6 @@ try {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <html xmlns="http://www.w3.org/1999/xhtml">
     <link href="css/icon/css/all.css" rel="stylesheet">
-    
     <style type="text/css">
       body,html {height:100%;}
       body{
@@ -235,6 +234,219 @@ try {
   resize: none;
   min-height: 300px;
 }
+
+
+      .box1{
+        height: 450px;
+        width: 250px;
+        margin-top:30px;
+        margin-right:15px;
+        margin-left:5px;
+        border-radius:20px;
+        background:#f8edeb;
+        float: left;
+        position:relative;
+      }
+.member_name{
+  width:180px;
+  height: 15px;
+  position: absolute;
+  text-align:center;
+  margin-top:120px;
+  margin-left:30px;
+  color: #5B5B5B;
+  font-family:微軟正黑體;
+  font-weight: bold;
+  font-size: 20px;
+}
+.signature{
+  width:180px;
+  height:15px;
+  font-size:15px;
+  color: #5B5B5B;
+  position:absolute;
+  text-align:center;
+  margin-top:150px;
+  margin-left:35px;
+  margin-bottom: 10px;
+}
+#heart{
+  position:absolute;
+  top:200px;
+  left:28px;
+}
+#likebox{
+  width:150px;
+  height:25px;
+  position:absolute;
+  left:60px;
+  top:180px;
+}
+.tagbox{
+width:auto;
+height:auto;
+color:#fff;
+background: #7B7B7B;
+text-align: center;
+border-radius: 8px;
+font-size:6px;
+margin-left: 6px;
+display: inline-block;
+margin-top: 5px;
+padding: 1px 5px;
+float:left;
+}
+#panel1{
+  margin:0px;
+  padding:5px;
+  text-align:center;
+  display:none;
+  width:auto;
+  background: rgba(255,255,255,1.00);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width:120px;
+  position:absolute;
+  left:33px;
+  top:180px;
+  z-index: 3;
+}
+#panel2{
+  margin:0px;
+  padding:5px;
+  text-align:center;
+  display:none;
+  width:auto;
+  background: rgba(255,255,255,1.00);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width:120px;
+  position:absolute;
+  left:33px;
+  top:235px;
+  z-index: 4;
+}
+#hatebox{
+  width:150px;
+  height:25px;
+  position:absolute;
+  left:60px;
+  top:240px;
+} 
+#hate{
+  position:absolute;
+  top:260px;
+  left:28px;
+}
+#introductionbox{
+  width:200px;
+  height:90px;
+  position:absolute;
+  left:25px;
+  top:310px;
+  color: #5B5B5B;
+  font-size: 15px;
+}
+.frienddiv{
+  width:900px;
+  height: 600px;
+  overflow:auto;
+  position:absolute;
+  top:80px;
+}
+.frienddiv::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+}
+.frienddiv::-webkit-scrollbar
+{
+  width: 10px;
+}
+.frienddiv::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color:rgba(108,108,108,0.2);
+}
+#skin2{
+  z-index:2;
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:30px;
+  width: 80px;
+  height: 80px;
+  left: 77px;
+  background-color: white;
+}
+#eyes2{
+  z-index:3;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 77px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:30px;
+}
+#eyebrow2{
+  z-index:4;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 77px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:30px;
+}
+#mouth2{
+  z-index:5;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 77px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:30px;
+}
+#fronthair2{
+  z-index:6;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 77px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:30px;
+}
+#backhair2{
+  z-index:7;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 77px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:30px;
+}
+#clothes2{
+  z-index:8;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 77px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:30px;
+}
+#accessories2{
+  z-index:9;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 77px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,1.00);
+  top:30px;
+}
+
 #skin{
   z-index:2;
   height: 80px;
@@ -308,87 +520,6 @@ try {
   left:20px;
   top:15%;
 }
-#skin2{
-  z-index:2;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#eyes2{
-  z-index:3;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#eyebrow2{
-  z-index:4;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#mouth2{
-  z-index:5;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#fronthair2{
-  z-index:6;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#backhair2{
-  z-index:7;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#clothes2{
-  z-index:8;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-#accessories2{
-  z-index:9;
-  height: 100px;
-  width:100px;
-  position:absolute;
-}
-
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
-
-.title {
-  color: grey;
-  font-size: 18px;
-}
-
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-.add:hover, a:hover {
-  opacity: 0.7;
-}
-
-
 </style>
 <script type="text/javascript">
 $(function(){
@@ -494,15 +625,14 @@ $(".flip2").hover(function(){
        </div>
  <!--第二區form-->
 
-          <!--四個一組，超過四個就再多一個card-group-->  
-         <div class="card-group"> 
+       
+          <div class="frienddiv">
             <%
             int i = 1, j = 0;
                 
             while(frrs.next())
             {
-              out.println("<div class='card text-center'>");
-              out.println("<div class='card-body'>");
+              out.println("<div class='box1'>");
               out.println("<img src='img/header/skin/skin"+frrs.getString("Skin")+".png' id='skin2' class='headersstyle'>");
               out.println("<img src='img/header/eyes/eyes"+frrs.getString("Eyes")+".png' id='eyes2' class='headersstyle'>");
               out.println("<img src='img/header/eyebrow/eyebrow"+frrs.getString("Eyebrow")+".png' id='eyebrow2' class='headersstyle'>");
@@ -511,21 +641,52 @@ $(".flip2").hover(function(){
               out.println("<img src='img/header/backhair/backhair"+frrs.getString("Backhair")+".png' id='backhair2' class='headersstyle'>");
               out.println("<img src='img/header/clothes/clothes"+frrs.getString("Clothes")+".png' id='clothes2' class='headersstyle'>");
               out.println("<img src='img/header/accessories/accessories"+frrs.getString("Accessories")+".png' id='accessories2' class='headersstyle'>");
-              out.println("<h5 class='card-title'>"+frrs.getString("Name")+"</h5>");
-              out.println("<p class='card-text'>"+frrs.getString("Signature")+"</p>");
-              out.println("<span class='badge rounded-pill bg-warning'>喜歡的</span>");
-              out.println("<span class='badge rounded-pill bg-warning'>標籤們</span>");
-              out.println("<br>");
-              out.println("<span class='badge rounded-pill bg-secondary'>不喜歡的</span>");
-              out.println("<span class='badge rounded-pill bg-secondary'>標籤們</span>");
+              out.println("<div class='member_name'>"+frrs.getString("Name"));
+              out.println("</div>");
 
+              out.println("<div class='signature'>");
+                out.println("<p>"+frrs.getString("Signature")+"</p>");
+                out.println("</div>");
+                
+                out.println("<img src='img/heart.png' id='heart' style='height:18px;'>");
+
+
+                out.println("<div id='likebox' class='flip1'>");
+                  out.println("<div class='tagbox' style='background-color: rgb(204, 50, 30);font-size:13px;'>#寫作</div>");
+                  out.println("<div class='tagbox' style='background-color: rgb(204, 50, 30);font-size:13px;'>#人像素描</div>");
+                  out.println("<div class='tagbox' style='background-color: rgb(204, 50, 30);font-size:13px;'>#讀小說</div>");
+                  out.println("</div>");
+    
+                  out.println("<div id='panel1'>");
+                  out.println("<div class='tagbox'>#寵物</div>");
+                  out.println("<div class='tagbox'>#登山</div>");
+                  out.println("<div class='tagbox'>#繪畫</div>");
+                  out.println("<div class='tagbox'>#戲劇</div>");
+                  out.println("<div class='tagbox'>#小說</div>");
+                  out.println("<div class='tagbox'>#球類運動</div>");
+                  out.println("</div>");
+    
+                  out.println("<img src='img/hate.png' id='hate' style='height:18px;'>");
+                  out.println("<div id='hatebox' class='flip2'>");
+                  out.println("<div class='tagbox' style='background-color: rgb(25, 60, 124);font-size:13px;'>#戶外運動</div>");
+                  out.println("<div class='tagbox' style='background-color: rgb(25, 60, 124);font-size:13px;'>#曬太陽</div>");
+                  out.println("<div class='tagbox' style='background-color: rgb(25, 60, 124);font-size:13px;'>#下雨天出門</div>");
+                  out.println("</div>");
+    
+                  out.println("<div id='panel2'>");
+                  out.println("<div class='tagbox'>#穿搭</div>");
+                  out.println("<div class='tagbox'>#古典樂</div>");
+                  out.println("<div class='tagbox'>#歌劇</div>");
+                  out.println("<div class='tagbox'>#手工藝</div>");
+                  out.println("</div>");
                 j+=i;
                 out.println("<form action='add_friends.jsp' method='post' id='add_friends"+j+"'>");
                 out.println("<input type='hidden' name='addEmail' value='"+frrs.getString("Email")+"'>");
                 out.println("</form>");
-
-              out.println("<button type='submit' form='add_friends"+j+"' value='submit' class='btn btn-primary'>加好友</button>");
-              out.println("<button class='btn btn-danger'>不感興趣</button>");
+              
+                out.println("<div id='introductionbox'>");
+                  out.println("<p>"+frrs.getString("Introduction")+"</p>");
+              out.println("<button type='submit' form='add_friends"+j+"' value='submit' class='btn btn-info' style='margin-left:60px'>加好友</button>");
               out.println("</div>");
               out.println("</div>");
 
@@ -535,10 +696,9 @@ $(".flip2").hover(function(){
           </div>
         </div> 
       </div>
-            
-          
-    
-
+        
+        
+    </script>
 
  <!--第三區-->
  <div class="col mainarea">
