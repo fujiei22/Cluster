@@ -271,7 +271,7 @@ try {
   color: #5B5B5B;
   position:absolute;
   text-align:center;
-  margin-top:70px;  
+  margin-top:165px;  
 }
 #heart{
   position:absolute;
@@ -723,7 +723,7 @@ $(function () {
                   <p><%=name%>&nbsp;&nbsp;♀</p>
                 </div>
                 <div class="signature">
-                  <p><%=signature%>></p>
+                  <p><%=signature%></p>
                 </div>
                 <img src="img/heart.png" id="heart" style="height:30px;">               
                 <div id="likebox" class="flip">                
