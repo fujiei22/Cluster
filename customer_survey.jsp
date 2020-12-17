@@ -15,18 +15,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
      <style>
+
+       body{
+        background: #f2709c;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ff9472, #f2709c);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ff9472, #f2709c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+       }
+p{
+  color:white;
+}
+       
         .slidecontainer {
   width: 100%;
 }
 .slider {
   -webkit-appearance: none;
-  width: 80%;
-  height: 25px;
-  background: #d3d3d3;
+  width: 90%;
+  height: 15px;
+  border-radius: 10px;
+  background: #fdfdfd;
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  margin-bottom:5px;
 }
 .slider:hover {
   opacity: 1;
@@ -34,15 +47,16 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
-  background:black;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background:rgb(51, 51, 51);
   cursor: pointer;
 }
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background:black;
+  background:rgb(0, 0, 0);
   cursor: pointer;
 }
 .form-css{
@@ -154,27 +168,27 @@ input[type=text]:focus {
             
             <div id="pre">
             <div class="form-css">
-              <h2>興趣調查</h2>
+              <h2 style="font-weight: bold;color:white;text-decoration: underline;">興趣調查</h2>
               <hr>
-              <p>為了獲得更好的使用體驗，首先我們想調查您對每個主題感興趣的程度</p>
-              <p style="position:absolute; left: 215px;">more</p><p style="position:absolute; right: 215px;">less</p>
+              <p style="font-size: 16px;">為了獲得更好的使用體驗，首先我們想調查您對每個主題感興趣的程度</p>
+              <p style="position:absolute; left: 215px;font-size: 20px;">Less</p><p style="position:absolute; right: 215px;font-size: 20px;">More</p>
                 <form action="add_customer_survey.jsp" method="post">
-                  <p>閱讀</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="read" name="read">
-                  <p>繪畫</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="draw" name="draw">
-                  <p>遊戲</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="game" name="game">
-                  <p>電影</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="movie" name="movie">
-                  <p>運動</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="sport" name="sport">
-                  <p>舞蹈</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="dance" name="dance">
-                  <p>旅遊</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="travel" name="travel">
-                  <p>購物</p>
-                  <input type="range" min="1" max="100" value="50" class="slider" id="shopping" name="shopping">
+                  <p style="font-size: larger;margin-top:5px;font-size: 20px;">閱讀</p>
+                  <input type="range" min="1" max="100" value="0" class="slider" id="read" name="read">
+                  <p style="font-size: larger;margin-top:5px;font-size: 20px;">繪畫</p>
+                  <input type="range" min="1" max="100" value="0" class="slider" id="draw" name="draw">
+                  <p style="font-size: larger;margin-top:5px;font-size: 20px;">遊戲</p>
+                  <input type="range" min="1" max="100" value="0" class="slider" id="game" name="game">
+                  <p style="font-size: larger;margin-top:5px;font-size:20px;">電影</p>
+                  <input type="range" min="1" max="100" value="0" class="slider" id="movie" name="movie">
+                  <p style="font-size: larger;margin-top:5px;font-size: 20px;">運動</p>
+                  <input type="range" min="1" max="100" value="0" class="slider" id="sport" name="sport">
+                  <p style="font-size: larger;margin-top:5px;font-size: 20px;">舞蹈</p>
+                  <input type="range" min="1" max="100" value="0" class="slider" id="dance" name="dance">
+                  <p style="font-size: larger;margin-top:5px;font-size:20px;">旅遊</p>
+                  <input type="range" min="1" max="100" value="0" class="slider" id="travel" name="travel">
+                  <p style="font-size: larger;margin-top:5px;font-size: 20px;">購物</p>
+                  <input type="range" min="1" max="100" value="0" class="slider" id="shopping" name="shopping">
                   <br>
                   <input type="submit" value="下一步" class="submit">
                   </form>
