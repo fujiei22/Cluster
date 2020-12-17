@@ -36,7 +36,7 @@ try {
         con.createStatement().execute(sql);
         con.close();
         out.println("<SCRIPT LANGUAGE='JavaScript'>");
-        out.println("window.document.location.href='member.jsp';");
+        out.println("window.document.location.href='homepage.jsp';");
         out.println("</SCRIPT>");
         }
       }

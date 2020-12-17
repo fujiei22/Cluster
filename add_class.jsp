@@ -33,7 +33,7 @@ try {
           }
           sql="UPDATE `member` SET `class` = '"+classV.getValue()+"' WHERE `Email`='"+session.getAttribute("email")+"'";
           con.createStatement().execute(sql);
-          response.setHeader("Refresh","0;public/index.html");
+          response.setHeader("Refresh","0;header.jsp");
 
 //Step 6: 關閉連線
            con.close();   
