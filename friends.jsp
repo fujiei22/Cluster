@@ -262,7 +262,7 @@ try {
   color: #5B5B5B;
   position:absolute;
   text-align:center;
-  margin-top:40px;
+  margin-top:105px;
 }
 #heart{
   position:absolute;
@@ -515,20 +515,7 @@ float:left;
 }
 </style>
 <script type="text/javascript">
-$(function(){
-$("#likebox").hover(function(){
-    $("#panel1").slideToggle("normal");
-    $(".xs1").toggle();
-    $(".xs2").toggle();
-  });
-});
-$(function(){
-$("#hatebox").hover(function(){
-    $("#panel2").slideToggle("normal");
-    $(".xs1").toggle();
-    $(".xs2").toggle();
-  });
-});
+
 </script>
 </head>
 
