@@ -67,6 +67,12 @@ try {
                 sql+="'4', ";
                 sql+="'7')";
                 con.createStatement().execute(sql);
+
+                sql="INSERT `friends` (`Email`, `Friends`)";
+                sql+="VALUE ('" +new_mail+ "', ";
+                sql+="'0000@gmail.com')";
+                con.createStatement().execute(sql);
+
                 response.setHeader("Refresh","0;login.jsp");
               }
             }

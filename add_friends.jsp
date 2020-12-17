@@ -18,8 +18,9 @@ try {
             con.createStatement().execute(sql);
             con.close();
             out.println("<SCRIPT LANGUAGE='JavaScript'>");
-            out.println("history.back();");
-            out.println("</SCRIPT>");  
+            out.println("alert('成功加為好友！')");
+            out.println("</SCRIPT>");
+            response.setHeader("Refresh","0;friends.jsp");  
             }
 
         }

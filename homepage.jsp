@@ -14,9 +14,10 @@ try {
           con.createStatement().execute(sql);
           sql = "SELECT * FROM `member` WHERE `Email`='"+session.getAttribute("email")+"'"; 
 			    ResultSet memberrs =con.createStatement().executeQuery(sql);
-			    String name="";
+			    String name="", mbclass="";
 			    while(memberrs.next()){
 	    		name=memberrs.getString("Name");
+          mbclass = memberrs.getString("class");
 			}
            %>
 <!DOCTYPE html>
@@ -488,7 +489,7 @@ try {
             <div class="tab-pane fade show active" id="guess" role="tabpanel" aria-labelledby="home-tab">
             
               <%
-              sql="SELECT * FROM post JOIN memberskin ON post.Email = memberskin.Email";
+              sql="SELECT * FROM post JOIN memberskin ON post.Email = memberskin.Email JOIN `member` ON member.class = post.class WHERE post.class = '"+mbclass+"' GROUP BY pno";
               ResultSet rs=con.createStatement().executeQuery(sql);
               while(rs.next())
                   {
@@ -535,7 +536,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
                     String roomurl ="http://localhost:3000/room/"+set;
                     out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
                     out.println("<div class='row' >");
-                   /*out.println("<div class='userheader'>");
+                   out.println("<div class='userheader'>");
                     out.println("<img src='img/header/skin/skin"+rs2.getString("Skin")+".png' id='skin2'>");
                     out.println("<img src='img/header/eyes/eyes"+rs2.getString("Eyes")+".png' id='eyes2'>");
                     out.println("<img src='img/header/eyebrow/eyebrow"+rs2.getString("Eyebrow")+".png' id='eyebrow2'>");
@@ -544,7 +545,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
                     out.println("<img src='img/header/backhair/backhair"+rs2.getString("Backhair")+".png' id='backhair2'>");
                     out.println("<img src='img/header/clothes/clothes"+rs2.getString("Clothes")+".png' id='clothes2'>");
                     out.println("<img src='img/header/accessories/accessories"+rs2.getString("Accessories")+".png' id='accessories2'>");
-                    out.println("</div>");*/
+                    out.println("</div>");
                     out.println("<div class='maindiv'>");
                     out.println("<span class=''>"+rs2.getString(3)+"</span>");
                     out.println("<p class=''>"+rs2.getString(4)+"</span>");
@@ -569,7 +570,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
                     String roomurl ="http://localhost:3000/room/"+set;
                     out.println("<a href="+roomurl+" onclick='setcookie("+set+")'>");
                     out.println("<div class='row' >");
-                   /*out.println("<div class='userheader'>");
+                   out.println("<div class='userheader'>");
                     out.println("<img src='img/header/skin/skin"+rs3.getString("Skin")+".png' id='skin2'>");
                     out.println("<img src='img/header/eyes/eyes"+rs3.getString("Eyes")+".png' id='eyes2'>");
                     out.println("<img src='img/header/eyebrow/eyebrow"+rs3.getString("Eyebrow")+".png' id='eyebrow2'>");
@@ -578,7 +579,7 @@ java.net.URLEncoder.encode( set, "UTF-8" );
                     out.println("<img src='img/header/backhair/backhair"+rs3.getString("Backhair")+".png' id='backhair2'>");
                     out.println("<img src='img/header/clothes/clothes"+rs3.getString("Clothes")+".png' id='clothes2'>");
                     out.println("<img src='img/header/accessories/accessories"+rs3.getString("Accessories")+".png' id='accessories2'>");
-                    out.println("</div>");*/
+                    out.println("</div>");
                     out.println("<div class='maindiv'>");
                     out.println("<span class=''>"+rs3.getString(4)+"</span>");
                     out.println("<p class=''>"+rs3.getString(5)+"</span>");
