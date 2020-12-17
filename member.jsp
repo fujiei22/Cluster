@@ -279,7 +279,7 @@ try {
   left:10px;
 }
 #likebox{
-  width:180px;
+  width:210px;
   height:35px;
   position:absolute;
   left:60px;
@@ -297,7 +297,7 @@ font-size:10px;
 margin-left: 10px;
 display: inline-block;
 margin-top: 5px;
-padding: 1px 5px;
+padding: 3px 5px;
 float:left;
 }
 .panel{
@@ -308,7 +308,7 @@ float:left;
   width:auto;
   background: rgba(255,255,255,1.00);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  width:200px;
+  width:220px;
   position:absolute;
   left:55px;
   top:245px;
@@ -322,14 +322,14 @@ float:left;
   width:auto;
   background: rgba(255,255,255,1.00);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  width:200px;
+  width:220px;
   position:absolute;
   left:55px;
   top:305px;
   z-index: 4;
 }
 #hatebox{
-  width:180px;
+  width:210px;
   height:35px;
   position:absolute;
   left:60px;
@@ -727,32 +727,32 @@ $(function () {
                 </div>
                 <img src="img/heart.png" id="heart" style="height:30px;">               
                 <div id="likebox" class="flip">                
-                 <div class="tagbox">#園藝</div>
-                 <div class="tagbox">#手沖咖啡</div>
-                 <div class="tagbox">#電影</div>                 
+                 <div class="tagbox" style="background-color: rgb(204, 50, 30);font-size:17px;">#手繪</div>
+                 <div class="tagbox" style="background-color: rgb(204, 50, 30);font-size:17px;">#水彩畫</div>
+                 <div class="tagbox" style="background-color: rgb(204, 50, 30);font-size:17px;">#文青</div>                 
                  </div>
                  
                  <div class="panel">
-                 <div class="tagbox">#寵物</div>
-                 <div class="tagbox">#登山</div>
-                 <div class="tagbox">#繪畫</div>
-                 <div class="tagbox">#戲劇</div>
-                 <div class="tagbox">#小說</div>
-                 <div class="tagbox">#球類運動</div>
+                 <div class="tagbox" style="background-color: rgb(204, 50, 30);font-size:17px;">#音樂劇</div>
+                 <div class="tagbox" style="background-color: rgb(204, 50, 30);font-size:17px;">#寫生</div>
+                 <div class="tagbox" style="background-color: rgb(204, 50, 30);font-size:17px;">#塗鴉</div>
+                 <div class="tagbox" style="background-color: rgb(204, 50, 30);font-size:17px;">#推理小說</div>
+                 <div class="tagbox" style="background-color: rgb(204, 50, 30);font-size:17px;">#插畫</div>
+                 <div class="tagbox" style="background-color: rgb(204, 50, 30);font-size:17px;">#手工藝</div>
                  </div>
                
                 <img src="img/hate.png" id="hate" style="height:30px;">               
                 <div id="hatebox" class="flip2">                
-                 <div class="tagbox">#園藝</div>
-                 <div class="tagbox">#手沖咖啡</div>
-                 <div class="tagbox">#電影</div>                 
+                 <div class="tagbox" style="background-color:rgb(25, 60, 124);font-size:17px;">#曬太陽</div>
+                 <div class="tagbox" style="background-color:rgb(25, 60, 124);font-size:17px;">#跳舞</div>
+                 <div class="tagbox" style="background-color:rgb(25, 60, 124);font-size:17px;">#電玩</div>                 
                  </div>
                  
                  <div class="pane2">
-                 <div class="tagbox">#穿搭</div>
-                 <div class="tagbox">#古典樂</div>
-                 <div class="tagbox">#歌劇</div>
-                 <div class="tagbox">#手工藝</div>
+                 <div class="tagbox" style="background-color:rgb(25, 60, 124);font-size:17px;">#恐怖電影</div>
+                 <div class="tagbox" style="background-color:rgb(25, 60, 124);font-size:17px;">#球類運動</div>
+                 <div class="tagbox" style="background-color:rgb(25, 60, 124);font-size:17px;">#游泳</div>
+                 <div class="tagbox" style="background-color:rgb(25, 60, 124);font-size:17px;">#陌生環境</div>
                  </div>
 
                  <div id="introductionbox">
