@@ -263,7 +263,6 @@ try {
   position:absolute;
   text-align:center;
   margin-top:105px;
-  background: red;
 }
 #heart{
   position:absolute;
